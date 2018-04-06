@@ -19,14 +19,28 @@ public class RingController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        Rotate();
+        ChangeMaterial();
+        
+    }
+
+    private void Rotate()
+    {
         transform.RotateAround(centralPoint, center.forward, rotationSpeed * Time.deltaTime);
-        foreach(Material m in materials)
+    }
+
+    private void ChangeMaterial()
+    {
+        foreach (Material m in materials)
         {
             timer += Time.deltaTime;
             if (timer > flickFrequency)
             {
-                foreach (GameObject f in flickers){
-                    f.GetComponent<Renderer>().material = m;
+                foreach (GameObject f in flickers)
+                {
+                    if(f != null)
+                        f.GetComponent<Renderer>().material = m;
                 }
                 timer = 0.0f;
             }
