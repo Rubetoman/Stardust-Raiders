@@ -309,7 +309,9 @@
     <Compile Include="Assets\Scripts\AddToScoreOnTriggerEnter.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\DestroyOnCollisionExit.cs" />
+    <Compile Include="Assets\Scripts\HealthController.cs" />
     <Compile Include="Assets\Scripts\MoveForward.cs" />
+    <Compile Include="Assets\Scripts\ObstacleController.cs" />
     <Compile Include="Assets\Scripts\RingController.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\ShipController.cs" />

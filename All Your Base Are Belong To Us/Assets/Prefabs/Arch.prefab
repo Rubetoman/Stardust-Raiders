@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 33842195811078662}
   - component: {fileID: 114645043323816778}
   - component: {fileID: 64463696067777732}
+  - component: {fileID: 114339759776527316}
   m_Layer: 0
   m_Name: Arch
   m_TagString: Untagged
@@ -99,6 +100,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
+--- !u!114 &114339759776527316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1624991290521606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d859a53230482498dd04f71f376f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!114 &114376234015860316
 MonoBehaviour:
   m_ObjectHideFlags: 1
