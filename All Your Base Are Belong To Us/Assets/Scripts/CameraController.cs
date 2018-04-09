@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour {
         offset = objectToFollow.transform.position - transform.position;
         offset.z = 0;
         transform.position = newPos - offset;*/
-        transform.position = new Vector3(objectToFollow.position.x, objectToFollow.position.y, transform.position.z);
+        //transform.position = new Vector3(objectToFollow.position.x, objectToFollow.position.y, transform.position.z);
     }
 	
 	// Update is called once per frame

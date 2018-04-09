@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthController : MonoBehaviour {
-    public const int maxHealth = 100;
+    public const int maxHealth = 110;
     public int currentHealth = maxHealth;
     public float recoverTime = 2f;
     public RectTransform healthBar;
@@ -28,9 +28,11 @@ public class HealthController : MonoBehaviour {
 
         StartCoroutine(FlickeringColor());
         healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
-        StartCoroutine(RecoverTime());
     }
 
+    /// <summary>
+    /// This Enumerator makes the ship flick the times specified by flickCount between the normal color and hitColor
+    /// </summary>
     IEnumerator FlickeringColor()
     {
         for(int i=0; i<=flickCount; i++)
@@ -40,11 +42,7 @@ public class HealthController : MonoBehaviour {
             mesh.material.color = Color.white;
             yield return new WaitForSeconds(flickRate);
         }
-    }
-
-    IEnumerator RecoverTime()
-    {
-        yield return new WaitForSeconds(recoverTime);
+        //Be able to be damaged again
         damaged = false;
     }
 }

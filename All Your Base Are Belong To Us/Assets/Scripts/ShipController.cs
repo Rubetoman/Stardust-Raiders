@@ -11,9 +11,13 @@ public class ShipController : MonoBehaviour {
     public float maxRotDegrees = 230.0f; //Max degrees of freedom for the rotation of the spaceship
     public float multipleTapDelay = 1.0f; //Max delay between taps of a Input to be considered as consecutive taps
     public float barrelRollDuration = 1.0f; //Time it takes to do the barrel roll
+    public float boostDuration = 1.0f; //Time it takes to do the boost, also time it takes to be back again at the start position
+    public const int maxBoost = 110;
+    public RectTransform boostBar;
 
     private bool buttonDown = false;
     private bool inBarrelRoll = false;
+    private bool boostReady = true;
     private float leftTimer = 1.0f;
     private float rightTimer = 1.0f;
 
@@ -30,55 +34,136 @@ public class ShipController : MonoBehaviour {
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-
-        //Input direction
-        Vector3 direction = new Vector3(invertXAxis * horizontal, invertYAxis * vertical, 0);
-        //Pointing direction, taking in account Z axis
-        Vector3 finalDirection = new Vector3(invertXAxis * horizontal, invertYAxis * vertical, pointingDepth);
-        //Position tranform by horizontal and vertical input
-        transform.position += direction * movementSpeed * Time.deltaTime;
-        //Rotate towards the point which is moving
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(finalDirection), Mathf.Deg2Rad * maxRotDegrees);
+        ShipMovement(horizontal, vertical);
 
         if (!inBarrelRoll)
         {
             float bankAxis = Input.GetAxis("Bank");
-            Vector3 newRotationEuler = transform.rotation.eulerAngles;
-            newRotationEuler.z = -90 * bankAxis;
-            Quaternion newQuat = Quaternion.identity;
-            newQuat.eulerAngles = newRotationEuler;
-            transform.rotation = newQuat;
+            BarrelRoll(bankAxis);
+        }
 
-            if (bankAxis == 0.0f)
-            {
-                buttonDown = false;
-            }
-            else if (buttonDown == false)
-            {
-                if(bankAxis < 0.0f)
-                {
-                    buttonDown = true;
-                    if (leftTimer < multipleTapDelay)
-                    {
-                        StartCoroutine("BarrelRoll", -1);
-                    }
-                    leftTimer = 0.0f;
-                }
-                else if(bankAxis > 0.0f)
-                {
-                    buttonDown = true;
-                    if (rightTimer < multipleTapDelay)
-                    {
-                        StartCoroutine("BarrelRoll", 1);
-                    }
-                    rightTimer = 0.0f;
-                }
-                
-            }
-            leftTimer += Time.deltaTime;
-            rightTimer += Time.deltaTime;
+        //BOOST
+        if(Input.GetButtonDown("Boost") && boostReady)
+        {
+            StartCoroutine("Boost");
+        }
+
+
+        if (Input.GetButtonDown("Brake") && boostReady)
+        {
+            StartCoroutine("Brake");
         }
     }
+
+    /// <summary>
+    /// Function which controlls the vertical and horizontal movement of the ship. This function is called every update.
+    /// The first inpunt refers to the horizontal movement updated by Input and the second one to the vertical
+    /// </summary>
+    private void ShipMovement(float h, float v)
+    {
+        //Input direction
+        Vector3 direction = new Vector3(invertXAxis * h, invertYAxis * v, 0);
+        //Pointing direction, taking in account Z axis
+        Vector3 finalDirection = new Vector3(invertXAxis * h, invertYAxis * v, pointingDepth);
+        //Position tranform by horizontal and vertical input
+        transform.position += direction * movementSpeed * Time.deltaTime;
+        //Rotate towards the point which is moving
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(finalDirection), Mathf.Deg2Rad * maxRotDegrees);
+    }
+
+    /// <summary>
+    /// Function which controlls the barrel roll and banking of the ship. It is called every update while not already doing a barrel roll.
+    /// The input is the value for the banking of the ship, updated by the Input. If the same banking direction is preshed quick enought the ship performs a barrel roll.
+    /// </summary>
+    private void BarrelRoll(float bank)
+    {
+        
+        Vector3 newRotationEuler = transform.rotation.eulerAngles;
+        newRotationEuler.z = -90 * bank;
+        Quaternion newQuat = Quaternion.identity;
+        newQuat.eulerAngles = newRotationEuler;
+        transform.rotation = newQuat;
+
+        if (bank == 0.0f)
+        {
+            buttonDown = false;
+        }
+        else if (buttonDown == false)
+        {
+            if (bank < 0.0f)
+            {
+                buttonDown = true;
+                if (leftTimer < multipleTapDelay)
+                {
+                    StartCoroutine("BarrelRoll", -1);
+                }
+                leftTimer = 0.0f;
+            }
+            else if (bank > 0.0f)
+            {
+                buttonDown = true;
+                if (rightTimer < multipleTapDelay)
+                {
+                    StartCoroutine("BarrelRoll", 1);
+                }
+                rightTimer = 0.0f;
+            }
+
+        }
+        leftTimer += Time.deltaTime;
+        rightTimer += Time.deltaTime;
+    }
+
+    private IEnumerator Boost()
+    {
+        boostReady = false;
+        var t = 0f;
+        //Go front in the time given by boostDuration
+        while (t < 1)
+        {
+            t += Time.deltaTime / boostDuration;
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.5f), t);
+            boostBar.sizeDelta = new Vector2(maxBoost * (1.0f - t), boostBar.sizeDelta.y);
+            yield return null;
+        }
+        t = 0f;
+        //Come back in the time given by boostDuration
+        while (t < 1)
+        {
+            t += Time.deltaTime / boostDuration;
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.5f), t);
+            boostBar.sizeDelta = new Vector2(maxBoost * t, boostBar.sizeDelta.y);
+            yield return null;
+        }
+        boostBar.sizeDelta = new Vector2(maxBoost, boostBar.sizeDelta.y);
+        boostReady = true;
+    }
+
+    private IEnumerator Brake()
+    {
+        boostReady = false;
+        var t = 0f;
+        //Go back in the time given by boostDuration
+        while (t < 1)
+        {
+            t += Time.deltaTime / boostDuration;
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.2f), t);
+            boostBar.sizeDelta = new Vector2(maxBoost * (1.0f - t), boostBar.sizeDelta.y);
+            yield return null;
+        }
+        t = 0f;
+        //Come back in the time given by boostDuration
+        while (t < 1)
+        {
+            t += Time.deltaTime / boostDuration;
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.2f), t);
+            boostBar.sizeDelta = new Vector2(maxBoost * t, boostBar.sizeDelta.y);
+            yield return null;
+        }
+        boostBar.sizeDelta = new Vector2(maxBoost, boostBar.sizeDelta.y);
+        boostReady = true;
+    }
+
     /// <summary>
     /// When the function is called it makes the spaceship to do a barrelRoll to the side passed as parameter
     /// If side is -1 it means is rolling to the left, else it goes to the right
@@ -121,4 +206,5 @@ public class ShipController : MonoBehaviour {
 
         inBarrelRoll = false;
     }
+
 }
