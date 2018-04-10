@@ -4,14 +4,25 @@ using UnityEngine;
 
 public class ShipController : MonoBehaviour {
 
-    public float movementSpeed = 1.0f;
+    public GameObject gameplayPlane;
+    [Space(10)]
+    [Header("Movement")]
+    public float movementSpeed = 1.0f; //Speed at which the spaceship can move around the x and y axis
+    [Range(-1, 1)]
     public int invertXAxis = 1; //Invert horizontal movement (-1 for invert, else 1)
+    [Range(-1, 1)]
     public int invertYAxis = 1; //Invert vertical movement (-1 for invert, else 1)
     public float pointingDepth = 2.0f; //Z axis distance to point the space towards
+    [Space(10)]
+    [Header("Bank & Barrell Roll")]
     public float maxRotDegrees = 230.0f; //Max degrees of freedom for the rotation of the spaceship
     public float multipleTapDelay = 1.0f; //Max delay between taps of a Input to be considered as consecutive taps
     public float barrelRollDuration = 1.0f; //Time it takes to do the barrel roll
+    [Space(10)]
+    [Header("Boost & Brake")]
     public float boostDuration = 1.0f; //Time it takes to do the boost, also time it takes to be back again at the start position
+    public float recoilTime = 2.0f; //Time it takes to the boos or brake to be ready again for re-use
+    public int speedMod = 5; //How much the speed will be increased or decreased while boosting or braking
     public const int maxBoost = 110;
     public RectTransform boostBar;
 
@@ -25,7 +36,7 @@ public class ShipController : MonoBehaviour {
     // Use this for initialization
     void Start() {
         //Start getting the choosen control type
-
+        var gamePlane = GetComponentInParent<Transform>();
     }
 
     // Update is called once per frame
@@ -34,6 +45,7 @@ public class ShipController : MonoBehaviour {
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+        //if(transform.position.x)
         ShipMovement(horizontal, vertical);
 
         if (!inBarrelRoll)
@@ -118,11 +130,15 @@ public class ShipController : MonoBehaviour {
     {
         boostReady = false;
         var t = 0f;
+        var speedScript = gameplayPlane.GetComponent<MoveForward>();
+        var normalSpeed = speedScript.speed;
+        movementSpeed += 10.0f; //Make the ship to move faster
         //Go front in the time given by boostDuration
         while (t < 1)
         {
             t += Time.deltaTime / boostDuration;
             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.5f), t);
+            speedScript.speed += speedMod;
             boostBar.sizeDelta = new Vector2(maxBoost * (1.0f - t), boostBar.sizeDelta.y);
             yield return null;
         }
@@ -132,22 +148,26 @@ public class ShipController : MonoBehaviour {
         {
             t += Time.deltaTime / boostDuration;
             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.5f), t);
-            boostBar.sizeDelta = new Vector2(maxBoost * t, boostBar.sizeDelta.y);
+            speedScript.speed -= speedMod;
             yield return null;
         }
-        boostBar.sizeDelta = new Vector2(maxBoost, boostBar.sizeDelta.y);
-        boostReady = true;
+        movementSpeed -= 10.0f;
+        speedScript.speed = normalSpeed;
+        StartCoroutine("BoostBarRecoil", recoilTime);
     }
 
     private IEnumerator Brake()
     {
         boostReady = false;
         var t = 0f;
+        var speedScript = gameplayPlane.GetComponent<MoveForward>();
+        var normalSpeed = speedScript.speed;
         //Go back in the time given by boostDuration
         while (t < 1)
         {
             t += Time.deltaTime / boostDuration;
             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.2f), t);
+            speedScript.speed -= speedMod;
             boostBar.sizeDelta = new Vector2(maxBoost * (1.0f - t), boostBar.sizeDelta.y);
             yield return null;
         }
@@ -157,13 +177,25 @@ public class ShipController : MonoBehaviour {
         {
             t += Time.deltaTime / boostDuration;
             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.2f), t);
+            speedScript.speed += speedMod;
+            yield return null;
+        }
+        speedScript.speed = normalSpeed;
+        StartCoroutine("BoostBarRecoil",recoilTime);
+    }
+
+    private IEnumerator BoostBarRecoil(float reTime)
+    {
+        var t = 0f;
+        while (t < 1)
+        {
+            t += Time.deltaTime / reTime;
             boostBar.sizeDelta = new Vector2(maxBoost * t, boostBar.sizeDelta.y);
             yield return null;
         }
         boostBar.sizeDelta = new Vector2(maxBoost, boostBar.sizeDelta.y);
         boostReady = true;
     }
-
     /// <summary>
     /// When the function is called it makes the spaceship to do a barrelRoll to the side passed as parameter
     /// If side is -1 it means is rolling to the left, else it goes to the right

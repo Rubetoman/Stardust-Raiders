@@ -6,27 +6,16 @@ public class CameraController : MonoBehaviour {
 
     public Transform objectToFollow;
     public Vector2 followingRatio = Vector2.one;
-    //public Vector3 offset = Vector3.zero;
-    //private Vector3 newPos;
 
-	// Use this for initialization
-	void Start () {
-        /*newPos = objectToFollow.position;
-        newPos.x *= followingRatio.x;
-        newPos.y *= followingRatio.y;
-        newPos.z = transform.position.z;
-        offset = objectToFollow.transform.position - transform.position;
-        offset.z = 0;
-        transform.position = newPos - offset;*/
-        //transform.position = new Vector3(objectToFollow.position.x, objectToFollow.position.y, transform.position.z);
-    }
-	
-	// Update is called once per frame
+    private Vector3 newPos;
+
 	void LateUpdate () {
-        Vector3 newPos = objectToFollow.position;
+        //localPosition is used to use the position relative to the parent (gameplayPlane)
+        newPos = objectToFollow.localPosition; //Pick-up the ship position
+        //Modify the position of the ship depending on the ratio
         newPos.x *= followingRatio.x;
         newPos.y *= followingRatio.y;
-        newPos.z = transform.position.z;
-        transform.position = newPos;
+        newPos.z = transform.localPosition.z; //Z axis is constant
+        transform.localPosition = newPos; //Apply the new position to the camera
     }
 }

@@ -10,7 +10,7 @@ public class ShootForward : MonoBehaviour {
     public float destroyTime = 2.0f; //Time it takes to destroy the bullet
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if (Input.GetButtonDown("Fire1"))
         {
             //Instantiate a bullet on the point where the transform is locates + the modification given to the Z
