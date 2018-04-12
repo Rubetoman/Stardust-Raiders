@@ -13,9 +13,9 @@ public class ShipController : MonoBehaviour {
     [Range(-1, 1)]
     public int invertYAxis = 1; //Invert vertical movement (-1 for invert, else 1)
     public float pointingDepth = 2.0f; //Z axis distance to point the space towards
+    public float maxRotDegrees = 230.0f; //Max degrees of freedom for the rotation of the spaceship
     [Space(10)]
     [Header("Bank & Barrell Roll")]
-    public float maxRotDegrees = 230.0f; //Max degrees of freedom for the rotation of the spaceship
     public float multipleTapDelay = 1.0f; //Max delay between taps of a Input to be considered as consecutive taps
     public float barrelRollDuration = 1.0f; //Time it takes to do the barrel roll
     [Space(10)]
@@ -31,12 +31,14 @@ public class ShipController : MonoBehaviour {
     private bool boostReady = true;
     private float leftTimer = 1.0f;
     private float rightTimer = 1.0f;
+    private Animator anim;
 
 
     // Use this for initialization
     void Start() {
-        //Start getting the choosen control type
         var gamePlane = GetComponentInParent<Transform>();
+        anim = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -51,6 +53,7 @@ public class ShipController : MonoBehaviour {
         if (!inBarrelRoll)
         {
             float bankAxis = Input.GetAxis("Bank");
+            //anim.SetFloat("Bank", bankAxis);
             BarrelRoll(bankAxis);
         }
 
@@ -107,7 +110,15 @@ public class ShipController : MonoBehaviour {
                 buttonDown = true;
                 if (leftTimer < multipleTapDelay)
                 {
+                    print("barrelRoll1");
                     StartCoroutine("BarrelRoll", -1);
+                    //Animation
+                    //inBarrelRoll = true;
+                    //anim.applyRootMotion = false;
+                    //anim.SetTrigger("BarrelRollLeft");
+                    // anim.applyRootMotion = true;
+                    //inBarrelRoll = false;
+
                 }
                 leftTimer = 0.0f;
             }
@@ -116,6 +127,9 @@ public class ShipController : MonoBehaviour {
                 buttonDown = true;
                 if (rightTimer < multipleTapDelay)
                 {
+                    /*inBarrelRoll = true;
+                    anim.SetTrigger("BarrelRollRight");
+                    inBarrelRoll = false;*/
                     StartCoroutine("BarrelRoll", 1);
                 }
                 rightTimer = 0.0f;
@@ -148,11 +162,13 @@ public class ShipController : MonoBehaviour {
         {
             t += Time.deltaTime / boostDuration;
             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.5f), t);
-            speedScript.speed -= speedMod;
+            //Decrease the speed and avoid to go under normal speed
+            if (speedScript.speed > normalSpeed)
+                speedScript.speed -= speedMod;
             yield return null;
         }
-        movementSpeed -= 10.0f;
-        speedScript.speed = normalSpeed;
+        movementSpeed -= 10.0f; //Vertical and horizontal movement back to normal
+        speedScript.speed = normalSpeed; //Gameplay plane speed back to normal
         StartCoroutine("BoostBarRecoil", recoilTime);
     }
 
@@ -167,7 +183,9 @@ public class ShipController : MonoBehaviour {
         {
             t += Time.deltaTime / boostDuration;
             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.2f), t);
-            speedScript.speed -= speedMod;
+            //Decrease the speed and avoid to go under 0
+            if(speedScript.speed > 0.0f)
+                speedScript.speed -= speedMod;
             boostBar.sizeDelta = new Vector2(maxBoost * (1.0f - t), boostBar.sizeDelta.y);
             yield return null;
         }
@@ -177,10 +195,12 @@ public class ShipController : MonoBehaviour {
         {
             t += Time.deltaTime / boostDuration;
             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.2f), t);
-            speedScript.speed += speedMod;
+            //Increase back the speed and avoid to go over normal speed
+            if (speedScript.speed < normalSpeed)
+                speedScript.speed += speedMod;
             yield return null;
         }
-        speedScript.speed = normalSpeed;
+        speedScript.speed = normalSpeed; //Gameplay plane speed back to normal
         StartCoroutine("BoostBarRecoil",recoilTime);
     }
 
@@ -203,17 +223,29 @@ public class ShipController : MonoBehaviour {
     private IEnumerator BarrelRoll(int side)
     {
         inBarrelRoll = true;
-        float t = 0.0f;
+        /*float t = 0.0f;
         Vector3 initialRot = transform.localRotation.eulerAngles;
         Vector3 currentRot = initialRot;
         Vector3 goalRot = initialRot;
         if (side < 0.0f)
             goalRot.z += 180.0f;
         else if(side > 0.0f)
-            goalRot.z -= 180.0f;
-        
+            goalRot.z -= 180.0f;*/
+        print("barrelRoll");
+        Quaternion startRot = transform.rotation;
+        float t = 0.0f;
+        while (t < barrelRollDuration)
+        {
+            t += Time.deltaTime;
+            if(side < 0.0f)
+                transform.rotation = startRot * Quaternion.AngleAxis(t / barrelRollDuration * 360f, transform.right); //or transform.right if you want it to be locally based
+            else
+                transform.rotation = startRot * Quaternion.AngleAxis(t / barrelRollDuration * 360f, -transform.right);
+            yield return null;
+        }
+        transform.rotation = startRot;
 
-        while (t < barrelRollDuration / 2.0f)
+        /*while (t < barrelRollDuration / 2.0f)
         {
             currentRot.z = Mathf.Lerp(initialRot.z, goalRot.z, t / (barrelRollDuration / 2.0f));
             transform.localRotation = Quaternion.Euler(currentRot);
@@ -234,8 +266,8 @@ public class ShipController : MonoBehaviour {
             transform.localRotation = Quaternion.Euler(currentRot);
             t += Time.deltaTime;
             yield return null;
-        }
-
+        }*/
+        print("Exit");
         inBarrelRoll = false;
     }
 

@@ -5,6 +5,8 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour {
 
     public int score = 0;
+
+    #region SingletonAndAwake
     private static ScoreManager instance = null;
     public static ScoreManager Instance {
         get { return instance; }
@@ -24,6 +26,8 @@ public class ScoreManager : MonoBehaviour {
         DontDestroyOnLoad(this.gameObject);
         gameObject.name = "$ScoreManager";
     }
+    #endregion
+
     private void OnGUI()
     {
         GUILayout.Label("Score: " + score);
