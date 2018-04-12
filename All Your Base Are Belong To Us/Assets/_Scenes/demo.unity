@@ -1575,7 +1575,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1390
+  m_Name: pb_Mesh-1382
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -3520,7 +3520,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1386
+  m_Name: pb_Mesh-1376
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -3678,7 +3678,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1334
+  m_Name: pb_Mesh-1366
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -4389,23 +4389,20 @@ GameObject:
   m_PrefabParentObject: {fileID: 1969886456304822, guid: da5c00851011d8946bb4e38f7eb619fb,
     type: 2}
   m_PrefabInternal: {fileID: 1428337025}
---- !u!95 &667139955
-Animator:
-  serializedVersion: 3
+--- !u!114 &667139955
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 667139954}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fe775942fe3579e47b3267a380a43bda, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b322a78158dbbb846a0ec88f5065504f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multipleTapDelay: 0.2
+  barrelRollDuration: 1
+  maxBankAngle: -85
 --- !u!1 &685069831
 GameObject:
   m_ObjectHideFlags: 0
@@ -5744,7 +5741,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1394
+  m_Name: pb_Mesh-1370
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -7097,6 +7094,11 @@ Prefab:
       propertyPath: barrelRollDuration
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114207096438846542, guid: da5c00851011d8946bb4e38f7eb619fb,
+        type: 2}
+      propertyPath: multipleTapDelay
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 95528403267003220, guid: da5c00851011d8946bb4e38f7eb619fb, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: da5c00851011d8946bb4e38f7eb619fb, type: 2}
@@ -7236,7 +7238,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1398
+  m_Name: pb_Mesh-1372
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -8499,7 +8501,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1388
+  m_Name: pb_Mesh-1368
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
