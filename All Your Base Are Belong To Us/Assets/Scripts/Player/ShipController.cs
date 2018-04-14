@@ -7,18 +7,18 @@ public class ShipController : MonoBehaviour {
     public GameObject gameplayPlane;
     [Space(10)]
     [Header("Movement")]
-    public float movementSpeed = 1.0f; //Speed at which the spaceship can move around the x and y axis
+    public float movementSpeed = 1.0f;      // Speed at which the spaceship can move around the x and y axis
     [Range(-1, 1)]
-    public int invertXAxis = 1; //Invert horizontal movement (-1 for invert, else 1, with 0 axis disabled)
+    public int invertXAxis = 1;             // Invert horizontal movement (-1 for invert, else 1, with 0 axis disabled)
     [Range(-1, 1)]
-    public int invertYAxis = 1; //Invert vertical movement (-1 for invert, else 1, with 0 axis disabled)
-    public float pointingDepth = 2.0f; //Z axis distance to point the space towards
-    public float maxRotDegrees = 230.0f; //Max degrees of freedom for the rotation of the spaceship
+    public int invertYAxis = 1;             // Invert vertical movement (-1 for invert, else 1, with 0 axis disabled)
+    public float pointingDepth = 2.0f;      // Z axis distance to point the space towards
+    public float maxRotDegrees = 230.0f;    // Max degrees of freedom for the rotation of the spaceship
     [Space(10)]
     [Header("Boost & Brake")]
-    public float boostDuration = 1.0f; //Time it takes to do the boost, also time it takes to be back again at the start position
-    public float recoilTime = 2.0f; //Time it takes to the boos or brake to be ready again for re-use
-    public int speedMod = 5; //How much the speed will be increased or decreased while boosting or braking
+    public float boostDuration = 1.0f;      // Time it takes to do the boost, also time it takes to be back again at the start position
+    public float recoilTime = 2.0f;         // Time it takes to the boos or brake to be ready again for re-use
+    public int speedMod = 5;                // How much the speed will be increased or decreased while boosting or braking
     public const int maxBoost = 110;
     public RectTransform boostBar;
 

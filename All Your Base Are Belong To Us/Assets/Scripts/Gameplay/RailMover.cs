@@ -11,7 +11,8 @@ public class RailMover : MonoBehaviour {
 
     public Rail rail;
     public PlayMode playMode;                   //Choose between Catmull-Rom or Linear splines for the path
-    public SpeedMode speedMode;                 //Choose between 
+    public SpeedMode speedMode;                 //Choose between  moving at constant speed or in a certain time
+    public OrientationMode orientationMode;     //Choose between  orient the object on the rail with the nodes orientation as reference or looking at next node
     public float speed = 2.5f;                  //Speed to move (only if ConstantSpeed is selected on SpeedMode)
     public float timeBetweenSegments = 2.5f;    //Time to reach next node (only if TimeBetweenSegments is selected on SpeedMode)
     public bool isReversed;                     //If true it reverses the path
@@ -49,13 +50,14 @@ public class RailMover : MonoBehaviour {
         switch (speedMode)          //Choose between using speed or time
         {
             default:
-            case SpeedMode.ConstantSpeed:
-                //Make it to move at a constant speed on every node
+
+            case SpeedMode.ConstantSpeed: //Make it to move at a constant speed on every node
                 float m = (rail.nodes[currentSeg + 1].position - rail.nodes[currentSeg].position).magnitude;
                 float s = (Time.deltaTime * 1 / m) * speed;
                 transition += (forward) ? s : -s;
                 break;
-            case SpeedMode.TimeBetweenSegments:
+
+            case SpeedMode.TimeBetweenSegments: //Make the object to reach next node in timeBetweenSegments
                 float move = Time.deltaTime * 1 / timeBetweenSegments;
                 transition += (forward) ? move : -move;
                 break;
@@ -104,7 +106,7 @@ public class RailMover : MonoBehaviour {
         }
         
         transform.position = rail.PositionOnRail(currentSeg, transition, playMode);
-        transform.rotation = rail.Orientation(currentSeg, transition);
+        transform.rotation = rail.OrientationOnRail(currentSeg, transition, orientationMode, transform, isReversed);
 
     }
 }

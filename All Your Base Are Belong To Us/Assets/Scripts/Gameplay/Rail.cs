@@ -8,6 +8,12 @@ public enum PlayMode
     Catmull,
 }
 
+public enum OrientationMode
+{
+    Line,
+    Nodes,
+}
+
 [ExecuteInEditMode]
 public class Rail : MonoBehaviour {
     public Transform[] nodes;
@@ -110,15 +116,60 @@ public class Rail : MonoBehaviour {
 
         return new Vector3(x, y, z);
     }
-
     /// <summary>
-    /// Computes the new orientation over the rail using Catmull-Rom splines. 
-    /// At least 4 nodes are required (3 nodes + the rail itself)
+    /// Calls to LinearPosition() or CatmullPosition() function depending on PlayMode
     /// </summary>
     /// <param name="seg"> Segment we are in</param>
     /// <param name="ratio"> Ratio of the segment we are currently</param>
-    /// <returns>A Vector3 with the rotation update</returns>
-    public Quaternion Orientation(int seg, float ratio)
+    /// <param name="mode"> Which mode was selected between Catmull or Linear</param>
+    /// <returns>A Quaternion with the position update</returns>
+    public Quaternion OrientationOnRail(int seg, float ratio, OrientationMode mode, Transform trans, bool isReversed)
+    {
+        switch (mode)
+        {
+            default:
+            case OrientationMode.Line:
+                return LineOrientation(seg, ratio, trans, isReversed);
+            case OrientationMode.Nodes:
+                return NodeOrientation(seg, ratio);
+        }
+
+    }
+
+   
+
+    /// <summary>
+    /// Computes the new orientation over the rail using the lines connecting nodes as a reference.
+    /// Will loock to the next node.
+    /// </summary>
+    /// <param name="seg"> Segment we are in</param>
+    /// <param name="ratio"> Ratio of the segment we are currently</param>
+    /// <param name="trans"> Transform of the object moving on the rail</param>
+    /// <param name="isReversed"> Boolean to know if we are going forward or backwards</param>
+    /// <returns>A Quaternion with the rotation update</returns>
+    public Quaternion LineOrientation(int seg, float ratio, Transform trans, bool isReversed)
+    {
+        Quaternion q1 = trans.rotation;
+        if (!isReversed){
+            trans.LookAt(nodes[seg + 1]);
+            Quaternion q2 = trans.rotation;
+            return Quaternion.Lerp(q1, q2, ratio);
+        }
+        else
+        {
+            trans.LookAt(nodes[seg]);
+            Quaternion q2 = trans.rotation;
+            return Quaternion.Lerp(q2, q1, ratio);
+        }          
+    }
+
+    /// <summary>
+    /// Computes the new orientation over the rail using the nodes orientation as a reference.
+    /// </summary>
+    /// <param name="seg"> Segment we are in</param>
+    /// <param name="ratio"> Ratio of the segment we are currently</param>
+    /// <returns>A Quaternion with the rotation update</returns>
+    public Quaternion NodeOrientation(int seg, float ratio)
     {
         Quaternion q1 = nodes[seg].rotation;
         Quaternion q2 = nodes[seg + 1].rotation;
