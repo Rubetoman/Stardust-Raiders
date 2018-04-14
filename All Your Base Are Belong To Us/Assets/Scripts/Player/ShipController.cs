@@ -9,9 +9,9 @@ public class ShipController : MonoBehaviour {
     [Header("Movement")]
     public float movementSpeed = 1.0f; //Speed at which the spaceship can move around the x and y axis
     [Range(-1, 1)]
-    public int invertXAxis = 1; //Invert horizontal movement (-1 for invert, else 1)
+    public int invertXAxis = 1; //Invert horizontal movement (-1 for invert, else 1, with 0 axis disabled)
     [Range(-1, 1)]
-    public int invertYAxis = 1; //Invert vertical movement (-1 for invert, else 1)
+    public int invertYAxis = 1; //Invert vertical movement (-1 for invert, else 1, with 0 axis disabled)
     public float pointingDepth = 2.0f; //Z axis distance to point the space towards
     public float maxRotDegrees = 230.0f; //Max degrees of freedom for the rotation of the spaceship
     [Space(10)]
