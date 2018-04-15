@@ -301,7 +301,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1418
+  m_Name: pb_Mesh-542548
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -530,7 +530,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1414
+  m_Name: pb_Mesh-542544
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -660,7 +660,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1362
+  m_Name: pb_Mesh-542492
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -891,6 +891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  flowActive: 1
 --- !u!1 &660117026
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,7 +991,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   multipleTapDelay: 0.2
   barrelRollDuration: 1
-  maxBankAngle: -85
+  maxBankAngle: 85
+  inBarrelRoll: 0
 --- !u!1 &685069831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1478,7 +1480,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1422
+  m_Name: pb_Mesh-542552
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -2241,8 +2243,24 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 114207096438846542, guid: da5c00851011d8946bb4e38f7eb619fb,
+        type: 2}
+      propertyPath: movementSpeed.x
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 114207096438846542, guid: da5c00851011d8946bb4e38f7eb619fb,
+        type: 2}
+      propertyPath: movementSpeed.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114551865977884312, guid: da5c00851011d8946bb4e38f7eb619fb,
+        type: 2}
+      propertyPath: maxBankAngle
+      value: 85
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 95528403267003220, guid: da5c00851011d8946bb4e38f7eb619fb, type: 2}
+    - {fileID: 114551865977884312, guid: da5c00851011d8946bb4e38f7eb619fb, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: da5c00851011d8946bb4e38f7eb619fb, type: 2}
   m_IsPrefabParent: 0
 --- !u!43 &1447947500
@@ -2250,7 +2268,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1426
+  m_Name: pb_Mesh-542556
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -2483,7 +2501,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1416
+  m_Name: pb_Mesh-542546
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2

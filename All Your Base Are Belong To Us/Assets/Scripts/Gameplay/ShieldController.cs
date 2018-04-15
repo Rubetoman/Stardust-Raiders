@@ -19,6 +19,11 @@ public class ShieldController : MonoBehaviour {
 
     public void TakeDamage(int amount)
     {
+        if (amount < 0)
+        {
+            Debug.LogError("Negative numbers not allowed, if you want to increase current shield you should use RecoverShield() instead");
+            return;
+        }
         damaged = true;
         currentShield -= amount;
         if (currentShield <= 0)
@@ -33,6 +38,11 @@ public class ShieldController : MonoBehaviour {
 
     public void RecoverShield(int amount)
     {
+        if (amount < 0)
+        {
+            Debug.LogError("Negative numbers not allowed, if you want to low current shield you should use TakeDamage() instead");
+            return;
+        }
         var newShieldAmount = currentShield + amount;
         if (newShieldAmount + amount < maxShield)
             currentShield = newShieldAmount;

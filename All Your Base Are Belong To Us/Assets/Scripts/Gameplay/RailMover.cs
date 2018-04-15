@@ -32,7 +32,7 @@ public class RailMover : MonoBehaviour {
         //Avoid using Catmull when less than 4 nodes exist
         if (rail.nodes.Length < 4 && playMode.ToString().Equals("Catmull"))
         {
-            print("Not enought nodes for Catmull (minimun of 4 nodes is required, switching to Linear)");
+            Debug.LogWarning("Not enought nodes for Catmull (minimun of 4 nodes is required, switching to Linear)");
             playMode = PlayMode.Linear;
         }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour {
 
     public float targetDistance = 10.0f;
+    public float enemySpeed = 0.0f;
 
     private GameObject player;
 	// Use this for initialization
@@ -14,11 +15,18 @@ public class EnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void LateUpdate () {
-		if((player.transform.position - transform.position).magnitude <= targetDistance)
+		if(Vector3.Project(player.transform.position - transform.position, player.transform.forward).magnitude <= targetDistance)
         {
+            /*(player.transform.position - transform.position, player.transform.forward).normalized
+            transform.position += Vector3.Project(player.transform.position - transform.position, player.transform.forward)
+                - Vector3.Project(transform.position, player.transform.forward);*/
             Vector3 newPosition = transform.position;
             newPosition.z = player.transform.position.z + targetDistance;
             transform.position = newPosition;
+        }
+        else
+        {
+            transform.position += transform.forward * enemySpeed * Time.deltaTime;
         }
 	}
 }
