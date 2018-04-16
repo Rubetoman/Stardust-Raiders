@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_Scenes/demo.unity
+- path: Assets/_Scenes/enemies_test.unity
   isLoaded: 1
   isActive: 1

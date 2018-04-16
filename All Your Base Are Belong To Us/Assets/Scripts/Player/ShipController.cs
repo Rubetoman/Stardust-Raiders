@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShipController : MonoBehaviour {
 
     public GameObject gameplayPlane;
+    public GameObject limitPlane;
     [Space(10)]
     [Header("Movement")]
     public Vector2 movementSpeed = Vector2.one;      // Speed at which the spaceship can move around the x and y axis
@@ -28,7 +29,8 @@ public class ShipController : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        //var gamePlane = GetComponentInParent<Transform>();
+
+
     }
 
     // Update is called once per frame
@@ -59,6 +61,14 @@ public class ShipController : MonoBehaviour {
     /// </summary>
     private void ShipMovement(float h, float v)
     {
+        //var gamePlane = GetComponentInParent<Transform>();
+        //print(limitPlane.GetComponent<Renderer>().bounds.ClosestPoint(transform.position));
+        Vector3 limitVector = limitPlane.GetComponent<Renderer>().bounds.max;
+        //Out of bounds
+        if (Mathf.Abs(transform.position.x - limitVector.x) > limitPlane.GetComponent<Renderer>().bounds.max.x)
+        {
+
+        }
         //Input direction
         Vector3 direction = new Vector3(invertXAxis * h, invertYAxis * v, 0);
         //Pointing direction, taking in account Z axis

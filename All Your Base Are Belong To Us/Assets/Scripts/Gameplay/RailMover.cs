@@ -23,7 +23,7 @@ public class RailMover : MonoBehaviour {
     private float transition;
     private bool isCompleted;
 
-    private void Update()
+    private void FixedUpdate()
     {
         //There is not rail exit
         if (!rail)

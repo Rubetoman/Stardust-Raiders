@@ -2856,7 +2856,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1412
+  m_Name: pb_Mesh-977426
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -3014,7 +3014,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1356
+  m_Name: pb_Mesh-977370
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -4335,7 +4335,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1416
+  m_Name: pb_Mesh-977430
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -6989,6 +6989,21 @@ Prefab:
       propertyPath: shieldBar
       value: 
       objectReference: {fileID: 51520062}
+    - target: {fileID: 114207096438846542, guid: da5c00851011d8946bb4e38f7eb619fb,
+        type: 2}
+      propertyPath: movementSpeed.x
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 114207096438846542, guid: da5c00851011d8946bb4e38f7eb619fb,
+        type: 2}
+      propertyPath: movementSpeed.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114551865977884312, guid: da5c00851011d8946bb4e38f7eb619fb,
+        type: 2}
+      propertyPath: maxBankAngle
+      value: 85
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da5c00851011d8946bb4e38f7eb619fb, type: 2}
   m_IsPrefabParent: 0
@@ -7127,7 +7142,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1420
+  m_Name: pb_Mesh-977434
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -7769,7 +7784,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1410
+  m_Name: pb_Mesh-977424
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -8336,7 +8351,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1408
+  m_Name: pb_Mesh-977422
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
