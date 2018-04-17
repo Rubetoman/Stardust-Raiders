@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ShipController : MonoBehaviour {
 
-    public GameObject gameplayPlane;
-    public GameObject limitPlane;
+    public GameObject gameplayPlane;        // Plane where all the player mechanics are performed
+    public GameObject limitPlane;           // Plane which sets the movement window
     [Space(10)]
     [Header("Movement")]
     public Vector2 movementSpeed = Vector2.one;      // Speed at which the spaceship can move around the x and y axis
@@ -25,11 +25,13 @@ public class ShipController : MonoBehaviour {
     public RectTransform boostBar;
 
     private bool boostReady = true;
+    private Bounds limitBounds;
 
 
     // Use this for initialization
     void Start() {
-
+        //Get bounds of the limitPlane
+        limitBounds = limitPlane.GetComponent<Renderer>().bounds;
 
     }
 
@@ -60,15 +62,9 @@ public class ShipController : MonoBehaviour {
     /// The first inpunt refers to the horizontal movement updated by Input and the second one to the vertical
     /// </summary>
     private void ShipMovement(float h, float v)
-    {
-        //var gamePlane = GetComponentInParent<Transform>();
-        //print(limitPlane.GetComponent<Renderer>().bounds.ClosestPoint(transform.position));
-        Vector3 limitVector = limitPlane.GetComponent<Renderer>().bounds.max;
-        //Out of bounds
-        if (Mathf.Abs(transform.position.x - limitVector.x) > limitPlane.GetComponent<Renderer>().bounds.max.x)
-        {
+    {  
 
-        }
+
         //Input direction
         Vector3 direction = new Vector3(invertXAxis * h, invertYAxis * v, 0);
         //Pointing direction, taking in account Z axis
@@ -77,6 +73,9 @@ public class ShipController : MonoBehaviour {
         Vector3 finalPosition = transform.localPosition;
         finalPosition.x += direction.x * movementSpeed.x * Time.deltaTime;
         finalPosition.y += direction.y * movementSpeed.y * Time.deltaTime;
+        //Limit movement to the plane space
+        finalPosition.x = Mathf.Clamp(finalPosition.x, limitBounds.min.x, limitBounds.max.x);
+        finalPosition.y = Mathf.Clamp(finalPosition.y, limitBounds.min.y, limitBounds.max.y);
         transform.localPosition = finalPosition;
 
         //Make the ship bank when moving
