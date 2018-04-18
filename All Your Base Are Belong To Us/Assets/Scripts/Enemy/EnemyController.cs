@@ -8,20 +8,26 @@ public class EnemyController : MonoBehaviour {
     public float enemySpeed = 0.0f;
 
     private GameObject player;
+    private GameObject gameplayPlane;
+    private bool following = false;
 	// Use this for initialization
 	void Start () {
-        player = GameObject.FindGameObjectWithTag("Player");
+        gameplayPlane = GameObject.FindGameObjectWithTag("GameplayPlane");
     }
 	
 	// Update is called once per frame
 	void LateUpdate () {
-		if(Vector3.Project(player.transform.position - transform.position, player.transform.forward).magnitude <= targetDistance)
+		if(Vector3.Project(gameplayPlane.transform.position - transform.position, gameplayPlane.transform.forward).magnitude <= targetDistance && !following)
         {
-            /*(player.transform.position - transform.position, player.transform.forward).normalized
-            transform.position += Vector3.Project(player.transform.position - transform.position, player.transform.forward)
-                - Vector3.Project(transform.position, player.transform.forward);*/
             Vector3 newPosition = transform.position;
-            newPosition.z = player.transform.position.z + targetDistance;
+            newPosition.z = gameplayPlane.transform.position.z + targetDistance;
+            transform.position = newPosition;
+            following = true;
+        }
+        else if (following)
+        {
+            Vector3 newPosition = transform.position;
+            newPosition.z = gameplayPlane.transform.position.z + targetDistance;
             transform.position = newPosition;
         }
         else

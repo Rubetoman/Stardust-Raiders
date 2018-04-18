@@ -63,8 +63,6 @@ public class ShipController : MonoBehaviour {
     /// </summary>
     private void ShipMovement(float h, float v)
     {  
-
-
         //Input direction
         Vector3 direction = new Vector3(invertXAxis * h, invertYAxis * v, 0);
         //Pointing direction, taking in account Z axis

@@ -25,10 +25,11 @@ public class PlayerLimitManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //Calculate the distance to the center
+        // Calculate the distance to the center
         var distanceToCenterX = player.transform.localPosition.x - limitBounds.center.x;
         var distanceToCenterY = player.transform.localPosition.y - limitBounds.center.y;
 
+        // Find near which limit is the player
         if(distanceToCenterY / limitBounds.max.y > 1 - showDistance && vArrowAnimFree)
         {
             ShowArrows("up");
@@ -47,6 +48,10 @@ public class PlayerLimitManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Calls to the Couroutine which plays the animation of the arrow specified.
+    /// </summary>
+    /// <param name="pos">Which limit arrow to show: up, down, left or right</param>
     private void ShowArrows(string pos)
     {
         switch (pos)
@@ -66,6 +71,11 @@ public class PlayerLimitManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Makes the arrow indicated as parameter to flick with the indicated frequecy
+    /// </summary>
+    /// <param name="currentArrow">Number of the arrow to play the animation: 0->up, 1-> down, 2-> left, 3-> right</param>
+    /// <returns></returns>
     private IEnumerator VerticalArrowAnimation(int currentArrow)
     {
         vArrowAnimFree = false;
@@ -84,6 +94,15 @@ public class PlayerLimitManager : MonoBehaviour {
         arrows[currentArrow].gameObject.SetActive(false);
         yield return new WaitForSeconds(flickFrequency);
         hArrowAnimFree = true;
+    }
+
+    /// <summary>
+    /// Function to change the limits of the plane
+    /// </summary>
+    /// <param name="newSize">Vector2 with the X and Y scale for the limitPlane</param>
+    public void ChangeLimitPlaneScale(Vector2 newScale)
+    {
+        transform.localScale = newScale;
     }
 
 }

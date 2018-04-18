@@ -8,7 +8,7 @@ public class ObstacleController : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         var hit = other.gameObject;
-        var shield = hit.GetComponent<ShieldController>();
+        var shield = hit.GetComponent<PlayerShieldManager>();
         if (shield != null && !shield.damaged)
         {
             shield.TakeDamage(damage);

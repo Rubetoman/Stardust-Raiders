@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootForward : MonoBehaviour {
+public class PlayerGunController : MonoBehaviour {
 
     public Rigidbody bullet; //The bullet prefab
     public float velocity = 10.0f; //Velocity of the bullets

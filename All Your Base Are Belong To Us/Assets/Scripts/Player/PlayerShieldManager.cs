@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldController : MonoBehaviour {
+public class PlayerShieldManager : MonoBehaviour {
     public const int maxShield = 110;
     public int currentShield = maxShield;
     public float recoverTime = 2f;
@@ -16,6 +16,7 @@ public class ShieldController : MonoBehaviour {
 
     public bool damaged = false;
 
+    private Color normalColor;
 
     public void TakeDamage(int amount)
     {
@@ -58,11 +59,12 @@ public class ShieldController : MonoBehaviour {
     /// </summary>
     IEnumerator FlickeringColor(Color newColor)
     {
-        for(int i=0; i<=flickCount; i++)
+        normalColor = mesh.material.color;
+        for (int i=0; i<=flickCount; i++)
         {
             mesh.material.color = newColor;
             yield return new WaitForSeconds(flickRate);
-            mesh.material.color = Color.white;
+            mesh.material.color = normalColor;
             yield return new WaitForSeconds(flickRate);
         }
         //Be able to be damaged again
