@@ -8,16 +8,19 @@ public class PlayerShieldManager : MonoBehaviour {
     public float recoverTime = 2f;
     public RectTransform shieldBar;
     //public MeshRenderer[] meshes; 
-    public MeshRenderer mesh;
     public Color hitColor;
     public Color recoverColor;
     public int flickCount = 5;
     public float flickRate = 0.1f;
-
     public bool damaged = false;
 
+    private MeshRenderer mesh;
     private Color normalColor;
 
+    private void Start()
+    {
+        mesh = gameObject.GetComponent<MeshRenderer>();
+    }
     public void TakeDamage(int amount)
     {
         if (amount < 0)

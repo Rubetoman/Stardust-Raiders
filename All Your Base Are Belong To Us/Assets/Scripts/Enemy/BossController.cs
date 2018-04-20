@@ -34,6 +34,8 @@ public class BossController : MonoBehaviour {
     {
         foreach (Transform laser in lasers)
         {
+            if (laser == null)
+                continue;
             laser.gameObject.SetActive(true);
         }
         //Play some cool effect for charging, particles, etc.
@@ -52,6 +54,8 @@ public class BossController : MonoBehaviour {
         {
             foreach(Transform laser in lasers)
             {
+                if (laser == null)
+                    continue;
                 Vector3 newScale = laser.localScale;
                 newScale.z += laserSpeed * Time.deltaTime;
                 laser.localScale = newScale;
@@ -70,6 +74,8 @@ public class BossController : MonoBehaviour {
     {
         foreach (Transform laser in lasers)
         {
+            if (laser == null)
+                continue;
             Vector3 newScale = laser.localScale;
             newScale.z = 0;
             laser.localScale = newScale;

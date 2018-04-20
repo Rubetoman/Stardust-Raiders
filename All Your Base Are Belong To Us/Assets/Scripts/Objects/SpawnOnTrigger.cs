@@ -5,7 +5,9 @@ using UnityEngine;
 public class SpawnOnTrigger : MonoBehaviour {
 
     public GameObject spawnObject;
-    public float destroyTime;
+    public float destroyTime = 1.0f;
+
+    private float cooldownTimer = 0.0f;
 	// Use this for initialization
 	void Start () {
 		
@@ -17,11 +19,25 @@ public class SpawnOnTrigger : MonoBehaviour {
 	}
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(Instantiate(spawnObject, other.ClosestPointOnBounds(transform.position), Quaternion.identity), destroyTime);
+        SpawnObject(other);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        Destroy(Instantiate(spawnObject, other.ClosestPointOnBounds(transform.position), Quaternion.identity),destroyTime);
+        SpawnObject(other);
+    }
+
+    void SpawnObject(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Destroy(Instantiate(spawnObject, other.ClosestPointOnBounds(other.transform.position), Quaternion.identity), destroyTime);
+        }
+        else
+        {
+            var s = Instantiate(spawnObject, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
+            s.transform.parent = transform;
+            Destroy(s, destroyTime);
+        }  
     }
 }
