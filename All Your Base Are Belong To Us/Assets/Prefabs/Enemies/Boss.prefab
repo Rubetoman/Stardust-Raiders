@@ -1116,14 +1116,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3782d134008cf48a1cd6a42efceb74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionTag: Bullet
   currentShield: 100
+  damaged: 0
+  recoverTime: 2
   hitColor: {r: 0.9862069, g: 1, b: 0, a: 0}
-  hitDamage: 20
   flickCount: 5
   flickRate: 0.1
+  deathEffect: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb,
+    type: 2}
+  collisionTag: Bullet
+  hitDamage: 20
   boss: {fileID: 1819947664539948}
-  explosion: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb, type: 2}
 --- !u!114 &114275326604131166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1135,14 +1138,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3782d134008cf48a1cd6a42efceb74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionTag: Bullet
   currentShield: 100
+  damaged: 0
+  recoverTime: 2
   hitColor: {r: 0.9862069, g: 1, b: 0, a: 0}
-  hitDamage: 20
   flickCount: 5
   flickRate: 0.1
+  deathEffect: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb,
+    type: 2}
+  collisionTag: Bullet
+  hitDamage: 20
   boss: {fileID: 1819947664539948}
-  explosion: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb, type: 2}
 --- !u!114 &114359192956396246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1181,8 +1187,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentShield: 500
+  damaged: 0
+  recoverTime: 2
+  hitColor: {r: 1, g: 1, b: 1, a: 0}
+  flickCount: 5
+  flickRate: 0.1
+  deathEffect: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb,
+    type: 2}
   bossShieldBar: {fileID: 0}
-  explosion: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb, type: 2}
 --- !u!114 &114530771734146178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1259,14 +1271,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3782d134008cf48a1cd6a42efceb74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionTag: Bullet
-  currentShield: 100
+  currentShield: 300
+  damaged: 0
+  recoverTime: 2
   hitColor: {r: 0.9862069, g: 1, b: 0, a: 0}
-  hitDamage: 20
   flickCount: 5
   flickRate: 0.1
+  deathEffect: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb,
+    type: 2}
+  collisionTag: Bullet
+  hitDamage: 20
   boss: {fileID: 1819947664539948}
-  explosion: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb, type: 2}
 --- !u!114 &114892555642479336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1278,14 +1293,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3782d134008cf48a1cd6a42efceb74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionTag: Bullet
   currentShield: 100
+  damaged: 0
+  recoverTime: 2
   hitColor: {r: 0.9862069, g: 1, b: 0, a: 0}
-  hitDamage: 20
   flickCount: 5
   flickRate: 0.1
+  deathEffect: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb,
+    type: 2}
+  collisionTag: Bullet
+  hitDamage: 20
   boss: {fileID: 1819947664539948}
-  explosion: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb, type: 2}
 --- !u!114 &114980375402090530
 MonoBehaviour:
   m_ObjectHideFlags: 1

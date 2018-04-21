@@ -2,41 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossShieldManager : MonoBehaviour {
-    public const int maxShield = 500;
-    public int currentShield = maxShield;
+public class BossShieldManager : ShieldManager {
     public RectTransform bossShieldBar;
-    public GameObject explosion;
-    //public GameObject deathEffect;
-    //public GameObject damageEffect;
 
-    private Color normalColor;
-    private MeshRenderer mesh;
-
-    private void Start()
+    new void Start()
     {
-        mesh = gameObject.GetComponent<MeshRenderer>();
-    }
-    public void TakeDamage(int amount)
-    {
-        if (amount < 0)
-        {
-            Debug.LogError("Negative numbers not allowed, enemies can't recover shield");
-            return;
-        }
-        currentShield -= amount;
-
-        if (currentShield <= 0)
-        {
-            currentShield = 0;
-            DestroyBoss();
-        }
-        bossShieldBar.sizeDelta = new Vector2(currentShield, bossShieldBar.sizeDelta.y);
+        base.Start();
     }
 
-    void DestroyBoss()
+    protected override void Die()
     {
-        Destroy(Instantiate(explosion, transform.position, Random.rotation), 2.0f);
+        base.Die();
         Destroy(gameObject);
+    }
+
+    public override void TakeDamage(int amount)
+    {
+        base.TakeDamage(amount);
+        bossShieldBar.sizeDelta = new Vector2(currentShield, bossShieldBar.sizeDelta.y);
     }
 }
