@@ -21,7 +21,7 @@ public class ShipController : MonoBehaviour {
     public float boostDuration = 1.0f;      // Time it takes to do the boost, also time it takes to be back again at the start position
     public float recoilTime = 2.0f;         // Time it takes to the boos or brake to be ready again for re-use
     public int speedMod = 5;                // How much the speed will be increased or decreased while boosting or braking
-    public const int maxBoost = 110;
+    public const int maxBoost = 100;
     public RectTransform boostBar;
 
     private bool boostReady = true;

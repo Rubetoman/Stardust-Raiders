@@ -4001,13 +4001,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentShield: 100
-  recoverTime: 2
   shieldBar: {fileID: 0}
+  damaged: 0
+  recoverTime: 2
   hitColor: {r: 0.791, g: 0, b: 0, a: 0}
   recoverColor: {r: 0.1707937, g: 0.672, b: 0.8602941, a: 0}
   flickCount: 5
   flickRate: 0.1
-  damaged: 0
+  initialLives: 3
+  livesCount: {fileID: 0}
+  playerDeathEffect: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb,
+    type: 2}
 --- !u!114 &114879785777289912
 MonoBehaviour:
   m_ObjectHideFlags: 1

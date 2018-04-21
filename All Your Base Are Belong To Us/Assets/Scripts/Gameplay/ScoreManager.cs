@@ -27,9 +27,9 @@ public class ScoreManager : MonoBehaviour {
         gameObject.name = "$ScoreManager";
     }
     #endregion
-
-    private void OnGUI()
+    //Shows score on the screen
+    /*private void OnGUI()
     {
         GUILayout.Label("Score: " + score);
-    }
+    }*/
 }

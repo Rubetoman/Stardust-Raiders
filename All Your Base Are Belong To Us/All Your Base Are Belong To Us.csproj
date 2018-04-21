@@ -300,7 +300,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PlayerLimitManager.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
@@ -320,6 +319,7 @@
     <Compile Include="Assets\Scripts\Gameplay\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SpeedModifier.cs" />
     <Compile Include="Assets\Scripts\Objects\BulletController.cs" />
+    <Compile Include="Assets\Scripts\Objects\KeepRotating.cs" />
     <Compile Include="Assets\Scripts\Objects\MoveForward.cs" />
     <Compile Include="Assets\Scripts\Objects\ObstacleController.cs" />
     <Compile Include="Assets\Scripts\Objects\RingController.cs" />
@@ -327,6 +327,7 @@
     <Compile Include="Assets\Scripts\Player\BarrelRollController.cs" />
     <Compile Include="Assets\Scripts\Player\CameraController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerGunController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerLimitManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerShieldManager.cs" />
     <Compile Include="Assets\Scripts\Player\ShipController.cs" />
     <Compile Include="Assets\Scripts\Player\ShipFlowController.cs" />
