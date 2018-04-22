@@ -24,6 +24,7 @@ public class ShipController : MonoBehaviour {
     public const int maxBoost = 100;
     public RectTransform boostBar;
 
+    private bool isDead = false;
     private bool boostReady = true;
     private Bounds limitBounds;
 
@@ -41,8 +42,8 @@ public class ShipController : MonoBehaviour {
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        //if(transform.position.x)
-        ShipMovement(horizontal, vertical);
+        if(!isDead)
+            ShipMovement(horizontal, vertical);
 
         //BOOST
         if(Input.GetButtonDown("Boost") && boostReady)
@@ -84,6 +85,16 @@ public class ShipController : MonoBehaviour {
         }
         //Rotate towards the point which is moving
         transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.LookRotation(finalDirection), Mathf.Deg2Rad * maxRotDegrees);
+    }
+
+    void SetDead(bool dead)
+    {
+        isDead = dead;
+    }
+
+    void ResetPosition()
+    {
+        transform.localPosition = Vector3.zero;
     }
 
     private IEnumerator Boost()

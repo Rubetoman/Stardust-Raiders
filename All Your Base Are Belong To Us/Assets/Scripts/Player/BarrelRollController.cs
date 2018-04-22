@@ -89,6 +89,11 @@ public class BarrelRollController : MonoBehaviour {
         rightTimer += Time.deltaTime;
     }
 
+    void ResetRotation()
+    {
+        transform.localRotation = Quaternion.identity;
+    }
+
     /// <summary>
     /// When the function is called it makes the spaceship to do a barrelRoll to the side passed as parameter
     /// If side is -1 it means is rolling to the left, else it goes to the right

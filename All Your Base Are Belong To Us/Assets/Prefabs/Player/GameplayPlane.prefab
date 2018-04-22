@@ -372,14 +372,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1601467800705900}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -1.0943197, y: -0.22099999, z: -0.017372131}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4839504246321828}
   - {fileID: 4842599652155266}
-  m_Father: {fileID: 4558197646044066}
-  m_RootOrder: 0
+  m_Father: {fileID: 4879416820212176}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4558197646044066
 Transform:
@@ -391,7 +391,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4463503931948764}
   - {fileID: 4879416820212176}
   m_Father: {fileID: 4353006663218200}
   m_RootOrder: 3
@@ -477,8 +476,9 @@ Transform:
   - {fileID: 4682991157166180}
   - {fileID: 4765606959325438}
   - {fileID: 4928014668484600}
+  - {fileID: 4463503931948764}
   m_Father: {fileID: 4558197646044066}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4928014668484600
 Transform:
@@ -848,7 +848,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -861,7 +861,7 @@ MeshCollider:
   m_GameObject: {fileID: 1289299656709248}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -875,7 +875,7 @@ MeshCollider:
   m_GameObject: {fileID: 1199760867941722}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -889,7 +889,7 @@ MeshCollider:
   m_GameObject: {fileID: 1555924496341440}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14

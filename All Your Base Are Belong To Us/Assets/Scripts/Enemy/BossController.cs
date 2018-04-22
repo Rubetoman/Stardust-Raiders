@@ -3,8 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BossController : MonoBehaviour {
+    [Header("Boss Parts")]
     public Transform turretBase;
     public Transform cannonParent;
+    [Space(10)]
+    [Header("Boss Movement")]
+    //public float movementSpeed = 1.0f;
+    public float movementTime = 1.0f;
+    public float movementRadius = 10.0f;
+    public float movementDelay = 5.0f;
+    private Vector3 originalPosition;
+    private Vector3 goalPosition;
+    private Vector3 currentPosition;
+    [Space(10)]
+    [Header("Spawnable Ammo")]
+    public Transform[] missileSpawnPoints;
+    public GameObject spawnMissile;
+    public float missileDelay = 1.0f;
+    private int missileIndex = 0;
+    [Space(10)]
+    [Header("Laser Attack")]
     public Transform[] lasers;
     public GameObject spawnLaser;
     public float laserRotationSpeed = 1.0f;
@@ -14,11 +32,15 @@ public class BossController : MonoBehaviour {
     public float laserDuration = 1.0f;
 
     private GameObject player;
+
 	// Use this for initialization
 	void Start ()
     {
+        originalPosition = transform.position;
         player = GameObject.FindGameObjectWithTag("Player");
         Invoke("ChargeLaser", laserShotDelay);
+        Invoke("ShootMissile", missileDelay);
+        Invoke("MoveBoss", movementDelay);
 	}
 
     // Update is called once per frame
@@ -85,5 +107,39 @@ public class BossController : MonoBehaviour {
             Destroy(newLaser, 1.0f);                                                // Destroy after 1 second
         }
         Invoke("ChargeLaser", laserShotDelay);
+    }
+
+    void ShootMissile()
+    {
+        Transform spawnPoint = missileSpawnPoints[missileIndex];
+        missileIndex++;
+        if(missileIndex >= missileSpawnPoints.Length || spawnPoint == null)
+        {
+            missileIndex = 0;
+        }
+        var missile = Instantiate(spawnMissile, spawnPoint.position, spawnPoint.rotation);
+        missile.transform.parent = transform;
+        Destroy(missile, 6.0f);
+        if(missileSpawnPoints.Length > 0)
+            Invoke("ShootMissile", missileDelay);
+    }
+
+    void MoveBoss()
+    {
+        Vector3 movementVector = Random.insideUnitSphere * movementRadius;
+        movementVector.y = originalPosition.y;
+        StartCoroutine("ActuallyMoveBoss");
+    }
+
+    IEnumerator ActuallyMoveBoss()
+    {
+        float t = 0.0f;
+        while (t < movementTime)
+        {
+            t += Time.deltaTime;
+            transform.position = Vector3.Lerp(currentPosition, goalPosition, t / movementTime);
+            yield return null;
+        }
+        Invoke("MoveBoss", movementDelay);
     }
 }

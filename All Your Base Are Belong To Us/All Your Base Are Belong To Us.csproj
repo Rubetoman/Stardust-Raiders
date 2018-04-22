@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.1f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -311,8 +309,8 @@
     <Compile Include="Assets\Scripts\Enemy\BossController.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossModuleHealthManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossShieldManager.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyShieldManager.cs" />
+    <Compile Include="Assets\Scripts\Enemy\StandInFrontOfThePlayer.cs" />
     <Compile Include="Assets\Scripts\Gameplay\AddToScoreOnTriggerEnter.cs" />
     <Compile Include="Assets\Scripts\Gameplay\DestroyOnCollisionExit.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Rail.cs" />
@@ -326,6 +324,7 @@
     <Compile Include="Assets\Scripts\Objects\MoveForward.cs" />
     <Compile Include="Assets\Scripts\Objects\ObstacleController.cs" />
     <Compile Include="Assets\Scripts\Objects\RingController.cs" />
+    <Compile Include="Assets\Scripts\Objects\SeekingBullet.cs" />
     <Compile Include="Assets\Scripts\Objects\SpawnOnTrigger.cs" />
     <Compile Include="Assets\Scripts\Player\BarrelRollController.cs" />
     <Compile Include="Assets\Scripts\Player\CameraController.cs" />

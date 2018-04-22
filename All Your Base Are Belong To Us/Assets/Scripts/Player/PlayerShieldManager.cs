@@ -48,7 +48,8 @@ public class PlayerShieldManager : ShieldManager {
     protected override void Die()
     {
         base.Die();
-        player.SetActive(false);
+        player.SendMessageUpwards("SetDead", true);
+        gameObject.SetActive(false);
         if (currentLives-1 >= 0)
         {
             currentLives--;
@@ -64,9 +65,12 @@ public class PlayerShieldManager : ShieldManager {
 
     private void RespawnPlayer()
     {
-        player.SetActive(true);
+        gameObject.SetActive(true);
         currentShield = maxShield;
         playerShieldBar.sizeDelta = new Vector2(currentShield, playerShieldBar.sizeDelta.y);
-        StartCoroutine(base.FlickeringColor(Color.white));
+        StartCoroutine(base.FlickeringColor(Color.blue));
+        player.SendMessageUpwards("SetDead",false);
+        player.SendMessageUpwards("ResetPosition");
+        player.SendMessageUpwards("ResetRotation");
     }
 }
