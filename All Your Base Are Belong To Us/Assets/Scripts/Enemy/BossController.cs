@@ -128,6 +128,8 @@ public class BossController : MonoBehaviour {
     {
         Vector3 movementVector = Random.insideUnitSphere * movementRadius;
         movementVector.y = originalPosition.y;
+        goalPosition = originalPosition + movementVector;
+        currentPosition = transform.position;
         StartCoroutine("ActuallyMoveBoss");
     }
 

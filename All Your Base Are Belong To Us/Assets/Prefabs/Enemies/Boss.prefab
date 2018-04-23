@@ -1198,6 +1198,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretBase: {fileID: 4355414956886210}
   cannonParent: {fileID: 4686396475864896}
+  movementTime: 1
+  movementRadius: 30
+  movementDelay: 5
   missileSpawnPoints:
   - {fileID: 4371862673867308}
   - {fileID: 4917794482273954}
@@ -1356,7 +1359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cee8466d8570e4896e88dddb0d8cd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetDistance: 90
+  targetDistance: 70
   enemySpeed: 0
 --- !u!114 &114783057930446544
 MonoBehaviour:
