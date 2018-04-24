@@ -31,7 +31,9 @@ public class SpawnOnTrigger : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            Destroy(Instantiate(spawnObject, other.ClosestPointOnBounds(other.transform.position), Quaternion.identity), destroyTime);
+            var s = Instantiate(spawnObject, other.ClosestPointOnBounds(other.transform.position), Quaternion.identity);
+            s.transform.parent = transform;
+            Destroy(s, destroyTime);
         }
         else
         {

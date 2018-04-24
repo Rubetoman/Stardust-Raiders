@@ -8,7 +8,6 @@ public class BossController : MonoBehaviour {
     public Transform cannonParent;
     [Space(10)]
     [Header("Boss Movement")]
-    //public float movementSpeed = 1.0f;
     public float movementTime = 1.0f;
     public float movementRadius = 10.0f;
     public float movementDelay = 5.0f;
@@ -17,9 +16,11 @@ public class BossController : MonoBehaviour {
     private Vector3 currentPosition;
     [Space(10)]
     [Header("Spawnable Ammo")]
+    public GameObject frontMissileSpawner;
     public Transform[] missileSpawnPoints;
     public GameObject spawnMissile;
     public float missileDelay = 1.0f;
+    public float missileDestroyTime = 4.0f;
     private int missileIndex = 0;
     [Space(10)]
     [Header("Laser Attack")]
@@ -30,6 +31,7 @@ public class BossController : MonoBehaviour {
     public float laserChargerTime = 1.0f;
     public float laserSpeed = 1.0f;
     public float laserDuration = 1.0f;
+    public float heightOffset = 4.0f;
 
     private GameObject player;
 
@@ -46,10 +48,9 @@ public class BossController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        // Look at the player
-        //cannonParent.transform.rotation = Quaternion.LookRotation(player.transform.position - cannonParent.position);
-        //turretBase.rotation = Quaternion.LookRotation(Vector3.Project(player.transform.position - cannonParent.position, turretBase.forward));
-        cannonParent.rotation = Quaternion.RotateTowards(cannonParent.rotation, Quaternion.LookRotation(player.transform.position - cannonParent.position), laserRotationSpeed * Time.deltaTime);
+        // Look at the player: Take player position minus the offset and then make the cannon rotate to that position.
+        var playerPos = new Vector3(player.transform.position.x, player.transform.position.y - heightOffset, player.transform.position.z);
+        cannonParent.rotation = Quaternion.RotateTowards(cannonParent.rotation, Quaternion.LookRotation(playerPos - cannonParent.position), laserRotationSpeed * Time.deltaTime);
     }
 
     void ChargeLaser()
@@ -104,24 +105,28 @@ public class BossController : MonoBehaviour {
             laser.gameObject.SetActive(false);
             var newLaser = Instantiate(spawnLaser, laser.position, laser.rotation); // Spawn a copy of the laser on the same point which the lasers are
             newLaser.transform.parent = transform;                                  // Make it a chil of the GameObject which contains the script
-            Destroy(newLaser, 1.0f);                                                // Destroy after 1 second
+            newLaser.transform.localScale = new Vector3(1, 1, 10);                  // Adjust Scale
+            Destroy(newLaser, 2.0f);                                                // Destroy after 2 seconds
         }
         Invoke("ChargeLaser", laserShotDelay);
     }
 
     void ShootMissile()
     {
-        Transform spawnPoint = missileSpawnPoints[missileIndex];
-        missileIndex++;
-        if(missileIndex >= missileSpawnPoints.Length || spawnPoint == null)
+        if (frontMissileSpawner != null)
         {
-            missileIndex = 0;
-        }
-        var missile = Instantiate(spawnMissile, spawnPoint.position, spawnPoint.rotation);
-        missile.transform.parent = transform;
-        Destroy(missile, 6.0f);
-        if(missileSpawnPoints.Length > 0)
-            Invoke("ShootMissile", missileDelay);
+            Transform spawnPoint = missileSpawnPoints[missileIndex];
+            missileIndex++;
+            if (missileIndex >= missileSpawnPoints.Length || spawnPoint == null)
+            {
+                missileIndex = 0;
+            }
+            var missile = Instantiate(spawnMissile, spawnPoint.position, spawnPoint.rotation);
+            missile.transform.parent = transform;
+            Destroy(missile, missileDestroyTime);
+            if (missileSpawnPoints.Length > 0)
+                Invoke("ShootMissile", missileDelay);
+        }  
     }
 
     void MoveBoss()
