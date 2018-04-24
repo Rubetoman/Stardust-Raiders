@@ -40,8 +40,8 @@ MonoBehaviour:
     y: 0
     width: 200
     height: 731
-  m_MinSize: {x: 55, y: 36}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 57, y: 57}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 492}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 132
+  controlID: 179
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 204, y: 342}
   m_MaxSize: {x: 4004, y: 8042}
   vertical: 1
-  controlID: 81
+  controlID: 10
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -163,8 +163,8 @@ MonoBehaviour:
     y: 0
     width: 283
     height: 731
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -194,10 +194,10 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 731
-  m_MinSize: {x: 768, y: 492}
-  m_MaxSize: {x: 22008, y: 14042}
+  m_MinSize: {x: 772, y: 492}
+  m_MaxSize: {x: 22012, y: 14042}
   vertical: 0
-  controlID: 1996
+  controlID: 37
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -216,8 +216,8 @@ MonoBehaviour:
     y: 0
     width: 260
     height: 460
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 221}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -468,20 +468,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts/Objects
+    - Assets/Scripts/Enemy
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/Objects
+  - Assets/Scripts/Enemy
   m_LastFoldersGridSize: 16
   m_LastProjectPath: "C:\\Users\\Rub\xE9n\\Documents\\Cloned Repositories\\TFG\\All
     Your Base Are Belong To Us"
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 167}
-    m_SelectedIDs: 182a0000
-    m_LastClickedID: 10776
-    m_ExpandedIDs: 00000000b0280000e228000066290000a4290000bc2a0000082b00001c2b00002c2b000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 219}
+    m_SelectedIDs: b6280000
+    m_LastClickedID: 10422
+    m_ExpandedIDs: 00000000b0280000e228000066290000a4290000f6290000bc2a0000082b00001c2b00002c2b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -536,8 +536,8 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: c62300005a280000a83d0000ae290000da10faffc8290000f032feff722a0000d62b000000000000f2290000602c00005a370000fe2a00008e2a0000122a0000142a0000302c00009e02f5ff1a2a0000
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: c62300005a280000a83d0000ae290000da10faffc8290000f032feff722a0000d62b000000000000f2290000602c00005a370000fe2a00008e2a0000122a0000142a0000302c00009e02f5ff
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -627,28 +627,28 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 24faffff20faffff
-    m_LastClickedID: -1504
-    m_ExpandedIDs: 685af2ffc49bf3ff3e6cf5ff2ec3f5ff0485f7fffc64f8ffc093f8ffa20efbff907dfdfff2f8ffff1af9ffff22f9ffff28f9ffff54f9ffff56f9ffffacf9ffffecf9fffff4f9ffff44faffff4cfaffff80faffffc2faffffc4faffffc8faffffccfaffffd2faffffdafaffff1afbffff96fbffff98fbffff9cfbffff9efbffff00000000
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 4804f9ff4e04f9ff9e04f9ff3005f9ff3405f9ff0ae8f9ff0ce8f9ff2ce8f9ff32e8f9ff3ae8f9ff6ce8f9ff76e8f9ff94e8f9ffbe02faffa805faffb005faffb205faffea0bfaff8ef9ffff94f9ffff9af9ffffaef9ffffeef9fffff6f9ffff9efbffff00000000002e00004c5a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Turret_Base
-      m_OriginalName: Turret_Base
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: -164464
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 9}
     m_SearchString: 
   m_ExpandedScenes:
-  - boss_fight
+  - enemies_test2
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -680,14 +680,14 @@ MonoBehaviour:
     height: 338
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 5849.736951298111
+  lastFramingTime: 5163.063466588554
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 15.908733, y: -3.3103468, z: 96.58969}
+    m_Target: {x: 38.10898, y: -30.305975, z: 256.16132}
     speed: 2
-    m_Value: {x: 15.908733, y: -3.3103468, z: 96.58969}
+    m_Value: {x: 38.10898, y: -30.305975, z: 256.16132}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -711,13 +711,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.044941228, y: 0.044041876, z: -0.0019833422, w: -0.9980164}
+    m_Target: {x: 0.11255592, y: 0.4614576, z: -0.059156563, w: 0.8780026}
     speed: 2
-    m_Value: {x: -0.044941228, y: 0.044041876, z: -0.0019833422, w: -0.9980164}
+    m_Value: {x: 0.11255592, y: 0.4614576, z: -0.059156563, w: 0.8780026}
   m_Size:
-    m_Target: 29.878336
+    m_Target: 219.07489
     speed: 2
-    m_Value: 29.878336
+    m_Value: 219.07489
   m_Ortho:
     m_Target: 0
     speed: 2

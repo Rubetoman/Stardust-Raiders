@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BossController : MonoBehaviour {
-    [Header("Boss Parts")]
-    public Transform turretBase;
-    public Transform cannonParent;
+    [Header("Boss Parts")]          // Geometry of the Boss GO for referencing
+    public Transform turretBase;    // The base of the turret (needs to be pointing forward)
+    public Transform cannonParent;  // The GO that contains the rotating cannons
     [Space(10)]
-    [Header("Boss Movement")]
-    public float movementTime = 1.0f;
-    public float movementRadius = 10.0f;
-    public float movementDelay = 5.0f;
-    private Vector3 originalPosition;
+    [Header("Boss Movement")]               // For the movement of the boss
+    public float movementTime = 1.0f;       // Time that one move takes
+    public float movementRadius = 10.0f;    // the maximun radius of movement is going to use
+    public float movementDelay = 5.0f;      // Delay time between different moves
+    private Vector3 originalPosition;       
     private Vector3 goalPosition;
     private Vector3 currentPosition;
     [Space(10)]
-    [Header("Spawnable Ammo")]
+    [Header("Spawnable Ammo")]              //Ammo that is going to be spawnable from a spawn point
     public GameObject frontMissileSpawner;
     public Transform[] missileSpawnPoints;
     public GameObject spawnMissile;
