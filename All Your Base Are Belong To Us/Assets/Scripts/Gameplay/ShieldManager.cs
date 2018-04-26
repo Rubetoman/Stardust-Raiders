@@ -45,7 +45,6 @@ public class ShieldManager : MonoBehaviour {
     protected virtual void Die()
     {
         Destroy(Instantiate(deathEffect, gameObject.transform.localPosition, Quaternion.identity), 1.0f);
-        //gameObject.SetActive(false);
     }
 
     /// <summary>

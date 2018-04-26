@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198160853935375346}
   - component: {fileID: 199699721783414572}
   - component: {fileID: 122636091129041198}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 135808457722756844}
   - component: {fileID: 23214920606233272}
   - component: {fileID: 114654775856902950}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,9 +57,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4374799958233108}
   - component: {fileID: 114818021702396490}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: EnergyBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

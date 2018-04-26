@@ -309,8 +309,9 @@
     <Compile Include="Assets\Scripts\Enemy\BossController.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossModuleHealthManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossShieldManager.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyShieldManager.cs" />
-    <Compile Include="Assets\Scripts\Enemy\StandInFrontOfThePlayer.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyShipController.cs" />
     <Compile Include="Assets\Scripts\Enemy\TankController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\AddToScoreOnTriggerEnter.cs" />
     <Compile Include="Assets\Scripts\Gameplay\DestroyOnCollisionExit.cs" />

@@ -9,9 +9,10 @@ public class PlayerLimitManager : MonoBehaviour {
     public float showDistance = 0.2f;   // Distance from the limit needed to reach to show the arrows
     public float flickFrequency = 2.0f; // Time it will take to flick an arrow
 
-    private Bounds limitBounds;         // The bounds of limitPlane
+    //private Bounds limitBounds;         // The bounds of limitPlane
     private bool vArrowAnimFree = true; // Variable that tells if the vertical arrow animation is free or being used
     private bool hArrowAnimFree = true; // Variable that tells if the horizontal arrow animation is free or being used
+    private Vector2 limitBounds;
 
     // Use this for initialization
     void Start () {
@@ -20,29 +21,29 @@ public class PlayerLimitManager : MonoBehaviour {
             Debug.LogError("The are arrows missing. Make sure to insert the 4 arrows in the following order: upper arrow, lower arrow, left arrow, right arrow");
             return;
         }
-        limitBounds = GetComponent<Renderer>().bounds;
+        limitBounds = new Vector2(transform.localScale.x / 2, transform.localScale.y / 2);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        // Calculate the distance to the center
-        var distanceToCenterX = player.transform.localPosition.x - limitBounds.center.x;
-        var distanceToCenterY = player.transform.localPosition.y - limitBounds.center.y;
+        // Calculate the distance from the player to the center of the plane
+        var distanceToCenterX = player.transform.localPosition.x - transform.localPosition.x;
+        var distanceToCenterY = player.transform.localPosition.y - transform.localPosition.y;
 
-        // Find near which limit is the player
-        if(distanceToCenterY / limitBounds.max.y > 1 - showDistance && vArrowAnimFree)
+        // Find if the player is near a plane limit
+        if(distanceToCenterY / limitBounds.y > 1 - showDistance && vArrowAnimFree)
         {
             ShowArrows("up");
         }
-        else if (distanceToCenterY / limitBounds.max.y < -1 + showDistance && vArrowAnimFree)
+        else if (distanceToCenterY / limitBounds.y < -1 + showDistance && vArrowAnimFree)
         {
             ShowArrows("down");
         }
-        if (distanceToCenterX / limitBounds.max.x < -1 + showDistance && hArrowAnimFree)
+        if (distanceToCenterX / limitBounds.x < -1 + showDistance && hArrowAnimFree)
         {
             ShowArrows("left");
         }
-        else if (distanceToCenterX / limitBounds.max.x > 1 - showDistance && hArrowAnimFree)
+        else if (distanceToCenterX / limitBounds.x > 1 - showDistance && hArrowAnimFree)
         {
             ShowArrows("right");
         }

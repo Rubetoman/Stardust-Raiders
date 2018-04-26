@@ -12,7 +12,7 @@ public class BulletController : MonoBehaviour {
         var hit = other.gameObject;
         if (other.CompareTag("Enemy"))
             DamageEnemy(hit);
-        else if (other.CompareTag("Player"))
+        else if (other.CompareTag("PlayerCollider"))
             DamagePlayer(hit);
 
         Destroy(gameObject);

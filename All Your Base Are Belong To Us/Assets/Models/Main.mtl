@@ -1,0 +1,5 @@
+newmtl Default_Prototype
+map_Kd Mode_Vert.png
+Kd 1 1 1
+d 1
+

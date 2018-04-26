@@ -26,13 +26,11 @@ public class ShipController : MonoBehaviour {
 
     private bool isDead = false;
     private bool boostReady = true;
-    private Bounds limitBounds;
 
 
     // Use this for initialization
     void Start() {
-        //Get bounds of the limitPlane
-        limitBounds = limitPlane.GetComponent<Renderer>().bounds;
+
 
     }
 
@@ -73,8 +71,8 @@ public class ShipController : MonoBehaviour {
         finalPosition.x += direction.x * movementSpeed.x * Time.deltaTime;
         finalPosition.y += direction.y * movementSpeed.y * Time.deltaTime;
         //Limit movement to the plane space
-        finalPosition.x = Mathf.Clamp(finalPosition.x, limitBounds.min.x, limitBounds.max.x);
-        finalPosition.y = Mathf.Clamp(finalPosition.y, limitBounds.min.y, limitBounds.max.y);
+        finalPosition.x = Mathf.Clamp(finalPosition.x, -(limitPlane.transform.localScale.x / 2), (limitPlane.transform.localScale.x / 2));
+        finalPosition.y = Mathf.Clamp(finalPosition.y, -(limitPlane.transform.localScale.y / 2), (limitPlane.transform.localScale.y / 2));
         transform.localPosition = finalPosition;
 
         //Make the ship bank when moving

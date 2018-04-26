@@ -651,7 +651,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1172710187598394}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.3, y: 0, z: 389.1421}
+  m_LocalPosition: {x: -2, y: 10, z: 389.1421}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4478010471181148}
@@ -1448,14 +1448,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonParent: {fileID: 4177101209679116}
+  cannonRotationSpeed: 30
+  heightOffset: 4
   missileSpawnPoints:
   - {fileID: 4485334742366158}
   - {fileID: 4233401539413440}
   spawnMissile: {fileID: 1957589209164754, guid: a76311fad5f1d1e41a125ca5423ec0f6,
     type: 2}
-  missileDelay: 5
   missileDestroyTime: 10
-  cannonRotationSpeed: 30
+  movementTime: 1
+  movementRadius: 10
+  movementDelay: 5
+  missileDelay: 5
+  targetDistance: 300
 --- !u!114 &114038948534455664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16735,7 +16740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentShield: 20
   damaged: 0
-  recoverTime: 0.5
+  recoverTime: 0
   hitColor: {r: 0.862069, g: 1, b: 0, a: 0}
   flickCount: 5
   flickRate: 0.1

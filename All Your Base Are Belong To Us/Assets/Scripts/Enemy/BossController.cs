@@ -2,26 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossController : MonoBehaviour {
+public class BossController : EnemyController {
     [Header("Boss Parts")]          // Geometry of the Boss GO for referencing
     public Transform turretBase;    // The base of the turret (needs to be pointing forward)
-    public Transform cannonParent;  // The GO that contains the rotating cannons
-    [Space(10)]
-    [Header("Boss Movement")]               // For the movement of the boss
-    public float movementTime = 1.0f;       // Time that one move takes
-    public float movementRadius = 10.0f;    // the maximun radius of movement is going to use
-    public float movementDelay = 5.0f;      // Delay time between different moves
-    private Vector3 originalPosition;       
-    private Vector3 goalPosition;
-    private Vector3 currentPosition;
-    [Space(10)]
-    [Header("Spawnable Ammo")]              //Ammo that is going to be spawnable from a spawn point
     public GameObject frontMissileSpawner;
-    public Transform[] missileSpawnPoints;
-    public GameObject spawnMissile;
+    [Space(10)]
+    [Header("Boss Variables")]
     public float missileDelay = 1.0f;
-    public float missileDestroyTime = 4.0f;
-    private int missileIndex = 0;
     [Space(10)]
     [Header("Laser Attack")]
     public Transform[] lasers;
@@ -31,26 +18,24 @@ public class BossController : MonoBehaviour {
     public float laserChargerTime = 1.0f;
     public float laserSpeed = 1.0f;
     public float laserDuration = 1.0f;
-    public float heightOffset = 4.0f;
-
-    private GameObject player;
-
-	// Use this for initialization
-	void Start ()
+    private GameObject gameplayPlane;
+    public float targetDistance = 10.0f;
+    // Use this for initialization
+    new void Start ()
     {
+        base.Start();
         originalPosition = transform.position;
-        player = GameObject.FindGameObjectWithTag("Player");
+        gameplayPlane = GameObject.FindGameObjectWithTag("GameplayPlane");
         Invoke("ChargeLaser", laserShotDelay);
-        Invoke("ShootMissile", missileDelay);
-        Invoke("MoveBoss", movementDelay);
+        Invoke("ShootSpawnableAmmo", missileDelay);
+        Invoke("MoveEnemy", movementDelay);
 	}
 
     // Update is called once per frame
     void Update()
     {
-        // Look at the player: Take player position minus the offset and then make the cannon rotate to that position.
-        var playerPos = new Vector3(player.transform.position.x, player.transform.position.y - heightOffset, player.transform.position.z);
-        cannonParent.rotation = Quaternion.RotateTowards(cannonParent.rotation, Quaternion.LookRotation(playerPos - cannonParent.position), laserRotationSpeed * Time.deltaTime);
+        LookAtPlayer();
+        StandInFrontOf(gameplayPlane, targetDistance);
     }
 
     void ChargeLaser()
@@ -111,42 +96,13 @@ public class BossController : MonoBehaviour {
         Invoke("ChargeLaser", laserShotDelay);
     }
 
-    void ShootMissile()
+    protected override void ShootSpawnableAmmo()
     {
         if (frontMissileSpawner != null)
         {
-            Transform spawnPoint = missileSpawnPoints[missileIndex];
-            missileIndex++;
-            if (missileIndex >= missileSpawnPoints.Length || spawnPoint == null)
-            {
-                missileIndex = 0;
-            }
-            var missile = Instantiate(spawnMissile, spawnPoint.position, spawnPoint.rotation);
-            missile.transform.parent = transform;
-            Destroy(missile, missileDestroyTime);
+            base.ShootSpawnableAmmo();
             if (missileSpawnPoints.Length > 0)
-                Invoke("ShootMissile", missileDelay);
+                Invoke("ShootSpawnableAmmo", missileDelay);
         }  
-    }
-
-    void MoveBoss()
-    {
-        Vector3 movementVector = Random.insideUnitSphere * movementRadius;
-        movementVector.y = originalPosition.y;
-        goalPosition = originalPosition + movementVector;
-        currentPosition = transform.position;
-        StartCoroutine("ActuallyMoveBoss");
-    }
-
-    IEnumerator ActuallyMoveBoss()
-    {
-        float t = 0.0f;
-        while (t < movementTime)
-        {
-            t += Time.deltaTime;
-            transform.position = Vector3.Lerp(currentPosition, goalPosition, t / movementTime);
-            yield return null;
-        }
-        Invoke("MoveBoss", movementDelay);
     }
 }

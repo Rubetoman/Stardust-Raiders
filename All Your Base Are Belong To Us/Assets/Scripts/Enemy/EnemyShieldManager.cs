@@ -17,7 +17,7 @@ public class EnemyShieldManager : ShieldManager {
     {
         base.Die();
         if (transform.parent != null)
-            Destroy(transform.parent);
+            Destroy(transform.parent.gameObject);
         else
             Destroy(gameObject);
     }
