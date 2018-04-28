@@ -330,7 +330,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1013104319699278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 25.1, z: 7.46}
+  m_LocalPosition: {x: 0, y: 5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4057713194673946}
@@ -4001,13 +4001,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentShield: 100
-  damaged: 0
+  godMode: 0
   recoverTime: 2
   hitColor: {r: 0.791, g: 0, b: 0, a: 0}
   flickCount: 5
   flickRate: 0.1
   deathEffect: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb,
     type: 2}
+  invulnerable: 0
   playerShieldBar: {fileID: 0}
   recoverColor: {r: 0.1707937, g: 0.672, b: 0.8602941, a: 0}
   initialLives: 3
@@ -4544,6 +4545,7 @@ MonoBehaviour:
   multipleTapDelay: 0.2
   barrelRollDuration: 1
   maxBankAngle: 85
+  playerMainBody: {fileID: 1225094175094894}
   inBarrelRoll: 0
 --- !u!114 &114967203979325230
 MonoBehaviour:

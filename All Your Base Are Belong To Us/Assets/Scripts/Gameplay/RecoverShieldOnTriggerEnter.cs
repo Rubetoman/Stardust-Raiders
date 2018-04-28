@@ -10,7 +10,7 @@ public class RecoverShieldOnTriggerEnter : MonoBehaviour {
     {
         var hit = other.gameObject;
         var shield = hit.GetComponent<PlayerShieldManager>();
-        if (shield != null && !shield.damaged)
+        if (shield != null && !shield.invulnerable)
         {
             shield.RecoverShield(shieldToRecover);
         }

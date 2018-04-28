@@ -6,7 +6,7 @@ public class ShieldManager : MonoBehaviour {
     [Header("Shield")]
     public const int maxShield = 100;
     public int currentShield = maxShield;
-    public bool damaged = false;
+    public bool godMode = false;
     [Space(10)]
     [Header("Hit Effect")]
     public float recoverTime = 2f;
@@ -18,9 +18,14 @@ public class ShieldManager : MonoBehaviour {
     protected MeshRenderer mesh;
     protected Color normalColor;
 
+    [HideInInspector]
+    public bool invulnerable = false;
+
     // Use this for initialization
     protected void Start () {
         mesh = gameObject.GetComponent<MeshRenderer>();
+        if (godMode)
+            invulnerable = true;
     }
 	
     public virtual void TakeDamage(int amount)
@@ -30,7 +35,7 @@ public class ShieldManager : MonoBehaviour {
             Debug.LogError("Negative numbers not allowed");
             return;
         }
-        damaged = true;
+        invulnerable = true;
         currentShield -= amount;
         if (currentShield <= 0)
         {
@@ -61,6 +66,6 @@ public class ShieldManager : MonoBehaviour {
             yield return new WaitForSeconds(flickRate);
         }
         //Be able to be damaged again
-        damaged = false;
+        invulnerable = false;
     }
 }

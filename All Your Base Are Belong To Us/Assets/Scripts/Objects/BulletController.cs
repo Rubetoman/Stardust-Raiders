@@ -7,7 +7,7 @@ public class BulletController : MonoBehaviour {
     public int damageToPlayer = 10;
     public int damageToEnemy = 10;
 
-    private void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
         var hit = other.gameObject;
         if (other.CompareTag("Enemy"))
@@ -18,19 +18,19 @@ public class BulletController : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    private void DamagePlayer(GameObject player)
+    protected void DamagePlayer(GameObject player)
     {
         var shield = player.GetComponent<PlayerShieldManager>();
-        if (shield != null && !shield.damaged)
+        if (shield != null && !shield.invulnerable)
         {
             shield.TakeDamage(damageToPlayer);
         }
     }
 
-    private void DamageEnemy(GameObject enemy)
+    protected void DamageEnemy(GameObject enemy)
     {
         var shield = enemy.GetComponent<EnemyShieldManager>();
-        if (shield != null && !shield.damaged)
+        if (shield != null && !shield.invulnerable)
         {
             shield.TakeDamage(damageToEnemy);
         }

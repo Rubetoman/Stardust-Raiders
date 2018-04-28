@@ -7,12 +7,22 @@ public class BarrelRollController : MonoBehaviour {
     public float multipleTapDelay = 1.0f; //Max delay between taps of a Input to be considered as consecutive taps
     public float barrelRollDuration = 1.0f; //Time it takes to do the barrel roll
     public float maxBankAngle = 85f; //The maximun degrees we want our starship to bank (Euler Angles)
-    public bool inBarrelRoll = false;
+    public GameObject playerMainBody;
 
     private bool buttonDown = false;
     private float leftTimer = 1.0f;
     private float rightTimer = 1.0f;
+    private bool invulnerable;
 
+    [HideInInspector]
+    public bool inBarrelRoll = false;
+
+
+    private void Start()
+    {
+        if (playerMainBody.GetComponent<ShieldManager>() == null)
+            Debug.LogError("Shield Manager not found on the player main body");
+    }
     // Update is called once per frame
     void Update()
     {
@@ -100,7 +110,9 @@ public class BarrelRollController : MonoBehaviour {
     /// </summary>
     private IEnumerator BarrelRoll(int side)
     {
+
         inBarrelRoll = true;
+        playerMainBody.GetComponent<ShieldManager>().invulnerable = true;
 
         float t = 0.0f;
         Quaternion startRot = transform.rotation;
@@ -115,50 +127,6 @@ public class BarrelRollController : MonoBehaviour {
         }
         transform.rotation = startRot;
         inBarrelRoll = false;
+        playerMainBody.GetComponent<ShieldManager>().invulnerable = false;
     }
-
-
-
-
-    /// <summary>
-    /// Old BarrelRoll function
-    /// </summary>
-    /*private IEnumerator BarrelRoll(int side)
-    {
-        inBarrelRoll = true;
-        float t = 0.0f;
-        Vector3 initialRot = transform.localRotation.eulerAngles;
-        Vector3 currentRot = initialRot;
-        Vector3 goalRot = initialRot;
-        if (side < 0.0f)
-            goalRot.z += 180.0f;
-        else if(side > 0.0f)
-            goalRot.z -= 180.0f;
-        
-
-        while (t < barrelRollDuration / 2.0f)
-        {
-            currentRot.z = Mathf.Lerp(initialRot.z, goalRot.z, t / (barrelRollDuration / 2.0f));
-            transform.localRotation = Quaternion.Euler(currentRot);
-            t += Time.deltaTime;
-            yield return null;
-        }
-        initialRot = transform.localRotation.eulerAngles;
-        goalRot = initialRot;
-        if (side < 0.0f)
-            goalRot.z += 180.0f;
-        else if (side > 0.0f)
-            goalRot.z -= 180.0f;
-
-        t = 0;
-        while (t < barrelRollDuration / 2.0f)
-        {
-            currentRot.z = Mathf.Lerp(initialRot.z, goalRot.z, t / (barrelRollDuration / 2.0f));
-            transform.localRotation = Quaternion.Euler(currentRot);
-            t += Time.deltaTime;
-            yield return null;
-        }
-
-        inBarrelRoll = false;
-    }*/
 }

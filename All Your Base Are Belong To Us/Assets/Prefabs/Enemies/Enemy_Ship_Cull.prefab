@@ -3190,13 +3190,16 @@ MonoBehaviour:
     type: 2}
   missileDestroyTime: 4
   movementTime: 1
-  movementRadius: 10
-  movementDelay: 5
+  movementRadius: 20
+  movementDelay: 1
   targetDistance: 70
   forwardSpeed: 4
+  moveAxis: {x: 1, y: 1, z: 0}
+  loopMovement: 1
   shootDelay: 2
   shootDistance: 300
   bulletVelocity: 100
+  doubleShoot: 1
 --- !u!114 &114275369026696058
 MonoBehaviour:
   m_ObjectHideFlags: 1

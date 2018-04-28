@@ -18,24 +18,30 @@ public class BossController : EnemyController {
     public float laserChargerTime = 1.0f;
     public float laserSpeed = 1.0f;
     public float laserDuration = 1.0f;
-    private GameObject gameplayPlane;
     public float targetDistance = 10.0f;
+
+    protected GameObject gameplayPlane;
+    private bool called = false;
     // Use this for initialization
     new void Start ()
     {
         base.Start();
-        originalPosition = transform.position;
         gameplayPlane = GameObject.FindGameObjectWithTag("GameplayPlane");
         Invoke("ChargeLaser", laserShotDelay);
         Invoke("ShootSpawnableAmmo", missileDelay);
-        Invoke("MoveEnemy", movementDelay);
 	}
 
     // Update is called once per frame
     void Update()
     {
-        LookAtPlayer();
         StandInFrontOf(gameplayPlane, targetDistance);
+        if (!called)
+        {
+            MoveEnemy(transform.position, moveAxis, loopMovement);
+            ShootSpawnableAmmo();
+            called = true;
+        }
+        LookAtPlayer();
     }
 
     void ChargeLaser()

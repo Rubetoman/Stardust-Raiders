@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeekingBullet : MonoBehaviour {
+public class SeekingBullet : BulletController {
+    [Header("Seeking Configuration")]
     public float speed = 1.0f;
     public float turnSpeed = 30.0f;
     public float startSeeking = 1.0f;

@@ -401,7 +401,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4306887566832206}
-  - component: {fileID: 114688561216549558}
   - component: {fileID: 114636345094452766}
   - component: {fileID: 114936115990848618}
   m_Layer: 0
@@ -892,7 +891,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1494528133870792}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.5, z: 100}
+  m_LocalPosition: {x: 0, y: 9.5, z: 245.8}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children:
   - {fileID: 4792124610204106}
@@ -3432,7 +3431,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentShield: 100
-  damaged: 0
+  vulnerable: 0
+  godMode: 0
   recoverTime: 2
   hitColor: {r: 0.9862069, g: 1, b: 0, a: 0}
   flickCount: 5
@@ -6929,9 +6929,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c476d6d10ab98947b5b6a3801ba39eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialA: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
-  materialB: {fileID: 2100000, guid: 0851dd936338ccb4a9e50341309dc5c9, type: 2}
-  frequency: 0.15
+  materialA: {fileID: 2100000, guid: f7069034293e9a74f9c9be7b6b98e58a, type: 2}
+  materialB: {fileID: 2100000, guid: b9449a1b8fb3bdb43b196aee7e4fcdac, type: 2}
+  frequency: 0.3
 --- !u!114 &114168805774959090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13385,9 +13385,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c476d6d10ab98947b5b6a3801ba39eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialA: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
-  materialB: {fileID: 2100000, guid: 0851dd936338ccb4a9e50341309dc5c9, type: 2}
-  frequency: 0.15
+  materialA: {fileID: 2100000, guid: f7069034293e9a74f9c9be7b6b98e58a, type: 2}
+  materialB: {fileID: 2100000, guid: b9449a1b8fb3bdb43b196aee7e4fcdac, type: 2}
+  frequency: 0.3
 --- !u!114 &114426695482230892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13686,7 +13686,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentShield: 500
-  damaged: 0
+  vulnerable: 0
+  godMode: 0
   recoverTime: 2
   hitColor: {r: 1, g: 1, b: 1, a: 0}
   flickCount: 5
@@ -15067,19 +15068,6 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
---- !u!114 &114688561216549558
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1494528133870792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25cee8466d8570e4896e88dddb0d8cd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetDistance: 70
-  enemySpeed: 0
 --- !u!114 &114731666661548998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17292,7 +17280,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentShield: 300
-  damaged: 0
+  vulnerable: 0
+  godMode: 0
   recoverTime: 2
   hitColor: {r: 1, g: 1, b: 1, a: 0}
   flickCount: 5
@@ -21980,12 +21969,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97b037b4aabb8e48ab75d414a7ae2b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretBase: {fileID: 4792124610204106}
   cannonParent: {fileID: 4626250738506274}
-  movementTime: 1
-  movementRadius: 30
-  movementDelay: 5
-  frontMissileSpawner: {fileID: 1852101584079608}
+  cannonRotationSpeed: 5
+  heightOffset: 4
   missileSpawnPoints:
   - {fileID: 4220204158910704}
   - {fileID: 4907505708427912}
@@ -21993,18 +21979,25 @@ MonoBehaviour:
   - {fileID: 4082068623879098}
   spawnMissile: {fileID: 1957589209164754, guid: a663d8cbd494ca944a3ad3d81a181388,
     type: 2}
-  missileDelay: 3
   missileDestroyTime: 4
+  movementTime: 1
+  movementRadius: 30
+  movementDelay: 5
+  moveAxis: {x: 2, y: 0, z: -0.5}
+  loopMovement: 1
+  turretBase: {fileID: 4792124610204106}
+  frontMissileSpawner: {fileID: 1852101584079608}
+  missileDelay: 3
   lasers:
   - {fileID: 4911010746259982}
   - {fileID: 4261795357627394}
   spawnLaser: {fileID: 1388208254615086, guid: bc49d9aae0e88624aaf2924a7c30b9bf, type: 2}
   laserRotationSpeed: 6
   laserShotDelay: 1
-  laserChargerTime: 1
-  laserSpeed: 100
+  laserChargerTime: 2
+  laserSpeed: 30
   laserDuration: 5
-  heightOffset: 4
+  targetDistance: 70
 --- !u!114 &114953293116783326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22634,7 +22627,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentShield: 100
-  damaged: 0
+  vulnerable: 0
+  godMode: 0
   recoverTime: 2
   hitColor: {r: 0.9862069, g: 1, b: 0, a: 0}
   flickCount: 5

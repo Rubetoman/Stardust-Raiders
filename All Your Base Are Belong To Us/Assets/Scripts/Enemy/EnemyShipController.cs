@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyShipController : EnemyController {
-    [Header("Positioning")]
+    [Header("Stay In Front")]
     public float targetDistance = 10.0f;
     public float forwardSpeed = 0.0f;
     [Space(10)]
@@ -13,16 +13,12 @@ public class EnemyShipController : EnemyController {
     public float bulletVelocity = 10.0f;
     public bool doubleShoot = false;
 
-    private GameObject gameplayPlane;
-	// Use this for initialization
-	new void Start () {
+    private bool called = false;
+    protected GameObject gameplayPlane;
+    // Use this for initialization
+    new void Start () {
         base.Start();
         gameplayPlane = GameObject.FindGameObjectWithTag("GameplayPlane");
-        ShootSpawnableAmmo();
-        if (doubleShoot)
-            Invoke("ShootSpawnableAmmo", shootDelay + 0.2f);
-        originalPosition = transform.position;
-        Invoke("MoveEnemy", movementDelay);
     }
 	
 	// Update is called once per frame
@@ -31,7 +27,17 @@ public class EnemyShipController : EnemyController {
 
         if (Vector3.Project(gameplayPlane.transform.position - transform.position, gameplayPlane.transform.forward).magnitude <= targetDistance)
         {
+           
             StandInFrontOf(gameplayPlane, targetDistance);
+            if (!called)
+            {
+                MoveEnemy(transform.position, moveAxis, loopMovement);
+                ShootSpawnableAmmo();
+                if (doubleShoot)
+                    Invoke("ShootSpawnableAmmo", shootDelay + 0.2f);
+                called = true;
+            }
+            
         }
         else
         {
@@ -48,4 +54,5 @@ public class EnemyShipController : EnemyController {
             Invoke("ShootSpawnableAmmo", shootDelay);
         }
     }
+
 }

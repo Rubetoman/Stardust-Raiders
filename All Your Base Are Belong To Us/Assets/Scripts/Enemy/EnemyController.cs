@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
     [Header("Enemy Pointing")]              //Make the enemy weapons to point the player
-    [Space(10)]
     public Transform cannonParent;          // The GO that contains the rotating cannons
     public float cannonRotationSpeed;
     public float heightOffset = 4.0f;
+    [Space(10)]
     [Header("Spawnable Ammo")]              //Ammo that is going to be spawnable from a spawn point
     public Transform[] missileSpawnPoints;
     public GameObject spawnMissile;
@@ -19,10 +19,10 @@ public class EnemyController : MonoBehaviour {
     public float movementTime = 1.0f;       // Time that one move takes
     public float movementRadius = 10.0f;    // the maximun radius of movement is going to use
     public float movementDelay = 5.0f;      // Delay time between different moves
-    protected Vector3 originalPosition;
+    public Vector3 moveAxis = new Vector3(1.0f, 1.0f, 0.0f);
+    public bool loopMovement = true;
     protected Vector3 goalPosition;
     protected Vector3 currentPosition;
-
 
     protected GameObject player;
     // Use this for initialization
@@ -60,24 +60,31 @@ public class EnemyController : MonoBehaviour {
         transform.position = newPosition;
     }
 
-    protected void MoveEnemy()
+    protected virtual void MoveEnemy(Vector3 pivot, Vector3 axisMovement, bool loop)
     {
         Vector3 movementVector = Random.insideUnitSphere * movementRadius;
-        movementVector.y = player.transform.position.y;//player changed
-        goalPosition = originalPosition + movementVector;
+        movementVector.x *= axisMovement.x;
+        movementVector.y *= axisMovement.y;
+        movementVector.z *= axisMovement.z;
+        goalPosition = pivot + movementVector;
         currentPosition = transform.position;
-        StartCoroutine("ActuallyMoveBoss");
+        StartCoroutine(ActuallyMoveEnemy(pivot, axisMovement, loop));
     }
 
-    IEnumerator ActuallyMoveBoss()
+    IEnumerator ActuallyMoveEnemy(Vector3 pivot, Vector3 axisMovement, bool loop)
     {
+        
         float t = 0.0f;
         while (t < movementTime)
         {
             t += Time.deltaTime;
+            goalPosition.z = transform.position.z;
             transform.position = Vector3.Lerp(currentPosition, goalPosition, t / movementTime);
             yield return null;
         }
-        Invoke("MoveEnemy", movementDelay);
+        if (loop){
+            yield return new WaitForSeconds(movementDelay);
+            MoveEnemy(pivot, axisMovement, loop);
+        }
     }
 }
