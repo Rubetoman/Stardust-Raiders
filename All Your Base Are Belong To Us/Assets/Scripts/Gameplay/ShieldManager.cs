@@ -44,12 +44,14 @@ public class ShieldManager : MonoBehaviour {
         }
         if (gameObject.activeInHierarchy && mesh != null)
             StartCoroutine(FlickeringColor(hitColor));
-        
+        else
+            invulnerable = false;
+
     }
 
     protected virtual void Die()
     {
-        Destroy(Instantiate(deathEffect, gameObject.transform.localPosition, Quaternion.identity), 1.0f);
+        Destroy(Instantiate(deathEffect, gameObject.transform.position, Quaternion.identity), 1.0f);
     }
 
     /// <summary>

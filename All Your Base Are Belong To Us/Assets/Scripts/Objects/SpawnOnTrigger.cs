@@ -7,7 +7,7 @@ public class SpawnOnTrigger : MonoBehaviour {
     public GameObject spawnObject;
     public float destroyTime = 1.0f;
 
-    private float cooldownTimer = 0.0f;
+    //private float cooldownTimer = 0.0f;
 	// Use this for initialization
 	void Start () {
 		

@@ -6,14 +6,23 @@ public class BulletController : MonoBehaviour {
 
     public int damageToPlayer = 10;
     public int damageToEnemy = 10;
+    public int damageToObstacle = 10;
 
     protected void OnTriggerEnter(Collider other)
     {
         var hit = other.gameObject;
-        if (other.CompareTag("Enemy"))
-            DamageEnemy(hit);
-        else if (other.CompareTag("PlayerCollider"))
-            DamagePlayer(hit);
+        switch (other.tag)
+        {
+            case "Enemy":
+                DamageEnemy(hit);
+                break;
+            case "PlayerCollider":
+                DamagePlayer(hit);
+                break;
+            case "Destructible":
+                DamageObstacle(hit);
+                break;
+        }
 
         Destroy(gameObject);
     }
@@ -33,6 +42,15 @@ public class BulletController : MonoBehaviour {
         if (shield != null && !shield.invulnerable)
         {
             shield.TakeDamage(damageToEnemy);
+        }
+    }
+
+    protected void DamageObstacle(GameObject obstacle)
+    {
+        var shield = obstacle.GetComponent<ObstacleShieldManager>();
+        if (shield != null && !shield.invulnerable)
+        {
+            shield.TakeDamage(damageToObstacle);
         }
     }
 }

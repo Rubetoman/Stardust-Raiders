@@ -9,6 +9,7 @@ TagManager:
   - GameplayPlane
   - Bullet
   - Boss
+  - Destructible
   layers:
   - Default
   - TransparentFX

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThrusterColorController : MonoBehaviour {
+public class FlickColorController : MonoBehaviour {
 
     public Material materialA; //First material to change between
     public Material materialB; //Second material to change between

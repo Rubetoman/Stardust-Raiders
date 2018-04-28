@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObstacleController : MonoBehaviour {
 
     public int damage = 10;
+
     private void OnTriggerEnter(Collider other)
     {
         var hit = other.gameObject;

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_Scenes/boss_fight.unity
+- path: Assets/_Scenes/obstacle_course.unity
   isLoaded: 1
   isActive: 1
