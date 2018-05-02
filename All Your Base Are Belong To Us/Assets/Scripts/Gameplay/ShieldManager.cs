@@ -30,6 +30,8 @@ public class ShieldManager : MonoBehaviour {
 	
     public virtual void TakeDamage(int amount)
     {
+        if (invulnerable)
+            return;
         if (amount < 0)
         {
             Debug.LogError("Negative numbers not allowed");

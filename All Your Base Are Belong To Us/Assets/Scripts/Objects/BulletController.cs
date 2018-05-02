@@ -30,7 +30,7 @@ public class BulletController : MonoBehaviour {
     protected void DamagePlayer(GameObject player)
     {
         var shield = player.GetComponent<PlayerShieldManager>();
-        if (shield != null && !shield.invulnerable)
+        if (shield != null && !shield.inBarrelRoll)
         {
             shield.TakeDamage(damageToPlayer);
         }
@@ -39,7 +39,7 @@ public class BulletController : MonoBehaviour {
     protected void DamageEnemy(GameObject enemy)
     {
         var shield = enemy.GetComponent<EnemyShieldManager>();
-        if (shield != null && !shield.invulnerable)
+        if (shield != null /*&& !shield.invulnerable*/)
         {
             shield.TakeDamage(damageToEnemy);
         }
@@ -48,7 +48,7 @@ public class BulletController : MonoBehaviour {
     protected void DamageObstacle(GameObject obstacle)
     {
         var shield = obstacle.GetComponent<ObstacleShieldManager>();
-        if (shield != null && !shield.invulnerable)
+        if (shield != null /*&& !shield.invulnerable*/)
         {
             shield.TakeDamage(damageToObstacle);
         }

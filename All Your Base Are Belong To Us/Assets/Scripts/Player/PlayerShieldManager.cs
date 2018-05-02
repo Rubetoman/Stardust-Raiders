@@ -11,10 +11,10 @@ public class PlayerShieldManager : ShieldManager {
     [Header("Lives")]
     public int initialLives = 3;
     public Text livesCount;
-    
+
+    public bool inBarrelRoll = false;
     private int currentLives;
     private GameObject player;
-
     new void Start()
     {
         base.Start();

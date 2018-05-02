@@ -44,13 +44,16 @@ public class EnemyController : MonoBehaviour {
 
         Transform spawnPoint = missileSpawnPoints[missileIndex];
         missileIndex++;
-        if (missileIndex >= missileSpawnPoints.Length || spawnPoint == null)
+        if (missileIndex >= missileSpawnPoints.Length)
         {
             missileIndex = 0;
         }
-        missile = Instantiate(spawnMissile, spawnPoint.position, spawnPoint.rotation);
-        missile.transform.parent = transform;
-        Destroy(missile, missileDestroyTime);
+        if(spawnPoint != null && spawnMissile != null)
+        {
+            missile = Instantiate(spawnMissile, spawnPoint.position, spawnPoint.rotation);
+            missile.transform.parent = transform;
+            Destroy(missile, missileDestroyTime);
+        }
     }
 
     protected void StandInFrontOf(GameObject focused, float targetDistance)
@@ -60,7 +63,12 @@ public class EnemyController : MonoBehaviour {
         transform.position = newPosition;
     }
 
-    protected virtual void MoveEnemy(Vector3 pivot, Vector3 axisMovement, bool loop)
+    void StopMoving()
+    {
+        loopMovement = false;
+    }
+
+    protected virtual void MoveEnemy(Vector3 pivot, Vector3 axisMovement)
     {
         Vector3 movementVector = Random.insideUnitSphere * movementRadius;
         movementVector.x *= axisMovement.x;
@@ -68,10 +76,10 @@ public class EnemyController : MonoBehaviour {
         movementVector.z *= axisMovement.z;
         goalPosition = pivot + movementVector;
         currentPosition = transform.position;
-        StartCoroutine(ActuallyMoveEnemy(pivot, axisMovement, loop));
+        StartCoroutine(ActuallyMoveEnemy(pivot, axisMovement));
     }
 
-    IEnumerator ActuallyMoveEnemy(Vector3 pivot, Vector3 axisMovement, bool loop)
+    IEnumerator ActuallyMoveEnemy(Vector3 pivot, Vector3 axisMovement)
     {
         
         float t = 0.0f;
@@ -82,9 +90,9 @@ public class EnemyController : MonoBehaviour {
             transform.position = Vector3.Lerp(currentPosition, goalPosition, t / movementTime);
             yield return null;
         }
-        if (loop){
+        if (loopMovement){
             yield return new WaitForSeconds(movementDelay);
-            MoveEnemy(pivot, axisMovement, loop);
+            MoveEnemy(pivot, axisMovement);
         }
     }
 }

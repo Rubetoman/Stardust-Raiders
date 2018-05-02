@@ -37,7 +37,7 @@ public class BossController : EnemyController {
         StandInFrontOf(gameplayPlane, targetDistance);
         if (!called)
         {
-            MoveEnemy(transform.position, moveAxis, loopMovement);
+            MoveEnemy(transform.position, moveAxis);
             ShootSpawnableAmmo();
             called = true;
         }

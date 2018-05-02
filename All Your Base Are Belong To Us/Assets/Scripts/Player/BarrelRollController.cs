@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class BarrelRollController : MonoBehaviour {
 
-    public float multipleTapDelay = 1.0f; //Max delay between taps of a Input to be considered as consecutive taps
-    public float barrelRollDuration = 1.0f; //Time it takes to do the barrel roll
-    public float maxBankAngle = 85f; //The maximun degrees we want our starship to bank (Euler Angles)
+    public float multipleTapDelay = 1.0f;   // Max delay between taps of a Input to be considered as consecutive taps
+    public float barrelRollDuration = 1.0f; // Time it takes to do the barrel roll
+    public float maxBankAngle = 85f;        // The maximun degrees we want our starship to bank (Euler Angles)
     public GameObject playerMainBody;
+    public GameObject barrelRollShield;
 
     private bool buttonDown = false;
     private float leftTimer = 1.0f;
     private float rightTimer = 1.0f;
-    private bool invulnerable;
 
     [HideInInspector]
     public bool inBarrelRoll = false;
@@ -112,21 +112,33 @@ public class BarrelRollController : MonoBehaviour {
     {
 
         inBarrelRoll = true;
-        playerMainBody.GetComponent<ShieldManager>().invulnerable = true;
+        playerMainBody.GetComponent<PlayerShieldManager>().inBarrelRoll = true;
 
         float t = 0.0f;
         Quaternion startRot = transform.rotation;
+        barrelRollShield.SetActive(true);
         while (t < barrelRollDuration)
         {
             t += Time.deltaTime;
+            barrelRollShield.transform.localScale = Vector3.Lerp(Vector3.zero, new Vector3(6.5f, 6.5f, 6.5f), t / barrelRollDuration );
             if (side < 0.0f)
                 transform.rotation = startRot * Quaternion.AngleAxis(t / barrelRollDuration * 360f, Vector3.forward); //or transform.right if you want it to be locally based
             else
                 transform.rotation = startRot * Quaternion.AngleAxis(t / barrelRollDuration * 360f, -Vector3.forward);
+            /*if(t < barrelRollDuration / 2)
+            {               
+                barrelRollShield.transform.localScale = Vector3.Lerp(Vector3.zero, new Vector3(6.5f, 6.5f, 6.5f), t / (barrelRollDuration/2f));
+            }
+            else
+            {
+                barrelRollShield.transform.localScale = Vector3.Lerp(new Vector3(6.5f, 6.5f, 6.5f), Vector3.zero, t / (barrelRollDuration / 2f));
+            }*/
+            
             yield return null;
         }
+        barrelRollShield.SetActive(false);
         transform.rotation = startRot;
         inBarrelRoll = false;
-        playerMainBody.GetComponent<ShieldManager>().invulnerable = false;
+        playerMainBody.GetComponent<PlayerShieldManager>().inBarrelRoll = false;
     }
 }
