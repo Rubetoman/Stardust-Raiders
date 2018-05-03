@@ -315,6 +315,8 @@
     <Compile Include="Assets\Scripts\Enemy\TankController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\AddToScoreOnTriggerEnter.cs" />
     <Compile Include="Assets\Scripts\Gameplay\DestroyOnCollisionExit.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\GameLogic\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\GameLogic\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Rail.cs" />
     <Compile Include="Assets\Scripts\Gameplay\RailMover.cs" />
     <Compile Include="Assets\Scripts\Gameplay\RecoverShieldOnTriggerEnter.cs" />
@@ -324,8 +326,10 @@
     <Compile Include="Assets\Scripts\Objects\BulletController.cs" />
     <Compile Include="Assets\Scripts\Objects\FlickColorController.cs" />
     <Compile Include="Assets\Scripts\Objects\KeepRotating.cs" />
+    <Compile Include="Assets\Scripts\Objects\LookAtPlayer.cs" />
     <Compile Include="Assets\Scripts\Objects\MoveForward.cs" />
     <Compile Include="Assets\Scripts\Objects\ObstacleController.cs" />
+    <Compile Include="Assets\Scripts\Objects\ObstacleGroupManager.cs" />
     <Compile Include="Assets\Scripts\Objects\ObstacleShieldManager.cs" />
     <Compile Include="Assets\Scripts\Objects\RingController.cs" />
     <Compile Include="Assets\Scripts\Objects\SeekingBullet.cs" />

@@ -16,14 +16,13 @@ public class ScoreManager : MonoBehaviour {
     {
         if(instance !=null && instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             return;
         }
         else
         {
             instance = this;
         }
-        DontDestroyOnLoad(this.gameObject);
         gameObject.name = "$ScoreManager";
     }
     #endregion
@@ -32,4 +31,9 @@ public class ScoreManager : MonoBehaviour {
     {
         GUILayout.Label("Score: " + score);
     }*/
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.AddToTotalScore(score);
+    }
 }

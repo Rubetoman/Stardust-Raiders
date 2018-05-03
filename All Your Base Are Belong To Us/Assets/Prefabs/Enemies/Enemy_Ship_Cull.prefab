@@ -102,7 +102,7 @@ GameObject:
   m_Layer: 0
   m_Name: Front_Gun
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -1577725955494882426, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3197,7 +3197,7 @@ MonoBehaviour:
   targetDistance: 70
   forwardSpeed: 4
   leaveTime: 20
-  shootDelay: 2
+  shootDelay: 1.8
   shootDistance: 300
   bulletVelocity: 100
   doubleShoot: 1

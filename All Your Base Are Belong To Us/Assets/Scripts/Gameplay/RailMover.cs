@@ -109,4 +109,14 @@ public class RailMover : MonoBehaviour {
         transform.rotation = rail.OrientationOnRail(currentSeg, transition, orientationMode, transform, isReversed);
 
     }
+
+    public int getCurrentSegment()
+    {
+        return currentSeg;
+    }
+
+    public GameObject getCurrentNode()
+    {
+        return rail.nodes[currentSeg].gameObject;
+    }
 }
