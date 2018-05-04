@@ -27,16 +27,17 @@ public class LevelManager : MonoBehaviour {
     [System.Serializable]
     public class Sector             // Each sector contains a set of variables
     {
-        public GameObject[] nodes;  // Nodes that form a sector
-        public float speed;         // Speed of the playerShip inside the sector
-        public Camera camera;       // Camera to change in case this sector has a different camera from the previous sector
-        public bool playerMovement; // If true the player controls are active, else they are disabled 
-        public GameObject[] enemies;// List of enemies that would be spawned
+        public GameObject[] nodes;          // Nodes that form a sector
+        public float speed;                 // Speed of the playerShip inside the sector
+        public Camera camera;               // Camera to change in case this sector has a different camera from the previous sector
+        public bool playerMovement = true;  // If true the player controls are active, else they are disabled 
+        public GameObject[] enemies;        // List of enemies that would be spawned
     }
 
     public Sector[] sectors;            // Array of sectors that form a Level
     public GameObject gameplayPlane;    //
 
+    private GameObject player;          // GameObject of the Player
     private Sector currentSector;       // Sector the player is currently in
     private Sector nextSector;          // Ssector that the player is reaching
     private int currentSectorNumber;    // Index of the current sector
@@ -45,11 +46,13 @@ public class LevelManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        player = GameObject.FindGameObjectWithTag("Player");
         currentSector = sectors[0];
         if(sectors.Length>1)
             nextSector = sectors[1];
         currentSectorNumber = 0;
-        SetSpeed(currentSector.speed);
+        SetCurrentSectorPlayerMovement();
+        SetCurrentSectorSpeed();
         if(currentSector.camera != null)
         {
             currentCamera = currentSector.camera.gameObject;
@@ -87,11 +90,13 @@ public class LevelManager : MonoBehaviour {
         // Update sector order
         currentSector = nextSector;
         currentSectorNumber++;
-        //Cange camera if needed
+        //Change playerMovement
+        SetCurrentSectorPlayerMovement();
+        //Change camera if needed
         if (currentSector.camera != null)
-            ChangeToCurrentSectorCamera();
+            SetCurrentSectorCamera();
         //Change speed
-        SetSpeed();
+        SetCurrentSectorSpeed();
 
         // Check if we reached last sector
         if (sectors.Length - 1 > currentSectorNumber)
@@ -112,7 +117,7 @@ public class LevelManager : MonoBehaviour {
     /// <summary>
     /// Change speed to current sector speed
     /// </summary>
-    void SetSpeed()
+    void SetCurrentSectorSpeed()
     {
         if (gameplayPlane.GetComponent<RailMover>() != null)
             gameplayPlane.GetComponent<RailMover>().speed = sectors[currentSectorNumber].speed;
@@ -123,13 +128,24 @@ public class LevelManager : MonoBehaviour {
     /// <summary>
     /// Change camera to current sector camera
     /// </summary>
-    void ChangeToCurrentSectorCamera()
+    void SetCurrentSectorCamera()
     {
         currentCamera.gameObject.SetActive(false);
         currentCamera = currentSector.camera.gameObject;
         currentCamera.gameObject.SetActive(true);
     }
 
+    void SetCurrentSectorPlayerMovement()
+    {
+        var state = currentSector.playerMovement;
+        if(state != player.GetComponent<ShipController>().enabled)
+        {
+            player.GetComponent<ShipController>().enabled = state;
+            player.GetComponent<BarrelRollController>().enabled = state;
+            player.GetComponent<PlayerGunController>().enabled = state;
+            player.GetComponentInChildren<PlayerShieldManager>().enabled = state;
+        }
+    }
     void SetEnemiesActive()
     {
         //sectors+[]
