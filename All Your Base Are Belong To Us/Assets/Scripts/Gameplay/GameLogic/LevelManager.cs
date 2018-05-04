@@ -25,21 +25,24 @@ public class LevelManager : MonoBehaviour {
     #endregion
 
     [System.Serializable]
-    public class Sector
+    public class Sector             // Each sector contains a set of variables
     {
-        public GameObject[] nodes;
-        public float speed;
-        public Camera camera;
-        public GameObject[] enemies;
+        public GameObject[] nodes;  // Nodes that form a sector
+        public float speed;         // Speed of the playerShip inside the sector
+        public Camera camera;       // Camera to change in case this sector has a different camera from the previous sector
+        public bool playerMovement; // If true the player controls are active, else they are disabled 
+        public GameObject[] enemies;// List of enemies that would be spawned
     }
 
-    public Sector[] sectors;
-    public GameObject gameplayPlane;
-    private Sector currentSector;
-    private Sector nextSector;
-    private int currentSectorNumber;
-    private bool canChangeSector = true;
-    private GameObject currentCamera;
+    public Sector[] sectors;            // Array of sectors that form a Level
+    public GameObject gameplayPlane;    //
+
+    private Sector currentSector;       // Sector the player is currently in
+    private Sector nextSector;          // Ssector that the player is reaching
+    private int currentSectorNumber;    // Index of the current sector
+    private bool canChangeSector = true;//
+    private GameObject currentCamera;   // Camera that is currently in use
+
     // Use this for initialization
     void Start () {
         currentSector = sectors[0];
@@ -60,49 +63,68 @@ public class LevelManager : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-        LookForSectorChange();
-
+	void LateUpdate () {
+        if (canChangeSector)
+            LookForSectorChange();
     }
 
     /// <summary>
-    /// This function compares the first node of the netx sector with the node that i
+    /// This function compares the first node of the next sector with the node that the player last passed through
     /// </summary>
     void LookForSectorChange()
     {
-        if (gameplayPlane.GetComponent<RailMover>().getCurrentNode() == nextSector.nodes[0] && canChangeSector)
+        if (gameplayPlane.GetComponent<RailMover>().getCurrentNode() == nextSector.nodes[0])
         {
             canChangeSector = false;
             ChangeSectorToNext();
         }
     }
-
+    /// <summary>
+    /// Function that makes every change nedeed between sectors
+    /// </summary>
     void ChangeSectorToNext()
     {
-        print(currentSectorNumber);
+        // Update sector order
         currentSector = nextSector;
         currentSectorNumber++;
-        if (sectors.Length-1 > currentSectorNumber)
+        //Cange camera if needed
+        if (currentSector.camera != null)
+            ChangeToCurrentSectorCamera();
+        //Change speed
+        SetSpeed();
+
+        // Check if we reached last sector
+        if (sectors.Length - 1 > currentSectorNumber)
         {
-            nextSector = sectors[currentSectorNumber];
-            canChangeSector = true;
-            if (currentSector.camera != null)
-                ChangeToCurrentSectorCamera();
-            SetSpeed(sectors[currentSectorNumber].speed);
+            nextSector = sectors[currentSectorNumber+1];
         }
+        else
+        {
+            // Reset values just in case it loops
+            currentSectorNumber = 0;
+            currentSector = sectors[0];
+            if (sectors.Length > 1)
+                nextSector = sectors[1];
+        }
+        canChangeSector = true;
     }
 
-    void SetSpeed(float speed)
+    /// <summary>
+    /// Change speed to current sector speed
+    /// </summary>
+    void SetSpeed()
     {
         if (gameplayPlane.GetComponent<RailMover>() != null)
-            gameplayPlane.GetComponent<RailMover>().speed = speed;
+            gameplayPlane.GetComponent<RailMover>().speed = sectors[currentSectorNumber].speed;
         else
             Debug.LogError("RailMover Script couldn't be found inside gameplayPlane GameObject");
     }
 
+    /// <summary>
+    /// Change camera to current sector camera
+    /// </summary>
     void ChangeToCurrentSectorCamera()
     {
-        print("b");
         currentCamera.gameObject.SetActive(false);
         currentCamera = currentSector.camera.gameObject;
         currentCamera.gameObject.SetActive(true);
