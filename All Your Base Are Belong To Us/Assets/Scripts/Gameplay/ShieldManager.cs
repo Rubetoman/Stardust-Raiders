@@ -44,7 +44,7 @@ public class ShieldManager : MonoBehaviour {
             currentShield = 0;
             Die();
         }
-        if (gameObject.activeInHierarchy && mesh != null)
+        if (gameObject.activeInHierarchy && mesh != null && recoverTime > 0)
             StartCoroutine(FlickeringColor(hitColor));
         else
             invulnerable = false;

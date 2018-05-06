@@ -209,7 +209,7 @@ GameObject:
   m_Icon: {fileID: -1577725955494882426, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1414520108789228
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +426,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1249535996554726}
   m_LocalRotation: {x: 0.50000006, y: 0.5, z: 0.50000006, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: -16.191002}
+  m_LocalPosition: {x: 0, y: 0, z: -321}
   m_LocalScale: {x: 50, y: 1, z: 50}
   m_Children: []
   m_Father: {fileID: 4353006663218200}
@@ -668,7 +668,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 2000
+  far clip plane: 300
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -1345,14 +1345,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8535149893145274fa27360cb19633ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunType: 0
+  gunType: 1
   mainGun: {fileID: 1395916485583316}
   secondaryGun1: {fileID: 1542147539650296}
   secondaryGun2: {fileID: 1361971979307614}
   bullet: {fileID: 54208252346461118, guid: 2fd5430bb129339449bc844e51d4649c, type: 2}
-  velocity: 100
-  zModification: 0
-  destroyTime: 2
+  velocity: 150
+  yOffset: 0
+  destroyTime: 4
 --- !u!114 &114209685055729740
 MonoBehaviour:
   m_ObjectHideFlags: 1

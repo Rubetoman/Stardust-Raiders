@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 23905098596632324}
   - component: {fileID: 114919660304833760}
   - component: {fileID: 114028525162921444}
+  - component: {fileID: 114543854070163242}
   m_Layer: 0
   m_Name: Tank_Red_Cull
   m_TagString: Enemy
@@ -244,7 +245,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1504500890852914
 GameObject:
@@ -263,7 +264,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1547020745633960
 GameObject:
@@ -283,7 +284,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1648607133810446
 GameObject:
@@ -303,7 +304,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1694431898144136
 GameObject:
@@ -650,8 +651,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1172710187598394}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 10, z: 389.1421}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -38.967545, y: 72, z: 1336}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4478010471181148}
@@ -659,7 +660,7 @@ Transform:
   - {fileID: 4314480659649068}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4908511242924390
 Transform:
   m_ObjectHideFlags: 1
@@ -1459,6 +1460,8 @@ MonoBehaviour:
   movementTime: 1
   movementRadius: 10
   movementDelay: 5
+  moveAxis: {x: 1, y: 1, z: 0}
+  loopMovement: 1
   missileDelay: 5
   targetDistance: 300
 --- !u!114 &114038948534455664
@@ -3877,7 +3880,7 @@ MonoBehaviour:
   m_Script: {fileID: 16342205, guid: 0472bdc8d6d15384d98f22ee34302f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityType: 0
+  _entityType: 4
 --- !u!114 &114251103623837458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6402,7 +6405,7 @@ MonoBehaviour:
   m_Script: {fileID: 16342205, guid: 0472bdc8d6d15384d98f22ee34302f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityType: 0
+  _entityType: 4
 --- !u!114 &114353348080766494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13981,6 +13984,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityType: 4
+--- !u!114 &114543854070163242
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1172710187598394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d739758d680da45a4f79622ccecb19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rail: {fileID: 0}
+  playMode: 0
+  speedMode: 0
+  orientationMode: 0
+  speed: 2.5
+  timeBetweenSegments: 2.5
+  isReversed: 0
+  isLooping: 1
+  pingPong: 1
 --- !u!114 &114555332725963060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14914,7 +14937,7 @@ MonoBehaviour:
   m_Script: {fileID: 16342205, guid: 0472bdc8d6d15384d98f22ee34302f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityType: 0
+  _entityType: 4
 --- !u!114 &114643102440879488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16739,13 +16762,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentShield: 20
-  damaged: 0
+  godMode: 0
   recoverTime: 0
   hitColor: {r: 0.862069, g: 1, b: 0, a: 0}
   flickCount: 5
   flickRate: 0.1
   deathEffect: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb,
     type: 2}
+  invulnerable: 0
 --- !u!114 &114929875364848428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16769,4 +16793,4 @@ MonoBehaviour:
   m_Script: {fileID: 16342205, guid: 0472bdc8d6d15384d98f22ee34302f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityType: 0
+  _entityType: 4

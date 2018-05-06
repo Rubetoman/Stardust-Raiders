@@ -27,11 +27,12 @@ public class LevelManager : MonoBehaviour {
     [System.Serializable]
     public class Sector             // Each sector contains a set of variables
     {
-        public GameObject[] nodes;          // Nodes that form a sector
+        public GameObject startNode;        // First node of the sector
         public float speed;                 // Speed of the playerShip inside the sector
         public Camera camera;               // Camera to change in case this sector has a different camera from the previous sector
         public bool playerMovement = true;  // If true the player controls are active, else they are disabled 
         public GameObject[] enemies;        // List of enemies that would be spawned
+        public Rail alternativeRail;
     }
 
     public Sector[] sectors;            // Array of sectors that form a Level
@@ -76,10 +77,13 @@ public class LevelManager : MonoBehaviour {
     /// </summary>
     void LookForSectorChange()
     {
-        if (gameplayPlane.GetComponent<RailMover>().getCurrentNode() == nextSector.nodes[0])
+        if (gameplayPlane.GetComponent<RailMover>().getCurrentNode() == nextSector.startNode)
         {
             canChangeSector = false;
+ 
             ChangeSectorToNext();
+            if (currentSector.alternativeRail != null)
+                StartPathSelection();
         }
     }
     /// <summary>
@@ -149,5 +153,11 @@ public class LevelManager : MonoBehaviour {
     void SetEnemiesActive()
     {
         //sectors+[]
+    }
+
+    void StartPathSelection()
+    {
+        //print(currentSector.startNode.name);
+        GetComponent<PathDivider>().activatePathSelection(currentSector.alternativeRail);
     }
 }

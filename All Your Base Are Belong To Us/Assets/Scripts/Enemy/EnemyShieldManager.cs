@@ -16,9 +16,9 @@ public class EnemyShieldManager : ShieldManager {
     protected override void Die()
     {
         base.Die();
-        if (transform.parent != null)
+        /*if (transform.parent != null)
             Destroy(transform.parent.gameObject);
-        else
+        else*/
             Destroy(gameObject);
     }
 }
