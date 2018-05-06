@@ -6,6 +6,7 @@ public class TankController : EnemyController {
     [Header("Tank Variables")]
     public float missileDelay = 1.0f;
     public float targetDistance = 300.0f;            // Distance at which the enemy will start shooting
+
     // Use this for initialization
     new void Start () {
         base.Start();

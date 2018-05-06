@@ -31,8 +31,8 @@ public class LevelManager : MonoBehaviour {
         public float speed;                 // Speed of the playerShip inside the sector
         public Camera camera;               // Camera to change in case this sector has a different camera from the previous sector
         public bool playerMovement = true;  // If true the player controls are active, else they are disabled 
-        public GameObject[] enemies;        // List of enemies that would be spawned
         public Rail alternativeRail;
+        public bool changeScene = false;    // If true, at the end of this sector a new scene will be loaded
     }
 
     public Sector[] sectors;            // Array of sectors that form a Level
@@ -80,10 +80,16 @@ public class LevelManager : MonoBehaviour {
         if (gameplayPlane.GetComponent<RailMover>().getCurrentNode() == nextSector.startNode)
         {
             canChangeSector = false;
- 
-            ChangeSectorToNext();
-            if (currentSector.alternativeRail != null)
-                StartPathSelection();
+            if (currentSector.changeScene)
+            {
+                GameManager.Instance.SetScene("boss_fight");
+            }
+            else
+            {
+                ChangeSectorToNext();
+                if (currentSector.alternativeRail != null)
+                    StartPathSelection();
+            }
         }
     }
     /// <summary>
@@ -149,10 +155,6 @@ public class LevelManager : MonoBehaviour {
             player.GetComponent<PlayerGunController>().enabled = state;
             player.GetComponentInChildren<PlayerShieldManager>().enabled = state;
         }
-    }
-    void SetEnemiesActive()
-    {
-        //sectors+[]
     }
 
     void StartPathSelection()

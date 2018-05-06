@@ -7,18 +7,15 @@ public class PlayerShieldManager : ShieldManager {
     public RectTransform playerShieldBar;
     [Header("Recover Effect")]
     public Color recoverColor;
-    [Space(10)]
-    [Header("Lives")]
-    public int initialLives = 3;
-    public Text livesCount;
-
+    [HideInInspector]
     public bool inBarrelRoll = false;
+
     private int currentLives;
     private GameObject player;
     new void Start()
     {
         base.Start();
-        currentLives = initialLives;
+        currentLives = GameManager.Instance.playerInfo.lives;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -48,12 +45,11 @@ public class PlayerShieldManager : ShieldManager {
     protected override void Die()
     {
         base.Die();
-        player.SendMessageUpwards("SetDead", true);
         gameObject.SetActive(false);
+        GameManager.Instance.SubstractPlayerLives(1);
+        currentLives--;
         if (currentLives-1 >= 0)
         {
-            currentLives--;
-            livesCount.text = "x" + currentLives;
             Invoke("RespawnPlayer", 2.0f);
         }
         else
@@ -69,7 +65,6 @@ public class PlayerShieldManager : ShieldManager {
         currentShield = maxShield;
         playerShieldBar.sizeDelta = new Vector2(currentShield, playerShieldBar.sizeDelta.y);
         StartCoroutine(base.FlickeringColor(Color.blue));
-        player.SendMessageUpwards("SetDead",false);
         player.SendMessageUpwards("ResetPosition");
         player.SendMessageUpwards("ResetRotation");
     }

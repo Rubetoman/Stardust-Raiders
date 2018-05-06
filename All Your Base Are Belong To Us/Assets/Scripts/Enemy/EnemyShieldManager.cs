@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyShieldManager : ShieldManager {
-
+    public int destroyScore = 200;
     new void Start()
     {
         base.Start();
@@ -20,5 +20,6 @@ public class EnemyShieldManager : ShieldManager {
             Destroy(transform.parent.gameObject);
         else*/
             Destroy(gameObject);
+        GameManager.Instance.AddToTotalScore(destroyScore);
     }
 }

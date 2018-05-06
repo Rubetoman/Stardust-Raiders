@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
     #region SingletonAndAwake
@@ -19,35 +20,45 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
-        if (Instance == null)
-            DontDestroyOnLoad(gameObject);
-        else if (Instance != this)
-            Destroy(gameObject);
-
+        _instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     #endregion
 
+    [System.Serializable]
+    public class PlayerInfo
+    {
+        public const int startingLives = 3;
+        public int lives = startingLives;
+        public Text livesCount;
+        public bool isDead = false;
+    }
     public enum StateType
     {
         PLAY,
         MENU,         // Player is viewing in-game menu
         OPTIONS,      // Player is adjusting game options
-        PAUSE,      
+        PAUSE,
         GAMEOVER
     };
-    //public Object[] levelScenes;
-    //public Object introScene;
-    //public Object mainMenuScene;
-    //public GameObject player;
+    public Object[] levelScenes;
+    public Object introScene;
+    public Object mainMenuScene;
+    public PlayerInfo playerInfo;
 
+    //private GameObject player;
     private int TotalScore { get; set; }
     private int ActualScene { get; set; }
     private bool PlayerDead { get; set; }
 
-
+    private void OnGUI()
+    {
+        GUILayout.Label("Score: " + TotalScore);
+    }
     // Use this for initialization
     void Start()
     {
+        //player = GameObject.FindGameObjectWithTag("Player");
         TotalScore = 0;
         ActualScene = SceneManager.GetActiveScene().buildIndex;
     }
@@ -73,25 +84,58 @@ public class GameManager : MonoBehaviour {
 
     public void ResetTotalScore()
     {
-        
+        TotalScore = 0;
     }
     #endregion
 
-    #region LevelFunctions
-    /*public void NextLevel()
+    #region PlayerFunctions
+    /// <summary>
+    /// Sets player dead or alive
+    /// </summary>
+    /// <param name="state">true to set it dead, false otherwise</param>
+    public void SetPlayerDead(bool state)
     {
-        TotalScore++;
+        if(playerInfo.isDead != state)
+            playerInfo.isDead = state;
     }
 
-    public void PreviousLevel()
+    /// <summary>
+    /// Set a custom amount of lives for the player
+    /// </summary>
+    /// <param name="number">number of lives to set</param>
+    public void SetPlayerLives(int number)
     {
-
+        playerInfo.lives = number;
+        playerInfo.livesCount.text = "x" + playerInfo.lives;
     }
 
-    public void SetLevel(int levelNumber)
+    /// <summary>
+    /// Substracts the given number of lives, if it reaches 0 (minimun value) sets player dead
+    /// </summary>
+    /// <param name="amount">number of lives to substract</param>
+    public void SubstractPlayerLives(int amount)
     {
-       
-    }*/
+        if (playerInfo.lives - amount < 0)
+        {
+            playerInfo.lives = 0;
+            SetPlayerDead(true);
+        }else
+            playerInfo.lives -= amount;
+
+        playerInfo.livesCount.text = "x" + playerInfo.lives;
+    }
+
+    /// <summary>
+    /// Adds to the live count of the player the given amount, if the player was dead it is revived
+    /// </summary>
+    /// <param name="amount">number of lives to add</param>
+    public void AddtPlayerLives(int amount)
+    {
+        if (playerInfo.isDead)
+            SetPlayerDead(false);
+        playerInfo.lives += amount;
+        playerInfo.livesCount.text = "x" + playerInfo.lives;
+    }
     #endregion
 
     #region SceneFunctions
@@ -111,6 +155,12 @@ public class GameManager : MonoBehaviour {
     {
         ActualScene = sceneNumber;
         SceneManager.LoadScene(sceneNumber);
+    }
+
+    public void SetScene(string sceneName)
+    {
+        ActualScene = SceneManager.GetSceneByName(sceneName).buildIndex;
+        SceneManager.LoadScene(sceneName);
     }
     #endregion
 }

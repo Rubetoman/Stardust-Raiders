@@ -3233,6 +3233,7 @@ MonoBehaviour:
   deathEffect: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb,
     type: 2}
   invulnerable: 0
+  destroyScore: 500
 --- !u!114 &114300144041974762
 MonoBehaviour:
   m_ObjectHideFlags: 1

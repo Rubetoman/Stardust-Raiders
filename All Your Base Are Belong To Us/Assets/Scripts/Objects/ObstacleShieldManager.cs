@@ -7,6 +7,7 @@ public class ObstacleShieldManager : ShieldManager {
     public Transform explosionSpawnPoint;
     public Vector3 goalScale = Vector3.zero;
     public float time = 60.0f;
+    public int destroyScore = 10;
     private Vector3 initialScale;
 
     new void Start()
@@ -22,6 +23,7 @@ public class ObstacleShieldManager : ShieldManager {
     {
         initialScale = transform.localScale;
         StartCoroutine("DestroyEffect", 0f);
+        GameManager.Instance.AddToTotalScore(destroyScore);
     }
 
     IEnumerator DestroyEffect()
