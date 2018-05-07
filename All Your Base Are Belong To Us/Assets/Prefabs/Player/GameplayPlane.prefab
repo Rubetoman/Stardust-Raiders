@@ -60,7 +60,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1103682582347910
 GameObject:
@@ -383,7 +383,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1637527040344132}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -13}
+  m_LocalPosition: {x: 0, y: 0, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4353006663218200}
@@ -538,7 +538,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1087324648699564}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.047999144, y: 0, z: 15}
+  m_LocalPosition: {x: -0.047999144, y: 0, z: 25}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4463503931948764}
@@ -551,7 +551,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1613611397866942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.033998728, y: 0, z: 10}
+  m_LocalPosition: {x: -0.033998728, y: 0, z: 15}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 4463503931948764}
@@ -1321,7 +1321,7 @@ MonoBehaviour:
   m_Script: {fileID: 16342205, guid: 0472bdc8d6d15384d98f22ee34302f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityType: 0
+  _entityType: 4
 --- !u!114 &114023653658680004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1345,12 +1345,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8535149893145274fa27360cb19633ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunType: 1
   mainGun: {fileID: 1395916485583316}
   secondaryGun1: {fileID: 1542147539650296}
   secondaryGun2: {fileID: 1361971979307614}
-  bullet: {fileID: 54208252346461118, guid: 2fd5430bb129339449bc844e51d4649c, type: 2}
-  velocity: 150
+  bullet: {fileID: 54208252346461118, guid: 83ba8a613a0693c4e9ab5657f472a058, type: 2}
+  velocity: 200
   yOffset: 0
   destroyTime: 4
 --- !u!114 &114209685055729740
@@ -1761,7 +1760,7 @@ MonoBehaviour:
   rail: {fileID: 0}
   playMode: 0
   speedMode: 0
-  orientationMode: 0
+  orientationMode: 1
   speed: 10
   timeBetweenSegments: 2.5
   isReversed: 0
@@ -2559,7 +2558,7 @@ MonoBehaviour:
   bankAmountOnTurn: 50
   boostDuration: 1
   recoilTime: 2
-  speedMod: 5
+  speedMod: 3
   boostBar: {fileID: 0}
 --- !u!114 &114713397769752320
 MonoBehaviour:
@@ -4380,8 +4379,6 @@ MonoBehaviour:
   invulnerable: 0
   playerShieldBar: {fileID: 0}
   recoverColor: {r: 0.1707937, g: 0.672, b: 0.8602941, a: 0}
-  initialLives: 3
-  livesCount: {fileID: 0}
   inBarrelRoll: 0
 --- !u!114 &114879785777289912
 MonoBehaviour:
@@ -4913,7 +4910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multipleTapDelay: 0.2
-  barrelRollDuration: 1
+  barrelRollDuration: 0.5
   maxBankAngle: 85
   playerMainBody: {fileID: 1225094175094894}
   barrelRollShield: {fileID: 1787208638605138}

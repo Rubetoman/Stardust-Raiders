@@ -321,9 +321,12 @@
     <Compile Include="Assets\Scripts\Gameplay\Rail.cs" />
     <Compile Include="Assets\Scripts\Gameplay\RailMover.cs" />
     <Compile Include="Assets\Scripts\Gameplay\RecoverShieldOnTriggerEnter.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\ShieldManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SpeedModifier.cs" />
+    <Compile Include="Assets\Scripts\Objects\BonusItems\BonusObjController.cs" />
+    <Compile Include="Assets\Scripts\Objects\BonusItems\ExtraLiveObjController.cs" />
+    <Compile Include="Assets\Scripts\Objects\BonusItems\HealthRecoverObjController.cs" />
+    <Compile Include="Assets\Scripts\Objects\BonusItems\PowerUpController.cs" />
     <Compile Include="Assets\Scripts\Objects\BulletController.cs" />
     <Compile Include="Assets\Scripts\Objects\FlickColorController.cs" />
     <Compile Include="Assets\Scripts\Objects\KeepRotating.cs" />
@@ -332,7 +335,6 @@
     <Compile Include="Assets\Scripts\Objects\ObstacleController.cs" />
     <Compile Include="Assets\Scripts\Objects\ObstacleGroupManager.cs" />
     <Compile Include="Assets\Scripts\Objects\ObstacleShieldManager.cs" />
-    <Compile Include="Assets\Scripts\Objects\RingController.cs" />
     <Compile Include="Assets\Scripts\Objects\SeekingBullet.cs" />
     <Compile Include="Assets\Scripts\Objects\SpawnOnTrigger.cs" />
     <Compile Include="Assets\Scripts\Player\BarrelRollController.cs" />

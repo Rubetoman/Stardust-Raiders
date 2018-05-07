@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour {
         public int lives = startingLives;
         public Text livesCount;
         public bool isDead = false;
+        public GunType gunType;             // If it will use multiple guns or just one
     }
     public enum StateType
     {
@@ -135,6 +136,14 @@ public class GameManager : MonoBehaviour {
             SetPlayerDead(false);
         playerInfo.lives += amount;
         playerInfo.livesCount.text = "x" + playerInfo.lives;
+    }
+
+    public void ChangeGunType()
+    {
+        if (playerInfo.gunType == GunType.Dual)
+            playerInfo.gunType = GunType.Single;
+        else
+            playerInfo.gunType = GunType.Dual;
     }
     #endregion
 

@@ -9,7 +9,6 @@ public enum GunType
 }
 public class PlayerGunController : MonoBehaviour {
 
-    public GunType gunType;             // If it will use multiple guns or just one
     public GameObject mainGun;          // Place where the Main Gun is located
     public GameObject secondaryGun1;
     public GameObject secondaryGun2;
@@ -22,7 +21,7 @@ public class PlayerGunController : MonoBehaviour {
 	void FixedUpdate () {
         if (Input.GetButtonDown("Fire1"))
         {
-            switch (gunType)
+            switch (GameManager.Instance.playerInfo.gunType)
             {
                 case GunType.Single:
                     Shoot(mainGun.transform);
