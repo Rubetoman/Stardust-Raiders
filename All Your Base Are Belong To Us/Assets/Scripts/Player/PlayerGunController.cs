@@ -6,6 +6,7 @@ public enum GunType
 {
     Single,
     Dual,
+    Triple,
 }
 public class PlayerGunController : MonoBehaviour {
 
@@ -27,6 +28,11 @@ public class PlayerGunController : MonoBehaviour {
                     Shoot(mainGun.transform);
                     break;
                 case GunType.Dual:
+                    Shoot(secondaryGun1.transform);
+                    Shoot(secondaryGun2.transform);
+                    break;
+                case GunType.Triple:
+                    Shoot(mainGun.transform);
                     Shoot(secondaryGun1.transform);
                     Shoot(secondaryGun2.transform);
                     break;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
 
@@ -37,6 +38,8 @@ public class LevelManager : MonoBehaviour {
 
     public Sector[] sectors;            // Array of sectors that form a Level
     public GameObject gameplayPlane;    //
+    public Image gameOverScreen;
+    public Text gameOvertext;
 
     private GameObject player;          // GameObject of the Player
     private Sector currentSector;       // Sector the player is currently in
@@ -161,5 +164,30 @@ public class LevelManager : MonoBehaviour {
     {
         //print(currentSector.startNode.name);
         GetComponent<PathDivider>().activatePathSelection(currentSector.alternativeRail);
+    }
+
+    public void LevelGameOver()
+    {
+        StartCoroutine("GameOverAnimation");
+        GameManager.Instance.Invoke("ResetScene", 10);
+    }
+
+    private IEnumerator GameOverAnimation()
+    {
+        float t = 0.0f;
+        var screenColor = gameOverScreen.color;
+        var newScreenColor = screenColor;
+        newScreenColor.a = 1f;
+        var textColor = gameOvertext.color;
+        var newTextColor = textColor;
+        newTextColor.a = 1f;
+
+        while (t < 1)
+        {
+            t += Time.deltaTime;
+            gameOverScreen.color = Color.Lerp(screenColor, newScreenColor, t);
+            gameOvertext.color = Color.Lerp(textColor, newTextColor, t);
+            yield return null;
+        }
     }
 }

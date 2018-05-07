@@ -10,10 +10,22 @@ public class PowerUpController : BonusObjController
     {
         icon.transform.parent = other.gameObject.transform;
         base.OnTriggerEnter(other);
-        if (GameManager.Instance.playerInfo.gunType != GunType.Dual)
-            GameManager.Instance.ChangeGunType();
-        else
-            GameManager.Instance.AddToTotalScore(base.points);
+        switch (GameManager.Instance.playerInfo.gunType)
+        {
+            default:
+                GameManager.Instance.UpgradeGunType();
+                break;
+            case GunType.Single:
+                GameManager.Instance.UpgradeGunType();
+                break;
+            case GunType.Dual:
+                GameManager.Instance.UpgradeGunType();
+                GameManager.Instance.AddToTotalScore(base.points/2);
+                break;
+            case GunType.Triple:
+                GameManager.Instance.AddToTotalScore(base.points);
+                break;
+        }
     }
     protected override IEnumerator DestroyAnimation()
     {

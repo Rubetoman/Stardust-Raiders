@@ -56,6 +56,7 @@ public class PlayerShieldManager : ShieldManager {
         {
             //Game Over screen
             print("Game Over");
+            LevelManager.Instance.LevelGameOver();
         }
     } 
 
