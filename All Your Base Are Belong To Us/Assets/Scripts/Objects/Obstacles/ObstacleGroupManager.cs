@@ -41,7 +41,7 @@ public class ObstacleGroupManager : MonoBehaviour {
                 obsShield.flickRate = flickRate;
             }
             if (o.GetComponent<ObstacleShieldManager>() != null)
-                o.GetComponent<ObstacleShieldManager>().time = time;
+                o.GetComponent<ObstacleShieldManager>().destroyTime = time;
         }
     }
 }

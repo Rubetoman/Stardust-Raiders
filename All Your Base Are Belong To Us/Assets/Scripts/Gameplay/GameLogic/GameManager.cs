@@ -52,10 +52,10 @@ public class GameManager : MonoBehaviour {
     private int ActualScene { get; set; }
     private bool PlayerDead { get; set; }
 
-    private void OnGUI()
+    /*private void OnGUI()
     {
         GUILayout.Label("Score: " + TotalScore);
-    }
+    }*/
     // Use this for initialization
     void Start()
     {
@@ -80,11 +80,28 @@ public class GameManager : MonoBehaviour {
     }
 
     #region ScoreFunctions
+    /// <summary>
+    /// Returns the Total Score
+    /// </summary>
+    /// <returns>Int of the total score</returns>
+    public int GetTotalScore()
+    {
+        return TotalScore;
+    }
+
+    /// <summary>
+    /// Adds the amount passed as parameter to the Total Score
+    /// </summary>
+    /// <param name="amount">Amount of points to add</param>
     public void AddToTotalScore(int amount)
     {
         TotalScore += amount;
     }
 
+    /// <summary>
+    /// Substracts the amount passed as parameter from Total Score, it can go below 0.
+    /// </summary>
+    /// <param name="amount">Amount to substract</param>
     public void SubstractToTotalScore(int amount)
     {
         if (TotalScore - amount >= 0)
@@ -93,6 +110,9 @@ public class GameManager : MonoBehaviour {
             Debug.LogError("TotalScore can't go below 0");
     }
 
+    /// <summary>
+    /// Sets the Total Score back to 0
+    /// </summary>
     public void ResetTotalScore()
     {
         TotalScore = 0;

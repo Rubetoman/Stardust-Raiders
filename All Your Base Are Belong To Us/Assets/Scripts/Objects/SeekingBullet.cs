@@ -25,8 +25,6 @@ public class SeekingBullet : BulletController {
             //Find player position
             if (player != null)
                 newRotation = Quaternion.LookRotation(player.transform.position - transform.position);
-            else
-                Debug.LogError("Player couldn't be found");
 
             //Turn
             transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, turnSpeed * Time.deltaTime);

@@ -26,13 +26,6 @@ public class ShipController : MonoBehaviour {
 
     private bool boostReady = true;
 
-
-    // Use this for initialization
-    void Start() {
-
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -87,6 +80,13 @@ public class ShipController : MonoBehaviour {
     void ResetPosition()
     {
         transform.localPosition = Vector3.zero;
+    }
+
+    #region BoostandBrakFunctions
+    public void ResetBoost()
+    {
+        boostBar.sizeDelta = new Vector2(maxBoost, boostBar.sizeDelta.y);
+        boostReady = true;
     }
 
     private IEnumerator Boost()
@@ -171,4 +171,5 @@ public class ShipController : MonoBehaviour {
         boostBar.sizeDelta = new Vector2(maxBoost, boostBar.sizeDelta.y);
         boostReady = true;
     }
+    #endregion
 }

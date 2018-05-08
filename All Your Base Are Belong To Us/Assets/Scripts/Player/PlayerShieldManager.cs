@@ -10,12 +10,12 @@ public class PlayerShieldManager : ShieldManager {
     [HideInInspector]
     public bool inBarrelRoll = false;
 
-    private int currentLives;
+    //private int currentLives;
     private GameObject player;
     new void Start()
     {
         base.Start();
-        currentLives = GameManager.Instance.playerInfo.lives;
+        //currentLives = GameManager.Instance.playerInfo.lives;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -45,12 +45,14 @@ public class PlayerShieldManager : ShieldManager {
     protected override void Die()
     {
         base.Die();
-        gameObject.SetActive(false);
+        player.SetActive(false);
+        LevelManager.Instance.PauseLevel();
         GameManager.Instance.SubstractPlayerLives(1);
-        currentLives--;
-        if (currentLives-1 >= 0)
+
+        if (GameManager.Instance.playerInfo.lives - 1 >= 0)
         {
             Invoke("RespawnPlayer", 2.0f);
+            LevelManager.Instance.Invoke("ContinueLevel", 2.5f);
         }
         else
         {
@@ -62,7 +64,8 @@ public class PlayerShieldManager : ShieldManager {
 
     private void RespawnPlayer()
     {
-        gameObject.SetActive(true);
+        player.GetComponent<ShipController>().ResetBoost();
+        player.SetActive(true);
         currentShield = maxShield;
         playerShieldBar.sizeDelta = new Vector2(currentShield, playerShieldBar.sizeDelta.y);
         StartCoroutine(base.FlickeringColor(Color.blue));

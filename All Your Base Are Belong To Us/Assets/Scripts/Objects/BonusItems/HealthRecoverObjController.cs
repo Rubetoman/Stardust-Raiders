@@ -9,6 +9,8 @@ public class HealthRecoverObjController : BonusObjController
 
     protected override void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag("PlayerCollider"))
+            return;
         base.OnTriggerEnter(other);
         var hit = other.gameObject;
         var shield = hit.GetComponent<PlayerShieldManager>();

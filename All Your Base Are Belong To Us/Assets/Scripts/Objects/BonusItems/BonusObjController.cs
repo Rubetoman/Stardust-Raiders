@@ -74,10 +74,12 @@ public class BonusObjController : MonoBehaviour {
     protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PlayerCollider"))
+        {
             GameManager.Instance.AddToTotalScore(points);
-        transform.parent = other.gameObject.transform;
-        StartCoroutine("DestroyAnimation");
-        Destroy(gameObject, 2);
+            transform.parent = other.gameObject.transform;
+            StartCoroutine("DestroyAnimation");
+            Destroy(gameObject, 2);
+        }
     }
 
     protected virtual IEnumerator DestroyAnimation()

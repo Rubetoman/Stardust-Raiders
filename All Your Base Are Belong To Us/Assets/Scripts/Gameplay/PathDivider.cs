@@ -103,7 +103,6 @@ public class PathDivider : MonoBehaviour {
     private void ChangeRail()
     {
         gameplayPlane.GetComponent<RailMover>().rail = altRail;
-        print("changing rail");
     }
 
     private IEnumerator ArrowAnimation(int currentArrow)

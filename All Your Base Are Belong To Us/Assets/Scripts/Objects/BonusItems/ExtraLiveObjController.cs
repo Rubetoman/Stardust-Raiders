@@ -10,6 +10,7 @@ public class ExtraLiveObjController : BonusObjController
     protected override void OnTriggerEnter(Collider other)
     {
         icon.transform.parent = other.gameObject.transform;
+        Destroy(icon, 2);
         base.OnTriggerEnter(other);
         GameManager.Instance.AddtPlayerLives(extraLives);
     }

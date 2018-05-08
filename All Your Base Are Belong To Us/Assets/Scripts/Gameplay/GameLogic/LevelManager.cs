@@ -32,20 +32,21 @@ public class LevelManager : MonoBehaviour {
         public float speed;                 // Speed of the playerShip inside the sector
         public Camera camera;               // Camera to change in case this sector has a different camera from the previous sector
         public bool playerMovement = true;  // If true the player controls are active, else they are disabled 
-        public Rail alternativeRail;
+        public Rail alternativeRail;        // Second rail to choose between the one already in use and this one
         public bool changeScene = false;    // If true, at the end of this sector a new scene will be loaded
     }
 
     public Sector[] sectors;            // Array of sectors that form a Level
-    public GameObject gameplayPlane;    //
-    public Image gameOverScreen;
-    public Text gameOvertext;
+    public GameObject gameplayPlane;    // gameplayPlane GameObject
+    public Image gameOverScreen;        // Background Image of the Game Over Screen
+    public Text gameOvertext;           // Text to be shown on Game Over
+    public Text score;                  // Text tha will show the Total Score on the Game Over Screen
 
     private GameObject player;          // GameObject of the Player
     private Sector currentSector;       // Sector the player is currently in
-    private Sector nextSector;          // Ssector that the player is reaching
+    private Sector nextSector;          // Sector that the player is reaching
     private int currentSectorNumber;    // Index of the current sector
-    private bool canChangeSector = true;//
+    private bool canChangeSector = true;// Bool to aboid trying to change sector while already changin one
     private GameObject currentCamera;   // Camera that is currently in use
 
     // Use this for initialization
@@ -75,6 +76,7 @@ public class LevelManager : MonoBehaviour {
             LookForSectorChange();
     }
 
+    #region SectorFunctions
     /// <summary>
     /// This function compares the first node of the next sector with the node that the player last passed through
     /// </summary>
@@ -159,19 +161,38 @@ public class LevelManager : MonoBehaviour {
             player.GetComponentInChildren<PlayerShieldManager>().enabled = state;
         }
     }
+    #endregion
 
-    void StartPathSelection()
+    #region LevelManagementFunctions
+    /// <summary>
+    /// Pauses the level speed
+    /// </summary>
+    public void PauseLevel()
     {
-        //print(currentSector.startNode.name);
-        GetComponent<PathDivider>().activatePathSelection(currentSector.alternativeRail);
+        gameplayPlane.GetComponent<RailMover>().speed = 0;
     }
 
+    /// <summary>
+    /// Sets Level speed back to normal
+    /// </summary>
+    public void ContinueLevel()
+    {
+        gameplayPlane.GetComponent<RailMover>().speed = currentSector.speed;
+    }
+    
+    /// <summary>
+    /// Function to manage the GameOver screen
+    /// </summary>
     public void LevelGameOver()
     {
+        score.gameObject.SetActive(true);
         StartCoroutine("GameOverAnimation");
         GameManager.Instance.Invoke("ResetScene", 10);
     }
 
+    /// <summary>
+    /// Actual animation for the GameOver screen
+    /// </summary>
     private IEnumerator GameOverAnimation()
     {
         float t = 0.0f;
@@ -189,5 +210,13 @@ public class LevelManager : MonoBehaviour {
             gameOvertext.color = Color.Lerp(textColor, newTextColor, t);
             yield return null;
         }
+        score.text = "Score: " + GameManager.Instance.GetTotalScore();
     }
+    #endregion
+
+    void StartPathSelection()
+    {
+        GetComponent<PathDivider>().activatePathSelection(currentSector.alternativeRail);
+    }
+
 }

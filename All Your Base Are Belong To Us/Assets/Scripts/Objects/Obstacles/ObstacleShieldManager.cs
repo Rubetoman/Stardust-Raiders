@@ -6,7 +6,7 @@ public class ObstacleShieldManager : ShieldManager {
     [Header("Destroy Effect")]
     public Transform explosionSpawnPoint;
     public Vector3 goalScale = Vector3.zero;
-    public float time = 60.0f;
+    public float destroyTime = 6.0f;
     public int destroyScore = 10;
     private Vector3 initialScale;
 
@@ -31,14 +31,14 @@ public class ObstacleShieldManager : ShieldManager {
         float t = 0.0f;
         float t2 = 0.5f;
 
-        while (t < time)
+        while (t < destroyTime)
         {
             if (t2 > 0.5f)
             {
                 Destroy(Instantiate(deathEffect, explosionSpawnPoint.position, Quaternion.identity), 1.0f);
                 t2 = 0.0f;
             }
-            transform.localScale = Vector3.Lerp(initialScale, goalScale, t / time);
+            transform.localScale = Vector3.Lerp(initialScale, goalScale, t / destroyTime);
             t += Time.deltaTime;
             t2 += Time.deltaTime;
             yield return null;

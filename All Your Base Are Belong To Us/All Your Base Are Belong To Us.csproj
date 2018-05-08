@@ -332,9 +332,10 @@
     <Compile Include="Assets\Scripts\Objects\KeepRotating.cs" />
     <Compile Include="Assets\Scripts\Objects\LookAtPlayer.cs" />
     <Compile Include="Assets\Scripts\Objects\MoveForward.cs" />
-    <Compile Include="Assets\Scripts\Objects\ObstacleController.cs" />
-    <Compile Include="Assets\Scripts\Objects\ObstacleGroupManager.cs" />
-    <Compile Include="Assets\Scripts\Objects\ObstacleShieldManager.cs" />
+    <Compile Include="Assets\Scripts\Objects\Obstacles\ColumnTrapController.cs" />
+    <Compile Include="Assets\Scripts\Objects\Obstacles\ObstacleController.cs" />
+    <Compile Include="Assets\Scripts\Objects\Obstacles\ObstacleGroupManager.cs" />
+    <Compile Include="Assets\Scripts\Objects\Obstacles\ObstacleShieldManager.cs" />
     <Compile Include="Assets\Scripts\Objects\SeekingBullet.cs" />
     <Compile Include="Assets\Scripts\Objects\SpawnOnTrigger.cs" />
     <Compile Include="Assets\Scripts\Player\BarrelRollController.cs" />
