@@ -14,17 +14,25 @@ public class BulletController : MonoBehaviour {
         switch (other.tag)
         {
             case "Enemy":
-                DamageEnemy(hit);
+                if (damageToEnemy > 0)
+                {
+                    DamageEnemy(hit);
+                    Destroy(gameObject);
+                }
                 break;
             case "PlayerCollider":
-                DamagePlayer(hit);
+                if(damageToPlayer > 0)
+                {
+                    DamagePlayer(hit);
+                    Destroy(gameObject);
+                }
                 break;
             case "Destructible":
-                DamageObstacle(hit);
+                if(damageToObstacle > 0)
+                    DamageObstacle(hit);
+                Destroy(gameObject);
                 break;
         }
-
-        Destroy(gameObject);
     }
 
     protected void DamagePlayer(GameObject player)

@@ -5,8 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
     public Transform objectToFollow;
-    public Vector2 limitOffset = new Vector2(0.5f, 0.5f);
-    public GameObject limitPlane;
+    public Vector2 stopDistance = new Vector2(30,10);
 
     private Vector3 newPos;
 
@@ -15,15 +14,10 @@ public class CameraController : MonoBehaviour {
 
     }
 
-    void LateUpdate () {
-        //localPosition is used to use the position relative to the parent (gameplayPlane)
-        newPos = objectToFollow.localPosition; //Pick-up the ship position
-        //Modify the position of the ship depending on the distance to the center of the plane
-        var distanceToCenterX = Mathf.Abs(transform.localPosition.x - limitPlane.transform.localPosition.x);
-        var distanceToCenterY = Mathf.Abs(transform.localPosition.y - limitPlane.transform.localPosition.y);
-        newPos.x *= 1 + limitOffset.x - distanceToCenterX / (limitPlane.transform.localScale.x / 2);
-        newPos.y *= 1 + limitOffset.y - distanceToCenterY / (limitPlane.transform.localScale.y / 2);
-        newPos.z = transform.localPosition.z; //Z axis is constant
-        transform.localPosition = newPos; //Apply the new position to the camera
+    void Update () {
+        // Get position of the object we want to follow
+        newPos = objectToFollow.localPosition;
+        // The gameObject will move always inside the limits imposed and the Z axis will be static
+        transform.localPosition = new Vector3(Mathf.Clamp(newPos.x, -stopDistance.x, stopDistance.x), Mathf.Clamp(newPos.y, -stopDistance.y, stopDistance.y), transform.localPosition.z);
     }
 }

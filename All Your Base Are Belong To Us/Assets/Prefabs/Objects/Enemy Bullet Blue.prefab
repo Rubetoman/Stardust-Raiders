@@ -128,7 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 10
-  damageToEnemy: 10
+  damageToEnemy: 0
+  damageToObstacle: 10
 --- !u!114 &114281111151629050
 MonoBehaviour:
   m_ObjectHideFlags: 1

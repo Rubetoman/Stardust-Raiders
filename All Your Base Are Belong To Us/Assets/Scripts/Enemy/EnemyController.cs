@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
     }
 	
-    protected void LookAtPlayer()
+    protected virtual void LookAtPlayer()
     {
         // Look at the player: Take player position minus the offset and then make the cannon rotate to that position.
         var playerPos = new Vector3(player.transform.position.x, player.transform.position.y - heightOffset, player.transform.position.z);

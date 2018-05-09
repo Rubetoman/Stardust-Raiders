@@ -313,6 +313,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyShieldManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyShipController.cs" />
     <Compile Include="Assets\Scripts\Enemy\TankController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\TurretController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\AddToScoreOnTriggerEnter.cs" />
     <Compile Include="Assets\Scripts\Gameplay\DestroyOnCollisionExit.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameLogic\GameManager.cs" />

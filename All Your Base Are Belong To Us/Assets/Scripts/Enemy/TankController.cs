@@ -15,7 +15,8 @@ public class TankController : EnemyController {
 	
 	// Update is called once per frame
 	void Update () {
-        LookAtPlayer();
+        if (transform != null)
+            LookAtPlayer();
     }
 
     protected override void ShootSpawnableAmmo()
