@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 64936571018648722}
   - component: {fileID: 114252654916331772}
   - component: {fileID: 114376648390353772}
+  - component: {fileID: 114579529253293614}
   m_Layer: 0
   m_Name: Roof3
   m_TagString: Untagged
@@ -92,10 +93,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1605751955702682}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
@@ -23361,3 +23362,15 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
+--- !u!114 &114579529253293614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1605751955702682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d859a53230482498dd04f71f376f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50

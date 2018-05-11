@@ -65,6 +65,7 @@ public class PlayerShieldManager : ShieldManager {
     private void RespawnPlayer()
     {
         player.GetComponent<ShipController>().ResetBoost();
+        player.GetComponent<BarrelRollController>().inBarrelRoll = false;
         player.SetActive(true);
         currentShield = maxShield;
         playerShieldBar.sizeDelta = new Vector2(currentShield, playerShieldBar.sizeDelta.y);

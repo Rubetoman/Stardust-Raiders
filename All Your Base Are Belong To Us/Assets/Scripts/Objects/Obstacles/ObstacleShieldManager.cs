@@ -6,7 +6,7 @@ public class ObstacleShieldManager : ShieldManager {
     [Header("Destroy Effect")]
     public Transform explosionSpawnPoint;
     public Vector3 goalScale = Vector3.zero;
-    public float destroyTime = 6.0f;
+    public float destroyTime = 1.0f;
     public int destroyScore = 10;
     private Vector3 initialScale;
 

@@ -330,6 +330,7 @@
     <Compile Include="Assets\Scripts\Objects\BonusItems\PowerUpController.cs" />
     <Compile Include="Assets\Scripts\Objects\BulletController.cs" />
     <Compile Include="Assets\Scripts\Objects\FlickColorController.cs" />
+    <Compile Include="Assets\Scripts\Objects\ForwardToTarget.cs" />
     <Compile Include="Assets\Scripts\Objects\KeepRotating.cs" />
     <Compile Include="Assets\Scripts\Objects\LookAtPlayer.cs" />
     <Compile Include="Assets\Scripts\Objects\MoveForward.cs" />

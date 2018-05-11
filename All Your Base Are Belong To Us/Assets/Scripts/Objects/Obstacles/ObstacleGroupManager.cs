@@ -17,7 +17,7 @@ public class ObstacleGroupManager : MonoBehaviour {
     public int flickCount = 5;
     public float flickRate = 0.1f;
     [Header("Destroy Effect")]
-    public float time = 60.0f;
+    public float destroyTime = 1.0f;
 
     private void Start()
     {
@@ -41,7 +41,7 @@ public class ObstacleGroupManager : MonoBehaviour {
                 obsShield.flickRate = flickRate;
             }
             if (o.GetComponent<ObstacleShieldManager>() != null)
-                o.GetComponent<ObstacleShieldManager>().destroyTime = time;
+                o.GetComponent<ObstacleShieldManager>().destroyTime = destroyTime;
         }
     }
 }

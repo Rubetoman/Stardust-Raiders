@@ -125,14 +125,6 @@ public class BarrelRollController : MonoBehaviour {
                 transform.rotation = startRot * Quaternion.AngleAxis(t / barrelRollDuration * 360f, Vector3.forward); //or transform.right if you want it to be locally based
             else
                 transform.rotation = startRot * Quaternion.AngleAxis(t / barrelRollDuration * 360f, -Vector3.forward);
-            /*if(t < barrelRollDuration / 2)
-            {               
-                barrelRollShield.transform.localScale = Vector3.Lerp(Vector3.zero, new Vector3(6.5f, 6.5f, 6.5f), t / (barrelRollDuration/2f));
-            }
-            else
-            {
-                barrelRollShield.transform.localScale = Vector3.Lerp(new Vector3(6.5f, 6.5f, 6.5f), Vector3.zero, t / (barrelRollDuration / 2f));
-            }*/
             
             yield return null;
         }
