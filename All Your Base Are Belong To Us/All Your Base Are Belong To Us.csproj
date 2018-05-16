@@ -318,7 +318,6 @@
     <Compile Include="Assets\Scripts\Gameplay\DestroyOnCollisionExit.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameLogic\GameManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameLogic\LevelManager.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\PathDivider.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Rail.cs" />
     <Compile Include="Assets\Scripts\Gameplay\RailMover.cs" />
     <Compile Include="Assets\Scripts\Gameplay\RecoverShieldOnTriggerEnter.cs" />

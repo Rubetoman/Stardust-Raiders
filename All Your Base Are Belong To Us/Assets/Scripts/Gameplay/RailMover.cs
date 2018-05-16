@@ -10,14 +10,14 @@ public enum SpeedMode
 public class RailMover : MonoBehaviour {
 
     public Rail rail;
-    public PlayMode playMode;                   //Choose between Catmull-Rom or Linear splines for the path
-    public SpeedMode speedMode;                 //Choose between  moving at constant speed or in a certain time
-    public OrientationMode orientationMode;     //Choose between  orient the object on the rail with the nodes orientation as reference or looking at next node
-    public float speed = 2.5f;                  //Speed to move (only if ConstantSpeed is selected on SpeedMode)
-    public float timeBetweenSegments = 2.5f;    //Time to reach next node (only if TimeBetweenSegments is selected on SpeedMode)
-    public bool isReversed;                     //If true it reverses the path
-    public bool isLooping;                      //If true it loops the path when reaching the end node
-    public bool pingPong;                       //If true when the end node is reached it reverses the path
+    public PlayMode playMode;                   // Choose between Catmull-Rom or Linear splines for the path
+    public SpeedMode speedMode;                 // Choose between  moving at constant speed or in a certain time
+    public OrientationMode orientationMode;     // Choose between orientation of the object on the rail (Node: use same rotation of the nodes, Lines: look at next node)
+    public float speed = 2.5f;                  // Speed to move (only if ConstantSpeed is selected on SpeedMode)
+    public float timeBetweenSegments = 2.5f;    // Time to reach next node (only if TimeBetweenSegments is selected on SpeedMode)
+    public bool isReversed;                     // If true it reverses the path
+    public bool isLooping;                      // If true it loops the path when reaching the end node
+    public bool pingPong;                       // If true when the end node is reached it reverses the path
 
     private int currentSeg;
     private float transition;
@@ -81,6 +81,10 @@ public class RailMover : MonoBehaviour {
                         currentSeg = 0;
                     }
                 }
+                else
+                {
+                    isCompleted = true;
+                }
             }
         }
         else if(transition < 0) //Same logic that before but backwards, we reached next segment
@@ -104,19 +108,32 @@ public class RailMover : MonoBehaviour {
                 }
             }
         }
-        
-        transform.position = rail.PositionOnRail(currentSeg, transition, playMode);
+        if(playMode != PlayMode.Catmull || currentSeg < rail.nodes.Length - 1)
+            transform.position = rail.PositionOnRail(currentSeg, transition, playMode);
         transform.rotation = rail.OrientationOnRail(currentSeg, transition, orientationMode, transform, isReversed);
 
     }
 
-    public int getCurrentSegment()
+    /// <summary>
+    /// Returns current segment number.
+    /// </summary>
+    /// <returns> Int of the current segment</returns>
+    public int GetCurrentSegment()
     {
         return currentSeg;
     }
 
-    public GameObject getCurrentNode()
+    /// <summary>
+    /// Returns current node GameObject.
+    /// </summary>
+    /// <returns> Game Object of the current node</returns>
+    public GameObject GetCurrentNode()
     {
         return rail.nodes[currentSeg].gameObject;
+    }
+
+    public float GetPositionOnSegment()
+    {
+        return transition;
     }
 }

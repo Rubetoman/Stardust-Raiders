@@ -16,10 +16,11 @@ public enum OrientationMode
 
 [ExecuteInEditMode]
 public class Rail : MonoBehaviour {
-    public Transform[] nodes;
+    public Transform[] nodes;   // Transform of the nodes that form the Rail, the gameObject that contains the script followed by all his children will be added automaticaly. 
 
     private void Start()
     {
+        // Add all children Transforms to the nodes array
         nodes = GetComponentsInChildren<Transform>();
     }
 
@@ -53,7 +54,7 @@ public class Rail : MonoBehaviour {
     {
         Vector3 p1 = nodes[seg].position;
         Vector3 p2 = nodes[seg].position;
-        if(nodes[seg+1] != null)
+        if(nodes.Length > seg+1)
             p2 = nodes[seg+1].position;
 
         return Vector3.Lerp(p1, p2, ratio);
@@ -69,7 +70,6 @@ public class Rail : MonoBehaviour {
     public Vector3 CatmullPosition(int seg, float ratio)
     {
         Vector3 p1, p2, p3, p4;         // 4 points of a Catmull-Rom Spline
-
         if(seg == 0)                    // We are on the first segment
         {
             p1 = nodes[seg].position;   // Previous node doen't exist, we use the first one for the two first points on the spline
@@ -77,14 +77,14 @@ public class Rail : MonoBehaviour {
             p3 = nodes[seg + 1].position;
             p4 = nodes[seg + 2].position;
         }
-        else if (seg == nodes.Length - 2)   // We are reaching the end
+        else if (seg == nodes.Length-2)   // We are reaching the end
         {
             p1 = nodes[seg-1].position;
             p2 = nodes[seg].position;
             p3 = nodes[seg + 1].position;
-            p4 = p3;                        // There aren't more nodes, we use the last one for the two last points on the spline
+            p4 = p3;                      // There aren't more nodes, we use the last one for the two last points on the spline
         }
-        else                                //Normal case 
+        else //Common case 
         {
             p1 = nodes[seg - 1].position;
             p2 = nodes[seg].position;
@@ -131,7 +131,7 @@ public class Rail : MonoBehaviour {
             case OrientationMode.Line:
                 return LineOrientation(seg, ratio, trans, isReversed);
             case OrientationMode.Nodes:
-                return NodeOrientation(seg, ratio);
+                return NodeOrientation(seg, ratio, isReversed);
         }
 
     }
@@ -140,7 +140,7 @@ public class Rail : MonoBehaviour {
 
     /// <summary>
     /// Computes the new orientation over the rail using the lines connecting nodes as a reference.
-    /// Will loock to the next node.
+    /// Will look to the next node.
     /// </summary>
     /// <param name="seg"> Segment we are in</param>
     /// <param name="ratio"> Ratio of the segment we are currently</param>
@@ -150,12 +150,13 @@ public class Rail : MonoBehaviour {
     public Quaternion LineOrientation(int seg, float ratio, Transform trans, bool isReversed)
     {
         Quaternion q1 = trans.rotation;
-        if (!isReversed){
+        if (!isReversed && nodes.Length > seg + 1)  // Common case
+        {
             trans.LookAt(nodes[seg + 1]);
             Quaternion q2 = trans.rotation;
             return Quaternion.Lerp(q1, q2, ratio);
         }
-        else
+        else // Reached end of the Rail
         {
             trans.LookAt(nodes[seg]);
             Quaternion q2 = trans.rotation;
@@ -168,13 +169,22 @@ public class Rail : MonoBehaviour {
     /// </summary>
     /// <param name="seg"> Segment we are in</param>
     /// <param name="ratio"> Ratio of the segment we are currently</param>
+    /// <param name="isReversed"> Boolean to know if we are going forward or backwards</param>
     /// <returns>A Quaternion with the rotation update</returns>
-    public Quaternion NodeOrientation(int seg, float ratio)
+    public Quaternion NodeOrientation(int seg, float ratio, bool isReversed)
     {
         Quaternion q1 = nodes[seg].rotation;
-        Quaternion q2 = nodes[seg + 1].rotation;
+        if (!isReversed && nodes.Length > seg + 1)  // Common case
+        {
+            Quaternion q2 = nodes[seg + 1].rotation;
+            return Quaternion.Lerp(q1, q2, ratio);
+        }
+        else // Reached end of the Rail
+        {
+            Quaternion q2 = nodes[seg - 1].rotation;
+            return Quaternion.Lerp(q1, q2, ratio);
+        }
 
-        return Quaternion.Lerp(q1, q2, ratio);
     }
 
     /// <summary>

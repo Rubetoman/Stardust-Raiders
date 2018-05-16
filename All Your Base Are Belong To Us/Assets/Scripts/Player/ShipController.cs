@@ -25,24 +25,24 @@ public class ShipController : MonoBehaviour {
     public RectTransform boostBar;
 
     private bool boostReady = true;
+    private bool boostBlocked = false;
 
     // Update is called once per frame
     void Update()
     {
-
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         if(!GameManager.Instance.playerInfo.isDead)
             ShipMovement(horizontal, vertical);
 
         //BOOST
-        if(Input.GetButtonDown("Boost") && boostReady)
+        if(Input.GetButtonDown("Boost") && boostReady && !boostBlocked)
         {
             StartCoroutine("Boost");
         }
 
 
-        if (Input.GetButtonDown("Brake") && boostReady)
+        if (Input.GetButtonDown("Brake") && boostReady && !boostBlocked)
         {
             StartCoroutine("Brake");
         }
@@ -69,7 +69,7 @@ public class ShipController : MonoBehaviour {
 
         //Make the ship bank when moving
         var barrelRollScript = GetComponent<BarrelRollController>();
-        if (!barrelRollScript.inBarrelRoll)
+        if (!barrelRollScript.inBarrelRoll && Input.GetAxis("Bank") == 0)   // Avoid banking when in barrelRoll or already banking
         {
             barrelRollScript.BankNoBarrelRoll("Horizontal", bankAmountOnTurn);
         }
@@ -170,6 +170,11 @@ public class ShipController : MonoBehaviour {
         }
         boostBar.sizeDelta = new Vector2(maxBoost, boostBar.sizeDelta.y);
         boostReady = true;
+    }
+
+    public void BlockBoost(bool b)
+    {
+        boostBlocked = b;
     }
     #endregion
 }

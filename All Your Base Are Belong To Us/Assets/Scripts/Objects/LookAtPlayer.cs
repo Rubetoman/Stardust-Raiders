@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class LookAtPlayer : MonoBehaviour {
     private GameObject player;
     // Use this for initialization

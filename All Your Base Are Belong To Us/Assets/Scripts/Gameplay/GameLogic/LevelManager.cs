@@ -25,22 +25,40 @@ public class LevelManager : MonoBehaviour {
     }
     #endregion
 
+    public enum DivideType
+    {
+        Up_Down,
+        Left_Right,
+    }
+
     [System.Serializable]
     public class Sector             // Each sector contains a set of variables
     {
-        public GameObject startNode;        // First node of the sector
-        public float speed;                 // Speed of the playerShip inside the sector
-        public Camera camera;               // Camera to change in case this sector has a different camera from the previous sector
-        public bool playerMovement = true;  // If true the player controls are active, else they are disabled 
-        public Rail alternativeRail;        // Second rail to choose between the one already in use and this one
-        public bool changeScene = false;    // If true, at the end of this sector a new scene will be loaded
+        public GameObject startNode;            // First node of the sector
+        public float speed;                     // Speed of the playerShip inside the sector
+        public Camera camera;                   // Camera to change in case this sector has a different camera from the previous sector
+        public bool playerMovement = true;      // If true the player controls are active, else they are disabled 
+        public Rail alternativeRail;            // Second rail to choose between the one already in use and this one
+        public DivideType divideType;
+        public OrientationMode railOrientation; // Choose between orientation of the object on the rail (Node: use same rotation of the nodes, Lines: look at next node)
+        public bool changeScene = false;        // If true, at the end of this sector a new scene will be loaded
     }
 
     public Sector[] sectors;            // Array of sectors that form a Level
     public GameObject gameplayPlane;    // gameplayPlane GameObject
     public Image gameOverScreen;        // Background Image of the Game Over Screen
-    public Text gameOvertext;           // Text to be shown on Game Over
+    public Text gameOverText;           // Text to be shown on Game Over
     public Text score;                  // Text tha will show the Total Score on the Game Over Screen
+    [Space(10)]
+    [Header("Path Selection")]
+    public GameObject limitPlane;
+    public GameObject[] arrows;         // The UI arrows which appear pointing both paths. Must be inserted in the following order: (up, low, left, right).
+    public GameObject text;
+    public float chooseTime = 5.0f;
+    public float flickFrequency = 2.0f; // Time it will take to flick an arrow
+    private bool pathSelection = false;
+    private bool arrowAnimFree = true;
+    private Rail mainRail;
 
     private GameObject player;          // GameObject of the Player
     private Sector currentSector;       // Sector the player is currently in
@@ -48,7 +66,8 @@ public class LevelManager : MonoBehaviour {
     private int currentSectorNumber;    // Index of the current sector
     private bool canChangeSector = true;// Bool to aboid trying to change sector while already changin one
     private GameObject currentCamera;   // Camera that is currently in use
-
+    private bool called = false;
+    private string position;
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -62,18 +81,27 @@ public class LevelManager : MonoBehaviour {
         {
             currentCamera = currentSector.camera.gameObject;
             currentCamera.SetActive(true);
-            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().gameObject.SetActive(false);
+            if(currentCamera != GameObject.FindGameObjectWithTag("MainCamera"))
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().gameObject.SetActive(false);
         }
         else
         {
             currentCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().gameObject;
         }
+        mainRail = gameplayPlane.GetComponent<RailMover>().rail;
+        //Change rail orientation if needed
+        if (currentSector.railOrientation != gameplayPlane.GetComponent<RailMover>().orientationMode)
+            SetCurrentSectorOrientation();
     }
 	
 	// Update is called once per frame
 	void LateUpdate () {
         if (canChangeSector)
             LookForSectorChange();
+        if (pathSelection)
+        {
+            ChoosePath(currentSector.alternativeRail);
+        }
     }
 
     #region SectorFunctions
@@ -82,7 +110,7 @@ public class LevelManager : MonoBehaviour {
     /// </summary>
     void LookForSectorChange()
     {
-        if (gameplayPlane.GetComponent<RailMover>().getCurrentNode() == nextSector.startNode)
+        if (gameplayPlane.GetComponent<RailMover>().GetCurrentNode().ToString() == nextSector.startNode.ToString()) // Uses string because could be the node of an alt rail
         {
             canChangeSector = false;
             if (currentSector.changeScene)
@@ -93,7 +121,7 @@ public class LevelManager : MonoBehaviour {
             {
                 ChangeSectorToNext();
                 if (currentSector.alternativeRail != null)
-                    StartPathSelection();
+                    ActivatePathSelection();
             }
         }
     }
@@ -102,6 +130,9 @@ public class LevelManager : MonoBehaviour {
     /// </summary>
     void ChangeSectorToNext()
     {
+        //Change rail orientation if needed
+        if (currentSector.railOrientation != nextSector.railOrientation)
+            SetCurrentSectorOrientation();
         // Update sector order
         currentSector = nextSector;
         currentSectorNumber++;
@@ -112,9 +143,10 @@ public class LevelManager : MonoBehaviour {
             SetCurrentSectorCamera();
         //Change speed
         SetCurrentSectorSpeed();
+        
 
-        // Check if we reached last sector
-        if (sectors.Length - 1 > currentSectorNumber)
+            // Check if we reached last sector
+            if (sectors.Length - 1 > currentSectorNumber)
         {
             nextSector = sectors[currentSectorNumber+1];
         }
@@ -161,6 +193,14 @@ public class LevelManager : MonoBehaviour {
             player.GetComponentInChildren<PlayerShieldManager>().enabled = state;
         }
     }
+
+    void SetCurrentSectorOrientation()
+    {
+        if (gameplayPlane.GetComponent<RailMover>() != null)
+            gameplayPlane.GetComponent<RailMover>().orientationMode = sectors[currentSectorNumber].railOrientation;
+        else
+            Debug.LogError("RailMover Script couldn't be found inside gameplayPlane GameObject");
+    }
     #endregion
 
     #region LevelManagementFunctions
@@ -199,7 +239,7 @@ public class LevelManager : MonoBehaviour {
         var screenColor = gameOverScreen.color;
         var newScreenColor = screenColor;
         newScreenColor.a = 1f;
-        var textColor = gameOvertext.color;
+        var textColor = gameOverText.color;
         var newTextColor = textColor;
         newTextColor.a = 1f;
 
@@ -207,16 +247,172 @@ public class LevelManager : MonoBehaviour {
         {
             t += Time.deltaTime;
             gameOverScreen.color = Color.Lerp(screenColor, newScreenColor, t);
-            gameOvertext.color = Color.Lerp(textColor, newTextColor, t);
+            gameOverText.color = Color.Lerp(textColor, newTextColor, t);
             yield return null;
         }
         score.text = "Score: " + GameManager.Instance.GetTotalScore();
     }
     #endregion
 
-    void StartPathSelection()
+    #region PathSelectionFunctions
+    public void ChoosePath(Rail newRail)
     {
-        GetComponent<PathDivider>().activatePathSelection(currentSector.alternativeRail);
+        /*if (!called)
+        {
+            player.GetComponent<ShipController>().BlockBoost(true);
+            called = true;
+        }
+        timer += Time.deltaTime;
+        mainRail = gameplayPlane.GetComponent<RailMover>().rail;
+        var position = limitPlane.GetComponent<PlayerLimitManager>().PlayerLocationInPlane();
+        switch (currentSector.divideType)
+        {
+            case DivideType.Up_Down:
+                if (position == "up")
+                {
+                    //Animation of arrows
+                    if (arrowAnimFree)
+                        StartCoroutine("ArrowAnimation", 0);
+                    //stop showing arrows
+                    if (timer > chooseTime)
+                    {
+                        timer = 0.0f;
+                        pathSelection = false;
+                        called = false;
+                        player.GetComponent<ShipController>().BlockBoost(false);
+                    }
+                }
+                else
+                {
+                    //Animation of arrows
+                    if (arrowAnimFree)
+                        StartCoroutine("ArrowAnimation", 1);
+                    //change rail
+                    if (timer > chooseTime)
+                    {
+                        ChangeToAlternativeRail();
+                        timer = 0.0f;
+                        pathSelection = false;
+                        called = false;
+                        player.GetComponent<ShipController>().BlockBoost(false);
+                    }
+                }
+                break;
+            case DivideType.Left_Right:
+                if (position == "left")
+                {
+                    //Animation of arrows
+                    if (arrowAnimFree)
+                        StartCoroutine("ArrowAnimation", 2);
+                    //stop showing arrows
+                    if (timer > chooseTime)
+                    {
+                        timer = 0.0f;
+                        pathSelection = false;
+                        called = false;
+                        player.GetComponent<ShipController>().BlockBoost(false);
+                    }
+                }
+                else
+                {
+                    //Animation of arrows
+                    if (arrowAnimFree)
+                        StartCoroutine("ArrowAnimation", 3);
+                    //change rail
+                    if (timer > chooseTime)
+                    {
+                        ChangeToAlternativeRail();
+                        timer = 0.0f;
+                        pathSelection = false;
+                        called = false;
+                        player.GetComponent<ShipController>().BlockBoost(false);
+                    }
+
+                }
+                break;
+        }
+        */
+        if (!called)
+        {
+            player.GetComponent<ShipController>().BlockBoost(true);
+            called = true;
+        }
+        mainRail = gameplayPlane.GetComponent<RailMover>().rail;
+        var position = limitPlane.GetComponent<PlayerLimitManager>().GetPlayerLocationInPlane(currentSector.divideType);
+        print(position);
+        //Animation of arrows
+        switch (position)
+        {
+            case "up":
+                if (arrowAnimFree)
+                    StartCoroutine("ArrowAnimation", 0);
+                break;
+            case "down":
+                if (arrowAnimFree)
+                    StartCoroutine("ArrowAnimation", 1);
+                break;
+            case "left":
+                if (arrowAnimFree)
+                    StartCoroutine("ArrowAnimation", 2);
+                break;
+            case "right":
+                if (arrowAnimFree)
+                    StartCoroutine("ArrowAnimation", 3);
+                break;
+        }
+        // Look for end of segment, to apply selection   
+        if (gameplayPlane.GetComponent<RailMover>().GetPositionOnSegment() > 0.9f)
+        {
+            pathSelection = false;
+            called = false;
+            if (position == "down" || position == "right")
+                ChangeToAlternativeRail();
+            player.GetComponent<ShipController>().BlockBoost(false);
+        }
     }
 
+    private void ChangeToAlternativeRail()
+    {
+        gameplayPlane.GetComponent<RailMover>().rail = currentSector.alternativeRail;
+    }
+
+    private void SetCureentRail(Rail rail)
+    {
+        gameplayPlane.GetComponent<RailMover>().rail = rail;
+    }
+
+    private IEnumerator ArrowAnimation(int currentArrow)
+    {
+        arrowAnimFree = false;
+        arrows[currentArrow].gameObject.SetActive(true);
+        yield return new WaitForSeconds(flickFrequency);
+        arrows[currentArrow].gameObject.SetActive(false);
+        yield return new WaitForSeconds(flickFrequency);
+        arrowAnimFree = true;
+    }
+
+    private IEnumerator TextAnimation()
+    {
+        var timer = 0.0f;
+        while (timer < 2.0f)
+        {
+            text.gameObject.SetActive(true);
+            yield return new WaitForSeconds(flickFrequency);
+            text.gameObject.SetActive(false);
+            yield return new WaitForSeconds(flickFrequency);
+            timer += Time.deltaTime + flickFrequency * 2;
+        }
+    }
+
+    private void ActivatePathSelection()
+    {
+        pathSelection = true;
+        StartCoroutine("TextAnimation");
+    }
+
+    private void EndPathDivision()
+    {
+
+    }
+    #endregion
 }

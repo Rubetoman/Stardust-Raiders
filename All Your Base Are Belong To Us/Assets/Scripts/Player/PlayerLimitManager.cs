@@ -106,31 +106,27 @@ public class PlayerLimitManager : MonoBehaviour {
         transform.localScale = newScale;
     }
 
-    public string PlayerLocationInPlane()
+    public string GetPlayerLocationInPlane(LevelManager.DivideType type)
     {
         // Calculate the distance from the player to the center of the plane
         var distanceToCenterX = player.transform.localPosition.x - transform.localPosition.x;
         var distanceToCenterY = player.transform.localPosition.y - transform.localPosition.y;
+        switch (type)
+        {
+            case LevelManager.DivideType.Left_Right:
+                if (distanceToCenterX < -1)
+                    return "left";
+                else if (distanceToCenterX > 1)
+                    return "right";
+                break;
 
-        if (distanceToCenterY > 1)
-        {
-            return "up";
+            case LevelManager.DivideType.Up_Down:
+                if (distanceToCenterY > 1)
+                    return "up";
+                else if (distanceToCenterY < -1)
+                    return "down";
+                break;
         }
-        else if (distanceToCenterY < -1)
-        {
-            return "down";
-        }
-        if (distanceToCenterX < -1)
-        {
-            return "left";
-        }
-        else if (distanceToCenterX > 1)
-        {
-            return "right";
-        }
-        else
-        {
-            return "center";
-        }
+        return "center";
     }
 }
