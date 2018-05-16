@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_Scenes/rail_test.unity
+- path: Assets/_Scenes/level_01.unity
   isLoaded: 1
   isActive: 1

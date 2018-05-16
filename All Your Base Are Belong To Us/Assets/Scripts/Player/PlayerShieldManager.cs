@@ -62,15 +62,23 @@ public class PlayerShieldManager : ShieldManager {
         }
     } 
 
+    void ResetPlayerShield()
+    {
+        currentShield = maxShield;                                                              
+        playerShieldBar.sizeDelta = new Vector2(currentShield, playerShieldBar.sizeDelta.y);
+    }
+
     private void RespawnPlayer()
     {
-        player.GetComponent<ShipController>().ResetBoost();
-        player.GetComponent<BarrelRollController>().inBarrelRoll = false;
-        player.SetActive(true);
-        currentShield = maxShield;
-        playerShieldBar.sizeDelta = new Vector2(currentShield, playerShieldBar.sizeDelta.y);
-        StartCoroutine(base.FlickeringColor(Color.blue));
-        player.SendMessageUpwards("ResetPosition");
-        player.SendMessageUpwards("ResetRotation");
+        if (!GameManager.Instance.playerInfo.isDead) // Check if player is dead
+            return;
+        player.GetComponent<ShipController>().ResetBoost();                 // Reset boost bar and make available the boost/brake again
+        player.GetComponent<BarrelRollController>().inBarrelRoll = false;   // Reset barrel roll state in case it died during barrel roll
+        player.SetActive(true);                                             // Show player again
+        ResetPlayerShield();                                                // Reset Player Shield values
+        player.SendMessageUpwards("ResetPosition");                         // Reset Player position on GameplayPlane
+        player.SendMessageUpwards("ResetRotation");                         // Reset Player rotation on GameplayPlane
+        invulnerable = true;                                                // Make Player invulnerable untill flickering effect has dissapear
+        StartCoroutine(FlickeringColor(recoverColor));                      // Play flickering effec
     }
 }

@@ -54,11 +54,10 @@ public class LevelManager : MonoBehaviour {
     public GameObject limitPlane;
     public GameObject[] arrows;         // The UI arrows which appear pointing both paths. Must be inserted in the following order: (up, low, left, right).
     public GameObject text;
-    public float chooseTime = 5.0f;
     public float flickFrequency = 2.0f; // Time it will take to flick an arrow
     private bool pathSelection = false;
     private bool arrowAnimFree = true;
-    private Rail mainRail;
+    //private Rail mainRail;
 
     private GameObject player;          // GameObject of the Player
     private Sector currentSector;       // Sector the player is currently in
@@ -88,7 +87,7 @@ public class LevelManager : MonoBehaviour {
         {
             currentCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().gameObject;
         }
-        mainRail = gameplayPlane.GetComponent<RailMover>().rail;
+        //mainRail = gameplayPlane.GetComponent<RailMover>().rail;
         //Change rail orientation if needed
         if (currentSector.railOrientation != gameplayPlane.GetComponent<RailMover>().orientationMode)
             SetCurrentSectorOrientation();
@@ -143,7 +142,6 @@ public class LevelManager : MonoBehaviour {
             SetCurrentSectorCamera();
         //Change speed
         SetCurrentSectorSpeed();
-        
 
             // Check if we reached last sector
             if (sectors.Length - 1 > currentSectorNumber)
@@ -197,7 +195,7 @@ public class LevelManager : MonoBehaviour {
     void SetCurrentSectorOrientation()
     {
         if (gameplayPlane.GetComponent<RailMover>() != null)
-            gameplayPlane.GetComponent<RailMover>().orientationMode = sectors[currentSectorNumber].railOrientation;
+            gameplayPlane.GetComponent<RailMover>().orientationMode = sectors[currentSectorNumber+1].railOrientation;
         else
             Debug.LogError("RailMover Script couldn't be found inside gameplayPlane GameObject");
     }
@@ -261,85 +259,9 @@ public class LevelManager : MonoBehaviour {
         {
             player.GetComponent<ShipController>().BlockBoost(true);
             called = true;
-        }
-        timer += Time.deltaTime;
-        mainRail = gameplayPlane.GetComponent<RailMover>().rail;
-        var position = limitPlane.GetComponent<PlayerLimitManager>().PlayerLocationInPlane();
-        switch (currentSector.divideType)
-        {
-            case DivideType.Up_Down:
-                if (position == "up")
-                {
-                    //Animation of arrows
-                    if (arrowAnimFree)
-                        StartCoroutine("ArrowAnimation", 0);
-                    //stop showing arrows
-                    if (timer > chooseTime)
-                    {
-                        timer = 0.0f;
-                        pathSelection = false;
-                        called = false;
-                        player.GetComponent<ShipController>().BlockBoost(false);
-                    }
-                }
-                else
-                {
-                    //Animation of arrows
-                    if (arrowAnimFree)
-                        StartCoroutine("ArrowAnimation", 1);
-                    //change rail
-                    if (timer > chooseTime)
-                    {
-                        ChangeToAlternativeRail();
-                        timer = 0.0f;
-                        pathSelection = false;
-                        called = false;
-                        player.GetComponent<ShipController>().BlockBoost(false);
-                    }
-                }
-                break;
-            case DivideType.Left_Right:
-                if (position == "left")
-                {
-                    //Animation of arrows
-                    if (arrowAnimFree)
-                        StartCoroutine("ArrowAnimation", 2);
-                    //stop showing arrows
-                    if (timer > chooseTime)
-                    {
-                        timer = 0.0f;
-                        pathSelection = false;
-                        called = false;
-                        player.GetComponent<ShipController>().BlockBoost(false);
-                    }
-                }
-                else
-                {
-                    //Animation of arrows
-                    if (arrowAnimFree)
-                        StartCoroutine("ArrowAnimation", 3);
-                    //change rail
-                    if (timer > chooseTime)
-                    {
-                        ChangeToAlternativeRail();
-                        timer = 0.0f;
-                        pathSelection = false;
-                        called = false;
-                        player.GetComponent<ShipController>().BlockBoost(false);
-                    }
-
-                }
-                break;
-        }
-        */
-        if (!called)
-        {
-            player.GetComponent<ShipController>().BlockBoost(true);
-            called = true;
-        }
-        mainRail = gameplayPlane.GetComponent<RailMover>().rail;
+        }*/
+        //mainRail = gameplayPlane.GetComponent<RailMover>().rail;
         var position = limitPlane.GetComponent<PlayerLimitManager>().GetPlayerLocationInPlane(currentSector.divideType);
-        print(position);
         //Animation of arrows
         switch (position)
         {
@@ -367,7 +289,7 @@ public class LevelManager : MonoBehaviour {
             called = false;
             if (position == "down" || position == "right")
                 ChangeToAlternativeRail();
-            player.GetComponent<ShipController>().BlockBoost(false);
+            //player.GetComponent<ShipController>().BlockBoost(false);
         }
     }
 
@@ -393,14 +315,12 @@ public class LevelManager : MonoBehaviour {
 
     private IEnumerator TextAnimation()
     {
-        var timer = 0.0f;
-        while (timer < 2.0f)
+        while (gameplayPlane.GetComponent<RailMover>().GetPositionOnSegment() < 0.4f)
         {
             text.gameObject.SetActive(true);
             yield return new WaitForSeconds(flickFrequency);
             text.gameObject.SetActive(false);
             yield return new WaitForSeconds(flickFrequency);
-            timer += Time.deltaTime + flickFrequency * 2;
         }
     }
 

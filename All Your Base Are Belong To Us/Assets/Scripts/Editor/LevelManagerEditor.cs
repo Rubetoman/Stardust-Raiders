@@ -9,10 +9,11 @@ public class LevelManagerEditor : Editor {
 
     public override void OnInspectorGUI()
     {
-        EditorGUILayout.HelpBox("Sectors:\n " +
-            "-Camera: If None previous camera will be used as default\n" +
-            "-Alternative Rail: The down or right path must be the ones inside the alternative rail. This alternative rail must contain the same nodes as the main rail for it to work properly\n" +
+        GUILayout.Label("Sectors", EditorStyles.boldLabel);
+        EditorGUILayout.HelpBox("-Camera: If None previous camera will be used as default\n", MessageType.Info, true);
+        EditorGUILayout.HelpBox("-Alternative Rail: The down or right path must be the ones inside the alternative rail. This alternative rail must contain the same nodes as the main rail for it to work properly\n" +
             "-Divide Type: If Alternative Rail is Null doesn't affect anything", MessageType.Warning, true);
+        EditorGUILayout.HelpBox("-Divide Type: If Alternative Rail is Null doesn't affect anything", MessageType.Info, true);
         DrawDefaultInspector();
         /*LevelManager levelManager = (LevelManager)target;
         // Level Manager Variables
