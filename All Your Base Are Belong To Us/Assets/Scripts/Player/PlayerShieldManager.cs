@@ -48,7 +48,7 @@ public class PlayerShieldManager : ShieldManager {
         player.SetActive(false);
         LevelManager.Instance.PauseLevel();
         GameManager.Instance.SubstractPlayerLives(1);
-
+        GameManager.Instance.playerInfo.isDead = true;
         if (GameManager.Instance.playerInfo.lives - 1 >= 0)
         {
             Invoke("RespawnPlayer", 2.0f);
@@ -80,5 +80,6 @@ public class PlayerShieldManager : ShieldManager {
         player.SendMessageUpwards("ResetRotation");                         // Reset Player rotation on GameplayPlane
         invulnerable = true;                                                // Make Player invulnerable untill flickering effect has dissapear
         StartCoroutine(FlickeringColor(recoverColor));                      // Play flickering effec
+        GameManager.Instance.playerInfo.isDead = false;
     }
 }
