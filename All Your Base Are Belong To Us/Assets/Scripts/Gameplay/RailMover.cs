@@ -110,8 +110,8 @@ public class RailMover : MonoBehaviour {
         }
         if(playMode != PlayMode.Catmull || currentSeg < rail.nodes.Length - 1)
             transform.position = rail.PositionOnRail(currentSeg, transition, playMode);
-        transform.rotation = rail.OrientationOnRail(currentSeg, transition, orientationMode, transform, isReversed);
-
+        if(orientationMode != OrientationMode.None)
+            transform.rotation = rail.OrientationOnRail(currentSeg, transition, orientationMode, transform, isReversed);
     }
 
     /// <summary>

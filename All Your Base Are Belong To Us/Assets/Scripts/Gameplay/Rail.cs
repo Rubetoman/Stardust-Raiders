@@ -12,6 +12,7 @@ public enum OrientationMode
 {
     Line,
     Nodes,
+    None,
 }
 
 [ExecuteInEditMode]
@@ -181,8 +182,16 @@ public class Rail : MonoBehaviour {
         }
         else // Reached end of the Rail
         {
-            Quaternion q2 = nodes[seg - 1].rotation;
-            return Quaternion.Lerp(q1, q2, ratio);
+            if (!isReversed)
+            {
+                Quaternion q2 = nodes[seg - 1].rotation;
+                return Quaternion.Lerp(q1, q2, ratio);
+            }
+            else
+            {
+                Quaternion q2 = nodes[seg + 1].rotation;
+                return Quaternion.Lerp(q2, q1, ratio);
+            }
         }
 
     }

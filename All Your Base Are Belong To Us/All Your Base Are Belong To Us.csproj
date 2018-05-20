@@ -338,6 +338,7 @@
     <Compile Include="Assets\Scripts\Objects\Obstacles\ObstacleController.cs" />
     <Compile Include="Assets\Scripts\Objects\Obstacles\ObstacleGroupManager.cs" />
     <Compile Include="Assets\Scripts\Objects\Obstacles\ObstacleShieldManager.cs" />
+    <Compile Include="Assets\Scripts\Objects\Obstacles\WheelController.cs" />
     <Compile Include="Assets\Scripts\Objects\SeekingBullet.cs" />
     <Compile Include="Assets\Scripts\Objects\SpawnOnTrigger.cs" />
     <Compile Include="Assets\Scripts\Player\BarrelRollController.cs" />
@@ -347,7 +348,6 @@
     <Compile Include="Assets\Scripts\Player\PlayerShieldManager.cs" />
     <Compile Include="Assets\Scripts\Player\ShipController.cs" />
     <Compile Include="Assets\Scripts\Player\ShipFlowController.cs" />
-    <Compile Include="Assets\Scripts\RootMotionScript.cs" />
     <Compile Include="Assets\Scripts\ScaleOverTime.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -42,6 +42,8 @@ public class LevelManager : MonoBehaviour {
         public DivideType divideType;
         public OrientationMode railOrientation; // Choose between orientation of the object on the rail (Node: use same rotation of the nodes, Lines: look at next node)
         public bool changeScene = false;        // If true, at the end of this sector a new scene will be loaded
+        public bool bossSector = false;         // If true in this scene there will be a boss fight
+        public GameObject bossShieldBar;
     }
 
     public Sector[] sectors;            // Array of sectors that form a Level
@@ -198,6 +200,12 @@ public class LevelManager : MonoBehaviour {
             gameplayPlane.GetComponent<RailMover>().orientationMode = sectors[currentSectorNumber+1].railOrientation;
         else
             Debug.LogError("RailMover Script couldn't be found inside gameplayPlane GameObject");
+    }
+
+    void SetBossSector()
+    {
+        sectors[currentSectorNumber].bossShieldBar.SetActive(true);
+        // Make it loop throught the same sector
     }
     #endregion
 
