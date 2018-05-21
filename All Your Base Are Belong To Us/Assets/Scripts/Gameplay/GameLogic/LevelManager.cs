@@ -42,7 +42,7 @@ public class LevelManager : MonoBehaviour {
         public DivideType divideType;
         public OrientationMode railOrientation; // Choose between orientation of the object on the rail (Node: use same rotation of the nodes, Lines: look at next node)
         public bool changeScene = false;        // If true, at the end of this sector a new scene will be loaded
-        public bool bossSector = false;         // If true in this scene there will be a boss fight
+        public bool loopSector = false;         // If true in this scene there will be a boss fight
         public GameObject bossShieldBar;
     }
 
@@ -73,9 +73,8 @@ public class LevelManager : MonoBehaviour {
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         currentSector = sectors[0];
-        if(sectors.Length>1)
-            nextSector = sectors[1];
-        currentSectorNumber = 0;
+        nextSector = sectors[0];
+        currentSectorNumber = -1;
         SetCurrentSectorPlayerMovement();
         SetCurrentSectorSpeed();
         if(currentSector.camera != null)
@@ -93,6 +92,12 @@ public class LevelManager : MonoBehaviour {
         //Change rail orientation if needed
         if (currentSector.railOrientation != gameplayPlane.GetComponent<RailMover>().orientationMode)
             SetCurrentSectorOrientation();
+        // Show boss shield bar if needed
+        if (currentSector.bossShieldBar != null)
+            currentSector.bossShieldBar.SetActive(true);
+        // Loop throught same sector if needed
+        if (currentSector.loopSector)
+            LoopSectorActive(true);
     }
 	
 	// Update is called once per frame
@@ -114,7 +119,7 @@ public class LevelManager : MonoBehaviour {
         if (gameplayPlane.GetComponent<RailMover>().GetCurrentNode().ToString() == nextSector.startNode.ToString()) // Uses string because could be the node of an alt rail
         {
             canChangeSector = false;
-            if (currentSector.changeScene)
+            if (nextSector.changeScene)
             {
                 GameManager.Instance.SetScene("boss_fight");
             }
@@ -130,23 +135,27 @@ public class LevelManager : MonoBehaviour {
     /// Function that makes every change nedeed between sectors
     /// </summary>
     void ChangeSectorToNext()
-    {
-        //Change rail orientation if needed
-        if (currentSector.railOrientation != nextSector.railOrientation)
-            SetCurrentSectorOrientation();
+    {      
         // Update sector order
         currentSector = nextSector;
         currentSectorNumber++;
-        //Change playerMovement
+        // Change playerMovement
         SetCurrentSectorPlayerMovement();
-        //Change camera if needed
+        // Change camera if needed
         if (currentSector.camera != null)
             SetCurrentSectorCamera();
-        //Change speed
+        // Change speed
         SetCurrentSectorSpeed();
+        // Show boss shield bar if needed
+        if(currentSector.bossShieldBar != null)
+            sectors[currentSectorNumber].bossShieldBar.SetActive(true);
 
-            // Check if we reached last sector
-            if (sectors.Length - 1 > currentSectorNumber)
+        // Loop throught same sector if needed
+        if (sectors[currentSectorNumber].loopSector)
+            LoopSectorActive(true);
+
+        // Check if we reached last sector
+        if (sectors.Length - 1 > currentSectorNumber)
         {
             nextSector = sectors[currentSectorNumber+1];
         }
@@ -158,6 +167,9 @@ public class LevelManager : MonoBehaviour {
             if (sectors.Length > 1)
                 nextSector = sectors[1];
         }
+        // Change rail orientation if needed
+        if (currentSector.railOrientation != nextSector.railOrientation)
+            SetCurrentSectorOrientation();
         canChangeSector = true;
     }
 
@@ -167,7 +179,7 @@ public class LevelManager : MonoBehaviour {
     void SetCurrentSectorSpeed()
     {
         if (gameplayPlane.GetComponent<RailMover>() != null)
-            gameplayPlane.GetComponent<RailMover>().speed = sectors[currentSectorNumber].speed;
+            gameplayPlane.GetComponent<RailMover>().speed = currentSector.speed;
         else
             Debug.LogError("RailMover Script couldn't be found inside gameplayPlane GameObject");
     }
@@ -202,10 +214,10 @@ public class LevelManager : MonoBehaviour {
             Debug.LogError("RailMover Script couldn't be found inside gameplayPlane GameObject");
     }
 
-    void SetBossSector()
+    public void LoopSectorActive(bool loop)
     {
-        sectors[currentSectorNumber].bossShieldBar.SetActive(true);
         // Make it loop throught the same sector
+        gameplayPlane.GetComponent<RailMover>().loopNode = loop;
     }
     #endregion
 
@@ -336,11 +348,6 @@ public class LevelManager : MonoBehaviour {
     {
         pathSelection = true;
         StartCoroutine("TextAnimation");
-    }
-
-    private void EndPathDivision()
-    {
-
     }
     #endregion
 }

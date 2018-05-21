@@ -20,7 +20,7 @@ public class ShieldManager : MonoBehaviour {
 
     [HideInInspector]
     public bool invulnerable = false;
-
+    private bool flickeringColor = false;
     // Use this for initialization
     protected void Start () {
         mesh = gameObject.GetComponent<MeshRenderer>();
@@ -28,6 +28,10 @@ public class ShieldManager : MonoBehaviour {
             invulnerable = true;
     }
 	
+    /// <summary>
+    /// Function that manages the damage taken by the shield.
+    /// </summary>
+    /// <param name="amount"> Amount of damage taken.</param>
     public virtual void TakeDamage(int amount)
     {
         if (invulnerable)
@@ -37,18 +41,14 @@ public class ShieldManager : MonoBehaviour {
             Debug.LogError("Negative numbers not allowed");
             return;
         }
-        invulnerable = true;
         currentShield -= amount;
         if (currentShield <= 0)
         {
             currentShield = 0;
             Die();
         }
-        if (gameObject.activeInHierarchy && mesh != null && recoverTime > 0)
-            StartCoroutine(FlickeringColor(hitColor));
-        else
-            invulnerable = false;
-
+        if (gameObject.activeInHierarchy && mesh != null && recoverTime > 0)    // Check if the gameObject containing the script still active and has recover time
+            StartCoroutine(HitEffect());
     }
 
     protected virtual void Die()
@@ -57,10 +57,22 @@ public class ShieldManager : MonoBehaviour {
     }
 
     /// <summary>
+    /// Function that controlls the actions that will take place after the shield gets hit.
+    /// </summary>
+    protected IEnumerator HitEffect()
+    {
+        yield return new WaitForSeconds(0.1f);  // Delay so if the shield gets multiple hits at the same time all of them damage
+        invulnerable = true;                    // Make 
+        if(!flickeringColor)
+            StartCoroutine(FlickeringColor(hitColor));
+    }
+
+    /// <summary>
     /// This Enumerator makes the ship flick the times specified by flickCount between the normal color and hitColor
     /// </summary>
     protected IEnumerator FlickeringColor(Color newColor)
     {
+        flickeringColor = true;
         normalColor = mesh.material.color;
         for (int i = 0; i <= flickCount; i++)
         {
@@ -71,5 +83,6 @@ public class ShieldManager : MonoBehaviour {
         }
         //Be able to be damaged again
         invulnerable = false;
+        flickeringColor = false;
     }
 }

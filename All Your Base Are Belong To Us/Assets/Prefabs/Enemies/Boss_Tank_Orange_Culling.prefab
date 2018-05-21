@@ -3431,7 +3431,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentShield: 100
-  vulnerable: 0
   godMode: 0
   recoverTime: 2
   hitColor: {r: 0.9862069, g: 1, b: 0, a: 0}
@@ -3439,6 +3438,7 @@ MonoBehaviour:
   flickRate: 0.1
   deathEffect: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb,
     type: 2}
+  invulnerable: 0
   collisionTag: Bullet
   hitDamage: 20
   boss: {fileID: 1494528133870792}
@@ -13686,7 +13686,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentShield: 500
-  vulnerable: 0
   godMode: 0
   recoverTime: 2
   hitColor: {r: 1, g: 1, b: 1, a: 0}
@@ -13694,6 +13693,7 @@ MonoBehaviour:
   flickRate: 0.1
   deathEffect: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb,
     type: 2}
+  invulnerable: 0
   bossShieldBar: {fileID: 0}
 --- !u!114 &114637112838183968
 MonoBehaviour:
@@ -17280,7 +17280,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentShield: 300
-  vulnerable: 0
   godMode: 0
   recoverTime: 2
   hitColor: {r: 1, g: 1, b: 1, a: 0}
@@ -17288,6 +17287,7 @@ MonoBehaviour:
   flickRate: 0.1
   deathEffect: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb,
     type: 2}
+  invulnerable: 0
   collisionTag: Bullet
   hitDamage: 20
   boss: {fileID: 1494528133870792}
@@ -22627,7 +22627,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentShield: 100
-  vulnerable: 0
   godMode: 0
   recoverTime: 2
   hitColor: {r: 0.9862069, g: 1, b: 0, a: 0}
@@ -22635,6 +22634,7 @@ MonoBehaviour:
   flickRate: 0.1
   deathEffect: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb,
     type: 2}
+  invulnerable: 0
   collisionTag: Bullet
   hitDamage: 20
   boss: {fileID: 1494528133870792}

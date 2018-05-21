@@ -13,6 +13,7 @@ public class BossShieldManager : ShieldManager {
     protected override void Die()
     {
         base.Die();
+        LevelManager.Instance.LoopSectorActive(false);
         Destroy(gameObject);
     }
 

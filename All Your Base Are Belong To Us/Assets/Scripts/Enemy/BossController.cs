@@ -27,21 +27,25 @@ public class BossController : EnemyController {
     {
         base.Start();
         gameplayPlane = GameObject.FindGameObjectWithTag("GameplayPlane");
-        Invoke("ChargeLaser", laserShotDelay);
-        Invoke("ShootSpawnableAmmo", missileDelay);
+        //Invoke("ChargeLaser", laserShotDelay);
+        //Invoke("ShootSpawnableAmmo", missileDelay);
 	}
 
     // Update is called once per frame
     void Update()
     {
-        StandInFrontOf(gameplayPlane, targetDistance);
-        if (!called)
+        if (Vector3.Project(gameplayPlane.transform.position - transform.position, gameplayPlane.transform.forward).magnitude <= targetDistance || called)
         {
-            MoveEnemy(transform.position, moveAxis);
-            ShootSpawnableAmmo();
-            called = true;
+            StandInFrontOf(gameplayPlane, targetDistance);
+            if (!called)
+            {
+                MoveEnemy(transform.position, moveAxis);
+                Invoke("ShootSpawnableAmmo", missileDelay);
+                Invoke("ChargeLaser", laserShotDelay);
+                called = true;
+            }
+            LookAtPlayer();
         }
-        LookAtPlayer();
     }
 
     void ChargeLaser()

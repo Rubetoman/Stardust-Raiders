@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 33230859374301560}
   - component: {fileID: 135134728644511880}
   - component: {fileID: 23631802026488796}
-  - component: {fileID: 114004635284360566}
   - component: {fileID: 114389642347593518}
   m_Layer: 14
   m_Name: EnergyBulletBoss
@@ -117,18 +116,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1341195469480614}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114004635284360566
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1341195469480614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37d859a53230482498dd04f71f376f69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 20
 --- !u!114 &114389642347593518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageToPlayer: 10
   damageToEnemy: 0
+  damageToObstacle: 10
   speed: 20
   turnSpeed: 100
   startSeeking: 1

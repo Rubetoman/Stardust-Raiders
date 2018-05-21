@@ -4,30 +4,34 @@ using UnityEngine;
 
 public class BossModuleHealthManager : ShieldManager {
     public string collisionTag = "Bullet";
-    public int hitDamage = 10;
+    //public int hitDamage = 10;
     public GameObject boss;
 
     // Use this for initialization
     new void Start () {
         base.Start();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
+    public override void TakeDamage(int amount)
+    {
+        var shield = boss.GetComponent<BossShieldManager>();
+        if (shield != null && !invulnerable)
+        {
+            shield.TakeDamage(amount);
+        }
+        base.TakeDamage(amount);
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == collisionTag)
+        /*if(other.tag == collisionTag)
         {
-            TakeDamage(hitDamage);
             var shield = boss.GetComponent<BossShieldManager>();
-            if(shield != null)
+            if(shield != null && !invulnerable)
             {
                 shield.TakeDamage(hitDamage);
             }
-        }
+            TakeDamage(hitDamage);
+        }*/
     }
 
 

@@ -7,6 +7,7 @@ public class BulletController : MonoBehaviour {
     public int damageToPlayer = 10;
     public int damageToEnemy = 10;
     public int damageToObstacle = 10;
+    public int damageToBoss = 10;
 
     protected void OnTriggerEnter(Collider other)
     {
@@ -30,6 +31,16 @@ public class BulletController : MonoBehaviour {
             case "Destructible":
                 if(damageToObstacle > 0)
                     DamageObstacle(hit);
+                Destroy(gameObject);
+                break;
+            case "Boss":
+                if (damageToBoss > 0)
+                    DamageBoss(hit);
+                Destroy(gameObject);
+                break;
+            case "BossModule":
+                if (damageToBoss > 0)
+                    DamageBossModule(hit);
                 Destroy(gameObject);
                 break;
         }
@@ -59,6 +70,24 @@ public class BulletController : MonoBehaviour {
         if (shield != null /*&& !shield.invulnerable*/)
         {
             shield.TakeDamage(damageToObstacle);
+        }
+    }
+
+    protected void DamageBoss(GameObject boss)
+    {
+        var shield = boss.GetComponent<BossShieldManager>();
+        if (shield != null /*&& !shield.invulnerable*/)
+        {
+            shield.TakeDamage(damageToBoss);
+        }
+    }
+
+    protected void DamageBossModule(GameObject module)
+    {
+        var shield = module.GetComponent<BossModuleHealthManager>();
+        if (shield != null /*&& !shield.invulnerable*/)
+        {
+            shield.TakeDamage(damageToBoss);
         }
     }
 }
