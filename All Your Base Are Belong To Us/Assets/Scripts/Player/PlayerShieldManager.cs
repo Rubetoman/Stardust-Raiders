@@ -47,9 +47,8 @@ public class PlayerShieldManager : ShieldManager {
         base.Die();
         player.SetActive(false);
         LevelManager.Instance.PauseLevel();
-        GameManager.Instance.SubstractPlayerLives(1);
         GameManager.Instance.playerInfo.isDead = true;
-        if (GameManager.Instance.playerInfo.lives - 1 >= 0)
+        if (GameManager.Instance.playerInfo.lives-1 >= 0)
         {
             Invoke("RespawnPlayer", 2.0f);
             LevelManager.Instance.Invoke("ContinueLevel", 2.5f);
@@ -57,9 +56,9 @@ public class PlayerShieldManager : ShieldManager {
         else
         {
             //Game Over screen
-            print("Game Over");
             LevelManager.Instance.LevelGameOver();
         }
+        GameManager.Instance.SubstractPlayerLives(1);
     } 
 
     void ResetPlayerShield()

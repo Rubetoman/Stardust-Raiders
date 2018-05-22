@@ -20,7 +20,10 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
-        _instance = this;
+        if (_instance == null)
+            _instance = this;
+        else if (_instance != this)
+            Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
     }
     #endregion
@@ -30,7 +33,6 @@ public class GameManager : MonoBehaviour {
     {
         public const int startingLives = 3;
         public int lives = startingLives;
-        public Text livesCount;
         public bool isDead = false;
         public GunType gunType;             // Type of shoot the player will use
     }
@@ -42,9 +44,9 @@ public class GameManager : MonoBehaviour {
         PAUSE,
         GAMEOVER
     };
-    public Object[] levelScenes;
-    public Object introScene;
-    public Object mainMenuScene;
+    //public Object[] levelScenes;
+    //public Object introScene;
+    //public Object mainMenuScene;
     public PlayerInfo playerInfo;
 
     //private GameObject player;
@@ -52,10 +54,6 @@ public class GameManager : MonoBehaviour {
     private int ActualScene { get; set; }
     private bool PlayerDead { get; set; }
 
-    /*private void OnGUI()
-    {
-        GUILayout.Label("Score: " + TotalScore);
-    }*/
     // Use this for initialization
     void Start()
     {
@@ -137,7 +135,7 @@ public class GameManager : MonoBehaviour {
     public void SetPlayerLives(int number)
     {
         playerInfo.lives = number;
-        playerInfo.livesCount.text = "x" + playerInfo.lives;
+        PlayerHUDManager.Instance.lifesCount.text = "x" + playerInfo.lives;
     }
 
     /// <summary>
@@ -156,7 +154,7 @@ public class GameManager : MonoBehaviour {
             playerInfo.lives -= amount;
             ResetGunType();
         }
-        playerInfo.livesCount.text = "x" + playerInfo.lives;
+        PlayerHUDManager.Instance.lifesCount.text = "x" + playerInfo.lives;
     }
 
     /// <summary>
@@ -168,7 +166,7 @@ public class GameManager : MonoBehaviour {
         if (playerInfo.isDead)
             SetPlayerDead(false);
         playerInfo.lives += amount;
-        playerInfo.livesCount.text = "x" + playerInfo.lives;
+        PlayerHUDManager.Instance.lifesCount.text = "x" + playerInfo.lives;
     }
 
     /// <summary>

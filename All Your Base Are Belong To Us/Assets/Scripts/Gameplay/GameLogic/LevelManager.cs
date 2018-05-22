@@ -48,18 +48,12 @@ public class LevelManager : MonoBehaviour {
 
     public Sector[] sectors;            // Array of sectors that form a Level
     public GameObject gameplayPlane;    // gameplayPlane GameObject
-    public Image gameOverScreen;        // Background Image of the Game Over Screen
-    public Text gameOverText;           // Text to be shown on Game Over
-    public Text score;                  // Text tha will show the Total Score on the Game Over Screen
     [Space(10)]
     [Header("Path Selection")]
     public GameObject limitPlane;
-    public GameObject[] arrows;         // The UI arrows which appear pointing both paths. Must be inserted in the following order: (up, low, left, right).
-    public GameObject text;
     public float flickFrequency = 2.0f; // Time it will take to flick an arrow
     private bool pathSelection = false;
     private bool arrowAnimFree = true;
-    //private Rail mainRail;
 
     private GameObject player;          // GameObject of the Player
     private Sector currentSector;       // Sector the player is currently in
@@ -243,32 +237,8 @@ public class LevelManager : MonoBehaviour {
     /// </summary>
     public void LevelGameOver()
     {
-        score.gameObject.SetActive(true);
-        StartCoroutine("GameOverAnimation");
+        PlayerHUDManager.Instance.ShowGameOverScreen();
         GameManager.Instance.Invoke("ResetScene", 10);
-    }
-
-    /// <summary>
-    /// Actual animation for the GameOver screen
-    /// </summary>
-    private IEnumerator GameOverAnimation()
-    {
-        float t = 0.0f;
-        var screenColor = gameOverScreen.color;
-        var newScreenColor = screenColor;
-        newScreenColor.a = 1f;
-        var textColor = gameOverText.color;
-        var newTextColor = textColor;
-        newTextColor.a = 1f;
-
-        while (t < 1)
-        {
-            t += Time.deltaTime;
-            gameOverScreen.color = Color.Lerp(screenColor, newScreenColor, t);
-            gameOverText.color = Color.Lerp(textColor, newTextColor, t);
-            yield return null;
-        }
-        score.text = "Score: " + GameManager.Instance.GetTotalScore();
     }
     #endregion
 
@@ -326,9 +296,9 @@ public class LevelManager : MonoBehaviour {
     private IEnumerator ArrowAnimation(int currentArrow)
     {
         arrowAnimFree = false;
-        arrows[currentArrow].gameObject.SetActive(true);
+        PlayerHUDManager.Instance.SetArrowActive(currentArrow, true);
         yield return new WaitForSeconds(flickFrequency);
-        arrows[currentArrow].gameObject.SetActive(false);
+        PlayerHUDManager.Instance.SetArrowActive(currentArrow, false);
         yield return new WaitForSeconds(flickFrequency);
         arrowAnimFree = true;
     }
@@ -337,9 +307,9 @@ public class LevelManager : MonoBehaviour {
     {
         while (gameplayPlane.GetComponent<RailMover>().GetPositionOnSegment() < 0.4f)
         {
-            text.gameObject.SetActive(true);
+            PlayerHUDManager.Instance.SePathSelectionTextActive(true);
             yield return new WaitForSeconds(flickFrequency);
-            text.gameObject.SetActive(false);
+            PlayerHUDManager.Instance.SePathSelectionTextActive(false);
             yield return new WaitForSeconds(flickFrequency);
         }
     }

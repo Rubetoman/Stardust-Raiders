@@ -4580,7 +4580,7 @@ MonoBehaviour:
   heightOffset: 2.5
   missileSpawnPoints:
   - {fileID: 4231637536029388}
-  spawnMissile: {fileID: 1094634218696556, guid: a26ceef3ff674ba4a922f1e43b6dccce,
+  spawnMissile: {fileID: 1094634218696556, guid: 26fde2f65e590bc4e9cf04a820850b86,
     type: 2}
   missileDestroyTime: 4
   movementTime: 1
