@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour {
         newPos = objectToFollow.localPosition;
         // The gameObject will move always inside the limits imposed and the Z axis will be static. Once you are near the limit the camera will stop following.
         transform.localPosition = new Vector3(Mathf.Clamp(newPos.x,-(limit.x - stopDistance.x), limit.x - stopDistance.x), Mathf.Clamp(newPos.y, -(limit.y - stopDistance.y), limit.y - stopDistance.y), transform.localPosition.z);
-        if(rotateCamera)
+        if(rotateCamera && LevelManager.Instance.GetCurrentSector().playerMovement) //Avoid rotating player camera when you can't move
             RotateCameraOnShipMovement();
     }
 

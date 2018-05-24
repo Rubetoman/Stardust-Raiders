@@ -39,11 +39,11 @@ public class LevelManager : MonoBehaviour {
         public Camera camera;                   // Camera to change in case this sector has a different camera from the previous sector
         public bool playerMovement = true;      // If true the player controls are active, else they are disabled 
         public Rail alternativeRail;            // Second rail to choose between the one already in use and this one
-        public DivideType divideType;
+        public DivideType divideType;           // Type of division on the path selection
         public OrientationMode railOrientation; // Choose between orientation of the object on the rail (Node: use same rotation of the nodes, Lines: look at next node)
         public bool changeScene = false;        // If true, at the end of this sector a new scene will be loaded
         public bool loopSector = false;         // If true in this scene there will be a boss fight
-        public GameObject bossShieldBar;
+        public bool showEnemyShieldbar = false; // If true will display enemy shield bar on player HUD
     }
 
     public Sector[] sectors;            // Array of sectors that form a Level
@@ -86,9 +86,11 @@ public class LevelManager : MonoBehaviour {
         //Change rail orientation if needed
         if (currentSector.railOrientation != gameplayPlane.GetComponent<RailMover>().orientationMode)
             SetCurrentSectorOrientation();
-        // Show boss shield bar if needed
-        if (currentSector.bossShieldBar != null)
-            currentSector.bossShieldBar.SetActive(true);
+        // Show or hide boss shield bar
+        if (currentSector.showEnemyShieldbar)
+            PlayerHUDManager.Instance.SetEnemyShieldBarActive(true);
+        else
+            PlayerHUDManager.Instance.SetEnemyShieldBarActive(false);
         // Loop throught same sector if needed
         if (currentSector.loopSector)
             LoopSectorActive(true);
@@ -105,6 +107,11 @@ public class LevelManager : MonoBehaviour {
     }
 
     #region SectorFunctions
+
+    public Sector GetCurrentSector()
+    {
+        return currentSector;
+    }
     /// <summary>
     /// This function compares the first node of the next sector with the node that the player last passed through
     /// </summary>
@@ -141,8 +148,10 @@ public class LevelManager : MonoBehaviour {
         // Change speed
         SetCurrentSectorSpeed();
         // Show boss shield bar if needed
-        if(currentSector.bossShieldBar != null)
-            sectors[currentSectorNumber].bossShieldBar.SetActive(true);
+        if(currentSector.showEnemyShieldbar)
+            PlayerHUDManager.Instance.SetEnemyShieldBarActive(true);
+        else
+            PlayerHUDManager.Instance.SetEnemyShieldBarActive(false);
 
         // Loop throught same sector if needed
         if (sectors[currentSectorNumber].loopSector)
@@ -307,9 +316,9 @@ public class LevelManager : MonoBehaviour {
     {
         while (gameplayPlane.GetComponent<RailMover>().GetPositionOnSegment() < 0.4f)
         {
-            PlayerHUDManager.Instance.SePathSelectionTextActive(true);
+            PlayerHUDManager.Instance.SetPathSelectionTextActive(true);
             yield return new WaitForSeconds(flickFrequency);
-            PlayerHUDManager.Instance.SePathSelectionTextActive(false);
+            PlayerHUDManager.Instance.SetPathSelectionTextActive(false);
             yield return new WaitForSeconds(flickFrequency);
         }
     }

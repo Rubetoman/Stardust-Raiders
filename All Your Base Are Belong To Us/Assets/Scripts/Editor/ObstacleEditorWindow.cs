@@ -18,7 +18,7 @@ public class ObstacleEditorWindow : EditorWindow {
 
     // Obstacle Controller
     int damage = 10;
-
+    private Vector3 goalScale = Vector3.one;
     [MenuItem("Window/ObstacleEditor")]
     public static void ShowWindow()
     {
@@ -39,6 +39,7 @@ public class ObstacleEditorWindow : EditorWindow {
 
         GUILayout.Label("Destroy Effect",EditorStyles.boldLabel);
         destroyTime = EditorGUILayout.FloatField("destroyTime", destroyTime);
+        goalScale = EditorGUILayout.Vector3Field("goalScale", goalScale);
 
         if (GUILayout.Button("Apply Shield Variables"))
         {
@@ -59,13 +60,33 @@ public class ObstacleEditorWindow : EditorWindow {
         foreach (GameObject obj in Selection.gameObjects)
         {
             var obsShield = obj.GetComponent<ObstacleShieldManager>();
-            obsShield.currentShield = currentShield;
-            obsShield.godMode = godMode;
-            obsShield.recoverTime = recoverTime;
-            obsShield.hitColor = hitColor;
-            obsShield.flickCount = flickCount;
-            obsShield.flickRate = flickRate;
-            obsShield.destroyTime = destroyTime;
+            if(obsShield != null)
+            {
+                obsShield.currentShield = currentShield;
+                obsShield.godMode = godMode;
+                obsShield.recoverTime = recoverTime;
+                obsShield.hitColor = hitColor;
+                obsShield.flickCount = flickCount;
+                obsShield.flickRate = flickRate;
+                obsShield.destroyTime = destroyTime;
+                obsShield.goalScale = goalScale;
+            }
+            else
+            {
+                var childs = obj.GetComponentsInChildren<ObstacleShieldManager>();
+                foreach (ObstacleShieldManager childShield in childs)
+                {
+                    childShield.currentShield = currentShield;
+                    childShield.godMode = godMode;
+                    childShield.recoverTime = recoverTime;
+                    childShield.hitColor = hitColor;
+                    childShield.flickCount = flickCount;
+                    childShield.flickRate = flickRate;
+                    childShield.destroyTime = destroyTime;
+                    childShield.goalScale = goalScale;
+                }
+
+            }
         }
     }
 

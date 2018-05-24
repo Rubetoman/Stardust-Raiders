@@ -123,7 +123,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh47692
+  m_Name: pb_Mesh30216
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -253,7 +253,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh47834
+  m_Name: pb_Mesh30358
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -1357,7 +1357,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh47896
+  m_Name: pb_Mesh30420
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -2754,7 +2754,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh47962
+  m_Name: pb_Mesh30486
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -3434,7 +3434,6 @@ MonoBehaviour:
   boostDuration: 1
   recoilTime: 2
   speedMod: 3
-  boostBar: {fileID: 827014998}
 --- !u!43 &771439489
 Mesh:
   m_ObjectHideFlags: 0
@@ -4546,6 +4545,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1722774845988580, guid: 669e5a9c0bdd1fc4da3c5dae92726725, type: 2}
+      propertyPath: m_Name
+      value: LifesCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456531204113036, guid: 669e5a9c0bdd1fc4da3c5dae92726725, type: 2}
+      propertyPath: m_Name
+      value: LifesCount
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 669e5a9c0bdd1fc4da3c5dae92726725, type: 2}
   m_IsPrefabParent: 0
@@ -4597,6 +4604,36 @@ GameObject:
   m_PrefabParentObject: {fileID: 1866517679770210, guid: 669e5a9c0bdd1fc4da3c5dae92726725,
     type: 2}
   m_PrefabInternal: {fileID: 1156991033}
+--- !u!1 &1156991043 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1730032770870080, guid: 669e5a9c0bdd1fc4da3c5dae92726725,
+    type: 2}
+  m_PrefabInternal: {fileID: 1156991033}
+--- !u!114 &1156991044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1156991043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14afb07e11201de4dba0259ae681b5df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifesCount: {fileID: 419415762}
+  playerShieldBarForeground: {fileID: 51520062}
+  boostBarForeground: {fileID: 827014998}
+  arrows:
+  - {fileID: 688601646}
+  - {fileID: 1854254608}
+  - {fileID: 1938016166}
+  - {fileID: 1252849188}
+  PathSelectionText: {fileID: 1156991037}
+  enemyShieldBar: {fileID: 1156991036}
+  enemyShieldBarForeground: {fileID: 1859488094}
+  gameOverScreen: {fileID: 1156991035}
+  gameOverText: {fileID: 1156991034}
+  score: {fileID: 1156991038}
 --- !u!1001 &1215555641
 Prefab:
   m_ObjectHideFlags: 0
@@ -4900,6 +4937,11 @@ Prefab:
         type: 2}
       propertyPath: sectors.Array.data[2].bossShieldBar
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114989153257470784, guid: a9508abd5b5dba2448798c79b4568db4,
+        type: 2}
+      propertyPath: sectors.Array.data[1].showEnemyShieldbar
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a9508abd5b5dba2448798c79b4568db4, type: 2}
@@ -6280,7 +6322,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh47858
+  m_Name: pb_Mesh30382
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -10664,7 +10706,6 @@ MonoBehaviour:
   deathEffect: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb,
     type: 2}
   invulnerable: 0
-  playerShieldBar: {fileID: 51520062}
   recoverColor: {r: 0.1707937, g: 0.672, b: 0.8602941, a: 0}
   inBarrelRoll: 0
 --- !u!54 &1716961708
@@ -13848,7 +13889,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh47880
+  m_Name: pb_Mesh30404
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2

@@ -29,15 +29,83 @@ public class PlayerHUDManager : MonoBehaviour {
     [Header("Life Canvas")]
     public Text lifesCount;
     [Space(10)]
-    [Header("Game Over Canvas")]
-    public Image gameOverScreen;        // Background Image of the Game Over Screen
-    public Text gameOverText;           // Text to be shown on Game Over
-    public Text score;                  // Text tha will show the Total Score on the Game Over Screen
+    [Header("Shield Bar Canvas")]
+    public RectTransform playerShieldBarForeground;
+    [Space(10)]
+    [Header("Boost Bar Canvas")]
+    public RectTransform boostBarForeground;
     [Space(10)]
     [Header("Path Selection Canvas")]
     public GameObject[] arrows;         // The UI arrows which appear pointing both paths. Must be inserted in the following order: (up, low, left, right).
     public GameObject PathSelectionText;
+    [Space(10)]
+    [Header("Enemy Shield Canvas")]
+    public GameObject enemyShieldBar;
+    public RectTransform enemyShieldBarForeground;
+    [Space(10)]
+    [Header("Game Over Canvas")]
+    public Image gameOverScreen;        // Background Image of the Game Over Screen
+    public Text gameOverText;           // Text to be shown on Game Over
+    public Text score;                  // Text tha will show the Total Score on the Game Over Screen
 
+    
+    #region Shield Bar Canvas
+    public void SetPlayerShieldBarWidth(float width)
+    {
+        playerShieldBarForeground.sizeDelta = new Vector2(width, playerShieldBarForeground.sizeDelta.y);
+    }
+
+    public void SetPlayerShieldBarHeight(float height)
+    {
+        playerShieldBarForeground.sizeDelta = new Vector2(playerShieldBarForeground.sizeDelta.x, height);
+    }
+    #endregion
+
+    #region Boost Bar Canvas
+    public void SetBoostBarWidth(float width)
+    {
+        boostBarForeground.sizeDelta = new Vector2(width, boostBarForeground.sizeDelta.y);
+    }
+
+    public void SetBoostBarHeight(float height)
+    {
+        boostBarForeground.sizeDelta = new Vector2(boostBarForeground.sizeDelta.x, height);
+    }
+    #endregion
+
+    #region Path Selection Canvas
+    public void SetArrowActive(int arrowNumber, bool value)
+    {
+        if(arrows[arrowNumber].activeSelf != value)
+            arrows[arrowNumber].SetActive(value);
+    }
+
+    public void SetPathSelectionTextActive(bool value)
+    {
+        if(PathSelectionText.activeSelf != value)
+            PathSelectionText.SetActive(value);
+    }
+    #endregion
+
+    #region Enemy Shield Bar Canvas
+    public void SetEnemyShieldBarActive(bool value)
+    {
+        if(enemyShieldBar.activeSelf != value)
+            enemyShieldBar.SetActive(value);
+    }
+
+    public void SetEnemyShieldBarWidth(float width)
+    {
+        enemyShieldBarForeground.sizeDelta = new Vector2(width, enemyShieldBarForeground.sizeDelta.y);
+    }
+
+    public void SetEnemyShieldBarHeight(float height)
+    {
+        enemyShieldBarForeground.sizeDelta = new Vector2(enemyShieldBarForeground.sizeDelta.x, height);
+    }
+    #endregion
+
+    #region Game Over Canvas
     /// <summary>
     /// Function to manage the GameOver screen
     /// </summary>
@@ -69,14 +137,5 @@ public class PlayerHUDManager : MonoBehaviour {
         }
         score.text = "Score: " + GameManager.Instance.GetTotalScore();
     }
-
-    public void SetArrowActive(int arrowNumber, bool value)
-    {
-        arrows[arrowNumber].SetActive(value);
-    }
-
-    public void SePathSelectionTextActive(bool value)
-    {
-        PathSelectionText.SetActive(value);
-    }
+    #endregion
 }

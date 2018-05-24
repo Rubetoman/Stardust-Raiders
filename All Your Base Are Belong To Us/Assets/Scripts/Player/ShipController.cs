@@ -22,7 +22,6 @@ public class ShipController : MonoBehaviour {
     public float recoilTime = 2.0f;         // Time it takes to the boos or brake to be ready again for re-use
     public int speedMod = 5;                // How much the speed will be increased or decreased while boosting or braking
     public const int maxBoost = 100;
-    public RectTransform boostBar;
 
     private bool boostReady = true;
     private bool boostBlocked = false;
@@ -85,7 +84,7 @@ public class ShipController : MonoBehaviour {
     #region BoostandBrakFunctions
     public void ResetBoost()
     {
-        boostBar.sizeDelta = new Vector2(maxBoost, boostBar.sizeDelta.y);
+        PlayerHUDManager.Instance.SetBoostBarWidth(maxBoost);
         boostReady = true;
     }
 
@@ -103,7 +102,7 @@ public class ShipController : MonoBehaviour {
             t += Time.deltaTime / boostDuration;
             transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 0.5f), t);
             speedScript.speed += speedMod;
-            boostBar.sizeDelta = new Vector2(maxBoost * (1.0f - t), boostBar.sizeDelta.y);
+            PlayerHUDManager.Instance.SetBoostBarWidth(maxBoost * (1.0f - t));
             yield return null;
         }
         t = 0f;
@@ -139,7 +138,7 @@ public class ShipController : MonoBehaviour {
             //Decrease the speed and avoid to go under 0. Also avoid decreasing the speed if the flow is not active
             if(speedScript.speed > 0.0f)
                 speedScript.speed -= speedMod;
-            boostBar.sizeDelta = new Vector2(maxBoost * (1.0f - t), boostBar.sizeDelta.y);
+            PlayerHUDManager.Instance.SetBoostBarWidth(maxBoost * (1.0f - t));
             yield return null;
         }
         t = 0f;
@@ -165,10 +164,10 @@ public class ShipController : MonoBehaviour {
         while (t < 1)
         {
             t += Time.deltaTime / reTime;
-            boostBar.sizeDelta = new Vector2(maxBoost * t, boostBar.sizeDelta.y);
+            PlayerHUDManager.Instance.SetBoostBarWidth(maxBoost * t);
             yield return null;
         }
-        boostBar.sizeDelta = new Vector2(maxBoost, boostBar.sizeDelta.y);
+        PlayerHUDManager.Instance.SetBoostBarWidth(maxBoost);
         boostReady = true;
     }
 

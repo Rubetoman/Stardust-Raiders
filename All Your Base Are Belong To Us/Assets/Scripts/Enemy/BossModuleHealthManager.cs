@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BossModuleHealthManager : ShieldManager {
     public string collisionTag = "Bullet";
-    //public int hitDamage = 10;
     public GameObject boss;
 
     // Use this for initialization
@@ -20,18 +19,6 @@ public class BossModuleHealthManager : ShieldManager {
             shield.TakeDamage(amount);
         }
         base.TakeDamage(amount);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        /*if(other.tag == collisionTag)
-        {
-            var shield = boss.GetComponent<BossShieldManager>();
-            if(shield != null && !invulnerable)
-            {
-                shield.TakeDamage(hitDamage);
-            }
-            TakeDamage(hitDamage);
-        }*/
     }
 
 

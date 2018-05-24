@@ -9,6 +9,8 @@ public class ExtraLiveObjController : BonusObjController
 
     protected override void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag("PlayerCollider"))
+            return;
         icon.transform.parent = other.gameObject.transform;
         Destroy(icon, 2);
         base.OnTriggerEnter(other);

@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerShieldManager : ShieldManager {
-    public RectTransform playerShieldBar;
     [Header("Recover Effect")]
     public Color recoverColor;
     [HideInInspector]
@@ -22,7 +21,7 @@ public class PlayerShieldManager : ShieldManager {
     public override void TakeDamage(int amount)
     {
         base.TakeDamage(amount);
-        playerShieldBar.sizeDelta = new Vector2(currentShield, playerShieldBar.sizeDelta.y);
+        PlayerHUDManager.Instance.SetPlayerShieldBarWidth(currentShield);
     }
 
     public void RecoverShield(int amount)
@@ -39,7 +38,7 @@ public class PlayerShieldManager : ShieldManager {
             currentShield = maxShield;
 
         StartCoroutine(FlickeringColor(recoverColor));
-        playerShieldBar.sizeDelta = new Vector2(currentShield, playerShieldBar.sizeDelta.y);
+        PlayerHUDManager.Instance.SetPlayerShieldBarWidth(currentShield);
     }
 
     protected override void Die()
@@ -63,22 +62,23 @@ public class PlayerShieldManager : ShieldManager {
 
     void ResetPlayerShield()
     {
-        currentShield = maxShield;                                                              
-        playerShieldBar.sizeDelta = new Vector2(currentShield, playerShieldBar.sizeDelta.y);
+        currentShield = maxShield;
+        PlayerHUDManager.Instance.SetPlayerShieldBarWidth(currentShield);
     }
 
     private void RespawnPlayer()
     {
         if (!GameManager.Instance.playerInfo.isDead) // Check if player is dead
             return;
-        player.GetComponent<ShipController>().ResetBoost();                 // Reset boost bar and make available the boost/brake again
-        player.GetComponent<BarrelRollController>().inBarrelRoll = false;   // Reset barrel roll state in case it died during barrel roll
-        player.SetActive(true);                                             // Show player again
-        ResetPlayerShield();                                                // Reset Player Shield values
-        player.SendMessageUpwards("ResetPosition");                         // Reset Player position on GameplayPlane
-        player.SendMessageUpwards("ResetRotation");                         // Reset Player rotation on GameplayPlane
-        invulnerable = true;                                                // Make Player invulnerable untill flickering effect has dissapear
-        StartCoroutine(FlickeringColor(recoverColor));                      // Play flickering effec
+        player.GetComponent<ShipController>().ResetBoost();                     // Reset boost bar and make available the boost/brake again
+        player.GetComponent<BarrelRollController>().inBarrelRoll = false;       // Reset barrel roll state in case it died during barrel roll
+        player.GetComponent<BarrelRollController>().ResetBarrelRollShield();    // Reset barrel roll shield effect
+        player.SetActive(true);                                                 // Show player again
+        ResetPlayerShield();                                                    // Reset Player Shield values
+        player.SendMessageUpwards("ResetPosition");                             // Reset Player position on GameplayPlane
+        player.SendMessageUpwards("ResetRotation");                             // Reset Player rotation on GameplayPlane
+        invulnerable = true;                                                    // Make Player invulnerable untill flickering effect has dissapear
+        StartCoroutine(FlickeringColor(recoverColor));                          // Play flickering effec
         GameManager.Instance.playerInfo.isDead = false;
     }
 }
