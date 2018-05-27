@@ -3,13 +3,23 @@
 ###
 
 [Aa]ssets/AssetStoreTools*
-[Bb]uild/
-[Bb]uilds/[Ll]ibrary/
-[Ll]ocal[Cc]ache/
-[Oo]bj/
-[Tt]emp/
-[Uu]nityGenerated/
 
+[Bb]uild
+/
+[Bb]uilds/
+/[Ll]ibrary/
+
+[Ll]ocal
+[Cc]ache
+/
+[Oo]bj/
+
+[Tt]emp/
+
+[Uu]nityGenerated/
+*.stackdump
+*.apk
+*.unitypackage
 
 # file on crash reports
 sysinfo.txt
@@ -49,3 +59,4 @@ Unity3D generated meta files
 Icon?
 ehthumbs.db
 Thumbs.db
+All Your Base Are Belong To Us/Library/
