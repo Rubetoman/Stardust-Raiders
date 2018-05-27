@@ -257,7 +257,7 @@ public class GameManager : MonoBehaviour {
             if(sceneNumber == 0)    // main_menu
             {
                 gameState = StateType.MainMenu;
-                PlayerHUDManager.Instance.ResetHUD();
+                ResetGameManager();
                 PlayerHUDManager.Instance.HidePlayerHUD(true);
             }
             else
@@ -279,7 +279,7 @@ public class GameManager : MonoBehaviour {
         ActualScene = SceneManager.GetSceneByName(sceneName).buildIndex;
         if (ActualScene == 0)    // main_menu
         {
-            PlayerHUDManager.Instance.ResetHUD();
+            ResetGameManager();
             PlayerHUDManager.Instance.HidePlayerHUD(true);
         }
         else

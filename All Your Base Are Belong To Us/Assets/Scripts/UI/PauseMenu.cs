@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Start"))
         {
             if (GameManager.Instance.GetGameState() == GameManager.StateType.PauseMenu)
             {
@@ -20,7 +20,19 @@ public class PauseMenu : MonoBehaviour {
                 Pause();
             }
         }
-	}
+        if (Input.GetButtonDown("Back"))
+        {
+            if (GameManager.Instance.GetGameState() == GameManager.StateType.PauseMenu)
+                Resume();
+
+            if (GameManager.Instance.GetGameState() == GameManager.StateType.Options)
+            {
+                GetComponentInChildren<OptionsMenu>().GoBack();
+                pauseMenuUI.SetActive(true);
+            }
+        }
+
+    }
 
     public void Resume()
     {

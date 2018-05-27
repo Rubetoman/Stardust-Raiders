@@ -230,6 +230,7 @@ public class LevelManager : MonoBehaviour {
     /// </summary>
     public void PauseLevel()
     {
+        player.GetComponent<ShipController>().BlockBoost(true);
         gameplayPlane.GetComponent<RailMover>().speed = 0;
     }
 
@@ -239,6 +240,7 @@ public class LevelManager : MonoBehaviour {
     public void ContinueLevel()
     {
         gameplayPlane.GetComponent<RailMover>().speed = currentSector.speed;
+        player.GetComponent<ShipController>().BlockBoost(false);
     }
     
     /// <summary>

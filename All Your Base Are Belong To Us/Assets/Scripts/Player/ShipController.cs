@@ -169,9 +169,9 @@ public class ShipController : MonoBehaviour {
         boostReady = true;
     }
 
-    public void BlockBoost(bool b)
+    public void BlockBoost(bool block)
     {
-        boostBlocked = b;
+        boostBlocked = block;
     }
     #endregion
 }

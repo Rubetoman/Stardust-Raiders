@@ -3,56 +3,87 @@ using System.Collections.Generic;
 using UnityEngine.Audio;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class OptionsMenu : MonoBehaviour {
     public AudioMixer audioMixer;
+    public TMP_Dropdown graphicQualityDropdown;
     public Dropdown resolutionDropdown;
+    public Toggle fullscreen;
+    public Toggle invertXAxis;
+    public Toggle invertYAxis;
 
     private Resolution[] resolutions;
     private GameManager.StateType previousState;
+    private int currentResolutionIndex;
+
     void Start()
     {
-        
+        AddCurrentGameResolutionsToDropdown();  // Add all resolution options to dropdown
+        ShowCurrentOptionsValues();             // Show current game options values
+    }
 
+    private void OnEnable()
+    {
+        previousState = GameManager.Instance.GetGameState();
+        GameManager.Instance.SetGameState(GameManager.StateType.Options);
+    }
+
+    /// <summary>
+    /// Adds the available resolutions to the Resolution Dropdown. This resolutions can vary between executing systems.
+    /// </summary>
+    private void AddCurrentGameResolutionsToDropdown()
+    {
         resolutions = Screen.resolutions;   // Create an array with all the resolutions
         resolutionDropdown.ClearOptions();  // Clear all options form dropdown
 
         List<string> options = new List<string>();
-        int currentResolutionIndex = 0;
+        currentResolutionIndex = 0;
         // Pass every resolution on the array to string
         for (int i = 0; i < resolutions.Length; i++)
         {
             string option = resolutions[i].width + "x" + resolutions[i].height;
             options.Add(option);
 
-            if(resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
             {
                 currentResolutionIndex = i;
             }
         }
-        resolutionDropdown.AddOptions(options);             // Add resolutions to the Dropdown
-        resolutionDropdown.value = currentResolutionIndex;  // Show current resolution by default
-        resolutionDropdown.RefreshShownValue();
-    }
-    private void OnEnable()
-    {
-        previousState = GameManager.Instance.GetGameState();
-        GameManager.Instance.SetGameState(GameManager.StateType.Options);
-    }
-    private void Update()
-    {
-        /*if (Input.GetButtonDown("Cancel"))
-        {
-            if (GameManager.Instance.GetGameState() == GameManager.StateType.Options)
-                GoBack();
-        }*/
+        resolutionDropdown.AddOptions(options); // Add resolutions to the Dropdown
     }
 
+    /// <summary>
+    /// Shows, on the corresponding UI elements, the current game values.
+    /// </summary>
+    private void ShowCurrentOptionsValues()
+    {
+        resolutionDropdown.value = currentResolutionIndex;                  // Show current resolution by default
+        resolutionDropdown.RefreshShownValue();
+        graphicQualityDropdown.value = QualitySettings.GetQualityLevel();   // Show current graphic quality by default
+        graphicQualityDropdown.RefreshShownValue();
+        // Only look for fullscreen when running an actual build of the game
+        #if UNITY_STANDALONE && !UNITY_EDITOR
+        fullscreen.isOn = Screen.fullScreen;
+        #endif
+        invertXAxis.isOn = GameManager.Instance.playerInfo.invertXAxis;
+        invertYAxis.isOn = GameManager.Instance.playerInfo.invertYAxis;
+    }
+
+    /// <summary>
+    /// Sets the game resolution with the value passed as parameter.
+    /// </summary>
+    /// <param name="resolutionIndex"> Index number of the resolution list.</param>
     public void SetResolution ( int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
+
+    /// <summary>
+    /// Sets the game volume value to the one given as parameter.
+    /// </summary>
+    /// <param name="volume"> Volume value.</param>
     public void SetVolume (float volume)
     {
         audioMixer.SetFloat("Volume", volume);
@@ -94,6 +125,9 @@ public class OptionsMenu : MonoBehaviour {
         GameManager.Instance.playerInfo.invertYAxis = invert;
     }
 
+    /// <summary>
+    /// Function to go back to the previous menu.
+    /// </summary>
     public void GoBack()
     {
         GameManager.Instance.SetGameState(previousState);
