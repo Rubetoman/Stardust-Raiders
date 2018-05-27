@@ -35,21 +35,24 @@ public class GameManager : MonoBehaviour {
         public int lives = startingLives;
         public bool isDead = false;
         public GunType gunType;             // Type of shoot the player will use
+        public bool invertXAxis = false;    // Invert horizontal movement (true for invert)
+        public bool invertYAxis = true;    // Invert vertical movement (true for invert) 
     }
     public enum StateType
     {
-        PLAY,
-        MENU,         // Player is viewing in-game menu
-        OPTIONS,      // Player is adjusting game options
-        PAUSE,
-        GAMEOVER
+        Play,
+        MainMenu,         // Player is viewing in-game menu
+        Options,      // Player is adjusting game options
+        PauseMenu,
+        Gameover
     };
-    //public Object[] levelScenes;
-    //public Object introScene;
-    //public Object mainMenuScene;
+
+    public StateType gameState;
+    public GameObject loadingScreen;
+    public Slider loadSlider;
+    public Text progressText;
     public PlayerInfo playerInfo;
 
-    //private GameObject player;
     private int TotalScore { get; set; }
     private int ActualScene { get; set; }
     private bool PlayerDead { get; set; }
@@ -62,10 +65,6 @@ public class GameManager : MonoBehaviour {
         ActualScene = SceneManager.GetActiveScene().buildIndex;
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
 
     /// <summary>
     /// Resets GameManager by seting the TotalScore to 0, Player values to default and reloads current scene
@@ -75,7 +74,23 @@ public class GameManager : MonoBehaviour {
         ResetPlayerInfo();
         ResetTotalScore();
         ResetScene();
+        PlayerHUDManager.Instance.ResetHUD();
     }
+
+    #region Game State
+    public void SetGameState(StateType state)
+    {
+        if (gameState != state)
+            gameState = state;
+        else
+            Debug.LogWarning("State already in " + state.ToString());
+    }
+
+    public StateType GetGameState()
+    {
+        return gameState;
+    }
+    #endregion
 
     #region ScoreFunctions
     /// <summary>
@@ -205,7 +220,7 @@ public class GameManager : MonoBehaviour {
     void ResetPlayerInfo()
     {
         ResetGunType();
-        playerInfo.lives = PlayerInfo.startingLives;
+        SetPlayerLives(PlayerInfo.startingLives);
         playerInfo.isDead = false;
     }
     #endregion
@@ -216,13 +231,7 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     public void NextScene()
     {
-        if(ActualScene < SceneManager.sceneCountInBuildSettings)
-        {
-            ActualScene++;
-            SceneManager.LoadScene(ActualScene);
-        }
-        else
-            Debug.LogError("This is the last scene on the Build Index, can't load next scene.");
+        LoadScene(ActualScene+1);
     }
 
     /// <summary>
@@ -230,20 +239,14 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     public void PreviousScene()
     {
-        if (ActualScene > 0)
-        {
-            ActualScene--;
-            SceneManager.LoadScene(ActualScene);
-        }
-        else
-            Debug.LogError("This is the first scene on the Build Index, can't load a previous scene.");
+        LoadScene(ActualScene-1);
     }
 
     /// <summary>
     /// Loads a scene by his number on the Build Index
     /// </summary>
     /// <param name="sceneNumber">Number of the scene on the Build Index</param>
-    public void SetScene(int sceneNumber)
+    public void LoadScene(int sceneNumber)
     {
         if(sceneNumber < 0)
             Debug.LogError("Can't load a scene with a number lower than 0. Scene numbers on the Build Index start at 0.");
@@ -251,8 +254,19 @@ public class GameManager : MonoBehaviour {
             Debug.LogError("There isn't any scene with a number as high as that. Higher scene number is: " + (SceneManager.sceneCountInBuildSettings-1));
         else
         {
+            if(sceneNumber == 0)    // main_menu
+            {
+                gameState = StateType.MainMenu;
+                PlayerHUDManager.Instance.ResetHUD();
+                PlayerHUDManager.Instance.HidePlayerHUD(true);
+            }
+            else
+            {
+                gameState = StateType.Play;
+                PlayerHUDManager.Instance.HidePlayerHUD(false);
+            }
             ActualScene = sceneNumber;
-            SceneManager.LoadScene(sceneNumber);
+            StartCoroutine(LoadAsync(sceneNumber));
         }
     }
 
@@ -260,10 +274,19 @@ public class GameManager : MonoBehaviour {
     /// Loads a scene by his name
     /// </summary>
     /// <param name="sceneNumber">Name of the scene</param>
-    public void SetScene(string sceneName)
+    public void LoadScene(string sceneName)
     {
         ActualScene = SceneManager.GetSceneByName(sceneName).buildIndex;
-        SceneManager.LoadScene(sceneName);
+        if (ActualScene == 0)    // main_menu
+        {
+            PlayerHUDManager.Instance.ResetHUD();
+            PlayerHUDManager.Instance.HidePlayerHUD(true);
+        }
+        else
+        {
+            PlayerHUDManager.Instance.HidePlayerHUD(false);
+        }
+        StartCoroutine(LoadAsync(ActualScene));
     }
 
     /// <summary>
@@ -271,7 +294,49 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     public void ResetScene()
     {
-        SceneManager.LoadScene(ActualScene);
+        StartCoroutine(LoadAsync(ActualScene));
+    }
+    
+    /// <summary>
+    /// This Couroutine will load the scene by index while showing a load screen.
+    /// </summary>
+    /// <param name="sceneIndex"> Number of the scene on the build scenes</param>
+    IEnumerator LoadAsync(int sceneIndex)
+    {
+        Time.timeScale = 0f;
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+        loadingScreen.SetActive(true);
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            loadSlider.value = progress;
+            progressText.text = Mathf.RoundToInt(progress * 100f) + "%";
+
+            yield return null;
+        }
+        loadingScreen.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    /// <summary>
+    /// This Couroutine will load the scene by index while showing a load screen.
+    /// </summary>
+    /// <param name="sceneName"> Name of the scene to load</param>
+    IEnumerator LoadAsync(string sceneName)
+    {
+        Time.timeScale = 0f;
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+        loadingScreen.SetActive(true);
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            loadSlider.value = progress;
+            progressText.text = Mathf.RoundToInt(progress * 100f) + "%";
+
+            yield return null;
+        }
+        loadingScreen.SetActive(false);
+        Time.timeScale = 1f;
     }
     #endregion
 }

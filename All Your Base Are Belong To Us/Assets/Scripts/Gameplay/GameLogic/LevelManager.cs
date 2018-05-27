@@ -41,7 +41,7 @@ public class LevelManager : MonoBehaviour {
         public Rail alternativeRail;            // Second rail to choose between the one already in use and this one
         public DivideType divideType;           // Type of division on the path selection
         public OrientationMode railOrientation; // Choose between orientation of the object on the rail (Node: use same rotation of the nodes, Lines: look at next node)
-        public bool changeScene = false;        // If true, at the end of this sector a new scene will be loaded
+        public bool nextScene = false;          // If true, at the end of this sector the next scene will be loaded
         public bool loopSector = false;         // If true in this scene there will be a boss fight
         public bool showEnemyShieldbar = false; // If true will display enemy shield bar on player HUD
     }
@@ -120,9 +120,9 @@ public class LevelManager : MonoBehaviour {
         if (gameplayPlane.GetComponent<RailMover>().GetCurrentNode().ToString() == nextSector.startNode.ToString()) // Uses string because could be the node of an alt rail
         {
             canChangeSector = false;
-            if (nextSector.changeScene)
+            if (nextSector.nextScene)
             {
-                GameManager.Instance.SetScene("boss_fight");
+                GameManager.Instance.NextScene();
             }
             else
             {
@@ -247,7 +247,7 @@ public class LevelManager : MonoBehaviour {
     public void LevelGameOver()
     {
         PlayerHUDManager.Instance.ShowGameOverScreen();
-        GameManager.Instance.Invoke("ResetScene", 10);
+        //GameManager.Instance.Invoke("ResetScene", 10);
     }
     #endregion
 
@@ -305,9 +305,9 @@ public class LevelManager : MonoBehaviour {
     private IEnumerator ArrowAnimation(int currentArrow)
     {
         arrowAnimFree = false;
-        PlayerHUDManager.Instance.SetArrowActive(currentArrow, true);
+        PlayerHUDManager.Instance.SetSelectionArrowActive(currentArrow, true);
         yield return new WaitForSeconds(flickFrequency);
-        PlayerHUDManager.Instance.SetArrowActive(currentArrow, false);
+        PlayerHUDManager.Instance.SetSelectionArrowActive(currentArrow, false);
         yield return new WaitForSeconds(flickFrequency);
         arrowAnimFree = true;
     }

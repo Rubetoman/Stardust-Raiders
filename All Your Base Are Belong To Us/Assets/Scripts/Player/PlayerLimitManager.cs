@@ -5,22 +5,15 @@ using UnityEngine;
 public class PlayerLimitManager : MonoBehaviour {
 
     public GameObject player;           // Player GameObject
-    public GameObject[] arrows;         // The UI arrows which appear when you reach the limit. Must be inserted in the following order: up, low, left, right.
     public float showDistance = 0.2f;   // Distance from the limit needed to reach to show the arrows
     public float flickFrequency = 2.0f; // Time it will take to flick an arrow
 
-    //private Bounds limitBounds;         // The bounds of limitPlane
     private bool vArrowAnimFree = true; // Variable that tells if the vertical arrow animation is free or being used
     private bool hArrowAnimFree = true; // Variable that tells if the horizontal arrow animation is free or being used
     private Vector2 limitBounds;
 
     // Use this for initialization
     void Start () {
-        if(arrows.Length < 4)
-        {
-            Debug.LogError("The are arrows missing. Make sure to insert the 4 arrows in the following order: upper arrow, lower arrow, left arrow, right arrow");
-            return;
-        }
         limitBounds = new Vector2(transform.localScale.x / 2, transform.localScale.y / 2);
     }
 	
@@ -80,9 +73,9 @@ public class PlayerLimitManager : MonoBehaviour {
     private IEnumerator VerticalArrowAnimation(int currentArrow)
     {
         vArrowAnimFree = false;
-        arrows[currentArrow].gameObject.SetActive(true);
+        PlayerHUDManager.Instance.SetLimitArrowActive(currentArrow, true);
         yield return new WaitForSeconds(flickFrequency);
-        arrows[currentArrow].gameObject.SetActive(false);
+        PlayerHUDManager.Instance.SetLimitArrowActive(currentArrow, false);
         yield return new WaitForSeconds(flickFrequency);
         vArrowAnimFree = true;
     }
@@ -90,9 +83,9 @@ public class PlayerLimitManager : MonoBehaviour {
     private IEnumerator HorizontalArrowAnimation(int currentArrow)
     {
         hArrowAnimFree = false;
-        arrows[currentArrow].gameObject.SetActive(true);
+        PlayerHUDManager.Instance.SetLimitArrowActive(currentArrow, true);
         yield return new WaitForSeconds(flickFrequency);
-        arrows[currentArrow].gameObject.SetActive(false);
+        PlayerHUDManager.Instance.SetLimitArrowActive(currentArrow, false);
         yield return new WaitForSeconds(flickFrequency);
         hArrowAnimFree = true;
     }

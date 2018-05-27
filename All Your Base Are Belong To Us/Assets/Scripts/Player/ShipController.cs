@@ -9,10 +9,6 @@ public class ShipController : MonoBehaviour {
     [Space(10)]
     [Header("Movement")]
     public Vector2 movementSpeed = Vector2.one;      // Speed at which the spaceship can move around the x and y axis
-    [Range(-1, 1)]
-    public int invertXAxis = 1;             // Invert horizontal movement (-1 for invert, else 1, with 0 axis disabled)
-    [Range(-1, 1)]
-    public int invertYAxis = 1;             // Invert vertical movement (-1 for invert, else 1, with 0 axis disabled)
     public float pointingDepth = 2.0f;      // Z axis distance to point the space towards
     public float maxRotDegrees = 230.0f;    // Max degrees of freedom for the rotation of the spaceship
     public float bankAmountOnTurn = 25.0f;  // How much will the ship bank when you mover horizontally
@@ -52,11 +48,13 @@ public class ShipController : MonoBehaviour {
     /// The first inpunt refers to the horizontal movement updated by Input and the second one to the vertical
     /// </summary>
     private void ShipMovement(float h, float v)
-    {  
+    {
+        var invertXAxis = GameManager.Instance.playerInfo.invertXAxis;
+        var invertYAxis = GameManager.Instance.playerInfo.invertYAxis;
         //Input direction
-        Vector3 direction = new Vector3(invertXAxis * h, invertYAxis * v, 0);
+        Vector3 direction = new Vector3((invertXAxis ? -1 : 1) * h, (invertYAxis ? -1 : 1) * v, 0);
         //Pointing direction, taking in account Z axis
-        Vector3 finalDirection = new Vector3(invertXAxis * h, invertYAxis * v, pointingDepth);
+        Vector3 finalDirection = new Vector3((invertXAxis ? -1 : 1) * h, (invertYAxis ? -1 : 1) * v, pointingDepth);
         //Position tranform by horizontal and vertical input
         Vector3 finalPosition = transform.localPosition;
         finalPosition.x += direction.x * movementSpeed.x * Time.deltaTime;

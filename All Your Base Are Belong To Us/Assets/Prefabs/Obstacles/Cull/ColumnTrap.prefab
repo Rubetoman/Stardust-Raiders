@@ -81,7 +81,7 @@ GameObject:
   m_Layer: 0
   m_Name: ColumnTrap
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 8220585740371884164, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -444,7 +444,6 @@ GameObject:
   - component: {fileID: 23906616975158412}
   - component: {fileID: 33653678036291860}
   - component: {fileID: 114355262357284646}
-  - component: {fileID: 114166298215693766}
   m_Layer: 0
   m_Name: Border
   m_TagString: Untagged
@@ -530,7 +529,6 @@ GameObject:
   - component: {fileID: 23313571477990942}
   - component: {fileID: 33254815089000204}
   - component: {fileID: 114731049347332652}
-  - component: {fileID: 114732391753484722}
   m_Layer: 0
   m_Name: Border
   m_TagString: Untagged
@@ -569,7 +567,6 @@ GameObject:
   - component: {fileID: 23443822026856530}
   - component: {fileID: 33770216841406714}
   - component: {fileID: 114569601758603128}
-  - component: {fileID: 114247953386232990}
   m_Layer: 0
   m_Name: Border
   m_TagString: Untagged
@@ -604,7 +601,6 @@ GameObject:
   - component: {fileID: 23145815912061632}
   - component: {fileID: 33708028395213136}
   - component: {fileID: 114698551657891650}
-  - component: {fileID: 114145549218023542}
   m_Layer: 0
   m_Name: Border
   m_TagString: Untagged
@@ -3520,7 +3516,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1019342786760904}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -9.550995, y: 0, z: 1784}
+  m_LocalPosition: {x: -559, y: -59.299988, z: 2694}
   m_LocalScale: {x: 8, y: 5, z: 10}
   m_Children:
   - {fileID: 4487114163424502}
@@ -4120,7 +4116,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -4596,7 +4592,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -4766,7 +4762,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -5038,7 +5034,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -6058,7 +6054,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -6126,7 +6122,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -8287,7 +8283,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4664748769928628}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114095375749354842
 MonoBehaviour:
@@ -8371,7 +8367,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4504337863009550}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114119470632305600
 MonoBehaviour:
@@ -9127,20 +9123,6 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
---- !u!114 &114145549218023542
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1274385915401338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c476d6d10ab98947b5b6a3801ba39eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialA: {fileID: 2100000, guid: be6c53b52fed6584b96aaf371be73122, type: 2}
-  materialB: {fileID: 2100000, guid: f7069034293e9a74f9c9be7b6b98e58a, type: 2}
-  frequency: 0.1
 --- !u!114 &114148951554686050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9679,20 +9661,6 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
---- !u!114 &114166298215693766
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1183980989011616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c476d6d10ab98947b5b6a3801ba39eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialA: {fileID: 2100000, guid: be6c53b52fed6584b96aaf371be73122, type: 2}
-  materialB: {fileID: 2100000, guid: f7069034293e9a74f9c9be7b6b98e58a, type: 2}
-  frequency: 0.1
 --- !u!114 &114166488387638054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11733,20 +11701,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityType: 4
---- !u!114 &114247953386232990
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1265635479250548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c476d6d10ab98947b5b6a3801ba39eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialA: {fileID: 2100000, guid: be6c53b52fed6584b96aaf371be73122, type: 2}
-  materialB: {fileID: 2100000, guid: f7069034293e9a74f9c9be7b6b98e58a, type: 2}
-  frequency: 0.1
 --- !u!114 &114248482385622004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13394,7 +13348,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4718428650369182}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114340390379924634
 MonoBehaviour:
@@ -14169,7 +14123,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4150687261487428}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114354005929150042
 MonoBehaviour:
@@ -14964,7 +14918,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4459480206372938}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114381560601680696
 MonoBehaviour:
@@ -15981,7 +15935,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4732429240366630}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114444716521649838
 MonoBehaviour:
@@ -17123,7 +17077,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4897792600040960}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114540021073211734
 MonoBehaviour:
@@ -17745,7 +17699,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4579817712756682}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114554648868614652
 MonoBehaviour:
@@ -18597,7 +18551,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4371868930167308}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114574793715532994
 MonoBehaviour:
@@ -18699,7 +18653,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4381817252822550}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114611233282172436
 MonoBehaviour:
@@ -19347,7 +19301,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4140153064624666}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114647803389397280
 MonoBehaviour:
@@ -20153,7 +20107,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4463578615150364}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114684305361226730
 MonoBehaviour:
@@ -21096,7 +21050,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4135713969374102}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114714449621013774
 MonoBehaviour:
@@ -22361,20 +22315,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
---- !u!114 &114732391753484722
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1230624129712618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c476d6d10ab98947b5b6a3801ba39eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialA: {fileID: 2100000, guid: be6c53b52fed6584b96aaf371be73122, type: 2}
-  materialB: {fileID: 2100000, guid: f7069034293e9a74f9c9be7b6b98e58a, type: 2}
-  frequency: 0.1
 --- !u!114 &114739552505944080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -25706,7 +25646,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4784674197928794}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114925790710648042
 MonoBehaviour:
@@ -25756,7 +25696,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4224405938000946}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114933846406017876
 MonoBehaviour:
@@ -26303,7 +26243,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4017841659414012}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114945420256872572
 MonoBehaviour:
@@ -26620,7 +26560,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4601028266022106}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114980765349228040
 MonoBehaviour:
@@ -26644,7 +26584,7 @@ MonoBehaviour:
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4959250329400766}
   goalScale: {x: 1, y: 1, z: 0}
-  destroyTime: 2
+  destroyTime: 1
   destroyScore: 10
 --- !u!114 &114984568871508170
 MonoBehaviour:
