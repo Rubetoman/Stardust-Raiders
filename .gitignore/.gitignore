@@ -1,21 +1,28 @@
 ###
 # Unity folders and files
 ###
+
 [Aa]ssets/AssetStoreTools*
 [Bb]uild/
-[Ll]ibrary/
+[Bb]uilds/[Ll]ibrary/
 [Ll]ocal[Cc]ache/
 [Oo]bj/
 [Tt]emp/
 [Uu]nityGenerated/
+
+
 # file on crash reports
 sysinfo.txt
-# Unity3D generated meta files
+# 
+Unity3D generated meta files
 *.pidb.meta
+
+
 
 ###
 # VS/MD solution and project files
 ###
+
 [Ee]xportedObj/
 *.booproj
 *.csproj
@@ -28,9 +35,12 @@ sysinfo.txt
 *.pidb
 .DS_Store
 
+
+
 ###
 # OS generated
 ###
+
 .DS_Store
 .DS_Store?
 ._*
