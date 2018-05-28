@@ -278,6 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859ead51c7bfb1147a034f86b1bb8158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: 0
   loadingScreen: {fileID: 1811305075841594}
   loadSlider: {fileID: 114176551600460078}
   progressText: {fileID: 114896619902340660}
@@ -525,7 +526,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &224162142283909514
 RectTransform:
