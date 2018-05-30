@@ -5336,54 +5336,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1811305075841594, guid: 04b5e644555ed66499c5584e89633bdc, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224796011336452266, guid: 04b5e644555ed66499c5584e89633bdc,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -1.7220776
-      objectReference: {fileID: 0}
-    - target: {fileID: 224796011336452266, guid: 04b5e644555ed66499c5584e89633bdc,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 18.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 224464819201709124, guid: 04b5e644555ed66499c5584e89633bdc,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0.771
-      objectReference: {fileID: 0}
-    - target: {fileID: 224464819201709124, guid: 04b5e644555ed66499c5584e89633bdc,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114272527013376276, guid: 04b5e644555ed66499c5584e89633bdc,
-        type: 2}
-      propertyPath: gameState
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114340534628114524, guid: 04b5e644555ed66499c5584e89633bdc,
-        type: 2}
-      propertyPath: m_ScreenMatchMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114340534628114524, guid: 04b5e644555ed66499c5584e89633bdc,
-        type: 2}
-      propertyPath: m_MatchWidthOrHeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1066577888168530, guid: 04b5e644555ed66499c5584e89633bdc, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114272527013376276, guid: 04b5e644555ed66499c5584e89633bdc,
-        type: 2}
-      propertyPath: playerInfo.invertXAxis
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04b5e644555ed66499c5584e89633bdc, type: 2}
   m_IsPrefabParent: 0
@@ -5528,7 +5480,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.2}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5937,6 +5889,7 @@ GameObject:
   - component: {fileID: 1530831259}
   - component: {fileID: 1530831258}
   - component: {fileID: 1530831257}
+  - component: {fileID: 1530831261}
   m_Layer: 10
   m_Name: Template
   m_TagString: Untagged
@@ -6032,6 +5985,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1530831255}
+--- !u!114 &1530831261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1530831255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad69a18e30e6ff84ab7dc483e75f1ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1562739123
 GameObject:
   m_ObjectHideFlags: 0

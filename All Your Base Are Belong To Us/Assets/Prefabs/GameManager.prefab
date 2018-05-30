@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859ead51c7bfb1147a034f86b1bb8158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: 0
+  gameState: 1
   loadingScreen: {fileID: 1811305075841594}
   loadSlider: {fileID: 114176551600460078}
   progressText: {fileID: 114896619902340660}
@@ -431,7 +431,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -656,8 +656,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -85.1, y: 0}
-  m_SizeDelta: {x: 149.8, y: 30}
+  m_AnchoredPosition: {x: -85.1, y: -1.7220776}
+  m_SizeDelta: {x: 149.8, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224809712678269852
 RectTransform:

@@ -43,23 +43,13 @@ public class PauseMenu : MonoBehaviour {
                 Pause();
                 break;
             }
-            /*
-            if (GameManager.Instance.GetGameState() == GameManager.StateType.PauseMenu)
-                Resume();
-            else if (GameManager.Instance.GetGameState() == GameManager.StateType.Options)
-            {
-                GetComponentInChildren<OptionsMenu>().GoBack();
-                pauseMenuUI.SetActive(true);
-            }
-            else if(GameManager.Instance.GetGameState() == GameManager.StateType.Play)
-                Pause();*/
         }
         if (GameManager.Instance.GetGameState() == GameManager.StateType.PauseMenu)
         {
             // If no UI gameObject was selected and horizontal or vertical Input is detected, select the last selected button.
             if (myEventSystem.GetComponent<EventSystem>().currentSelectedGameObject == null)
             {
-                if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
+                if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
                     myEventSystem.GetComponent<EventSystem>().SetSelectedGameObject(lastSelected);
             }
             else

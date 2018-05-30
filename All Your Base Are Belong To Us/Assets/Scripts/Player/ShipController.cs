@@ -25,21 +25,25 @@ public class ShipController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        if(!GameManager.Instance.playerInfo.isDead)
-            ShipMovement(horizontal, vertical);
-
-        //BOOST
-        if(Input.GetButtonDown("Boost") && boostReady && !boostBlocked)
+        if(GameManager.Instance.gameState == GameManager.StateType.Play)
         {
-            StartCoroutine("Boost");
-        }
+            // MOVEMENT
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+            if (!GameManager.Instance.playerInfo.isDead)
+                ShipMovement(horizontal, vertical);
 
+            // BOOST
+            if (Input.GetButtonDown("Boost") && boostReady && !boostBlocked)
+            {
+                StartCoroutine("Boost");
+            }
 
-        if (Input.GetButtonDown("Brake") && boostReady && !boostBlocked)
-        {
-            StartCoroutine("Brake");
+            // BRAKE
+            if (Input.GetButtonDown("Brake") && boostReady && !boostBlocked)
+            {
+                StartCoroutine("Brake");
+            }
         }
     }
 
@@ -98,9 +102,12 @@ public class ShipController : MonoBehaviour {
         while (t < 1)
         {
             t += Time.deltaTime / boostDuration;
-            transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 0.5f), t);
-            speedScript.speed += speedMod;
-            PlayerHUDManager.Instance.SetBoostBarWidth(maxBoost * (1.0f - t));
+            if (Time.timeScale != 0)    // Avoid to execute this when the game was paused
+            {
+                transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 0.5f), t);
+                speedScript.speed += speedMod;
+                PlayerHUDManager.Instance.SetBoostBarWidth(maxBoost * (1.0f - t));
+            }
             yield return null;
         }
         t = 0f;
@@ -108,10 +115,13 @@ public class ShipController : MonoBehaviour {
         while (t < 1)
         {
             t += Time.deltaTime / boostDuration;
-            transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z - 0.5f), t);
-            //Decrease the speed and avoid to go under normal speed, also avoid to decrease it if the flow is not active
-            if (speedScript.speed > normalSpeed)
-                speedScript.speed -= speedMod;
+            if (Time.timeScale != 0)    // Avoid to execute this when the game was paused
+            {
+                transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z - 0.5f), t);
+                //Decrease the speed and avoid to go under normal speed
+                if (speedScript.speed > normalSpeed)
+                    speedScript.speed -= speedMod;
+            }
             yield return null;
         }
         movementSpeed.x *= 0.8f; //Horizontal movement back to normal
@@ -132,11 +142,14 @@ public class ShipController : MonoBehaviour {
         while (t < 1)
         {
             t += Time.deltaTime / boostDuration;
-            transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z - 0.15f), t);
-            //Decrease the speed and avoid to go under 0. Also avoid decreasing the speed if the flow is not active
-            if(speedScript.speed > 0.0f)
-                speedScript.speed -= speedMod;
-            PlayerHUDManager.Instance.SetBoostBarWidth(maxBoost * (1.0f - t));
+            if (Time.timeScale != 0)    // Avoid to execute this when the game was paused
+            {
+                transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z - 0.15f), t);
+                //Decrease the speed and avoid to go under 0. Also avoid decreasing the speed if the flow is not active
+                if (speedScript.speed > 0.0f)
+                    speedScript.speed -= speedMod;
+                PlayerHUDManager.Instance.SetBoostBarWidth(maxBoost * (1.0f - t));
+            }
             yield return null;
         }
         t = 0f;
@@ -144,10 +157,13 @@ public class ShipController : MonoBehaviour {
         while (t < 1)
         {
             t += Time.deltaTime / boostDuration;
-            transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 0.15f), t);
-            //Increase back the speed and avoid to go over normal speed. Also avoid increasing the speed if the flow is not active
-            if (speedScript.speed < normalSpeed)
-                speedScript.speed += speedMod;
+            if (Time.timeScale != 0)    // Avoid to execute this when the game was paused
+            {
+                transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 0.15f), t);
+                //Increase back the speed and avoid to go over normal speed. Also avoid increasing the speed if the flow is not active
+                if (speedScript.speed < normalSpeed)
+                    speedScript.speed += speedMod;
+            }
             yield return null;
         }
         movementSpeed.x *= 1.25f;   //Horizontal movement back to normal
@@ -162,7 +178,8 @@ public class ShipController : MonoBehaviour {
         while (t < 1)
         {
             t += Time.deltaTime / reTime;
-            PlayerHUDManager.Instance.SetBoostBarWidth(maxBoost * t);
+            if (Time.timeScale != 0)    // Avoid to execute this when the game was paused
+                PlayerHUDManager.Instance.SetBoostBarWidth(maxBoost * t);
             yield return null;
         }
         PlayerHUDManager.Instance.SetBoostBarWidth(maxBoost);

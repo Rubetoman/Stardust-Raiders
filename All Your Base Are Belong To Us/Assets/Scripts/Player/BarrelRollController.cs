@@ -26,7 +26,7 @@ public class BarrelRollController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (!inBarrelRoll)
+        if (!inBarrelRoll && GameManager.Instance.gameState == GameManager.StateType.Play)
         {
             Bank("Bank", maxBankAngle);
         }
