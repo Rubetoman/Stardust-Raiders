@@ -248,6 +248,7 @@ public class LevelManager : MonoBehaviour {
     /// </summary>
     public void LevelGameOver()
     {
+        GetComponent<AudioSource>().Stop();
         PlayerHUDManager.Instance.ShowGameOverScreen();
         //GameManager.Instance.Invoke("ResetScene", 10);
     }

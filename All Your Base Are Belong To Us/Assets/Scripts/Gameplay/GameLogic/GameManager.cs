@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour {
     #region SingletonAndAwake
@@ -339,4 +340,5 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1f;
     }
     #endregion
+
 }

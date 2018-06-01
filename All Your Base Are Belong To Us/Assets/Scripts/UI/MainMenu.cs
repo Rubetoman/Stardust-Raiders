@@ -50,6 +50,7 @@ public class MainMenu : MonoBehaviour {
     }
     public void PlayGame()
     {
+        GetComponent<AudioSource>().Stop();
         GameManager.Instance.SetGameState(GameManager.StateType.Play);
         GameManager.Instance.NextScene();
     }
@@ -58,4 +59,11 @@ public class MainMenu : MonoBehaviour {
     {
         Application.Quit();
     }
+
+    #region SoundEffects
+    public void PlaySoundClip(string name)
+    {
+        AudioManager.Instance.Play(name);
+    }
+    #endregion
 }

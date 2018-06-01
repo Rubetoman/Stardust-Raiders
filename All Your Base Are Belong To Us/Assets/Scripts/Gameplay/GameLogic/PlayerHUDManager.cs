@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class PlayerHUDManager : MonoBehaviour {
     #region SingletonAndAwake
@@ -50,6 +51,8 @@ public class PlayerHUDManager : MonoBehaviour {
     /*public Image gameOverScreen;        // Background Image of the Game Over Screen
     public Text gameOverText;           // Text to be shown on Game Over*/
     public Text score;                  // Text tha will show the Total Score on the Game Over Screen
+    public AudioMixerSnapshot gameOver;
+    public AudioMixerSnapshot gamePlay;
 
     private void Start()
     {
@@ -200,6 +203,7 @@ public class PlayerHUDManager : MonoBehaviour {
     /// </summary>
     public void ResetGameOverScreen()
     {
+        gamePlay.TransitionTo(0);
         score.text = "Score: ";
         var newScreenColor = gameOverPanel.color;
         newScreenColor.a = 0f;
@@ -211,6 +215,7 @@ public class PlayerHUDManager : MonoBehaviour {
     /// </summary>
     public void ShowGameOverScreen()
     {
+        gameOver.TransitionTo(0);
         GameManager.Instance.SetGameState(GameManager.StateType.Gameover);
         gameOverPanel.gameObject.SetActive(true);
         StartCoroutine("GameOverAnimation");
@@ -237,8 +242,14 @@ public class PlayerHUDManager : MonoBehaviour {
 
     public void RetryLevel()
     {
+        gamePlay.TransitionTo(0);
         GameManager.Instance.SetGameState(GameManager.StateType.Play);
         GameManager.Instance.ResetGameManager();
     }
     #endregion
+
+    public void PlaySoundClip(string name)
+    {
+        AudioManager.Instance.Play(name);
+    }
 }

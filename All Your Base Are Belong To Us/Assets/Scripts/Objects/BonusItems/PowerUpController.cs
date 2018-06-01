@@ -29,6 +29,7 @@ public class PowerUpController : BonusObjController
                 GameManager.Instance.AddToTotalScore(base.points);
                 break;
         }
+        AudioManager.Instance.Play("PowerUp");
     }
     protected override IEnumerator DestroyAnimation()
     {

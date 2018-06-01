@@ -113,12 +113,21 @@ public class OptionsMenu : MonoBehaviour {
     }
 
     /// <summary>
-    /// Sets the game volume value to the one given as parameter.
+    /// Sets the game music volume value to the one given as parameter.
     /// </summary>
     /// <param name="volume"> Volume value.</param>
-    public void SetVolume (float volume)
+    public void SetMusicVolume (float volume)
     {
-        audioMixer.SetFloat("Volume", volume);
+        AudioManager.Instance.SetGameMusicVolume(volume);
+    }
+
+    /// <summary>
+    /// Sets the game sound effects volume value to the one given as parameter.
+    /// </summary>
+    /// <param name="volume"> Volume value.</param>
+    public void SetSoundEffectsVolume(float volume)
+    {
+        AudioManager.Instance.SetGameSoundEffectsVolume(volume);
     }
 
     /// <summary>
@@ -164,5 +173,10 @@ public class OptionsMenu : MonoBehaviour {
     {
         GameManager.Instance.SetGameState(previousState);
         gameObject.SetActive(false);
+    }
+
+    public void PlaySoundClip(string name)
+    {
+        AudioManager.Instance.Play(name);
     }
 }

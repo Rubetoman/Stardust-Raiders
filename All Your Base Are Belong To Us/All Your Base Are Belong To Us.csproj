@@ -323,6 +323,7 @@
     <Compile Include="Assets\Scripts\Enemy\TurretController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\AddToScoreOnTriggerEnter.cs" />
     <Compile Include="Assets\Scripts\Gameplay\DestroyOnCollisionExit.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\GameLogic\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameLogic\GameManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameLogic\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameLogic\PlayerHUDManager.cs" />

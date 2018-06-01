@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour {
 
     public GameObject pauseMenuUI;
-
+    public AudioMixerSnapshot paused;
+    public AudioMixerSnapshot unpaused;
     private GameObject myEventSystem;
     private GameObject lastSelected;
 
@@ -67,6 +69,7 @@ public class PauseMenu : MonoBehaviour {
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        unpaused.TransitionTo(0);
         Time.timeScale = 1f;
         GameManager.Instance.SetGameState(GameManager.StateType.Play);
     }
@@ -74,12 +77,19 @@ public class PauseMenu : MonoBehaviour {
     void Pause()
     {
         pauseMenuUI.SetActive(true);
+        paused.TransitionTo(0);
         Time.timeScale = 0f;
         GameManager.Instance.SetGameState(GameManager.StateType.PauseMenu);
     }
 
     public void LoadMainMenu()
     {
+        unpaused.TransitionTo(0);
         GameManager.Instance.LoadScene(0);
+    }
+
+    public void PlaySoundClip(string name)
+    {
+        AudioManager.Instance.Play(name);
     }
 }
