@@ -19,6 +19,7 @@ public class BulletController : MonoBehaviour {
                 {
                     DamageEnemy(hit);
                     Destroy(gameObject);
+                    AudioManager.Instance.Play("Hit");
                 }
                 break;
             case "PlayerCollider":
@@ -26,22 +27,26 @@ public class BulletController : MonoBehaviour {
                 {
                     DamagePlayer(hit);
                     Destroy(gameObject);
+                    AudioManager.Instance.Play("Hit");
                 }
                 break;
             case "Destructible":
                 if(damageToObstacle > 0)
                     DamageObstacle(hit);
                 Destroy(gameObject);
+                AudioManager.Instance.Play("Hit");
                 break;
             case "Boss":
                 if (damageToBoss > 0)
                     DamageBoss(hit);
                 Destroy(gameObject);
+                AudioManager.Instance.Play("Hit");
                 break;
             case "BossModule":
                 if (damageToBoss > 0)
                     DamageBossModule(hit);
                 Destroy(gameObject);
+                AudioManager.Instance.Play("Hit");
                 break;
         }
     }

@@ -3205,6 +3205,59 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &693420108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 693420110}
+  - component: {fileID: 693420109}
+  m_Layer: 13
+  m_Name: Sector_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &693420109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 693420108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9ed376f9e8bb743b4bcec45d3c3061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraToggle: 0
+  pathSelectionToggle: 0
+  changeScene: 1
+  startNode: {fileID: 1538621683}
+  speed: 50
+  cameraChange: {fileID: 0}
+  playerMovement: 1
+  alternativeRail: {fileID: 0}
+  divideType: 0
+  railOrientation: 0
+  sceneToLoad: main_menu
+  loopSector: 0
+  showEnemyShieldbar: 0
+--- !u!4 &693420110
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 693420108}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 850}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &751120988
 GameObject:
   m_ObjectHideFlags: 0
@@ -3676,6 +3729,59 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+--- !u!1 &870428694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 870428696}
+  - component: {fileID: 870428695}
+  m_Layer: 13
+  m_Name: Sector_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &870428695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 870428694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9ed376f9e8bb743b4bcec45d3c3061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraToggle: 0
+  pathSelectionToggle: 0
+  changeScene: 0
+  startNode: {fileID: 1400228668}
+  speed: 50
+  cameraChange: {fileID: 0}
+  playerMovement: 0
+  alternativeRail: {fileID: 0}
+  divideType: 0
+  railOrientation: 0
+  sceneToLoad: 
+  loopSector: 0
+  showEnemyShieldbar: 0
+--- !u!4 &870428696
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 870428694}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &915371623
 Mesh:
   m_ObjectHideFlags: 0
@@ -12463,6 +12569,59 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+--- !u!1 &1802603979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1802603981}
+  - component: {fileID: 1802603980}
+  m_Layer: 13
+  m_Name: Sector_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1802603980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1802603979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9ed376f9e8bb743b4bcec45d3c3061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraToggle: 0
+  pathSelectionToggle: 0
+  changeScene: 0
+  startNode: {fileID: 2094599817}
+  speed: 50
+  cameraChange: {fileID: 0}
+  playerMovement: 1
+  alternativeRail: {fileID: 0}
+  divideType: 0
+  railOrientation: 0
+  sceneToLoad: 
+  loopSector: 0
+  showEnemyShieldbar: 0
+--- !u!4 &1802603981
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1802603979}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 177}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1813111645
 GameObject:
   m_ObjectHideFlags: 0

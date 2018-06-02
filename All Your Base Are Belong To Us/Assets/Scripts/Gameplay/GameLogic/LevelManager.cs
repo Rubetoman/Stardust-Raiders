@@ -25,29 +25,9 @@ public class LevelManager : MonoBehaviour {
     }
     #endregion
 
-    public enum DivideType
-    {
-        Up_Down,
-        Left_Right,
-    }
-
-    [System.Serializable]
-    public class Sector             // Each sector contains a set of variables
-    {
-        public GameObject startNode;            // First node of the sector
-        public float speed;                     // Speed of the playerShip inside the sector
-        public Camera camera;                   // Camera to change in case this sector has a different camera from the previous sector
-        public bool playerMovement = true;      // If true the player controls are active, else they are disabled 
-        public Rail alternativeRail;            // Second rail to choose between the one already in use and this one
-        public DivideType divideType;           // Type of division on the path selection
-        public OrientationMode railOrientation; // Choose between orientation of the object on the rail (Node: use same rotation of the nodes, Lines: look at next node)
-        public bool nextScene = false;          // If true, at the end of this sector the next scene will be loaded
-        public bool loopSector = false;         // If true in this scene there will be a boss fight
-        public bool showEnemyShieldbar = false; // If true will display enemy shield bar on player HUD
-    }
-
-    public Sector[] sectors;            // Array of sectors that form a Level
     public GameObject gameplayPlane;    // gameplayPlane GameObject
+    public Sector[] sectors;            // Array of sectors that form a Level
+
     [Space(10)]
     [Header("Path Selection")]
     public GameObject limitPlane;
@@ -71,9 +51,9 @@ public class LevelManager : MonoBehaviour {
         currentSectorNumber = -1;
         SetCurrentSectorPlayerMovement();
         SetCurrentSectorSpeed();
-        if(currentSector.camera != null)
+        if(currentSector.cameraChange != null)
         {
-            currentCamera = currentSector.camera.gameObject;
+            currentCamera = currentSector.cameraChange.gameObject;
             currentCamera.SetActive(true);
             if(currentCamera != GameObject.FindGameObjectWithTag("MainCamera"))
                 GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().gameObject.SetActive(false);
@@ -120,9 +100,9 @@ public class LevelManager : MonoBehaviour {
         if (gameplayPlane.GetComponent<RailMover>().GetCurrentNode().ToString() == nextSector.startNode.ToString()) // Uses string because could be the node of an alt rail
         {
             canChangeSector = false;
-            if (nextSector.nextScene)
+            if (nextSector.changeScene)
             {
-                GameManager.Instance.NextScene();
+                GameManager.Instance.LoadScene(nextSector.sceneToLoad);
             }
             else
             {
@@ -143,7 +123,7 @@ public class LevelManager : MonoBehaviour {
         // Change playerMovement
         SetCurrentSectorPlayerMovement();
         // Change camera if needed
-        if (currentSector.camera != null)
+        if (currentSector.cameraChange != null)
             SetCurrentSectorCamera();
         // Change speed
         SetCurrentSectorSpeed();
@@ -193,7 +173,7 @@ public class LevelManager : MonoBehaviour {
     void SetCurrentSectorCamera()
     {
         currentCamera.gameObject.SetActive(false);
-        currentCamera = currentSector.camera.gameObject;
+        currentCamera = currentSector.cameraChange.gameObject;
         currentCamera.gameObject.SetActive(true);
     }
 
