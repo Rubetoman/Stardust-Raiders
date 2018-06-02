@@ -96,6 +96,7 @@ public class ShipController : MonoBehaviour {
         var t = 0f;
         var speedScript = gameplayPlane.GetComponent<RailMover>();
         var normalSpeed = speedScript.speed;
+        AudioManager.Instance.Play("Boost");
         movementSpeed.x *= 1.25f; //Make the ship to move faster horizontally   
         movementSpeed.y *= 1.25f; //Make the ship to move faster vertically
         //Go front in the time given by boostDuration
