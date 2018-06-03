@@ -21,6 +21,7 @@ public class PlayerShieldManager : ShieldManager {
     public override void TakeDamage(int amount)
     {
         base.TakeDamage(amount);
+        AudioManager.Instance.Play("Hurt");
         PlayerHUDManager.Instance.SetPlayerShieldBarWidth(currentShield);
     }
 

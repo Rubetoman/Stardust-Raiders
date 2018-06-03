@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
+    public GameObject titleScreenUI;
     public GameObject mainMenuUI;
 
     private  GameObject myEventSystem;
@@ -17,6 +18,11 @@ public class MainMenu : MonoBehaviour {
     }
     void Update()
     {
+        if (Input.GetButtonDown("Start") && titleScreenUI.activeSelf)
+        {
+            titleScreenUI.SetActive(false);
+            mainMenuUI.SetActive(true);
+        }
         if (Input.GetButtonDown("Back"))
         {
             if (GameManager.Instance.GetGameState() == GameManager.StateType.Options)
@@ -26,8 +32,10 @@ public class MainMenu : MonoBehaviour {
                 lastSelected = myEventSystem.GetComponent<EventSystem>().firstSelectedGameObject;
                 myEventSystem.GetComponent<EventSystem>().SetSelectedGameObject(lastSelected);
             }
-            else if(GameManager.Instance.GetGameState() == GameManager.StateType.MainMenu)
+            else if(GameManager.Instance.GetGameState() == GameManager.StateType.MainMenu && mainMenuUI.activeSelf)
             {
+                mainMenuUI.SetActive(false);
+                titleScreenUI.SetActive(true);
                 // Hide Main Menu and show tittle screen
             }
         }

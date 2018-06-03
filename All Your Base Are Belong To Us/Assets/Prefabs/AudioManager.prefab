@@ -59,30 +59,91 @@ MonoBehaviour:
   sounds:
   - name: Selection
     clip: {fileID: 8300000, guid: 81652031b64c342cc8dbc59c138d77c5, type: 3}
+    soundType: 0
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Selection2
     clip: {fileID: 8300000, guid: 6e8772b49f34d402a90016ed445d8a2f, type: 3}
+    soundType: 0
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: ButtonPress
     clip: {fileID: 8300000, guid: eb1766cd4fab8224eaaf73fd9bf229ea, type: 3}
+    soundType: 0
     volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: GameStart
     clip: {fileID: 8300000, guid: 78e40059d0425994b8584102e375ef5a, type: 3}
+    soundType: 0
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: PowerUp
     clip: {fileID: 8300000, guid: 8b4580a0c31da2b408d5279d36308320, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Hit
+    clip: {fileID: 8300000, guid: 71f993848c0a4c34bb93b57743d7116e, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boost
+    clip: {fileID: 8300000, guid: 2b6fec76c53cbe24ebf7100358e06d98, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Bonus
+    clip: {fileID: 8300000, guid: e26653bf30f344441b2a908bf8cc6e07, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: level_01
+    clip: {fileID: 8300000, guid: 399f20b24f255894c9c55e8bf58e2822, type: 3}
+    soundType: 1
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: boss_level
+    clip: {fileID: 8300000, guid: 7d66b910e1b2b9b4aac1b84d82f65aad, type: 3}
+    soundType: 1
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Hurt
+    clip: {fileID: 8300000, guid: 56b1a831edc44b34db317dce90f3dd89, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Brake
+    clip: {fileID: 8300000, guid: de24fc66b41653f45b7ae35fe914ab07, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BarrelRoll
+    clip: {fileID: 8300000, guid: f0a1b0d8833dd9245a232a8ba6c63324, type: 3}
+    soundType: 0
     volume: 1
     pitch: 1
     loop: 0

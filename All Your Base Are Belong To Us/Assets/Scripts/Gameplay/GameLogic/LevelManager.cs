@@ -116,7 +116,12 @@ public class LevelManager : MonoBehaviour {
     /// Function that makes every change nedeed between sectors
     /// </summary>
     void ChangeSectorToNext()
-    {      
+    {
+        // Before updating current sector look for rail orientation and mode change
+        if (currentSector.railOrientation != nextSector.railOrientation)
+            SetCurrentSectorOrientation();
+        if (currentSector.railMode != nextSector.railMode)
+            SetCurrentSectorRailMode();
         // Update sector order
         currentSector = nextSector;
         currentSectorNumber++;
@@ -128,7 +133,7 @@ public class LevelManager : MonoBehaviour {
         // Change speed
         SetCurrentSectorSpeed();
         // Show boss shield bar if needed
-        if(currentSector.showEnemyShieldbar)
+        if (currentSector.showEnemyShieldbar)
             PlayerHUDManager.Instance.SetEnemyShieldBarActive(true);
         else
             PlayerHUDManager.Instance.SetEnemyShieldBarActive(false);
@@ -136,6 +141,10 @@ public class LevelManager : MonoBehaviour {
         // Loop throught same sector if needed
         if (sectors[currentSectorNumber].loopSector)
             LoopSectorActive(true);
+
+        // Change playing music if needed
+        if (sectors[currentSectorNumber].changeMusic)
+            AudioManager.Instance.Play(sectors[currentSectorNumber].musicClipName);
 
         // Check if we reached last sector
         if (sectors.Length - 1 > currentSectorNumber)
@@ -150,9 +159,6 @@ public class LevelManager : MonoBehaviour {
             if (sectors.Length > 1)
                 nextSector = sectors[1];
         }
-        // Change rail orientation if needed
-        if (currentSector.railOrientation != nextSector.railOrientation)
-            SetCurrentSectorOrientation();
         canChangeSector = true;
     }
 
@@ -197,6 +203,15 @@ public class LevelManager : MonoBehaviour {
             Debug.LogError("RailMover Script couldn't be found inside gameplayPlane GameObject");
     }
 
+    void SetCurrentSectorRailMode()
+    {
+        print("DASD");
+        if (gameplayPlane.GetComponent<RailMover>() != null)
+            gameplayPlane.GetComponent<RailMover>().playMode = sectors[currentSectorNumber + 1].railMode;
+        else
+            Debug.LogError("RailMover Script couldn't be found inside gameplayPlane GameObject");
+    }
+
     public void LoopSectorActive(bool loop)
     {
         // Make it loop throught the same sector
@@ -228,21 +243,14 @@ public class LevelManager : MonoBehaviour {
     /// </summary>
     public void LevelGameOver()
     {
-        GetComponent<AudioSource>().Stop();
+        AudioManager.Instance.StopSound();
         PlayerHUDManager.Instance.ShowGameOverScreen();
-        //GameManager.Instance.Invoke("ResetScene", 10);
     }
     #endregion
 
     #region PathSelectionFunctions
     public void ChoosePath(Rail newRail)
     {
-        /*if (!called)
-        {
-            player.GetComponent<ShipController>().BlockBoost(true);
-            called = true;
-        }*/
-        //mainRail = gameplayPlane.GetComponent<RailMover>().rail;
         var position = limitPlane.GetComponent<PlayerLimitManager>().GetPlayerLocationInPlane(currentSector.divideType);
         //Animation of arrows
         switch (position)

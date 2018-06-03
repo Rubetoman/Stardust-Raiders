@@ -1887,6 +1887,8 @@ MonoBehaviour:
   enemyShieldBarForeground: {fileID: 224286826212738692}
   gameOverPanel: {fileID: 114868923800228406}
   score: {fileID: 114216229485689686}
+  gameOver: {fileID: 245376109421736564, guid: 156d151991b9a1d4b9e1a01a7fd24623, type: 2}
+  gamePlay: {fileID: 24500006, guid: 156d151991b9a1d4b9e1a01a7fd24623, type: 2}
 --- !u!114 &114552502279464656
 MonoBehaviour:
   m_ObjectHideFlags: 1

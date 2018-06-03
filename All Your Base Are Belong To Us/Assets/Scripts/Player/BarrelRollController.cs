@@ -116,7 +116,7 @@ public class BarrelRollController : MonoBehaviour {
     /// </summary>
     private IEnumerator BarrelRoll(int side)
     {
-
+        AudioManager.Instance.Play("BarrelRoll");
         inBarrelRoll = true;
         playerMainBody.GetComponent<PlayerShieldManager>().inBarrelRoll = true;
 

@@ -245,6 +245,7 @@ public class PlayerHUDManager : MonoBehaviour {
         gamePlay.TransitionTo(0);
         GameManager.Instance.SetGameState(GameManager.StateType.Play);
         GameManager.Instance.ResetGameManager();
+        GameManager.Instance.ResetScene();
     }
     #endregion
 

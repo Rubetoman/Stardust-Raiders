@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 [CustomEditor(typeof(Sector))]
 public class SectorEditor : Editor {
@@ -29,12 +31,23 @@ public class SectorEditor : Editor {
         }
         GUILayout.Label("");
         sector.railOrientation = (OrientationMode)EditorGUILayout.EnumPopup("Rail Orientation", sector.railOrientation);
-        sector.changeScene = EditorGUILayout.Toggle("Load Next Scene", sector.changeScene);
+        sector.railMode = (PlayMode)EditorGUILayout.EnumPopup("Rail Mode", sector.railMode);
+        sector.changeScene = EditorGUILayout.Toggle("Load a Scene?", sector.changeScene);
         if (sector.changeScene)
         {
             sector.sceneToLoad = EditorGUILayout.TextField("Scene To Load", sector.sceneToLoad);
         }
         sector.loopSector = EditorGUILayout.Toggle("Loop  Sector", sector.loopSector);
         sector.showEnemyShieldbar = EditorGUILayout.Toggle("Enemy Shieldbar", sector.showEnemyShieldbar);
+        sector.changeMusic = EditorGUILayout.Toggle("Change music?", sector.changeMusic);
+        if (sector.changeMusic)
+        {
+            sector.musicClipName = EditorGUILayout.TextField("Clip Name", sector.musicClipName);
+        }
+        if (GUI.changed)
+        {
+            EditorUtility.SetDirty(sector);
+            EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
+        }
     }
 }

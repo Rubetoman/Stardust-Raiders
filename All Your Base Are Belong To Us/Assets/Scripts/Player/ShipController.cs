@@ -137,6 +137,7 @@ public class ShipController : MonoBehaviour {
         var t = 0f;
         var speedScript = gameplayPlane.GetComponent<RailMover>();
         var normalSpeed = speedScript.speed;
+        AudioManager.Instance.Play("Brake");
         movementSpeed.x *= 0.8f; //Slow horizontal movement
         movementSpeed.y *= 0.8f; //Slow vertical movement
         //Go back in the time given by boostDuration

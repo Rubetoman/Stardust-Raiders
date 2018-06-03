@@ -15,8 +15,8 @@ public class AudioManager : MonoBehaviour {
 
     public enum SoundType
     {
-        Music,
         SoundEffect,
+        Music,
     }
 
     [System.Serializable]
@@ -24,13 +24,12 @@ public class AudioManager : MonoBehaviour {
     {
         public string name;
         public AudioClip clip;
-
+        public SoundType soundType;
         [Range(0f, 1f)]
         public float volume = 1f;
         [Range(0f, 3f)]
         public float pitch = 1f;
         public bool loop = false;
-        //public SoundType soundType;
         [HideInInspector]
         public AudioSource source;
     }
@@ -38,6 +37,7 @@ public class AudioManager : MonoBehaviour {
     public AudioMixerGroup musicGroup;
     public AudioMixerGroup soundEffectsGroup;
     public Sound[] sounds;
+    private Sound currentMusicClip;
 
     private void Awake()
     {
@@ -58,9 +58,9 @@ public class AudioManager : MonoBehaviour {
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            /*if (s.soundType == SoundType.Music)
+            if (s.soundType == SoundType.Music)
                 s.source.outputAudioMixerGroup = musicGroup;
-            else*/
+            else
                 s.source.outputAudioMixerGroup = soundEffectsGroup;
             s.source.loop = s.loop;
             s.source.volume = s.volume;
@@ -76,7 +76,33 @@ public class AudioManager : MonoBehaviour {
             Debug.LogWarning("Sound: " + name + " not found.");
             return;
         }
+        if(s.soundType == SoundType.Music)  // See if the sound is a music clip
+        {
+            if (currentMusicClip != null && currentMusicClip.source.isPlaying)   // If there was a previous music clip playing and stop it if true
+                Stop(currentMusicClip.name);
+            currentMusicClip = s;
+        }
         s.source.Play();
+    }
+
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found.");
+            return;
+        }
+        s.source.Stop();
+    }
+
+    public void StopSound()
+    {
+        foreach (Sound s in sounds)
+        {
+            if (s.source.isPlaying)
+                s.source.Stop();
+        }
     }
 
     #region AudioSettingsFunctions

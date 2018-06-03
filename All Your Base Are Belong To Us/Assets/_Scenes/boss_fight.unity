@@ -118,7 +118,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh30216
+  m_Name: pb_Mesh549048
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -248,7 +248,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh30358
+  m_Name: pb_Mesh549184
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -1346,7 +1346,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh30420
+  m_Name: pb_Mesh549250
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -2743,7 +2743,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh30486
+  m_Name: pb_Mesh549316
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -2941,7 +2941,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.03137255, g: 0.39607847, b: 0.5803922, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -3159,9 +3159,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1250, y: 1250}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.32
+  m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -3235,6 +3235,7 @@ MonoBehaviour:
   cameraToggle: 0
   pathSelectionToggle: 0
   changeScene: 1
+  changeMusic: 0
   startNode: {fileID: 1538621683}
   speed: 50
   cameraChange: {fileID: 0}
@@ -3242,9 +3243,11 @@ MonoBehaviour:
   alternativeRail: {fileID: 0}
   divideType: 0
   railOrientation: 0
+  railMode: 0
   sceneToLoad: main_menu
   loopSector: 0
   showEnemyShieldbar: 0
+  musicClipName: 
 --- !u!4 &693420110
 Transform:
   m_ObjectHideFlags: 0
@@ -3759,16 +3762,19 @@ MonoBehaviour:
   cameraToggle: 0
   pathSelectionToggle: 0
   changeScene: 0
+  changeMusic: 0
   startNode: {fileID: 1400228668}
   speed: 50
   cameraChange: {fileID: 0}
-  playerMovement: 0
+  playerMovement: 1
   alternativeRail: {fileID: 0}
   divideType: 0
   railOrientation: 0
+  railMode: 0
   sceneToLoad: 
   loopSector: 0
   showEnemyShieldbar: 0
+  musicClipName: 
 --- !u!4 &870428696
 Transform:
   m_ObjectHideFlags: 0
@@ -4437,6 +4443,18 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: -0.00013351436
       objectReference: {fileID: 0}
+    - target: {fileID: 114546353943531126, guid: 933d815aea83f674e8014ba4e5162c64,
+        type: 2}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 245376109421736564, guid: 156d151991b9a1d4b9e1a01a7fd24623,
+        type: 2}
+    - target: {fileID: 114546353943531126, guid: 933d815aea83f674e8014ba4e5162c64,
+        type: 2}
+      propertyPath: gamePlay
+      value: 
+      objectReference: {fileID: 24500006, guid: 156d151991b9a1d4b9e1a01a7fd24623,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 933d815aea83f674e8014ba4e5162c64, type: 2}
   m_IsPrefabParent: 0
@@ -5169,6 +5187,21 @@ Prefab:
       propertyPath: sectors.Array.data[1].showEnemyShieldbar
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114989153257470784, guid: a9508abd5b5dba2448798c79b4568db4,
+        type: 2}
+      propertyPath: sectors.Array.data[0]
+      value: 
+      objectReference: {fileID: 870428695}
+    - target: {fileID: 114989153257470784, guid: a9508abd5b5dba2448798c79b4568db4,
+        type: 2}
+      propertyPath: sectors.Array.data[1]
+      value: 
+      objectReference: {fileID: 1802603980}
+    - target: {fileID: 114989153257470784, guid: a9508abd5b5dba2448798c79b4568db4,
+        type: 2}
+      propertyPath: sectors.Array.data[2]
+      value: 
+      objectReference: {fileID: 693420109}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a9508abd5b5dba2448798c79b4568db4, type: 2}
   m_IsPrefabParent: 0
@@ -6057,6 +6090,11 @@ Prefab:
       propertyPath: playerInfo.livesCount
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114272527013376276, guid: 04b5e644555ed66499c5584e89633bdc,
+        type: 2}
+      propertyPath: gameState
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04b5e644555ed66499c5584e89633bdc, type: 2}
   m_IsPrefabParent: 0
@@ -6635,7 +6673,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh30382
+  m_Name: pb_Mesh549208
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -12599,6 +12637,7 @@ MonoBehaviour:
   cameraToggle: 0
   pathSelectionToggle: 0
   changeScene: 0
+  changeMusic: 0
   startNode: {fileID: 2094599817}
   speed: 50
   cameraChange: {fileID: 0}
@@ -12606,9 +12645,11 @@ MonoBehaviour:
   alternativeRail: {fileID: 0}
   divideType: 0
   railOrientation: 0
+  railMode: 0
   sceneToLoad: 
   loopSector: 0
-  showEnemyShieldbar: 0
+  showEnemyShieldbar: 1
+  musicClipName: 
 --- !u!4 &1802603981
 Transform:
   m_ObjectHideFlags: 0
@@ -14127,7 +14168,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2017645023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -124.68}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 685069835}
@@ -14135,8 +14176,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 42.1}
-  m_SizeDelta: {x: 628.07, y: 628.24}
+  m_AnchoredPosition: {x: 0, y: 145.92}
+  m_SizeDelta: {x: 1250, y: 1250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2017645025
 MonoBehaviour:
@@ -14157,7 +14198,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d469fc72e87f63149a19dabd54e4c8d6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8e5c72e30f33594c90738293ed55ae5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14381,7 +14422,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh30404
+  m_Name: pb_Mesh549232
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2

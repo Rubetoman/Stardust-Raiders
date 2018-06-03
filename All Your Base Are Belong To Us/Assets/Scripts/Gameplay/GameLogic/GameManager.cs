@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour {
     {
         ResetPlayerInfo();
         ResetTotalScore();
-        ResetScene();
+        //ResetScene();
         PlayerHUDManager.Instance.ResetHUD();
     }
 
