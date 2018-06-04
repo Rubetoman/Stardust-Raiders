@@ -55,7 +55,6 @@ public class GameManager : MonoBehaviour {
     public PlayerInfo playerInfo;
 
     private int TotalScore { get; set; }
-    private int ActualScene { get; set; }
     private bool PlayerDead { get; set; }
 
     // Use this for initialization
@@ -63,7 +62,6 @@ public class GameManager : MonoBehaviour {
     {
         //player = GameObject.FindGameObjectWithTag("Player");
         TotalScore = 0;
-        ActualScene = SceneManager.GetActiveScene().buildIndex;
     }
 
 
@@ -232,7 +230,7 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     public void NextScene()
     {
-        LoadScene(ActualScene+1);
+        LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     /// <summary>
@@ -240,7 +238,7 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     public void PreviousScene()
     {
-        LoadScene(ActualScene-1);
+        LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     /// <summary>
@@ -266,7 +264,6 @@ public class GameManager : MonoBehaviour {
                 gameState = StateType.Play;
                 PlayerHUDManager.Instance.HidePlayerHUD(false);
             }
-            ActualScene = sceneNumber;
             StartCoroutine(LoadAsync(sceneNumber));
         }
     }
@@ -277,8 +274,7 @@ public class GameManager : MonoBehaviour {
     /// <param name="sceneNumber">Name of the scene</param>
     public void LoadScene(string sceneName)
     {
-        ActualScene = SceneManager.GetSceneByName(sceneName).buildIndex;
-        if (ActualScene == 0)    // main_menu
+        if (sceneName == "main_menu")    // main_menu
         {
             ResetGameManager();
             PlayerHUDManager.Instance.HidePlayerHUD(true);
@@ -287,7 +283,7 @@ public class GameManager : MonoBehaviour {
         {
             PlayerHUDManager.Instance.HidePlayerHUD(false);
         }
-        StartCoroutine(LoadAsync(ActualScene));
+        StartCoroutine(LoadAsync(sceneName));
     }
 
     /// <summary>
@@ -295,7 +291,7 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     public void ResetScene()
     {
-        StartCoroutine(LoadAsync(ActualScene));
+        StartCoroutine(LoadAsync(SceneManager.GetActiveScene().buildIndex));
     }
     
     /// <summary>

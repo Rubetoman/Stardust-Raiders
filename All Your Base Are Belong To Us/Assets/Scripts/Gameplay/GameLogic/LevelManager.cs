@@ -41,7 +41,6 @@ public class LevelManager : MonoBehaviour {
     private int currentSectorNumber;    // Index of the current sector
     private bool canChangeSector = true;// Bool to aboid trying to change sector while already changin one
     private GameObject currentCamera;   // Camera that is currently in use
-    private bool called = false;
     private string position;
     // Use this for initialization
     void Start () {
@@ -51,9 +50,9 @@ public class LevelManager : MonoBehaviour {
         currentSectorNumber = -1;
         SetCurrentSectorPlayerMovement();
         SetCurrentSectorSpeed();
-        if(currentSector.cameraChange != null)
+        if(currentSector.cameraChange)
         {
-            currentCamera = currentSector.cameraChange.gameObject;
+            currentCamera = currentSector.newCamera.gameObject;
             currentCamera.SetActive(true);
             if(currentCamera != GameObject.FindGameObjectWithTag("MainCamera"))
                 GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().gameObject.SetActive(false);
@@ -102,6 +101,7 @@ public class LevelManager : MonoBehaviour {
             canChangeSector = false;
             if (nextSector.changeScene)
             {
+                AudioManager.Instance.StopSound();
                 GameManager.Instance.LoadScene(nextSector.sceneToLoad);
             }
             else
@@ -120,7 +120,7 @@ public class LevelManager : MonoBehaviour {
         // Before updating current sector look for rail orientation and mode change
         if (currentSector.railOrientation != nextSector.railOrientation)
             SetCurrentSectorOrientation();
-        if (currentSector.railMode != nextSector.railMode)
+        if (currentSector.railMode != nextSector.railMode && nextSector.alternativeRail == null)
             SetCurrentSectorRailMode();
         // Update sector order
         currentSector = nextSector;
@@ -128,7 +128,7 @@ public class LevelManager : MonoBehaviour {
         // Change playerMovement
         SetCurrentSectorPlayerMovement();
         // Change camera if needed
-        if (currentSector.cameraChange != null)
+        if (currentSector.cameraChange)
             SetCurrentSectorCamera();
         // Change speed
         SetCurrentSectorSpeed();
@@ -139,11 +139,11 @@ public class LevelManager : MonoBehaviour {
             PlayerHUDManager.Instance.SetEnemyShieldBarActive(false);
 
         // Loop throught same sector if needed
-        if (sectors[currentSectorNumber].loopSector)
+        if (currentSector.loopSector)
             LoopSectorActive(true);
 
         // Change playing music if needed
-        if (sectors[currentSectorNumber].changeMusic)
+        if (currentSector.changeMusic)
             AudioManager.Instance.Play(sectors[currentSectorNumber].musicClipName);
 
         // Check if we reached last sector
@@ -179,7 +179,7 @@ public class LevelManager : MonoBehaviour {
     void SetCurrentSectorCamera()
     {
         currentCamera.gameObject.SetActive(false);
-        currentCamera = currentSector.cameraChange.gameObject;
+        currentCamera = currentSector.newCamera.gameObject;
         currentCamera.gameObject.SetActive(true);
     }
 
@@ -205,7 +205,6 @@ public class LevelManager : MonoBehaviour {
 
     void SetCurrentSectorRailMode()
     {
-        print("DASD");
         if (gameplayPlane.GetComponent<RailMover>() != null)
             gameplayPlane.GetComponent<RailMover>().playMode = sectors[currentSectorNumber + 1].railMode;
         else
@@ -276,10 +275,8 @@ public class LevelManager : MonoBehaviour {
         if (gameplayPlane.GetComponent<RailMover>().GetPositionOnSegment() > 0.9f)
         {
             pathSelection = false;
-            called = false;
             if (position == "down" || position == "right")
                 ChangeToAlternativeRail();
-            //player.GetComponent<ShipController>().BlockBoost(false);
         }
     }
 

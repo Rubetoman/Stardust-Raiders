@@ -16,19 +16,20 @@ public class EnemyShipController : EnemyController {
 
     private bool called = false;
     protected GameObject gameplayPlane;
+    protected Transform ground;
     // Use this for initialization
     new void Start () {
         base.Start();
         gameplayPlane = GameObject.FindGameObjectWithTag("GameplayPlane");
+        ground = GameObject.FindGameObjectWithTag("Ground").transform;
     }
 	
 	// Update is called once per frame
 	void LateUpdate () {
         LookAtPlayer();
-
-        if (Vector3.Project(gameplayPlane.transform.position - transform.position, gameplayPlane.transform.forward).magnitude <= targetDistance)
+        // Project distance between enemy and gamePlay plane to forward vector of the ground. The ground is used as a reference because it doesn't move during the game.
+        if (Vector3.Project(gameplayPlane.transform.position - transform.position, ground.transform.forward).magnitude <= targetDistance)
         {
-           
             StandInFrontOf(gameplayPlane, targetDistance);
             if (!called)
             {

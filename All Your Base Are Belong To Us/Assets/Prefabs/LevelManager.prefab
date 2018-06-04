@@ -51,88 +51,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b86d68eac28b14194eeb4ef0564cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sectors:
-  - startNode: {fileID: 0}
-    speed: 10
-    camera: {fileID: 0}
-    playerMovement: 0
-    alternativeRail: {fileID: 0}
-    divideType: 0
-    railOrientation: 1
-    changeScene: 0
-  - startNode: {fileID: 0}
-    speed: 100
-    camera: {fileID: 0}
-    playerMovement: 0
-    alternativeRail: {fileID: 0}
-    divideType: 0
-    railOrientation: 1
-    changeScene: 0
-  - startNode: {fileID: 0}
-    speed: 50
-    camera: {fileID: 0}
-    playerMovement: 1
-    alternativeRail: {fileID: 0}
-    divideType: 0
-    railOrientation: 1
-    changeScene: 0
-  - startNode: {fileID: 0}
-    speed: 50
-    camera: {fileID: 0}
-    playerMovement: 1
-    alternativeRail: {fileID: 0}
-    divideType: 0
-    railOrientation: 1
-    changeScene: 0
-  - startNode: {fileID: 0}
-    speed: 50
-    camera: {fileID: 0}
-    playerMovement: 1
-    alternativeRail: {fileID: 0}
-    divideType: 0
-    railOrientation: 1
-    changeScene: 0
-  - startNode: {fileID: 0}
-    speed: 70
-    camera: {fileID: 0}
-    playerMovement: 1
-    alternativeRail: {fileID: 0}
-    divideType: 1
-    railOrientation: 0
-    changeScene: 0
-  - startNode: {fileID: 0}
-    speed: 50
-    camera: {fileID: 0}
-    playerMovement: 1
-    alternativeRail: {fileID: 0}
-    divideType: 0
-    railOrientation: 0
-    changeScene: 0
-  - startNode: {fileID: 0}
-    speed: 100
-    camera: {fileID: 0}
-    playerMovement: 0
-    alternativeRail: {fileID: 0}
-    divideType: 0
-    railOrientation: 1
-    changeScene: 0
-  - startNode: {fileID: 0}
-    speed: 100
-    camera: {fileID: 0}
-    playerMovement: 0
-    alternativeRail: {fileID: 0}
-    divideType: 0
-    railOrientation: 0
-    changeScene: 1
   gameplayPlane: {fileID: 0}
-  gameOverScreen: {fileID: 0}
-  gameOverText: {fileID: 0}
-  score: {fileID: 0}
+  sectors:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   limitPlane: {fileID: 0}
-  arrows:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  text: {fileID: 0}
   flickFrequency: 0.5

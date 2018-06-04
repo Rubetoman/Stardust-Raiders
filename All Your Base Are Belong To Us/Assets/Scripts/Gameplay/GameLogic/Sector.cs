@@ -12,15 +12,15 @@ public enum DivideType
 public class Sector : MonoBehaviour
 {
     // This booleans are only used for the Editor
-    public bool cameraToggle;               // If true the cameraChange variable field will show on inspector.
-    public bool pathSelectionToggle;        // If true the alternativeRail and divideType variables fields will show on inspector.
+    public bool cameraChange = false;       // If true the cameraChange variable field will show on inspector.
+    public bool pathSelection;              // If true the alternativeRail and divideType variables fields will show on inspector.
     public bool changeScene = false;        // If true the sceneToLoad variable will show.
     public bool changeMusic;                // If true the musicClipName variable will show
 
     // Each sector properties
     public GameObject startNode;            // First node of the sector.
     public float speed;                     // Speed of the playerShip inside the sector.
-    public Camera cameraChange;             // Camera to change in case this sector has a different camera from the previous sector.
+    public Camera newCamera;             // Camera to change in case this sector has a different camera from the previous sector.
     public bool playerMovement = true;      // If true the player controls are active, else they are disabled .
     public Rail alternativeRail;            // Second rail to choose between the one already in use and this one.
     public DivideType divideType;           // Type of division on the path selection.

@@ -10,16 +10,18 @@ public class MainMenu : MonoBehaviour {
 
     private  GameObject myEventSystem;
     private GameObject lastSelected;
+
     private void Start()
     {
         myEventSystem = GameObject.Find("EventSystem");
-        if(myEventSystem != null)
+        if (myEventSystem != null)
             lastSelected = myEventSystem.GetComponent<EventSystem>().firstSelectedGameObject;
     }
     void Update()
     {
         if (Input.GetButtonDown("Start") && titleScreenUI.activeSelf)
         {
+            AudioManager.Instance.Play("Start");
             titleScreenUI.SetActive(false);
             mainMenuUI.SetActive(true);
         }
