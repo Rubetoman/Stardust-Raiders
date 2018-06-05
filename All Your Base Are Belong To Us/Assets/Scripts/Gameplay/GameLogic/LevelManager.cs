@@ -41,7 +41,7 @@ public class LevelManager : MonoBehaviour {
     private int currentSectorNumber;    // Index of the current sector
     private bool canChangeSector = true;// Bool to aboid trying to change sector while already changin one
     private GameObject currentCamera;   // Camera that is currently in use
-    private string position;
+    private string playerPositionInPlane;
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");

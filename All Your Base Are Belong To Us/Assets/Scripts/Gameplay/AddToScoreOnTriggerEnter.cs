@@ -8,7 +8,10 @@ public class AddToScoreOnTriggerEnter : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("PlayerCollider"))
+        if (other.CompareTag("PlayerCollider"))
+        {
             GameManager.Instance.AddToTotalScore(points);
+            AudioManager.Instance.Play("Bonus");
+        }
     }
 }

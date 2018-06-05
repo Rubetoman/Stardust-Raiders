@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.SceneManagement;
+using UnityEditor.SceneManagement;
 
 public class ObstacleEditorWindow : EditorWindow {
     // Shield
@@ -70,6 +72,7 @@ public class ObstacleEditorWindow : EditorWindow {
                 obsShield.flickRate = flickRate;
                 obsShield.destroyTime = destroyTime;
                 obsShield.goalScale = goalScale;
+                EditorUtility.SetDirty(obsShield);
             }
             else
             {
@@ -84,10 +87,11 @@ public class ObstacleEditorWindow : EditorWindow {
                     childShield.flickRate = flickRate;
                     childShield.destroyTime = destroyTime;
                     childShield.goalScale = goalScale;
+                    EditorUtility.SetDirty(childShield);
                 }
-
             }
         }
+        EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
     }
 
     void ChangeObstacleValues()
@@ -100,12 +104,15 @@ public class ObstacleEditorWindow : EditorWindow {
                 foreach(ObstacleController obsController in obj.GetComponentsInChildren<ObstacleController>())
                 {
                     obsController.damage = damage;
+                    EditorUtility.SetDirty(obsController);
                 }
             }
             else
             {
                 obs.damage = damage;
+                EditorUtility.SetDirty(obj);
             }
         }
+        EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
     }
 }

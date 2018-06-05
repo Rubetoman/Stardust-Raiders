@@ -12,6 +12,7 @@ TagManager:
   - Destructible
   - BossModule
   - Ground
+  - Player2
   layers:
   - Default
   - TransparentFX

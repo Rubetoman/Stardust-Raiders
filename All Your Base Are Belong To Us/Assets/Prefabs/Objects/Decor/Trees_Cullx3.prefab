@@ -118,7 +118,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4829770811188332}
-  - component: {fileID: 114908454510840348}
   m_Layer: 0
   m_Name: Trees_Cullx3
   m_TagString: Untagged
@@ -485,9 +484,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1263822112011870}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -50.584442, y: -0.31822738, z: 1292.3}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalRotation: {x: -0, y: 0.5276972, z: -0, w: 0.8494326}
+  m_LocalPosition: {x: 24.976593, y: 0, z: 8.280437}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4620669887465538}
   - {fileID: 4527396980155368}
@@ -573,7 +572,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -607,7 +606,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -777,7 +776,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -5070,9 +5069,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a06c4c38296161498a07db419950c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentShield: 100
+  currentShield: 10
   godMode: 0
-  recoverTime: 2
+  recoverTime: 0
   hitColor: {r: 0, g: 0, b: 0, a: 0}
   flickCount: 5
   flickRate: 0.1
@@ -5080,8 +5079,9 @@ MonoBehaviour:
     type: 2}
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4516093056974854}
-  goalScale: {x: 5, y: 0, z: 5}
-  time: 60
+  goalScale: {x: 1, y: 1, z: 1}
+  destroyTime: 1
+  destroyScore: 10
 --- !u!114 &114632710199888634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5639,9 +5639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a06c4c38296161498a07db419950c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentShield: 100
+  currentShield: 10
   godMode: 0
-  recoverTime: 2
+  recoverTime: 0
   hitColor: {r: 0, g: 0, b: 0, a: 0}
   flickCount: 5
   flickRate: 0.1
@@ -5649,8 +5649,9 @@ MonoBehaviour:
     type: 2}
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4015670917901922}
-  goalScale: {x: 5, y: 0, z: 5}
-  time: 60
+  goalScale: {x: 1, y: 1, z: 1}
+  destroyTime: 1
+  destroyScore: 10
 --- !u!114 &114701248048837240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5758,9 +5759,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a06c4c38296161498a07db419950c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentShield: 100
+  currentShield: 10
   godMode: 0
-  recoverTime: 2
+  recoverTime: 0
   hitColor: {r: 0, g: 0, b: 0, a: 0}
   flickCount: 5
   flickRate: 0.1
@@ -5768,43 +5769,9 @@ MonoBehaviour:
     type: 2}
   invulnerable: 0
   explosionSpawnPoint: {fileID: 4427726433372636}
-  goalScale: {x: 5, y: 0, z: 5}
-  time: 60
---- !u!114 &114908454510840348
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1263822112011870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57a87708078cf324bbc0169f94ec6a7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstacles:
-  - {fileID: 4829770811188332}
-  - {fileID: 4620669887465538}
-  - {fileID: 4197095337317482}
-  - {fileID: 4867593669114612}
-  - {fileID: 4427726433372636}
-  - {fileID: 4972561981400600}
-  - {fileID: 4527396980155368}
-  - {fileID: 4325523785675678}
-  - {fileID: 4984129907510138}
-  - {fileID: 4015670917901922}
-  - {fileID: 4906749413854666}
-  - {fileID: 4637850450266144}
-  - {fileID: 4299794314032734}
-  - {fileID: 4391177210216582}
-  - {fileID: 4516093056974854}
-  - {fileID: 4474787929492382}
-  currentShield: 20
-  godMode: 0
-  recoverTime: 0
-  hitColor: {r: 0, g: 0, b: 0, a: 0}
-  flickCount: 5
-  flickRate: 0.1
-  time: 60
+  goalScale: {x: 1, y: 1, z: 1}
+  destroyTime: 1
+  destroyScore: 10
 --- !u!114 &114930574428927686
 MonoBehaviour:
   m_ObjectHideFlags: 1
