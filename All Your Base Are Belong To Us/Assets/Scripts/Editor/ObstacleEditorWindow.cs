@@ -72,7 +72,9 @@ public class ObstacleEditorWindow : EditorWindow {
                 obsShield.flickRate = flickRate;
                 obsShield.destroyTime = destroyTime;
                 obsShield.goalScale = goalScale;
+                #if UNITY_STANDALONE && !UNITY_EDITOR
                 EditorUtility.SetDirty(obsShield);
+                #endif
             }
             else
             {
@@ -87,7 +89,9 @@ public class ObstacleEditorWindow : EditorWindow {
                     childShield.flickRate = flickRate;
                     childShield.destroyTime = destroyTime;
                     childShield.goalScale = goalScale;
+                    #if UNITY_STANDALONE && !UNITY_EDITOR
                     EditorUtility.SetDirty(childShield);
+                    #endif
                 }
             }
         }
@@ -104,13 +108,17 @@ public class ObstacleEditorWindow : EditorWindow {
                 foreach(ObstacleController obsController in obj.GetComponentsInChildren<ObstacleController>())
                 {
                     obsController.damage = damage;
+#if UNITY_STANDALONE && !UNITY_EDITOR
                     EditorUtility.SetDirty(obsController);
+#endif
                 }
             }
             else
             {
                 obs.damage = damage;
+#if UNITY_STANDALONE && !UNITY_EDITOR
                 EditorUtility.SetDirty(obj);
+#endif
             }
         }
         EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());

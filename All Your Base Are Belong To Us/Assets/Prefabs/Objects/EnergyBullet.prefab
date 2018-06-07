@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 33566920515800402}
   - component: {fileID: 135631054856853714}
   - component: {fileID: 23500581750140662}
-  - component: {fileID: 114773801242162598}
   - component: {fileID: 114983560092672128}
   - component: {fileID: 82030423159679506}
   - component: {fileID: 82603250662693806}
@@ -187,7 +186,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -281,18 +280,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114773801242162598
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1972132487520758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37d859a53230482498dd04f71f376f69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 20
 --- !u!114 &114983560092672128
 MonoBehaviour:
   m_ObjectHideFlags: 1

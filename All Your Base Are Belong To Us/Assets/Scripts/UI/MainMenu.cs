@@ -7,15 +7,19 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
     public GameObject titleScreenUI;
     public GameObject mainMenuUI;
+    public AudioClip loopClip;
 
     private  GameObject myEventSystem;
     private GameObject lastSelected;
+    private AudioSource audioSource;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         myEventSystem = GameObject.Find("EventSystem");
         if (myEventSystem != null)
             lastSelected = myEventSystem.GetComponent<EventSystem>().firstSelectedGameObject;
+        StartCoroutine(AudioManager.Instance.ChangeAuioSourceClip(audioSource, loopClip, true, true));
     }
     void Update()
     {

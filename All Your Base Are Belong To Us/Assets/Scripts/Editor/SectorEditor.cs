@@ -51,10 +51,12 @@ public class SectorEditor : Editor {
         {
             sector.musicClipName = EditorGUILayout.TextField("Clip Name", sector.musicClipName);
         }
+        #if UNITY_STANDALONE && !UNITY_EDITOR
         if (GUI.changed)
         {
             EditorUtility.SetDirty(sector);
             EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
         }
+        #endif
     }
 }

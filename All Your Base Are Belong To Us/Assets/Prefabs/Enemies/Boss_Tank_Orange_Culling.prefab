@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4261795357627394}
   m_Layer: 0
   m_Name: Laser
-  m_TagString: Boss
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 4911010746259982}
   m_Layer: 0
   m_Name: Laser
-  m_TagString: Boss
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 114637112838183968}
   m_Layer: 0
   m_Name: Laser_Geometry
-  m_TagString: Boss
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 65310176789203158}
   m_Layer: 0
   m_Name: Left_Cannon
-  m_TagString: Untagged
+  m_TagString: BossModule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 114749090760568606}
   m_Layer: 0
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 114843706297288804}
   m_Layer: 0
   m_Name: Laser_Geometry
-  m_TagString: Boss
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 65515546160417098}
   m_Layer: 0
   m_Name: Right_Cannon
-  m_TagString: Untagged
+  m_TagString: BossModule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -631,7 +631,7 @@ GameObject:
   - component: {fileID: 65736859103768294}
   m_Layer: 0
   m_Name: FrontMissileSpawn
-  m_TagString: Untagged
+  m_TagString: BossModule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -891,7 +891,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1494528133870792}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.5, z: 245.8}
+  m_LocalPosition: {x: 4.6, y: 3.3, z: 412.8}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children:
   - {fileID: 4792124610204106}
@@ -906,7 +906,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1359304758884254}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75173783, y: -1.1705348, z: -1}
+  m_LocalPosition: {x: 0.094595015, y: -0.2848205, z: 0.02857317}
   m_LocalScale: {x: 0.027, y: 0.027, z: 0.027}
   m_Children:
   - {fileID: 4246289322156478}
@@ -1087,7 +1087,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654378964244632}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.7518808, y: 0.244, z: -1}
+  m_LocalPosition: {x: 0.094738, y: 1.1297143, z: 0.02857317}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4626250738506274}
@@ -1939,7 +1939,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -3440,7 +3440,6 @@ MonoBehaviour:
     type: 2}
   invulnerable: 0
   collisionTag: Bullet
-  hitDamage: 20
   boss: {fileID: 1494528133870792}
 --- !u!114 &114147759762375866
 MonoBehaviour:
@@ -13694,7 +13693,7 @@ MonoBehaviour:
   deathEffect: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb,
     type: 2}
   invulnerable: 0
-  bossShieldBar: {fileID: 0}
+  winScreen: {fileID: 0}
 --- !u!114 &114637112838183968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17289,7 +17288,6 @@ MonoBehaviour:
     type: 2}
   invulnerable: 0
   collisionTag: Bullet
-  hitDamage: 20
   boss: {fileID: 1494528133870792}
 --- !u!114 &114749090760568606
 MonoBehaviour:
@@ -21977,13 +21975,13 @@ MonoBehaviour:
   - {fileID: 4907505708427912}
   - {fileID: 4455602503188610}
   - {fileID: 4082068623879098}
-  spawnMissile: {fileID: 1957589209164754, guid: a663d8cbd494ca944a3ad3d81a181388,
+  spawnMissile: {fileID: 1341195469480614, guid: 4d5cfee19fceec647830a9431bee6a1f,
     type: 2}
   missileDestroyTime: 4
   movementTime: 1
   movementRadius: 30
   movementDelay: 5
-  moveAxis: {x: 2, y: 0, z: -0.5}
+  moveAxis: {x: 2, y: 0, z: -8}
   loopMovement: 1
   turretBase: {fileID: 4792124610204106}
   frontMissileSpawner: {fileID: 1852101584079608}
@@ -22636,7 +22634,6 @@ MonoBehaviour:
     type: 2}
   invulnerable: 0
   collisionTag: Bullet
-  hitDamage: 20
   boss: {fileID: 1494528133870792}
 --- !u!114 &114976858399416038
 MonoBehaviour:

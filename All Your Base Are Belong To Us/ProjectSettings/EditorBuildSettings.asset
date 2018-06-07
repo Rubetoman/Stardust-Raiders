@@ -14,3 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/boss_fight.unity
     guid: 987e392f6e02b6843b0b65d5b6e8c16f
+  - enabled: 1
+    path: Assets/_Scenes/credits.unity
+    guid: caa57d0afe7284f4c8bfeaff9300f64a

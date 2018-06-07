@@ -48,6 +48,10 @@ public class BulletController : MonoBehaviour {
                 Destroy(gameObject);
                 AudioManager.Instance.Play("Hit");
                 break;
+            case "Bullet":
+                Destroy(gameObject);
+                AudioManager.Instance.Play("Hit");
+                break;
         }
     }
 

@@ -16,10 +16,15 @@ public class EnemyShieldManager : ShieldManager {
     protected override void Die()
     {
         base.Die();
+        foreach (Transform child in transform)
+        {
+            if(child.CompareTag("Bullet"))
+                child.parent = null;
+        }
         /*if (transform.parent != null)
             Destroy(transform.parent.gameObject);
         else*/
-            Destroy(gameObject);
+        Destroy(gameObject);
         GameManager.Instance.AddToTotalScore(destroyScore);
     }
 }

@@ -34,7 +34,8 @@ public class EnemyController : MonoBehaviour {
     {
         // Look at the player: Take player position minus the offset and then make the cannon rotate to that position.
         var playerPos = new Vector3(player.transform.position.x, player.transform.position.y - heightOffset, player.transform.position.z);
-        cannonParent.rotation = Quaternion.RotateTowards(cannonParent.rotation, Quaternion.LookRotation(playerPos - cannonParent.position), cannonRotationSpeed * Time.deltaTime);
+        if(cannonParent!=null)
+            cannonParent.rotation = Quaternion.RotateTowards(cannonParent.rotation, Quaternion.LookRotation(playerPos - cannonParent.position), cannonRotationSpeed * Time.deltaTime);
     }
 
     protected virtual void ShootSpawnableAmmo()
