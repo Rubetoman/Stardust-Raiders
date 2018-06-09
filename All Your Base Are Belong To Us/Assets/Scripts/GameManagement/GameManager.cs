@@ -264,7 +264,7 @@ public class GameManager : MonoBehaviour {
                 if (PlayerHUDManager.Instance != null)
                     PlayerHUDManager.Instance.HidePlayerHUD(true);
             }
-            else if(sceneNumber == SceneManager.sceneCount - 1)   //credits
+            else if(sceneNumber == SceneManager.sceneCountInBuildSettings - 1)   //credits
             {
                 gameState = StateType.Credits;
                 ResetGameManager();

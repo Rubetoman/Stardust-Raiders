@@ -28,6 +28,7 @@ public class MainMenu : MonoBehaviour {
             AudioManager.Instance.Play("Start");
             titleScreenUI.SetActive(false);
             mainMenuUI.SetActive(true);
+            myEventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);// Start with nothing selected
         }
         if (Input.GetButtonDown("Back"))
         {

@@ -15,6 +15,8 @@ public class PlayerShieldManager : ShieldManager {
     {
         base.Start();
         //currentLives = GameManager.Instance.playerInfo.lives;
+        if(PlayerHUDManager.Instance != null)
+            currentShield = PlayerHUDManager.Instance.GetPlayerShieldBarWidth(); // For changes between scenes set health by getting playerHUDManager value
         player = GameObject.FindGameObjectWithTag("Player");
     }
 

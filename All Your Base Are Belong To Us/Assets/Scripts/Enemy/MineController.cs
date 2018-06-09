@@ -17,7 +17,7 @@ public class MineController : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 	
-	void Update () {
+	void FixedUpdate () {
         // Calculate distance to the player.
         var distanceToPlayer = Vector3.Project(player.transform.position - transform.position, player.transform.forward).magnitude;
 

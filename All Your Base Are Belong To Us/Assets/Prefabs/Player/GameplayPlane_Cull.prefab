@@ -276,9 +276,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4649964193819718}
-  - component: {fileID: 114132875540218470}
   - component: {fileID: 114978224940503324}
   - component: {fileID: 114116113905023198}
+  - component: {fileID: 114502965619879834}
   m_Layer: 9
   m_Name: Spaceship
   m_TagString: Player
@@ -2882,26 +2882,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityType: 4
---- !u!114 &114132875540218470
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1375744243184838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87ec71ecee671444ba20ad5343e7253c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameplayPlane: {fileID: 1567253309297962}
-  limitPlane: {fileID: 1048760277575338}
-  movementSpeed: {x: 40, y: 35}
-  pointingDepth: 2
-  maxRotDegrees: 260
-  bankAmountOnTurn: 50
-  boostDuration: 1
-  recoilTime: 2
-  speedMod: 3
 --- !u!114 &114148977180716420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5220,6 +5200,26 @@ MonoBehaviour:
   player: {fileID: 1375744243184838}
   showDistance: 0.05
   flickFrequency: 0.2
+--- !u!114 &114502965619879834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1375744243184838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ec71ecee671444ba20ad5343e7253c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameplayPlane: {fileID: 1567253309297962}
+  limitPlane: {fileID: 1048760277575338}
+  movementSpeed: {x: 40, y: 35}
+  pointingDepth: 2
+  maxRotDegrees: 260
+  bankAmountOnTurn: 50
+  boostDuration: 1
+  recoilTime: 2
+  speedMod: 3
 --- !u!114 &114514594380553248
 MonoBehaviour:
   m_ObjectHideFlags: 1

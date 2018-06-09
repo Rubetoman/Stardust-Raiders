@@ -116,6 +116,11 @@ public class PlayerHUDManager : MonoBehaviour {
     {
         playerShieldBarForeground.sizeDelta = new Vector2(playerShieldBarForeground.sizeDelta.x, height);
     }
+
+    public int GetPlayerShieldBarWidth()
+    {
+        return Mathf.RoundToInt(playerShieldBarForeground.sizeDelta.x);
+    }
     #endregion
 
     #region Boost Bar Canvas

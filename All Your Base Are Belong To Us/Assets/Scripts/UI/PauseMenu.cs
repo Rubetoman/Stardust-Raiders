@@ -40,6 +40,7 @@ public class PauseMenu : MonoBehaviour {
             case GameManager.StateType.Options:
                 GetComponentInChildren< OptionsMenu > ().GoBack();
                 pauseMenuUI.SetActive(true);
+                myEventSystem.GetComponent<EventSystem>().SetSelectedGameObject(lastSelected);
                 break;
             case GameManager.StateType.Play:
                 Pause();
@@ -78,6 +79,7 @@ public class PauseMenu : MonoBehaviour {
     {
         pauseMenuUI.SetActive(true);
         paused.TransitionTo(0);
+        myEventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);// Start with nothing selected
         Time.timeScale = 0f;
         GameManager.Instance.SetGameState(GameManager.StateType.PauseMenu);
     }
