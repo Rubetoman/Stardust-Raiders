@@ -101,11 +101,29 @@ public class AudioManager : MonoBehaviour {
         s.source.Stop();
     }
 
-    public void StopSound()
+    public void StopEverySound()
     {
         foreach (Sound s in sounds)
         {
             if (s.source.isPlaying)
+                s.source.Stop();
+        }
+    }
+
+    public void StopSoundEffects()
+    {
+        foreach (Sound s in sounds)
+        {
+            if (s.source.isPlaying && s.soundType == SoundType.SoundEffect)
+                s.source.Stop();
+        }
+    }
+
+    public void StopMusic()
+    {
+        foreach (Sound s in sounds)
+        {
+            if (s.source.isPlaying && s.soundType == SoundType.Music)
                 s.source.Stop();
         }
     }

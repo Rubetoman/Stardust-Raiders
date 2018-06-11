@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour {
     public float movementRadius = 10.0f;    // the maximun radius of movement is going to use
     public float movementDelay = 5.0f;      // Delay time between different moves
     public Vector3 moveAxis = new Vector3(1.0f, 1.0f, 0.0f);
+    public bool localMovement;              // If true the enemy will move using local position instead of world position
     public bool loopMovement = true;
     protected Vector3 goalPosition;
     protected Vector3 currentPosition;
@@ -52,16 +53,19 @@ public class EnemyController : MonoBehaviour {
         if(spawnPoint != null && spawnMissile != null)
         {
             missile = Instantiate(spawnMissile, spawnPoint.position, spawnPoint.rotation);
-            missile.transform.parent = transform;
+            if (transform.parent != null)
+                missile.transform.parent = transform.parent;
+            else
+                missile.transform.parent = transform;
             Destroy(missile, missileDestroyTime);
         }
     }
 
-    protected void StandInFrontOf(GameObject focused, float targetDistance)
-    {
-        Vector3 newPosition = transform.position;
-        newPosition.z = focused.transform.position.z + targetDistance;
-        transform.position = newPosition;
+    protected void StayInFrontOf(GameObject target, float targetDistance, Transform objToMove)
+    {    
+        Vector3 newPosition = objToMove.transform.position;
+        newPosition.z = target.transform.position.z + targetDistance;
+        objToMove.transform.position = newPosition;
     }
 
     void StopMoving()
@@ -69,31 +73,34 @@ public class EnemyController : MonoBehaviour {
         loopMovement = false;
     }
 
-    protected virtual void MoveEnemy(Vector3 pivot, Vector3 axisMovement)
+    protected virtual void MoveEnemy(Vector3 pivot, Vector3 axisMovement, bool local)
     {
         Vector3 movementVector = Random.insideUnitSphere * movementRadius;
         movementVector.x *= axisMovement.x;
         movementVector.y *= axisMovement.y;
         movementVector.z *= axisMovement.z;
         goalPosition = pivot + movementVector;
-        currentPosition = transform.position;
-        StartCoroutine(ActuallyMoveEnemy(pivot, axisMovement));
+        currentPosition = (local)? transform.localPosition : transform.position;
+        StartCoroutine(ActuallyMoveEnemy(pivot, axisMovement, local));
     }
 
-    IEnumerator ActuallyMoveEnemy(Vector3 pivot, Vector3 axisMovement)
+    IEnumerator ActuallyMoveEnemy(Vector3 pivot, Vector3 axisMovement, bool local)
     {
         
         float t = 0.0f;
         while (t < movementTime)
         {
             t += Time.deltaTime;
-            goalPosition.z = transform.position.z;
-            transform.position = Vector3.Lerp(currentPosition, goalPosition, t / movementTime);
+            goalPosition.z = (local)? transform.localPosition.z : transform.position.z;
+            if(local)
+                transform.localPosition = Vector3.Lerp(currentPosition, goalPosition, t / movementTime);
+            else
+                transform.position = Vector3.Lerp(currentPosition, goalPosition, t / movementTime);
             yield return null;
         }
         if (loopMovement){
             yield return new WaitForSeconds(movementDelay);
-            MoveEnemy(pivot, axisMovement);
+            MoveEnemy(pivot, axisMovement, local);
         }
     }
 }

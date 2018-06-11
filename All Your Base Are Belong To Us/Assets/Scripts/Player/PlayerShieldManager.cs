@@ -22,9 +22,12 @@ public class PlayerShieldManager : ShieldManager {
 
     public override void TakeDamage(int amount)
     {
-        base.TakeDamage(amount);
-        AudioManager.Instance.Play("Hurt");
-        PlayerHUDManager.Instance.SetPlayerShieldBarWidth(currentShield);
+        if (!godMode)
+        {
+            base.TakeDamage(amount);
+            AudioManager.Instance.Play("Hurt");
+            PlayerHUDManager.Instance.SetPlayerShieldBarWidth(currentShield);
+        }
     }
 
     public void RecoverShield(int amount)
@@ -50,6 +53,7 @@ public class PlayerShieldManager : ShieldManager {
         player.SetActive(false);
         LevelManager.Instance.PauseLevel();
         GameManager.Instance.playerInfo.isDead = true;
+        AudioManager.Instance.StopSoundEffects();
         if (GameManager.Instance.playerInfo.lives-1 >= 0)
         {
             Invoke("RespawnPlayer", 2.0f);

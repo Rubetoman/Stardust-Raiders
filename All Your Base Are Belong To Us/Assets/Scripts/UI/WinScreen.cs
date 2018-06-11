@@ -34,7 +34,7 @@ public class WinScreen : MonoBehaviour {
 
     private IEnumerator WinAnimation()
     {
-        AudioManager.Instance.StopSound();
+        AudioManager.Instance.StopEverySound();
         yield return new WaitForSeconds(10f);
         GameManager.Instance.SetGameState(GameManager.StateType.Credits);
         float t = 0.0f;

@@ -22,8 +22,7 @@ public class MineController : MonoBehaviour {
         var distanceToPlayer = Vector3.Project(player.transform.position - transform.position, player.transform.forward).magnitude;
 
         if (distanceToPlayer <= targetDistance)  // If its near enought start moving towards the player.
-            transform.position = Vector3.MoveTowards(transform.position, player.position, (targetDistance / distanceToPlayer ) * Time.deltaTime);
-
+            transform.position = Vector3.Lerp(transform.position, player.position, (targetDistance / distanceToPlayer) * Time.deltaTime);
     }
 
     /// <summary>

@@ -101,7 +101,7 @@ public class LevelManager : MonoBehaviour {
             canChangeSector = false;
             if (nextSector.changeScene)
             {
-                AudioManager.Instance.StopSound();
+                AudioManager.Instance.StopEverySound();
                 GameManager.Instance.LoadScene(nextSector.sceneToLoad);
             }
             else
@@ -242,7 +242,7 @@ public class LevelManager : MonoBehaviour {
     /// </summary>
     public void LevelGameOver()
     {
-        AudioManager.Instance.StopSound();
+        AudioManager.Instance.StopEverySound();
         PlayerHUDManager.Instance.ShowGameOverScreen();
     }
     #endregion

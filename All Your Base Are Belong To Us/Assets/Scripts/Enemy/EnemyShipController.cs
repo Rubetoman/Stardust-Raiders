@@ -30,10 +30,15 @@ public class EnemyShipController : EnemyController {
         // Project distance between enemy and gamePlay plane to forward vector of the ground. The ground is used as a reference because it doesn't move during the game.
         if (Vector3.Project(gameplayPlane.transform.position - transform.position, ground.transform.forward).magnitude <= targetDistance)
         {
-            StandInFrontOf(gameplayPlane, targetDistance);
+            // If the gameObject is moving locally and has a parent means that we want to keep the parent with us
+            if (localMovement && transform.parent != null)
+                StayInFrontOf(gameplayPlane, targetDistance, transform.parent);
+            else
+                StayInFrontOf(gameplayPlane, targetDistance, transform);
+
             if (!called)
             {
-                MoveEnemy(transform.position, moveAxis);
+                MoveEnemy(transform.position, moveAxis, localMovement);
                 ShootSpawnableAmmo();
                 if (doubleShoot)
                     Invoke("ShootSpawnableAmmo", shootDelay + 0.2f);
@@ -62,7 +67,7 @@ public class EnemyShipController : EnemyController {
     void LeaveScene()
     {
         Vector3 outScenePos = new Vector3(transform.position.x, transform.position.y + 100f, transform.position.z);
-        MoveEnemy(outScenePos, moveAxis);
+        MoveEnemy(outScenePos, moveAxis, localMovement);
         shootDistance = -100f;
         targetDistance = -10f;
     }

@@ -29,9 +29,10 @@ public class SpawnOnTrigger : MonoBehaviour {
 
     void SpawnObject(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerCollider"))
         {
             var s = Instantiate(spawnObject, other.ClosestPointOnBounds(other.transform.position), Quaternion.identity);
+            s.transform.localScale = Vector3.one;
             s.transform.parent = transform;
             Destroy(s, destroyTime);
         }

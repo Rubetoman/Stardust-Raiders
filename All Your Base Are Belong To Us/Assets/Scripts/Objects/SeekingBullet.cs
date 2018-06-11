@@ -15,7 +15,7 @@ public class SeekingBullet : BulletController {
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,5 +32,6 @@ public class SeekingBullet : BulletController {
         
         //GoForward
         transform.position += transform.forward * speed * Time.deltaTime;
+
 	}
 }

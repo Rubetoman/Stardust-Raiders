@@ -1553,7 +1553,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 19c2708bf916ed64b8c8ae85ad5bffcc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1893,7 +1893,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 19c2708bf916ed64b8c8ae85ad5bffcc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21981,7 +21981,7 @@ MonoBehaviour:
   movementTime: 1
   movementRadius: 30
   movementDelay: 5
-  moveAxis: {x: 2, y: 0, z: -8}
+  moveAxis: {x: 1.5, y: 0.5, z: 0}
   loopMovement: 1
   turretBase: {fileID: 4792124610204106}
   frontMissileSpawner: {fileID: 1852101584079608}
@@ -21991,7 +21991,7 @@ MonoBehaviour:
   - {fileID: 4261795357627394}
   spawnLaser: {fileID: 1388208254615086, guid: bc49d9aae0e88624aaf2924a7c30b9bf, type: 2}
   laserRotationSpeed: 6
-  laserShotDelay: 1
+  laserShotDelay: 2
   laserChargerTime: 2
   laserSpeed: 30
   laserDuration: 5

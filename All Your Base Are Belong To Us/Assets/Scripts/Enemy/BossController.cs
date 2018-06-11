@@ -6,6 +6,8 @@ public class BossController : EnemyController {
     [Header("Boss Parts")]          // Geometry of the Boss GO for referencing
     public Transform turretBase;    // The base of the turret (needs to be pointing forward)
     public GameObject frontMissileSpawner;
+    public GameObject[] thrusters;
+
     [Space(10)]
     [Header("Boss Variables")]
     public float missileDelay = 1.0f;
@@ -27,25 +29,42 @@ public class BossController : EnemyController {
     {
         base.Start();
         gameplayPlane = GameObject.FindGameObjectWithTag("GameplayPlane");
-        //Invoke("ChargeLaser", laserShotDelay);
-        //Invoke("ShootSpawnableAmmo", missileDelay);
 	}
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (Vector3.Project(gameplayPlane.transform.position - transform.position, gameplayPlane.transform.forward).magnitude <= targetDistance || called)
         {
-            StandInFrontOf(gameplayPlane, targetDistance);
+            // If the gameObject is moving locally and has a parent means that we want to keep the parent with us
+            if(localMovement && transform.parent != null)
+                StayInFrontOf(gameplayPlane, targetDistance, transform.parent);
+            else
+                StayInFrontOf(gameplayPlane, targetDistance, transform);
+
             if (!called)
             {
-                MoveEnemy(transform.position, moveAxis);
+                if(localMovement)
+                MoveEnemy(transform.position, moveAxis, localMovement);
                 Invoke("ShootSpawnableAmmo", missileDelay);
                 Invoke("ChargeLaser", laserShotDelay);
                 called = true;
             }
             LookAtPlayer();
         }
+    }
+
+    protected override void MoveEnemy(Vector3 pivot, Vector3 axisMovement, bool local)
+    {
+        foreach(GameObject thruster in thrusters)
+        {
+            if(thruster != null)
+            {
+                base.MoveEnemy(pivot, axisMovement, local);
+                break;
+            }
+        }
+
     }
 
     void ChargeLaser()
