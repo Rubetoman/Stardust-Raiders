@@ -69,6 +69,7 @@ public class BossController : EnemyController {
 
     void ChargeLaser()
     {
+        AudioManager.Instance.Play("LaserBeamCharge");
         foreach (Transform laser in lasers)
         {
             if (laser == null)
@@ -81,6 +82,7 @@ public class BossController : EnemyController {
 
     void FireLaser()
     {
+        AudioManager.Instance.Play("LaserBeamShoot");
         StartCoroutine("LaserCouroutine");
     }
 

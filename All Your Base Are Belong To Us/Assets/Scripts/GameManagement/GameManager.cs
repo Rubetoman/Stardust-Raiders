@@ -64,7 +64,6 @@ public class GameManager : MonoBehaviour {
         TotalScore = 0;
     }
 
-
     /// <summary>
     /// Resets GameManager by seting the TotalScore to 0, Player values to default and reloads current scene
     /// </summary>
@@ -75,6 +74,16 @@ public class GameManager : MonoBehaviour {
         //ResetScene();
         if(PlayerHUDManager.Instance!=null)
             PlayerHUDManager.Instance.ResetHUD();
+    }
+
+    /// <summary>
+    /// Resets current level by reseting the GameManager, reloading the level and seting the state back to Play.
+    /// </summary>
+    public void ResetLevel()
+    {
+        SetGameState(StateType.Play);
+        ResetGameManager();
+        ResetScene();
     }
 
     #region Game State

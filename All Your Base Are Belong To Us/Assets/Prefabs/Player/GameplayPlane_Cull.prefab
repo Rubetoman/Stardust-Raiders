@@ -718,7 +718,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1482188697957150}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -15}
+  m_LocalPosition: {x: 0, y: 2, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4815305611703188}
@@ -2133,9 +2133,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToFollow: {fileID: 4649964193819718}
-  stopDistance: {x: 40, y: 10}
+  stopDistance: {x: 8, y: 6}
   limitPlane: {fileID: 4647283854892318}
   rotateCamera: 1
+  positionOffSet: {x: 0, y: 2, z: 0}
 --- !u!114 &114116113905023198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5214,7 +5215,7 @@ MonoBehaviour:
   gameplayPlane: {fileID: 1567253309297962}
   limitPlane: {fileID: 1048760277575338}
   movementSpeed: {x: 40, y: 35}
-  pointingDepth: 2
+  pointingDepth: 5
   maxRotDegrees: 260
   bankAmountOnTurn: 50
   boostDuration: 1

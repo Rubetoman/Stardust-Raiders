@@ -148,3 +148,17 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: LaserBeamCharge
+    clip: {fileID: 8300000, guid: a830a5957a1318243bf7be90c63ccc24, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LaserBeamShoot
+    clip: {fileID: 8300000, guid: c280f45bcbb118a449fc2899560bd42d, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

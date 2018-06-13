@@ -11,6 +11,7 @@ public class BulletController : MonoBehaviour {
 
     protected void OnTriggerEnter(Collider other)
     {
+        print(other.name);
         var hit = other.gameObject;
         switch (other.tag)
         {
@@ -51,6 +52,9 @@ public class BulletController : MonoBehaviour {
             case "Bullet":
                 Destroy(gameObject);
                 AudioManager.Instance.Play("Hit");
+                break;
+            case "Obstacle":
+                Destroy(gameObject);
                 break;
         }
     }
@@ -96,6 +100,7 @@ public class BulletController : MonoBehaviour {
         var shield = module.GetComponent<BossModuleHealthManager>();
         if (shield != null /*&& !shield.invulnerable*/)
         {
+            AudioManager.Instance.Play("BossHit");
             shield.TakeDamage(damageToBoss);
         }
     }

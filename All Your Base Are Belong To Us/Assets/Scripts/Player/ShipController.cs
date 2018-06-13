@@ -70,12 +70,12 @@ public class ShipController : MonoBehaviour {
 
         //Make the ship bank when moving
         var barrelRollScript = GetComponent<BarrelRollController>();
-        if (!barrelRollScript.inBarrelRoll && Input.GetAxis("Bank") == 0)   // Avoid banking when in barrelRoll or already banking
+        if (/*!barrelRollScript.inBarrelRoll &&*/ Input.GetAxis("Bank") == 0)   // Avoid banking when in barrelRoll or already banking
         {
             barrelRollScript.BankNoBarrelRoll("Horizontal", bankAmountOnTurn);
         }
         //Rotate towards the point which is moving
-        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.LookRotation(finalDirection), Mathf.Deg2Rad * maxRotDegrees);
+        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.LookRotation(finalDirection) , Mathf.Deg2Rad * maxRotDegrees);
     }
 
     void ResetPosition()

@@ -4862,6 +4862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1292489521704640}
+  mainMenuChooser: {fileID: 1833753915791314}
   paused: {fileID: 245885741705297166, guid: ff93023ae5cb5c64e8d387e10b2f5b17, type: 2}
   unpaused: {fileID: 245020252966990694, guid: ff93023ae5cb5c64e8d387e10b2f5b17, type: 2}
 --- !u!114 &114754360866626348

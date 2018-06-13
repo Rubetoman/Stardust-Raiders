@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class LevelManager : MonoBehaviour {
 
@@ -35,13 +36,13 @@ public class LevelManager : MonoBehaviour {
     private bool pathSelection = false;
     private bool arrowAnimFree = true;
 
-    private GameObject player;          // GameObject of the Player
-    private Sector currentSector;       // Sector the player is currently in
-    private Sector nextSector;          // Sector that the player is reaching
-    private int currentSectorNumber;    // Index of the current sector
-    private bool canChangeSector = true;// Bool to aboid trying to change sector while already changin one
-    private GameObject currentCamera;   // Camera that is currently in use
-    private string playerPositionInPlane;
+    private GameObject player;              // GameObject of the Player
+    private Sector currentSector;           // Sector the player is currently in
+    private Sector nextSector;              // Sector that the player is reaching
+    private int currentSectorNumber;        // Index of the current sector
+    private bool canChangeSector = true;    // Bool to aboid trying to change sector while already changin one
+    private GameObject currentCamera;       // Camera that is currently in use
+
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -74,9 +75,10 @@ public class LevelManager : MonoBehaviour {
         if (currentSector.loopSector)
             LoopSectorActive(true);
     }
-	
-	// Update is called once per frame
-	void LateUpdate () {
+
+    // Update is called once per frame
+    void LateUpdate()
+    {
         if (canChangeSector)
             LookForSectorChange();
         if (pathSelection)
@@ -229,7 +231,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Sets Level speed back to normal
+    /// Sets Level speed back to normal.
     /// </summary>
     public void ContinueLevel()
     {
@@ -238,10 +240,11 @@ public class LevelManager : MonoBehaviour {
     }
     
     /// <summary>
-    /// Function to manage the GameOver screen
+    /// Function to manage the GameOver screen.
     /// </summary>
     public void LevelGameOver()
     {
+
         AudioManager.Instance.StopEverySound();
         PlayerHUDManager.Instance.ShowGameOverScreen();
     }

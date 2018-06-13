@@ -13,6 +13,7 @@ public class BossShieldManager : ShieldManager {
     protected override void Die()
     {
         base.Die();
+        AudioManager.Instance.StopSoundEffects();
         foreach (Transform child in transform)
         {
             if (child.CompareTag("Bullet"))

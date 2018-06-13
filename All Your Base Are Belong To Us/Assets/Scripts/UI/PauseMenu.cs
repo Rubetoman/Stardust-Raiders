@@ -7,8 +7,10 @@ using UnityEngine.Audio;
 public class PauseMenu : MonoBehaviour {
 
     public GameObject pauseMenuUI;
+    public GameObject mainMenuChooser;
     public AudioMixerSnapshot paused;
     public AudioMixerSnapshot unpaused;
+
     private GameObject myEventSystem;
     private GameObject lastSelected;
 
@@ -47,7 +49,7 @@ public class PauseMenu : MonoBehaviour {
                 break;
             }
         }
-        if (GameManager.Instance.GetGameState() == GameManager.StateType.PauseMenu)
+        if (GameManager.Instance.GetGameState() == GameManager.StateType.PauseMenu && !mainMenuChooser.activeInHierarchy)
         {
             // If no UI gameObject was selected and horizontal or vertical Input is detected, select the last selected button.
             if (myEventSystem.GetComponent<EventSystem>().currentSelectedGameObject == null)
