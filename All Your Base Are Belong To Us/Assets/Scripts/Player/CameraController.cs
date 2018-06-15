@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
         initialOffSet = positionOffSet;
     }
 
-    void Update()
+    void LateUpdate()
     {
         float horizontal = Input.GetAxis("Horizontal");  // Get horizontal input
         float vertical = Input.GetAxis("Vertical");      // Get vertical input

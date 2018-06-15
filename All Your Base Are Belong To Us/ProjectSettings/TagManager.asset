@@ -13,6 +13,7 @@ TagManager:
   - BossModule
   - Ground
   - Obstacle
+  - GameOver
   layers:
   - Default
   - TransparentFX

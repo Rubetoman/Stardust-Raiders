@@ -23,7 +23,8 @@ GameObject:
   - component: {fileID: 33313307370385762}
   - component: {fileID: 114784694264628466}
   - component: {fileID: 114157142591816064}
-  m_Layer: 0
+  - component: {fileID: 114476934422150956}
+  m_Layer: 5
   m_Name: Small_Reticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +517,8 @@ GameObject:
   - component: {fileID: 33914715174459368}
   - component: {fileID: 114132175269346674}
   - component: {fileID: 114123286234185666}
-  m_Layer: 0
+  - component: {fileID: 114965830626046594}
+  m_Layer: 5
   m_Name: Big_Reticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1016,7 +1018,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967263
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -5187,6 +5189,17 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
+--- !u!114 &114476934422150956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1023952025157368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad97555db8bcef4f90d2d2a780694a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114486781609551688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8199,6 +8212,17 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
+--- !u!114 &114965830626046594
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1916267102912562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad97555db8bcef4f90d2d2a780694a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114978224940503324
 MonoBehaviour:
   m_ObjectHideFlags: 1

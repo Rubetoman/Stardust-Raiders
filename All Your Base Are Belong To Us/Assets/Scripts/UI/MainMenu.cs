@@ -50,7 +50,7 @@ public class MainMenu : MonoBehaviour {
         // If no UI gameObject was selected and horizontal or vertical Input is detected, select the last selected button.
         if (myEventSystem.GetComponent<EventSystem>().currentSelectedGameObject == null)
         {
-            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0 || Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
                 myEventSystem.GetComponent<EventSystem>().SetSelectedGameObject(lastSelected);
         }
         else

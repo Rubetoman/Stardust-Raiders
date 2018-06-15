@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 68977253}
   - component: {fileID: 68977251}
   - component: {fileID: 68977254}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ScreenFader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -670,7 +670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31accc1528c969449a100386d3336ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstSelection: {fileID: 0}
+  firstSelection: {fileID: 531728933}
 --- !u!1 &73906266
 GameObject:
   m_ObjectHideFlags: 0
@@ -2156,7 +2156,7 @@ GameObject:
   - component: {fileID: 83053680}
   - component: {fileID: 83053682}
   - component: {fileID: 83053681}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ArrowLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2578,7 +2578,7 @@ GameObject:
   - component: {fileID: 137465031}
   - component: {fileID: 137465033}
   - component: {fileID: 137465032}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Arrow_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3407,7 +3407,7 @@ GameObject:
   - component: {fileID: 226234643}
   - component: {fileID: 226234645}
   - component: {fileID: 226234644}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ArrowDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3767,7 +3767,7 @@ GameObject:
   - component: {fileID: 323070551}
   - component: {fileID: 323070553}
   - component: {fileID: 323070552}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ArrowRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3839,7 +3839,7 @@ GameObject:
   - component: {fileID: 339000247}
   - component: {fileID: 339000249}
   - component: {fileID: 339000248}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ArrowLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3911,7 +3911,7 @@ GameObject:
   - component: {fileID: 343991403}
   - component: {fileID: 343991405}
   - component: {fileID: 343991404}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Arrow_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3985,7 +3985,7 @@ GameObject:
   - component: {fileID: 348457603}
   - component: {fileID: 348457602}
   - component: {fileID: 348457601}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: RetryButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5152,7 +5152,7 @@ GameObject:
   - component: {fileID: 447071991}
   - component: {fileID: 447071990}
   - component: {fileID: 447071989}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5228,7 +5228,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 461474335}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Left_Limit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5936,7 +5936,7 @@ GameObject:
   - component: {fileID: 489684635}
   - component: {fileID: 489684637}
   - component: {fileID: 489684636}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Arrow_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6326,7 +6326,7 @@ GameObject:
   - component: {fileID: 531728937}
   - component: {fileID: 531728936}
   - component: {fileID: 531728935}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6584,7 +6584,7 @@ GameObject:
   - component: {fileID: 554210945}
   - component: {fileID: 554210947}
   - component: {fileID: 554210946}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Arrow_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6655,7 +6655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 557203495}
   - component: {fileID: 557203494}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PlayerHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6928,7 +6928,7 @@ GameObject:
   - component: {fileID: 589902460}
   - component: {fileID: 589902462}
   - component: {fileID: 589902461}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ArrowCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7664,7 +7664,7 @@ GameObject:
   - component: {fileID: 623504565}
   - component: {fileID: 623504564}
   - component: {fileID: 623504563}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LimitCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8076,7 +8076,7 @@ GameObject:
   - component: {fileID: 663911955}
   - component: {fileID: 663911957}
   - component: {fileID: 663911956}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ArrowDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8471,7 +8471,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 726760042}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Down_Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8511,7 +8511,7 @@ GameObject:
   - component: {fileID: 731343814}
   - component: {fileID: 731343816}
   - component: {fileID: 731343815}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9531,7 +9531,7 @@ GameObject:
   - component: {fileID: 900443725}
   - component: {fileID: 900443727}
   - component: {fileID: 900443726}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ArrowCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9603,7 +9603,7 @@ GameObject:
   - component: {fileID: 902557708}
   - component: {fileID: 902557710}
   - component: {fileID: 902557709}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9878,7 +9878,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 922852704}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Up_Limit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10004,7 +10004,7 @@ GameObject:
   - component: {fileID: 942879631}
   - component: {fileID: 942879633}
   - component: {fileID: 942879632}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameOverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10118,7 +10118,7 @@ GameObject:
   - component: {fileID: 967478338}
   - component: {fileID: 967478340}
   - component: {fileID: 967478339}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ArrowUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10336,7 +10336,7 @@ GameObject:
   - component: {fileID: 1024286053}
   - component: {fileID: 1024286055}
   - component: {fileID: 1024286054}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Arrow_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10480,7 +10480,7 @@ GameObject:
   - component: {fileID: 1081135619}
   - component: {fileID: 1081135621}
   - component: {fileID: 1081135620}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Arrow_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10798,7 +10798,7 @@ GameObject:
   - component: {fileID: 1127315222}
   - component: {fileID: 1127315224}
   - component: {fileID: 1127315223}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Arrow_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12569,7 +12569,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1130395016}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Left_Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12610,7 +12610,7 @@ GameObject:
   - component: {fileID: 1130617685}
   - component: {fileID: 1130617684}
   - component: {fileID: 1130617683}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PathSelectionCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14376,7 +14376,7 @@ GameObject:
   - component: {fileID: 1482184752}
   - component: {fileID: 1482184754}
   - component: {fileID: 1482184753}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ArrowUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14862,7 +14862,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1562604789}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Right_Limit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15215,7 +15215,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1567545970}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Right_Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15856,7 +15856,7 @@ GameObject:
   - component: {fileID: 1649873192}
   - component: {fileID: 1649873194}
   - component: {fileID: 1649873193}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ArrowCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16427,7 +16427,7 @@ GameObject:
   - component: {fileID: 1741347418}
   - component: {fileID: 1741347420}
   - component: {fileID: 1741347419}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Arrow_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17182,7 +17182,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1898426812}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Down_Limit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18104,7 +18104,7 @@ GameObject:
   - component: {fileID: 1943740789}
   - component: {fileID: 1943740788}
   - component: {fileID: 1943740787}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameOverCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18385,7 +18385,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1991611650}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Up_Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18726,7 +18726,7 @@ GameObject:
   - component: {fileID: 2039608822}
   - component: {fileID: 2039608824}
   - component: {fileID: 2039608823}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ArrowCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18798,7 +18798,7 @@ GameObject:
   - component: {fileID: 2041430289}
   - component: {fileID: 2041430291}
   - component: {fileID: 2041430290}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ArrowRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

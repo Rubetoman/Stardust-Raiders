@@ -11,7 +11,6 @@ public class BulletController : MonoBehaviour {
 
     protected void OnTriggerEnter(Collider other)
     {
-        print(other.name);
         var hit = other.gameObject;
         switch (other.tag)
         {

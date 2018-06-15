@@ -322,6 +322,7 @@
     <Compile Include="Assets\Scripts\Enemy\MineController.cs" />
     <Compile Include="Assets\Scripts\Enemy\TankController.cs" />
     <Compile Include="Assets\Scripts\Enemy\TurretController.cs" />
+    <Compile Include="Assets\Scripts\FreezeRotation.cs" />
     <Compile Include="Assets\Scripts\GameManagement\AudioManager.cs" />
     <Compile Include="Assets\Scripts\GameManagement\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameManagement\LevelManager.cs" />

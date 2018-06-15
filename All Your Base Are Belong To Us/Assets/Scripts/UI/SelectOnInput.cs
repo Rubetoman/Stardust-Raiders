@@ -19,7 +19,7 @@ public class SelectOnInput : MonoBehaviour {
         // If no UI gameObject was selected and horizontal or vertical Input is detected, select the last selected button.
         if (myEventSystem.GetComponent<EventSystem>().currentSelectedGameObject == null)
         {
-            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0 || Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
                 myEventSystem.GetComponent<EventSystem>().SetSelectedGameObject(lastSelected);
         }
         else
@@ -37,11 +37,11 @@ public class SelectOnInput : MonoBehaviour {
     private void OnEnable()
     {
         lastSelected = firstSelection;     // Use the GameObject passed as selected by the EventSystem.
-        myEventSystem = GameObject.Find("EventSystem"); // Set scene EventSystem.
+        myEventSystem = GameObject.Find("EventSystem"); // Get scene EventSystem.
         if (myEventSystem != null)
         {
             myEventSystem.GetComponent<EventSystem>().SetSelectedGameObject(lastSelected);
-            //myEventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);          // Start with nothing selected
+            myEventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);          // Start with nothing selected
         }
     }
 
