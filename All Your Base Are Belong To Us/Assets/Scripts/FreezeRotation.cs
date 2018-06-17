@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class FreezeRotation : MonoBehaviour {
 
-    private Quaternion iniRot;
- 
+    public bool x, y, z;
+
+    private Quaternion initialRotation;
+    private Quaternion newRotation;
+
     void Start()
     {
-        iniRot = transform.rotation;
+        initialRotation = transform.rotation;
     }
 
     void LateUpdate()
     {
-        transform.rotation = iniRot;
+        newRotation.x = x ? initialRotation.x : transform.localRotation.x;
+        newRotation.y = y ? initialRotation.y : transform.localRotation.y;
+        newRotation.z = z ? initialRotation.z : transform.localRotation.y;
+        transform.rotation = newRotation;
     }
 }

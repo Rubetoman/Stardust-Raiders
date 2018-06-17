@@ -103,4 +103,12 @@ public class BulletController : MonoBehaviour {
             shield.TakeDamage(damageToBoss);
         }
     }
+
+    public void SetAllDamages(int newDamage)
+    {
+        damageToPlayer = newDamage;
+        damageToEnemy = newDamage;
+        damageToObstacle = newDamage;
+        damageToBoss = newDamage;
+    }
 }

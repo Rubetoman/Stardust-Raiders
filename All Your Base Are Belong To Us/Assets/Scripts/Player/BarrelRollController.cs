@@ -41,11 +41,10 @@ public class BarrelRollController : MonoBehaviour {
     {
         float bankAxis = Input.GetAxis(axis); //Get input
         //Banking
-        Quaternion startRotation = transform.localRotation;
         Quaternion newRotation = transform.localRotation;
         //Calculate the new Z rotation, bankAxis will make the maximun bank angle to be at full or not
         //maxBankAngle is divided by 10 because is in Euler Angles and we want Quaternion angles
-        newRotation.z = (startRotation * Quaternion.AngleAxis(bankAxis * (-bankAngle / 10), Vector3.forward)).z;
+        newRotation.z = (transform.localRotation * Quaternion.AngleAxis(bankAxis * (-bankAngle / 10), Vector3.forward)).z;
         transform.localRotation = newRotation;
     }
 
@@ -57,12 +56,11 @@ public class BarrelRollController : MonoBehaviour {
     public void Bank(string axis, float bankAngle)
     {
         float bankAxis = Input.GetAxis(axis); //Get input
-        //Banking
-        Quaternion startRotation = transform.localRotation;
         Quaternion newRotation = transform.localRotation;
+
         //Calculate the new Z rotation, bankAxis will make the maximun bank angle to be at full or not
         //maxBankAngle is divided by 10 because is in Euler Angles and we want Quaternion angles
-        newRotation.z = (startRotation * Quaternion.AngleAxis(bankAxis * (-bankAngle / 10), Vector3.forward)).z;
+        newRotation.z = (transform.localRotation * Quaternion.AngleAxis(bankAxis * (-bankAngle / 10), Vector3.forward)).z;
         transform.localRotation = newRotation;
 
         //BarrelRoll detection

@@ -61,10 +61,12 @@ public class ShieldManager : MonoBehaviour {
     /// </summary>
     protected IEnumerator HitEffect()
     {
-        yield return new WaitForSeconds(0.1f);  // Delay so if the shield gets multiple hits at the same time all of them damage
+        //yield return new WaitForSeconds(0.1f);  // Delay so if the shield gets multiple hits at the same time all of them damage
         invulnerable = true;                    // Make 
         if(!flickeringColor)
             StartCoroutine(FlickeringColor(hitColor));
+
+        yield return null;
     }
 
     /// <summary>

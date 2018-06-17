@@ -25,14 +25,18 @@ public class PlayerGunController : MonoBehaviour {
             switch (GameManager.Instance.playerInfo.gunType)
             {
                 case GunType.Single:
+                    bullet.gameObject.GetComponent<BulletController>().SetAllDamages(10);
                     Shoot(mainGun.transform);
                     break;
                 case GunType.Dual:
+                    bullet.gameObject.GetComponent<BulletController>().SetAllDamages(20); //Increase damage, only first bullet will actually make damage
                     Shoot(secondaryGun1.transform);
                     Shoot(secondaryGun2.transform);
                     break;
                 case GunType.Triple:
+                    bullet.gameObject.GetComponent<BulletController>().SetAllDamages(30); //Increase damage, only first bullet will actually make damage
                     Shoot(mainGun.transform);
+                    bullet.gameObject.GetComponent<BulletController>().SetAllDamages(0);
                     Shoot(secondaryGun1.transform);
                     Shoot(secondaryGun2.transform);
                     break;

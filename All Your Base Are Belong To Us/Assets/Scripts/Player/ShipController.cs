@@ -8,10 +8,11 @@ public class ShipController : MonoBehaviour {
     public GameObject limitPlane;           // Plane which sets the movement window
     [Space(10)]
     [Header("Movement")]
-    public Vector2 movementSpeed = Vector2.one;      // Speed at which the spaceship can move around the x and y axis
-    public float pointingDepth = 2.0f;      // Z axis distance to point the space towards
-    public float maxRotDegrees = 230.0f;    // Max degrees of freedom for the rotation of the spaceship
-    public float bankAmountOnTurn = 25.0f;  // How much will the ship bank when you mover horizontally
+    public Vector2 movementSpeed = Vector2.one; // Speed at which the spaceship can move around the x and y axis
+    public float pointingDepth = 2.0f;          // Z axis distance to point the space towards
+    public float maxRotDegrees = 230.0f;        // Max degrees of freedom for the rotation of the spaceship
+    public float bankAmountOnTurn = 25.0f;      // How much will the ship bank when you mover horizontally
+    public float rotationSpeed = 15f;           // Speed at which the ship will rotate to look at the point which the ship is pointing
     [Space(10)]
     [Header("Boost & Brake")]
     public float boostDuration = 1.0f;      // Time it takes to do the boost, also time it takes to be back again at the start position
@@ -55,27 +56,36 @@ public class ShipController : MonoBehaviour {
     {
         var invertXAxis = GameManager.Instance.playerInfo.invertXAxis;
         var invertYAxis = GameManager.Instance.playerInfo.invertYAxis;
-        //Input direction
-        Vector3 direction = new Vector3((invertXAxis ? -1 : 1) * h, (invertYAxis ? -1 : 1) * v, 0);
-        //Pointing direction, taking in account Z axis
-        Vector3 finalDirection = new Vector3((invertXAxis ? -1 : 1) * h, (invertYAxis ? -1 : 1) * v, pointingDepth);
+
+        Vector3 direction = new Vector3((invertXAxis ? -1 : 1) * h, (invertYAxis ? -1 : 1) * v, 0);                     //Input direction
+        Vector3 finalDirection = new Vector3((invertXAxis ? -1 : 1) * h, (invertYAxis ? -1 : 1) * v, pointingDepth);    //Pointing direction, taking in account Z axis
+
         //Position tranform by horizontal and vertical input
         Vector3 finalPosition = transform.localPosition;
         finalPosition.x += direction.x * movementSpeed.x * Time.deltaTime;
         finalPosition.y += direction.y * movementSpeed.y * Time.deltaTime;
+
         //Limit movement to the plane space
         finalPosition.x = Mathf.Clamp(finalPosition.x, -(limitPlane.transform.localScale.x / 2), (limitPlane.transform.localScale.x / 2));
         finalPosition.y = Mathf.Clamp(finalPosition.y, -(limitPlane.transform.localScale.y / 2), (limitPlane.transform.localScale.y / 2));
         transform.localPosition = finalPosition;
 
+        //Rotate towards the point which is moving with the speed passed as parameter
+        var newRot = Quaternion.RotateTowards(transform.localRotation, Quaternion.LookRotation(finalDirection), Mathf.Deg2Rad * maxRotDegrees);
+        newRot.x = Quaternion.Lerp(transform.localRotation, Quaternion.RotateTowards(transform.localRotation, Quaternion.LookRotation(finalDirection), Mathf.Deg2Rad * maxRotDegrees), Time.deltaTime * rotationSpeed).x;
+        newRot.y = Quaternion.Lerp(transform.localRotation, Quaternion.RotateTowards(transform.localRotation, Quaternion.LookRotation(finalDirection), Mathf.Deg2Rad * maxRotDegrees), Time.deltaTime * rotationSpeed).y;
+        
         //Make the ship bank when moving
-        var barrelRollScript = GetComponent<BarrelRollController>();
-        if (/*!barrelRollScript.inBarrelRoll &&*/ Input.GetAxis("Bank") == 0)   // Avoid banking when in barrelRoll or already banking
+        if (Input.GetAxis("Bank") == 0)   // Avoid banking when in barrelRoll or already banking
         {
-            barrelRollScript.BankNoBarrelRoll("Horizontal", bankAmountOnTurn);
+            //Calculate the new Z rotation when ship is moving horizontally
+            //maxBankAngle is divided by 10 because is in Euler Angles and we want Quaternion angles
+            if (h != 0)
+                newRot.z = Quaternion.RotateTowards(transform.localRotation, Quaternion.AngleAxis(h * (-180 / 10), Vector3.forward), Mathf.Deg2Rad * 180).z;
+            else
+                newRot.z = Quaternion.Lerp(transform.localRotation,newRot, Time.deltaTime * rotationSpeed).z;
         }
-        //Rotate towards the point which is moving
-        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.LookRotation(finalDirection) , Mathf.Deg2Rad * maxRotDegrees);
+        transform.localRotation = newRot;    
     }
 
     void ResetPosition()

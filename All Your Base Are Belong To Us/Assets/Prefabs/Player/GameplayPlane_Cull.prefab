@@ -5200,6 +5200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad97555db8bcef4f90d2d2a780694a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: 1
+  y: 0
+  z: 1
 --- !u!114 &114486781609551688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5227,10 +5230,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameplayPlane: {fileID: 1567253309297962}
   limitPlane: {fileID: 1048760277575338}
-  movementSpeed: {x: 40, y: 35}
+  movementSpeed: {x: 55, y: 40}
   pointingDepth: 5
   maxRotDegrees: 260
-  bankAmountOnTurn: 50
+  bankAmountOnTurn: 20
+  rotationSpeed: 15
   boostDuration: 1
   recoilTime: 2
   speedMod: 3
@@ -8223,6 +8227,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad97555db8bcef4f90d2d2a780694a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: 1
+  y: 0
+  z: 1
 --- !u!114 &114978224940503324
 MonoBehaviour:
   m_ObjectHideFlags: 1
