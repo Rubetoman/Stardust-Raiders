@@ -164,7 +164,7 @@ public class AudioManager : MonoBehaviour {
     /// <param name="loop"> If the new AudioClip will loop. </param>
     /// <param name="wait"> If wait for the AudioClip currently on the AudioSource to end before playing the new song. </param>
     /// <returns></returns>
-    public IEnumerator ChangeAuioSourceClip(AudioSource source, AudioClip newClip, bool loop, bool wait)
+    public IEnumerator ChangeAudioSourceClip(AudioSource source, AudioClip newClip, bool loop, bool wait)
     {
         if (wait)
             yield return new WaitForSeconds(source.clip.length - source.time);
@@ -172,6 +172,20 @@ public class AudioManager : MonoBehaviour {
         source.loop = loop;
         if (!source.isPlaying)
             source.Play();
+    }
+
+    public bool IsClipPlaying(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found.");
+            return false;
+        }
+        if (s.source.isPlaying)
+            return true;
+        else
+            return false;
     }
     #endregion
 }

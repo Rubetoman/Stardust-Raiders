@@ -313,6 +313,7 @@
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Procedural Mesh\ExtrudeRandomEdges.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Runtime Editing\RuntimeEdit.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Vertex Colors\HighlightNearestFace.cs" />
+    <Compile Include="Assets\Scripts\CameraDetachment.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossController.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossModuleHealthManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossShieldManager.cs" />
@@ -359,6 +360,7 @@
     <Compile Include="Assets\Scripts\Player\ShipController.cs" />
     <Compile Include="Assets\Scripts\Player\ShipFlowController.cs" />
     <Compile Include="Assets\Scripts\ScaleOverTime.cs" />
+    <Compile Include="Assets\Scripts\ShowBuildVersion.cs" />
     <Compile Include="Assets\Scripts\UI\CreditsScreen.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\OptionsMenu.cs" />

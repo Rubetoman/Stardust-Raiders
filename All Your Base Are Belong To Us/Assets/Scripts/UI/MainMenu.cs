@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour {
         myEventSystem = GameObject.Find("EventSystem");
         if (myEventSystem != null)
             lastSelected = myEventSystem.GetComponent<EventSystem>().firstSelectedGameObject;
-        StartCoroutine(AudioManager.Instance.ChangeAuioSourceClip(audioSource, loopClip, true, true));
+        StartCoroutine(AudioManager.Instance.ChangeAudioSourceClip(audioSource, loopClip, true, true));
     }
     void Update()
     {
@@ -68,6 +68,13 @@ public class MainMenu : MonoBehaviour {
         GetComponent<AudioSource>().Stop();
         GameManager.Instance.SetGameState(GameManager.StateType.Play);
         GameManager.Instance.NextScene();
+    }
+
+    public void Credits()
+    {
+        GetComponent<AudioSource>().Stop();
+        GameManager.Instance.SetGameState(GameManager.StateType.Credits);
+        GameManager.Instance.LoadScene("credits");
     }
 
     public void QuitGame()

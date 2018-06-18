@@ -24,6 +24,7 @@ public class BossController : EnemyController {
 
     protected GameObject gameplayPlane;
     private bool called = false;
+    private bool cannonDestroyed = false;
     // Use this for initialization
     new void Start ()
     {
@@ -52,6 +53,21 @@ public class BossController : EnemyController {
             }
             LookAtPlayer();
         }
+        if(turretBase != null)
+        {
+            if (turretBase.GetComponentInChildren<BossModuleHealthManager>() == null && !cannonDestroyed)
+            {
+                cannonDestroyed = true;
+                AudioManager.Instance.Stop("LaserBeamCharge");
+                AudioManager.Instance.Stop("LaserBeamShoot");
+            }
+        }
+        else
+        {
+            cannonDestroyed = true;
+            AudioManager.Instance.Stop("LaserBeamCharge");
+            AudioManager.Instance.Stop("LaserBeamShoot");
+        }    
     }
 
     protected override void MoveEnemy(Vector3 pivot, Vector3 axisMovement, bool local)
@@ -64,7 +80,6 @@ public class BossController : EnemyController {
                 break;
             }
         }
-
     }
 
     void ChargeLaser()
@@ -73,10 +88,9 @@ public class BossController : EnemyController {
         foreach (Transform laser in lasers)
         {
             if (laser == null)
-                continue;
+                return;
             laser.gameObject.SetActive(true);
         }
-        //Play some cool effect for charging, particles, etc.
         Invoke("FireLaser", laserChargerTime);
     }
 
@@ -94,7 +108,7 @@ public class BossController : EnemyController {
             foreach(Transform laser in lasers)
             {
                 if (laser == null)
-                    continue;
+                    yield break;
                 Vector3 newScale = laser.localScale;
                 newScale.z += laserSpeed * Time.deltaTime;
                 laser.localScale = newScale;
@@ -114,14 +128,14 @@ public class BossController : EnemyController {
         foreach (Transform laser in lasers)
         {
             if (laser == null)
-                continue;
+                return;
             Vector3 newScale = laser.localScale;
             newScale.z = 0;
             laser.localScale = newScale;
             laser.gameObject.SetActive(false);
             var newLaser = Instantiate(spawnLaser, laser.position, laser.rotation); // Spawn a copy of the laser on the same point which the lasers are
-            newLaser.transform.parent = transform;                                  // Make it a chil of the GameObject which contains the script
-            newLaser.transform.localScale = new Vector3(1, 1, 10);                  // Adjust Scale
+            //newLaser.transform.parent = transform;                                  // Make it a chil of the GameObject which contains the script
+            newLaser.transform.localScale = new Vector3(laser.lossyScale.x, laser.lossyScale.y, 50);                  // Adjust Scale
             Destroy(newLaser, 2.0f);                                                // Destroy after 2 seconds
         }
         Invoke("ChargeLaser", laserShotDelay);

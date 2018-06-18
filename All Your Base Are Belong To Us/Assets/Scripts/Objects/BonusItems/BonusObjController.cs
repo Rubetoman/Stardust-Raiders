@@ -75,8 +75,11 @@ public class BonusObjController : MonoBehaviour {
     {
         if (other.CompareTag("PlayerCollider"))
         {
-            GameManager.Instance.AddToTotalScore(points);
-            AudioManager.Instance.Play("Bonus");
+            if(GameManager.Instance != null)
+                GameManager.Instance.AddToTotalScore(points);
+            if(AudioManager.Instance != null)
+                //if(!AudioManager.Instance.IsClipPlaying("Bonus"))
+                    AudioManager.Instance.Play("Bonus");
             transform.parent = other.gameObject.transform;
             StartCoroutine("DestroyAnimation");
             Destroy(gameObject, 2);

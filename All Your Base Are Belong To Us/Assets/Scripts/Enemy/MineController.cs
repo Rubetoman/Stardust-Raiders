@@ -9,7 +9,9 @@ public class MineController : MonoBehaviour {
 
     public int damage = 25;                 // Damage the player will take when colliding.
     public float targetDistance = 100.0f;   // Distance at which it will start moving forward the player.
+    public float speed = 1;
     public GameObject explosionEffect;      // Player transform.
+
     private Transform player;
 
 	void Start () {
@@ -22,7 +24,7 @@ public class MineController : MonoBehaviour {
         var distanceToPlayer = (player.transform.position - transform.position).magnitude;
 
         if (distanceToPlayer <= targetDistance)  // If its near enought start moving towards the player.
-            transform.position = Vector3.Lerp(transform.position, player.position, (targetDistance / distanceToPlayer) * Time.deltaTime * 0.7f);
+            transform.position = Vector3.Lerp(transform.position, player.position, (targetDistance / distanceToPlayer) * Time.deltaTime * speed);
     }
 
     /// <summary>
