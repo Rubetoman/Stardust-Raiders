@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 33795469358618478}
   - component: {fileID: 114555332725963060}
   - component: {fileID: 114111447703111464}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Right_Canon_Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4513632677741056}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Wheel_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,8 @@ GameObject:
   - component: {fileID: 114919660304833760}
   - component: {fileID: 114028525162921444}
   - component: {fileID: 114543854070163242}
-  m_Layer: 0
+  - component: {fileID: 114774130068820178}
+  m_Layer: 15
   m_Name: Tank_Red_Cull
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -78,7 +79,7 @@ GameObject:
   - component: {fileID: 64647580214809076}
   - component: {fileID: 114643102440879488}
   - component: {fileID: 114596255107581876}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Right_Canon_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +99,7 @@ GameObject:
   - component: {fileID: 64464927987274876}
   - component: {fileID: 114875456359821570}
   - component: {fileID: 114366762265494078}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Spawn_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +118,7 @@ GameObject:
   - component: {fileID: 33066216314292374}
   - component: {fileID: 114442000213966084}
   - component: {fileID: 114251103623837458}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Turret_Connector_Boder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +138,7 @@ GameObject:
   - component: {fileID: 64210667149478630}
   - component: {fileID: 114790407823543898}
   - component: {fileID: 114093757697503300}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Spawn_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +153,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4478010471181148}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Main_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +168,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4177101209679116}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cannon_Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +183,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4364678255701316}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +202,7 @@ GameObject:
   - component: {fileID: 33564003558184444}
   - component: {fileID: 114455814383279292}
   - component: {fileID: 114353348080766494}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Left_Canon_Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +221,7 @@ GameObject:
   - component: {fileID: 33323494549689826}
   - component: {fileID: 114929875364848428}
   - component: {fileID: 114038948534455664}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Bottom_Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +241,7 @@ GameObject:
   - component: {fileID: 64398320289486818}
   - component: {fileID: 114329215584536264}
   - component: {fileID: 114394333513587070}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Wheel_Right_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +260,7 @@ GameObject:
   - component: {fileID: 33372448045500810}
   - component: {fileID: 114116615390043734}
   - component: {fileID: 114288311715877746}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Wheel_Left_Boder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +280,7 @@ GameObject:
   - component: {fileID: 64278853015461106}
   - component: {fileID: 114943150495552232}
   - component: {fileID: 114781701627352736}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Wheel_Right_Boder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +300,7 @@ GameObject:
   - component: {fileID: 64868315773170792}
   - component: {fileID: 114605998167390776}
   - component: {fileID: 114439390782054166}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Wheel_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +320,7 @@ GameObject:
   - component: {fileID: 64996550462758448}
   - component: {fileID: 114091834724162034}
   - component: {fileID: 114436733504505348}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Left_Canon_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +340,7 @@ GameObject:
   - component: {fileID: 64803016443957586}
   - component: {fileID: 114654329647335888}
   - component: {fileID: 114384891199516984}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Turret_Connector_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +355,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4314480659649068}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Wheel_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +375,7 @@ GameObject:
   - component: {fileID: 64083893551966638}
   - component: {fileID: 114838988246862388}
   - component: {fileID: 114400079023833906}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Bottom_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +390,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4224938542865554}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Turret_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,8 +652,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1172710187598394}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -38.967545, y: 72, z: 1336}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -968.0447, y: -35.75786, z: -211.4928}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4478010471181148}
@@ -702,6 +703,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
   m_StaticBatchInfo:
@@ -736,6 +738,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 714d52a7045baf44090d6682697ac7e4, type: 2}
   m_StaticBatchInfo:
@@ -770,6 +773,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
   m_StaticBatchInfo:
@@ -804,6 +808,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
   m_StaticBatchInfo:
@@ -817,7 +822,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -838,6 +843,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
   m_StaticBatchInfo:
@@ -872,6 +878,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
   m_StaticBatchInfo:
@@ -906,6 +913,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
   m_StaticBatchInfo:
@@ -919,7 +927,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -940,6 +948,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
   m_StaticBatchInfo:
@@ -974,6 +983,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
   m_StaticBatchInfo:
@@ -987,7 +997,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -1008,6 +1018,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
   m_StaticBatchInfo:
@@ -1042,6 +1053,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 714d52a7045baf44090d6682697ac7e4, type: 2}
   m_StaticBatchInfo:
@@ -1076,6 +1088,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 0}
   m_StaticBatchInfo:
@@ -1110,6 +1123,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
   - {fileID: 2100000, guid: 714d52a7045baf44090d6682697ac7e4, type: 2}
@@ -1145,6 +1159,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
   - {fileID: 2100000, guid: 714d52a7045baf44090d6682697ac7e4, type: 2}
@@ -1180,6 +1195,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
   m_StaticBatchInfo:
@@ -1193,7 +1209,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -1450,19 +1466,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonParent: {fileID: 4177101209679116}
   cannonRotationSpeed: 30
-  heightOffset: 4
-  missileSpawnPoints:
+  heightOffset: 0
+  bulletSpawnPoints:
   - {fileID: 4485334742366158}
   - {fileID: 4233401539413440}
-  spawnMissile: {fileID: 1957589209164754, guid: a76311fad5f1d1e41a125ca5423ec0f6,
+  spawnBullet: {fileID: 1972132487520758, guid: a76311fad5f1d1e41a125ca5423ec0f6,
     type: 2}
-  missileDestroyTime: 10
-  movementTime: 1
-  movementRadius: 10
-  movementDelay: 5
-  moveAxis: {x: 1, y: 1, z: 0}
-  loopMovement: 1
-  missileDelay: 5
+  bulletDestroyTime: 10
+  movementTime: 0
+  movementRadius: 0
+  movementDelay: 0
+  moveAxis: {x: 0, y: 0, z: 0}
+  localMovement: 0
+  loopMovement: 0
+  missileDelay: 2
   targetDistance: 300
 --- !u!114 &114038948534455664
 MonoBehaviour:
@@ -1503,7 +1520,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 040000000500000006000000050000000700000006000000
     _distinctIndices: 04000000050000000600000007000000
@@ -1532,7 +1548,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 08000000090000000a000000090000000b0000000a000000
     _distinctIndices: 08000000090000000a0000000b000000
@@ -1561,7 +1576,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 0c0000000d0000000e0000000d0000000f0000000e000000
     _distinctIndices: 0c0000000d0000000e0000000f000000
@@ -1590,7 +1604,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 100000001100000012000000110000001300000012000000
     _distinctIndices: 10000000110000001200000013000000
@@ -1619,7 +1632,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 140000001500000016000000150000001700000016000000
     _distinctIndices: 14000000150000001600000017000000
@@ -1648,7 +1660,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 18000000190000001a000000190000001b0000001a000000
     _distinctIndices: 18000000190000001a0000001b000000
@@ -1677,7 +1688,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 1c0000001d0000001e0000001d0000001f0000001e000000
     _distinctIndices: 1c0000001d0000001e0000001f000000
@@ -1706,7 +1716,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 200000002100000022000000210000002300000022000000
     _distinctIndices: 20000000210000002200000023000000
@@ -1735,7 +1744,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 240000002500000026000000250000002700000026000000
     _distinctIndices: 24000000250000002600000027000000
@@ -1764,7 +1772,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 28000000290000002a000000290000002b0000002a000000
     _distinctIndices: 28000000290000002a0000002b000000
@@ -1793,7 +1800,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 2c0000002d0000002e0000002d0000002f0000002e000000
     _distinctIndices: 2c0000002d0000002e0000002f000000
@@ -1822,7 +1828,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 300000003100000032000000310000003300000032000000
     _distinctIndices: 30000000310000003200000033000000
@@ -1851,7 +1856,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 340000003500000036000000350000003700000036000000
     _distinctIndices: 34000000350000003600000037000000
@@ -1880,7 +1884,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 38000000390000003a000000390000003b0000003a000000
     _distinctIndices: 38000000390000003a0000003b000000
@@ -1909,7 +1912,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 3c0000003d0000003e0000003d0000003f0000003e000000
     _distinctIndices: 3c0000003d0000003e0000003f000000
@@ -1938,7 +1940,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 400000004100000042000000410000004300000042000000
     _distinctIndices: 40000000410000004200000043000000
@@ -1967,7 +1968,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   _sharedIndices:
   - array: 00000000360000003b000000
@@ -2680,7 +2680,6 @@ MonoBehaviour:
     packMargin: 4
     angleError: 8
     areaError: 15
-  asset_guid: 
   dontDestroyMeshOnDelete: 0
   m_selectedFaces: 
   m_SelectedEdges: []
@@ -2736,7 +2735,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 714d52a7045baf44090d6682697ac7e4, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   _sharedIndices:
   - array: 00000000
@@ -2913,7 +2911,6 @@ MonoBehaviour:
     packMargin: 4
     angleError: 8
     areaError: 15
-  asset_guid: 
   dontDestroyMeshOnDelete: 0
   m_selectedFaces: 
   m_SelectedEdges: []
@@ -2957,7 +2954,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 060000000700000005000000060000000500000004000000
     _distinctIndices: 06000000070000000500000004000000
@@ -2986,7 +2982,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 0a0000000b000000090000000a0000000900000008000000
     _distinctIndices: 0a0000000b0000000900000008000000
@@ -3015,7 +3010,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 0e0000000f0000000d0000000e0000000d0000000c000000
     _distinctIndices: 0e0000000f0000000d0000000c000000
@@ -3044,7 +3038,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 120000001300000011000000120000001100000010000000
     _distinctIndices: 12000000130000001100000010000000
@@ -3073,7 +3066,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 160000001700000015000000160000001500000014000000
     _distinctIndices: 16000000170000001500000014000000
@@ -3102,7 +3094,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 1a0000001b000000190000001a0000001900000018000000
     _distinctIndices: 1a0000001b0000001900000018000000
@@ -3131,7 +3122,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 1e0000001f0000001d0000001e0000001d0000001c000000
     _distinctIndices: 1e0000001f0000001d0000001c000000
@@ -3160,7 +3150,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 200000002100000022000000210000002300000022000000
     _distinctIndices: 20000000210000002200000023000000
@@ -3189,7 +3178,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 240000002500000026000000250000002700000026000000
     _distinctIndices: 24000000250000002600000027000000
@@ -3218,7 +3206,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 28000000290000002a000000290000002b0000002a000000
     _distinctIndices: 28000000290000002a0000002b000000
@@ -3247,7 +3234,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 2c0000002d0000002e0000002d0000002f0000002e000000
     _distinctIndices: 2c0000002d0000002e0000002f000000
@@ -3276,7 +3262,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 320000003300000031000000320000003100000030000000
     _distinctIndices: 32000000330000003100000030000000
@@ -3305,7 +3290,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 360000003700000035000000360000003500000034000000
     _distinctIndices: 36000000370000003500000034000000
@@ -3334,7 +3318,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 3a0000003b000000390000003a0000003900000038000000
     _distinctIndices: 3a0000003b0000003900000038000000
@@ -3363,7 +3346,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 3e0000003f0000003d0000003e0000003d0000003c000000
     _distinctIndices: 3e0000003f0000003d0000003c000000
@@ -3392,7 +3374,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 420000004300000041000000420000004100000040000000
     _distinctIndices: 42000000430000004100000040000000
@@ -3421,7 +3402,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 450000004400000047000000460000004500000047000000
     _distinctIndices: 45000000440000004700000046000000
@@ -3450,7 +3430,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: 0
     textureGroup: -1
   _sharedIndices:
   - array: 02000000180000002000000025000000
@@ -3864,7 +3843,6 @@ MonoBehaviour:
     packMargin: 4
     angleError: 8
     areaError: 15
-  asset_guid: 
   dontDestroyMeshOnDelete: 0
   m_selectedFaces: 
   m_SelectedEdges: []
@@ -3920,7 +3898,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 040000000500000006000000050000000700000006000000
     _distinctIndices: 04000000050000000600000007000000
@@ -3949,7 +3926,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 08000000090000000a000000090000000b0000000a000000
     _distinctIndices: 08000000090000000a0000000b000000
@@ -3978,7 +3954,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 0c0000000d0000000e0000000d0000000f0000000e000000
     _distinctIndices: 0c0000000d0000000e0000000f000000
@@ -4007,7 +3982,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 100000001100000012000000110000001300000012000000
     _distinctIndices: 10000000110000001200000013000000
@@ -4036,7 +4010,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 140000001500000016000000150000001700000016000000
     _distinctIndices: 14000000150000001600000017000000
@@ -4065,7 +4038,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 18000000190000001a000000190000001b0000001a000000
     _distinctIndices: 18000000190000001a0000001b000000
@@ -4094,7 +4066,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 1c0000001d0000001e0000001d0000001f0000001e000000
     _distinctIndices: 1c0000001d0000001e0000001f000000
@@ -4123,7 +4094,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 230000002100000020000000230000002200000021000000
     _distinctIndices: 23000000210000002000000022000000
@@ -4152,7 +4122,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: 0
     textureGroup: -1
   _sharedIndices:
   - array: 02000000060000000f000000
@@ -4637,7 +4606,6 @@ MonoBehaviour:
     packMargin: 4
     angleError: 8
     areaError: 15
-  asset_guid: 
   dontDestroyMeshOnDelete: 0
   m_selectedFaces: 
   m_SelectedEdges: []
@@ -4681,7 +4649,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 040000000500000006000000050000000700000006000000
     _distinctIndices: 04000000050000000600000007000000
@@ -4710,7 +4677,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 08000000090000000a000000090000000b0000000a000000
     _distinctIndices: 08000000090000000a0000000b000000
@@ -4739,7 +4705,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 0c0000000d0000000e0000000d0000000f0000000e000000
     _distinctIndices: 0c0000000d0000000e0000000f000000
@@ -4768,7 +4733,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 160000001700000018000000170000001900000018000000
     _distinctIndices: 16000000170000001800000019000000
@@ -4797,7 +4761,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 1c0000001d0000001e0000001d0000001f0000001e000000
     _distinctIndices: 1c0000001d0000001e0000001f000000
@@ -4826,7 +4789,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 220000002300000021000000220000002100000020000000
     _distinctIndices: 22000000230000002100000020000000
@@ -4855,7 +4817,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 260000002700000025000000260000002500000024000000
     _distinctIndices: 26000000270000002500000024000000
@@ -4884,7 +4845,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 2a0000002b000000290000002a0000002900000028000000
     _distinctIndices: 2a0000002b0000002900000028000000
@@ -4913,7 +4873,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 2e0000002f0000002d0000002e0000002d0000002c000000
     _distinctIndices: 2e0000002f0000002d0000002c000000
@@ -4942,7 +4901,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 12000000130000001400000014000000130000001500000015000000130000001000000010000000130000001100000011000000120000001a000000120000001b0000001a00000033000000320000001b0000003100000032000000300000001a0000003200000031000000300000003200000033000000
     _distinctIndices: 1200000013000000140000001500000010000000110000001a0000001b00000033000000320000003100000030000000
@@ -4995,7 +4953,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: 0
     textureGroup: -1
   - _indices: 340000003500000036000000350000003700000036000000
     _distinctIndices: 34000000350000003600000037000000
@@ -5024,7 +4981,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 38000000390000003a000000390000003b0000003a000000
     _distinctIndices: 38000000390000003a0000003b000000
@@ -5053,7 +5009,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 3c0000003d0000003e0000003d0000003f0000003e000000
     _distinctIndices: 3c0000003d0000003e0000003f000000
@@ -5082,7 +5037,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 400000004100000042000000410000004300000042000000
     _distinctIndices: 40000000410000004200000043000000
@@ -5111,7 +5065,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 440000004500000046000000450000004700000046000000
     _distinctIndices: 44000000450000004600000047000000
@@ -5140,7 +5093,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 48000000490000004a000000490000004b0000004a000000
     _distinctIndices: 48000000490000004a0000004b000000
@@ -5169,7 +5121,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 4c0000004d0000004e0000004d0000004f0000004e000000
     _distinctIndices: 4c0000004d0000004e0000004f000000
@@ -5198,7 +5149,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 500000005100000052000000510000005300000052000000
     _distinctIndices: 50000000510000005200000053000000
@@ -5227,7 +5177,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 540000005500000056000000550000005700000056000000
     _distinctIndices: 54000000550000005600000057000000
@@ -5256,7 +5205,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 58000000590000005a000000590000005b0000005a000000
     _distinctIndices: 58000000590000005a0000005b000000
@@ -5285,7 +5233,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 5c0000005d0000005e0000005d0000005f0000005e000000
     _distinctIndices: 5c0000005d0000005e0000005f000000
@@ -5314,7 +5261,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 600000006100000062000000610000006300000062000000
     _distinctIndices: 60000000610000006200000063000000
@@ -5343,7 +5289,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 640000006500000066000000650000006700000066000000
     _distinctIndices: 64000000650000006600000067000000
@@ -5372,7 +5317,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 68000000690000006a000000690000006b0000006a000000
     _distinctIndices: 68000000690000006a0000006b000000
@@ -5401,7 +5345,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 6c0000006d0000006e0000006d0000006f0000006e000000
     _distinctIndices: 6c0000006d0000006e0000006f000000
@@ -5430,7 +5373,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 700000007100000072000000710000007300000072000000
     _distinctIndices: 70000000710000007200000073000000
@@ -5459,7 +5401,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 740000007500000076000000750000007700000076000000
     _distinctIndices: 74000000750000007600000077000000
@@ -5488,7 +5429,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 78000000790000007a000000790000007b0000007a000000
     _distinctIndices: 78000000790000007a0000007b000000
@@ -5517,7 +5457,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 7c0000007d0000007e0000007d0000007f0000007e000000
     _distinctIndices: 7c0000007d0000007e0000007f000000
@@ -5546,7 +5485,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 800000008100000082000000810000008300000082000000
     _distinctIndices: 80000000810000008200000083000000
@@ -5575,7 +5513,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 8a000000890000008b0000008b00000089000000880000008b000000880000008c0000008c00000088000000870000008d0000008c00000087000000850000008d0000008700000085000000870000008600000085000000840000008d000000
     _distinctIndices: 8a000000890000008b000000880000008c000000870000008d000000850000008600000084000000
@@ -5616,7 +5553,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: 0
     textureGroup: -1
   _sharedIndices:
   - array: 000000000e00000085000000
@@ -6389,7 +6325,6 @@ MonoBehaviour:
     packMargin: 4
     angleError: 8
     areaError: 15
-  asset_guid: 
   dontDestroyMeshOnDelete: 0
   m_selectedFaces: 
   m_SelectedEdges: []
@@ -6445,7 +6380,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 040000000500000006000000050000000700000006000000
     _distinctIndices: 04000000050000000600000007000000
@@ -6474,7 +6408,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 08000000090000000a000000090000000b0000000a000000
     _distinctIndices: 08000000090000000a0000000b000000
@@ -6503,7 +6436,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 0c0000000d0000000e0000000d0000000f0000000e000000
     _distinctIndices: 0c0000000d0000000e0000000f000000
@@ -6532,7 +6464,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 100000001100000012000000110000001300000012000000
     _distinctIndices: 10000000110000001200000013000000
@@ -6561,7 +6492,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 140000001500000016000000150000001700000016000000
     _distinctIndices: 14000000150000001600000017000000
@@ -6590,7 +6520,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 18000000190000001a000000190000001b0000001a000000
     _distinctIndices: 18000000190000001a0000001b000000
@@ -6619,7 +6548,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 1c0000001d0000001e0000001d0000001f0000001e000000
     _distinctIndices: 1c0000001d0000001e0000001f000000
@@ -6648,7 +6576,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 200000002100000022000000210000002300000022000000
     _distinctIndices: 20000000210000002200000023000000
@@ -6677,7 +6604,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 260000002700000025000000260000002500000024000000
     _distinctIndices: 26000000270000002500000024000000
@@ -6706,7 +6632,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 2a0000002b000000290000002a0000002900000028000000
     _distinctIndices: 2a0000002b0000002900000028000000
@@ -6735,7 +6660,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 2e0000002f0000002d0000002e0000002d0000002c000000
     _distinctIndices: 2e0000002f0000002d0000002c000000
@@ -6764,7 +6688,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 320000003300000031000000320000003100000030000000
     _distinctIndices: 32000000330000003100000030000000
@@ -6793,7 +6716,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 340000003500000036000000350000003700000036000000
     _distinctIndices: 34000000350000003600000037000000
@@ -6822,7 +6744,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 38000000390000003a000000390000003b0000003a000000
     _distinctIndices: 38000000390000003a0000003b000000
@@ -6851,7 +6772,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 3c0000003d0000003e0000003d0000003f0000003e000000
     _distinctIndices: 3c0000003d0000003e0000003f000000
@@ -6880,7 +6800,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 400000004100000042000000410000004300000042000000
     _distinctIndices: 40000000410000004200000043000000
@@ -6909,7 +6828,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 460000004400000047000000460000004500000044000000
     _distinctIndices: 46000000440000004700000045000000
@@ -6938,7 +6856,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: 0
     textureGroup: -1
   _sharedIndices:
   - array: 00000000
@@ -7347,7 +7264,6 @@ MonoBehaviour:
     packMargin: 4
     angleError: 8
     areaError: 15
-  asset_guid: 
   dontDestroyMeshOnDelete: 0
   m_selectedFaces: 
   m_SelectedEdges: []
@@ -7391,7 +7307,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 714d52a7045baf44090d6682697ac7e4, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   _sharedIndices:
   - array: 02000000
@@ -7568,7 +7483,6 @@ MonoBehaviour:
     packMargin: 4
     angleError: 8
     areaError: 15
-  asset_guid: 
   dontDestroyMeshOnDelete: 0
   m_selectedFaces: 
   m_SelectedEdges: []
@@ -7612,7 +7526,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 040000000500000006000000050000000700000006000000
     _distinctIndices: 04000000050000000600000007000000
@@ -7641,7 +7554,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 08000000090000000a000000090000000b0000000a000000
     _distinctIndices: 08000000090000000a0000000b000000
@@ -7670,7 +7582,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 0c0000000d0000000e0000000d0000000f0000000e000000
     _distinctIndices: 0c0000000d0000000e0000000f000000
@@ -7699,7 +7610,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 100000001100000012000000110000001300000012000000
     _distinctIndices: 10000000110000001200000013000000
@@ -7728,7 +7638,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 140000001500000016000000150000001700000016000000
     _distinctIndices: 14000000150000001600000017000000
@@ -7757,7 +7666,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 18000000190000001a000000190000001b0000001a000000
     _distinctIndices: 18000000190000001a0000001b000000
@@ -7786,7 +7694,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 1c0000001d0000001e0000001d0000001f0000001e000000
     _distinctIndices: 1c0000001d0000001e0000001f000000
@@ -7815,7 +7722,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 230000002100000020000000230000002200000021000000
     _distinctIndices: 23000000210000002000000022000000
@@ -7844,7 +7750,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 0
-    elementGroup: 0
     textureGroup: -1
   _sharedIndices:
   - array: 02000000060000000f000000
@@ -8329,7 +8234,6 @@ MonoBehaviour:
     packMargin: 4
     angleError: 8
     areaError: 15
-  asset_guid: 
   dontDestroyMeshOnDelete: 0
   m_selectedFaces: 
   m_SelectedEdges: []
@@ -8373,7 +8277,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 040000000500000006000000050000000700000006000000
     _distinctIndices: 04000000050000000600000007000000
@@ -8402,7 +8305,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 08000000090000000a000000090000000b0000000a000000
     _distinctIndices: 08000000090000000a0000000b000000
@@ -8431,7 +8333,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 0c0000000d0000000e0000000d0000000f0000000e000000
     _distinctIndices: 0c0000000d0000000e0000000f000000
@@ -8460,7 +8361,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 160000001700000018000000170000001900000018000000
     _distinctIndices: 16000000170000001800000019000000
@@ -8489,7 +8389,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 1c0000001d0000001e0000001d0000001f0000001e000000
     _distinctIndices: 1c0000001d0000001e0000001f000000
@@ -8518,7 +8417,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 220000002300000021000000220000002100000020000000
     _distinctIndices: 22000000230000002100000020000000
@@ -8547,7 +8445,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 260000002700000025000000260000002500000024000000
     _distinctIndices: 26000000270000002500000024000000
@@ -8576,7 +8473,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 2a0000002b000000290000002a0000002900000028000000
     _distinctIndices: 2a0000002b0000002900000028000000
@@ -8605,7 +8501,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 2e0000002f0000002d0000002e0000002d0000002c000000
     _distinctIndices: 2e0000002f0000002d0000002c000000
@@ -8634,7 +8529,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 12000000130000001400000014000000130000001500000015000000130000001000000010000000130000001100000011000000120000001a000000120000001b0000001a00000033000000320000001b0000003100000032000000300000001a0000003200000031000000300000003200000033000000
     _distinctIndices: 1200000013000000140000001500000010000000110000001a0000001b00000033000000320000003100000030000000
@@ -8687,7 +8581,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 714d52a7045baf44090d6682697ac7e4, type: 2}
     manualUV: 1
-    elementGroup: 0
     textureGroup: -1
   - _indices: 340000003500000036000000350000003700000036000000
     _distinctIndices: 34000000350000003600000037000000
@@ -8716,7 +8609,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 38000000390000003a000000390000003b0000003a000000
     _distinctIndices: 38000000390000003a0000003b000000
@@ -8745,7 +8637,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 3c0000003d0000003e0000003d0000003f0000003e000000
     _distinctIndices: 3c0000003d0000003e0000003f000000
@@ -8774,7 +8665,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 400000004100000042000000410000004300000042000000
     _distinctIndices: 40000000410000004200000043000000
@@ -8803,7 +8693,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 440000004500000046000000450000004700000046000000
     _distinctIndices: 44000000450000004600000047000000
@@ -8832,7 +8721,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 48000000490000004a000000490000004b0000004a000000
     _distinctIndices: 48000000490000004a0000004b000000
@@ -8861,7 +8749,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 4c0000004d0000004e0000004d0000004f0000004e000000
     _distinctIndices: 4c0000004d0000004e0000004f000000
@@ -8890,7 +8777,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 500000005100000052000000510000005300000052000000
     _distinctIndices: 50000000510000005200000053000000
@@ -8919,7 +8805,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 540000005500000056000000550000005700000056000000
     _distinctIndices: 54000000550000005600000057000000
@@ -8948,7 +8833,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 58000000590000005a000000590000005b0000005a000000
     _distinctIndices: 58000000590000005a0000005b000000
@@ -8977,7 +8861,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 5c0000005d0000005e0000005d0000005f0000005e000000
     _distinctIndices: 5c0000005d0000005e0000005f000000
@@ -9006,7 +8889,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 600000006100000062000000610000006300000062000000
     _distinctIndices: 60000000610000006200000063000000
@@ -9035,7 +8917,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 640000006500000066000000650000006700000066000000
     _distinctIndices: 64000000650000006600000067000000
@@ -9064,7 +8945,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 68000000690000006a000000690000006b0000006a000000
     _distinctIndices: 68000000690000006a0000006b000000
@@ -9093,7 +8973,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 6c0000006d0000006e0000006d0000006f0000006e000000
     _distinctIndices: 6c0000006d0000006e0000006f000000
@@ -9122,7 +9001,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 700000007100000072000000710000007300000072000000
     _distinctIndices: 70000000710000007200000073000000
@@ -9151,7 +9029,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 740000007500000076000000750000007700000076000000
     _distinctIndices: 74000000750000007600000077000000
@@ -9180,7 +9057,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 78000000790000007a000000790000007b0000007a000000
     _distinctIndices: 78000000790000007a0000007b000000
@@ -9209,7 +9085,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 7c0000007d0000007e0000007d0000007f0000007e000000
     _distinctIndices: 7c0000007d0000007e0000007f000000
@@ -9238,7 +9113,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 800000008100000082000000810000008300000082000000
     _distinctIndices: 80000000810000008200000083000000
@@ -9267,7 +9141,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 8a000000890000008b0000008b00000089000000880000008b000000880000008c0000008c00000088000000870000008d0000008c00000087000000850000008d0000008700000085000000870000008600000085000000840000008d000000
     _distinctIndices: 8a000000890000008b000000880000008c000000870000008d000000850000008600000084000000
@@ -9308,7 +9181,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: 0
     textureGroup: -1
   _sharedIndices:
   - array: 000000000e00000085000000
@@ -10081,7 +9953,6 @@ MonoBehaviour:
     packMargin: 4
     angleError: 8
     areaError: 15
-  asset_guid: 
   dontDestroyMeshOnDelete: 0
   m_selectedFaces: 
   m_SelectedEdges: []
@@ -10125,7 +9996,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 040000000500000006000000050000000700000006000000
     _distinctIndices: 04000000050000000600000007000000
@@ -10154,7 +10024,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 08000000090000000a000000090000000b0000000a000000
     _distinctIndices: 08000000090000000a0000000b000000
@@ -10183,7 +10052,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 0c0000000d0000000e0000000d0000000f0000000e000000
     _distinctIndices: 0c0000000d0000000e0000000f000000
@@ -10212,7 +10080,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 100000001100000012000000110000001300000012000000
     _distinctIndices: 10000000110000001200000013000000
@@ -10241,7 +10108,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 140000001500000016000000150000001700000016000000
     _distinctIndices: 14000000150000001600000017000000
@@ -10270,7 +10136,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 18000000190000001a000000190000001b0000001a000000
     _distinctIndices: 18000000190000001a0000001b000000
@@ -10299,7 +10164,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 1c0000001d0000001e0000001d0000001f0000001e000000
     _distinctIndices: 1c0000001d0000001e0000001f000000
@@ -10328,7 +10192,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 200000002100000022000000210000002300000022000000
     _distinctIndices: 20000000210000002200000023000000
@@ -10357,7 +10220,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 240000002500000026000000250000002700000026000000
     _distinctIndices: 24000000250000002600000027000000
@@ -10386,7 +10248,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 28000000290000002a000000290000002b0000002a000000
     _distinctIndices: 28000000290000002a0000002b000000
@@ -10415,7 +10276,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 2c0000002d0000002e0000002d0000002f0000002e000000
     _distinctIndices: 2c0000002d0000002e0000002f000000
@@ -10444,7 +10304,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 300000003100000032000000310000003300000032000000
     _distinctIndices: 30000000310000003200000033000000
@@ -10473,7 +10332,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 340000003500000036000000350000003700000036000000
     _distinctIndices: 34000000350000003600000037000000
@@ -10502,7 +10360,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 38000000390000003a000000390000003b0000003a000000
     _distinctIndices: 38000000390000003a0000003b000000
@@ -10531,7 +10388,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 3c0000003d0000003e0000003d0000003f0000003e000000
     _distinctIndices: 3c0000003d0000003e0000003f000000
@@ -10560,7 +10416,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 400000004100000042000000410000004300000042000000
     _distinctIndices: 40000000410000004200000043000000
@@ -10589,7 +10444,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   _sharedIndices:
   - array: 00000000360000003b000000
@@ -11302,7 +11156,6 @@ MonoBehaviour:
     packMargin: 4
     angleError: 8
     areaError: 15
-  asset_guid: 
   dontDestroyMeshOnDelete: 0
   m_selectedFaces: 
   m_SelectedEdges: []
@@ -11346,7 +11199,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 040000000500000006000000050000000700000006000000
     _distinctIndices: 04000000050000000600000007000000
@@ -11375,7 +11227,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 08000000090000000a000000090000000b0000000a000000
     _distinctIndices: 08000000090000000a0000000b000000
@@ -11404,7 +11255,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 0c0000000d0000000e0000000d0000000f0000000e000000
     _distinctIndices: 0c0000000d0000000e0000000f000000
@@ -11433,7 +11283,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 100000001100000012000000110000001300000012000000
     _distinctIndices: 10000000110000001200000013000000
@@ -11462,7 +11311,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 140000001500000016000000150000001700000016000000
     _distinctIndices: 14000000150000001600000017000000
@@ -11491,7 +11339,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 18000000190000001a000000190000001b0000001a000000
     _distinctIndices: 18000000190000001a0000001b000000
@@ -11520,7 +11367,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 1c0000001d0000001e0000001d0000001f0000001e000000
     _distinctIndices: 1c0000001d0000001e0000001f000000
@@ -11549,7 +11395,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 220000002300000021000000220000002100000020000000
     _distinctIndices: 22000000230000002100000020000000
@@ -11578,7 +11423,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 260000002700000025000000260000002500000024000000
     _distinctIndices: 26000000270000002500000024000000
@@ -11607,7 +11451,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 2a0000002b000000290000002a0000002900000028000000
     _distinctIndices: 2a0000002b0000002900000028000000
@@ -11636,7 +11479,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 2e0000002f0000002d0000002e0000002d0000002c000000
     _distinctIndices: 2e0000002f0000002d0000002c000000
@@ -11665,7 +11507,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 300000003100000032000000310000003300000032000000
     _distinctIndices: 30000000310000003200000033000000
@@ -11694,7 +11535,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 340000003500000036000000350000003700000036000000
     _distinctIndices: 34000000350000003600000037000000
@@ -11723,7 +11563,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 38000000390000003a000000390000003b0000003a000000
     _distinctIndices: 38000000390000003a0000003b000000
@@ -11752,7 +11591,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 3c0000003d0000003e0000003d0000003f0000003e000000
     _distinctIndices: 3c0000003d0000003e0000003f000000
@@ -11781,7 +11619,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 420000004000000043000000420000004100000040000000
     _distinctIndices: 42000000400000004300000041000000
@@ -11810,7 +11647,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 0
-    elementGroup: 0
     textureGroup: -1
   _sharedIndices:
   - array: 00000000060000000b000000
@@ -12203,7 +12039,6 @@ MonoBehaviour:
     packMargin: 4
     angleError: 8
     areaError: 15
-  asset_guid: 
   dontDestroyMeshOnDelete: 0
   m_selectedFaces: 
   m_SelectedEdges: []
@@ -12247,7 +12082,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 040000000500000006000000050000000700000006000000
     _distinctIndices: 04000000050000000600000007000000
@@ -12276,7 +12110,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 08000000090000000a000000090000000b0000000a000000
     _distinctIndices: 08000000090000000a0000000b000000
@@ -12305,7 +12138,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 0c0000000d0000000e0000000d0000000f0000000e000000
     _distinctIndices: 0c0000000d0000000e0000000f000000
@@ -12334,7 +12166,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 160000001700000018000000170000001900000018000000
     _distinctIndices: 16000000170000001800000019000000
@@ -12363,7 +12194,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 1c0000001d0000001e0000001d0000001f0000001e000000
     _distinctIndices: 1c0000001d0000001e0000001f000000
@@ -12392,7 +12222,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 220000002300000021000000220000002100000020000000
     _distinctIndices: 22000000230000002100000020000000
@@ -12421,7 +12250,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 260000002700000025000000260000002500000024000000
     _distinctIndices: 26000000270000002500000024000000
@@ -12450,7 +12278,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 2a0000002b000000290000002a0000002900000028000000
     _distinctIndices: 2a0000002b0000002900000028000000
@@ -12479,7 +12306,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 2e0000002f0000002d0000002e0000002d0000002c000000
     _distinctIndices: 2e0000002f0000002d0000002c000000
@@ -12508,7 +12334,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 12000000130000001400000014000000130000001500000015000000130000001000000010000000130000001100000011000000120000001a000000120000001b0000001a00000033000000320000001b0000003100000032000000300000001a0000003200000031000000300000003200000033000000
     _distinctIndices: 1200000013000000140000001500000010000000110000001a0000001b00000033000000320000003100000030000000
@@ -12561,7 +12386,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 714d52a7045baf44090d6682697ac7e4, type: 2}
     manualUV: 1
-    elementGroup: 0
     textureGroup: -1
   - _indices: 340000003500000036000000350000003700000036000000
     _distinctIndices: 34000000350000003600000037000000
@@ -12590,7 +12414,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 38000000390000003a000000390000003b0000003a000000
     _distinctIndices: 38000000390000003a0000003b000000
@@ -12619,7 +12442,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 3c0000003d0000003e0000003d0000003f0000003e000000
     _distinctIndices: 3c0000003d0000003e0000003f000000
@@ -12648,7 +12470,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 400000004100000042000000410000004300000042000000
     _distinctIndices: 40000000410000004200000043000000
@@ -12677,7 +12498,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 440000004500000046000000450000004700000046000000
     _distinctIndices: 44000000450000004600000047000000
@@ -12706,7 +12526,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 48000000490000004a000000490000004b0000004a000000
     _distinctIndices: 48000000490000004a0000004b000000
@@ -12735,7 +12554,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 4c0000004d0000004e0000004d0000004f0000004e000000
     _distinctIndices: 4c0000004d0000004e0000004f000000
@@ -12764,7 +12582,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 500000005100000052000000510000005300000052000000
     _distinctIndices: 50000000510000005200000053000000
@@ -12793,7 +12610,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 540000005500000056000000550000005700000056000000
     _distinctIndices: 54000000550000005600000057000000
@@ -12822,7 +12638,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 58000000590000005a000000590000005b0000005a000000
     _distinctIndices: 58000000590000005a0000005b000000
@@ -12851,7 +12666,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 5c0000005d0000005e0000005d0000005f0000005e000000
     _distinctIndices: 5c0000005d0000005e0000005f000000
@@ -12880,7 +12694,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 600000006100000062000000610000006300000062000000
     _distinctIndices: 60000000610000006200000063000000
@@ -12909,7 +12722,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 640000006500000066000000650000006700000066000000
     _distinctIndices: 64000000650000006600000067000000
@@ -12938,7 +12750,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 68000000690000006a000000690000006b0000006a000000
     _distinctIndices: 68000000690000006a0000006b000000
@@ -12967,7 +12778,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 6c0000006d0000006e0000006d0000006f0000006e000000
     _distinctIndices: 6c0000006d0000006e0000006f000000
@@ -12996,7 +12806,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 700000007100000072000000710000007300000072000000
     _distinctIndices: 70000000710000007200000073000000
@@ -13025,7 +12834,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 740000007500000076000000750000007700000076000000
     _distinctIndices: 74000000750000007600000077000000
@@ -13054,7 +12862,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 78000000790000007a000000790000007b0000007a000000
     _distinctIndices: 78000000790000007a0000007b000000
@@ -13083,7 +12890,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 7c0000007d0000007e0000007d0000007f0000007e000000
     _distinctIndices: 7c0000007d0000007e0000007f000000
@@ -13112,7 +12918,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 800000008100000082000000810000008300000082000000
     _distinctIndices: 80000000810000008200000083000000
@@ -13141,7 +12946,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 8a000000890000008b0000008b00000089000000880000008b000000880000008c0000008c00000088000000870000008d0000008c00000087000000850000008d0000008700000085000000870000008600000085000000840000008d000000
     _distinctIndices: 8a000000890000008b000000880000008c000000870000008d000000850000008600000084000000
@@ -13182,7 +12986,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 8ef75b3b056660a4e8a1b9b6ed5c3c64, type: 2}
     manualUV: 0
-    elementGroup: 0
     textureGroup: -1
   _sharedIndices:
   - array: 000000000e00000085000000
@@ -13955,7 +13758,6 @@ MonoBehaviour:
     packMargin: 4
     angleError: 8
     areaError: 15
-  asset_guid: 
   dontDestroyMeshOnDelete: 0
   m_selectedFaces: 
   m_SelectedEdges: []
@@ -14004,6 +13806,7 @@ MonoBehaviour:
   isReversed: 0
   isLooping: 1
   pingPong: 1
+  loopNode: 0
 --- !u!114 &114555332725963060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14055,7 +13858,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 060000000700000005000000060000000500000004000000
     _distinctIndices: 06000000070000000500000004000000
@@ -14084,7 +13886,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 0a0000000b000000090000000a0000000900000008000000
     _distinctIndices: 0a0000000b0000000900000008000000
@@ -14113,7 +13914,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 0e0000000f0000000d0000000e0000000d0000000c000000
     _distinctIndices: 0e0000000f0000000d0000000c000000
@@ -14142,7 +13942,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 120000001300000011000000120000001100000010000000
     _distinctIndices: 12000000130000001100000010000000
@@ -14171,7 +13970,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 160000001700000015000000160000001500000014000000
     _distinctIndices: 16000000170000001500000014000000
@@ -14200,7 +13998,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 1a0000001b000000190000001a0000001900000018000000
     _distinctIndices: 1a0000001b0000001900000018000000
@@ -14229,7 +14026,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 1e0000001f0000001d0000001e0000001d0000001c000000
     _distinctIndices: 1e0000001f0000001d0000001c000000
@@ -14258,7 +14054,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 200000002100000022000000210000002300000022000000
     _distinctIndices: 20000000210000002200000023000000
@@ -14287,7 +14082,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 240000002500000026000000250000002700000026000000
     _distinctIndices: 24000000250000002600000027000000
@@ -14316,7 +14110,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 28000000290000002a000000290000002b0000002a000000
     _distinctIndices: 28000000290000002a0000002b000000
@@ -14345,7 +14138,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 2c0000002d0000002e0000002d0000002f0000002e000000
     _distinctIndices: 2c0000002d0000002e0000002f000000
@@ -14374,7 +14166,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 320000003300000031000000320000003100000030000000
     _distinctIndices: 32000000330000003100000030000000
@@ -14403,7 +14194,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 360000003700000035000000360000003500000034000000
     _distinctIndices: 36000000370000003500000034000000
@@ -14432,7 +14222,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 3a0000003b000000390000003a0000003900000038000000
     _distinctIndices: 3a0000003b0000003900000038000000
@@ -14461,7 +14250,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 3e0000003f0000003d0000003e0000003d0000003c000000
     _distinctIndices: 3e0000003f0000003d0000003c000000
@@ -14490,7 +14278,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 410000004000000043000000420000004100000043000000
     _distinctIndices: 41000000400000004300000042000000
@@ -14519,7 +14306,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: bda622b8c4b882948a2222c1ac98aa2a, type: 2}
     manualUV: 0
-    elementGroup: 0
     textureGroup: -1
   _sharedIndices:
   - array: 02000000180000002000000025000000
@@ -14921,7 +14707,6 @@ MonoBehaviour:
     packMargin: 4
     angleError: 8
     areaError: 15
-  asset_guid: 
   dontDestroyMeshOnDelete: 0
   m_selectedFaces: 
   m_SelectedEdges: []
@@ -14962,6 +14747,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityType: 4
+--- !u!114 &114774130068820178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1172710187598394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d859a53230482498dd04f71f376f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
 --- !u!114 &114781701627352736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15001,7 +14798,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 040000000500000006000000050000000700000006000000
     _distinctIndices: 04000000050000000600000007000000
@@ -15030,7 +14826,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 08000000090000000a000000090000000b0000000a000000
     _distinctIndices: 08000000090000000a0000000b000000
@@ -15059,7 +14854,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 0c0000000d0000000e0000000d0000000f0000000e000000
     _distinctIndices: 0c0000000d0000000e0000000f000000
@@ -15088,7 +14882,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 160000001700000018000000170000001900000018000000
     _distinctIndices: 16000000170000001800000019000000
@@ -15117,7 +14910,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 1c0000001d0000001e0000001d0000001f0000001e000000
     _distinctIndices: 1c0000001d0000001e0000001f000000
@@ -15146,7 +14938,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 220000002300000021000000220000002100000020000000
     _distinctIndices: 22000000230000002100000020000000
@@ -15175,7 +14966,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 260000002700000025000000260000002500000024000000
     _distinctIndices: 26000000270000002500000024000000
@@ -15204,7 +14994,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 2a0000002b000000290000002a0000002900000028000000
     _distinctIndices: 2a0000002b0000002900000028000000
@@ -15233,7 +15022,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 2e0000002f0000002d0000002e0000002d0000002c000000
     _distinctIndices: 2e0000002f0000002d0000002c000000
@@ -15262,7 +15050,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: -1
     textureGroup: -1
   - _indices: 12000000130000001400000014000000130000001500000015000000130000001000000010000000130000001100000011000000120000001a000000120000001b0000001a00000033000000320000001b0000003100000032000000300000001a0000003200000031000000300000003200000033000000
     _distinctIndices: 1200000013000000140000001500000010000000110000001a0000001b00000033000000320000003100000030000000
@@ -15315,7 +15102,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 1
-    elementGroup: 0
     textureGroup: -1
   - _indices: 340000003500000036000000350000003700000036000000
     _distinctIndices: 34000000350000003600000037000000
@@ -15344,7 +15130,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 38000000390000003a000000390000003b0000003a000000
     _distinctIndices: 38000000390000003a0000003b000000
@@ -15373,7 +15158,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 3c0000003d0000003e0000003d0000003f0000003e000000
     _distinctIndices: 3c0000003d0000003e0000003f000000
@@ -15402,7 +15186,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 400000004100000042000000410000004300000042000000
     _distinctIndices: 40000000410000004200000043000000
@@ -15431,7 +15214,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 440000004500000046000000450000004700000046000000
     _distinctIndices: 44000000450000004600000047000000
@@ -15460,7 +15242,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 48000000490000004a000000490000004b0000004a000000
     _distinctIndices: 48000000490000004a0000004b000000
@@ -15489,7 +15270,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 4c0000004d0000004e0000004d0000004f0000004e000000
     _distinctIndices: 4c0000004d0000004e0000004f000000
@@ -15518,7 +15298,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 500000005100000052000000510000005300000052000000
     _distinctIndices: 50000000510000005200000053000000
@@ -15547,7 +15326,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 540000005500000056000000550000005700000056000000
     _distinctIndices: 54000000550000005600000057000000
@@ -15576,7 +15354,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 58000000590000005a000000590000005b0000005a000000
     _distinctIndices: 58000000590000005a0000005b000000
@@ -15605,7 +15382,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 5c0000005d0000005e0000005d0000005f0000005e000000
     _distinctIndices: 5c0000005d0000005e0000005f000000
@@ -15634,7 +15410,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 600000006100000062000000610000006300000062000000
     _distinctIndices: 60000000610000006200000063000000
@@ -15663,7 +15438,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 640000006500000066000000650000006700000066000000
     _distinctIndices: 64000000650000006600000067000000
@@ -15692,7 +15466,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 68000000690000006a000000690000006b0000006a000000
     _distinctIndices: 68000000690000006a0000006b000000
@@ -15721,7 +15494,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 6c0000006d0000006e0000006d0000006f0000006e000000
     _distinctIndices: 6c0000006d0000006e0000006f000000
@@ -15750,7 +15522,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 700000007100000072000000710000007300000072000000
     _distinctIndices: 70000000710000007200000073000000
@@ -15779,7 +15550,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 740000007500000076000000750000007700000076000000
     _distinctIndices: 74000000750000007600000077000000
@@ -15808,7 +15578,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 78000000790000007a000000790000007b0000007a000000
     _distinctIndices: 78000000790000007a0000007b000000
@@ -15837,7 +15606,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 7c0000007d0000007e0000007d0000007f0000007e000000
     _distinctIndices: 7c0000007d0000007e0000007f000000
@@ -15866,7 +15634,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 800000008100000082000000810000008300000082000000
     _distinctIndices: 80000000810000008200000083000000
@@ -15895,7 +15662,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: -1
     textureGroup: -1
   - _indices: 8a000000890000008b0000008b00000089000000880000008b000000880000008c0000008c00000088000000870000008d0000008c00000087000000850000008d0000008700000085000000870000008600000085000000840000008d000000
     _distinctIndices: 8a000000890000008b000000880000008c000000870000008d000000850000008600000084000000
@@ -15936,7 +15702,6 @@ MonoBehaviour:
       anchor: 9
     _mat: {fileID: 2100000, guid: 44c6bfc64478de34bbc5a46e3ac12e59, type: 2}
     manualUV: 0
-    elementGroup: 0
     textureGroup: -1
   _sharedIndices:
   - array: 000000000e00000085000000
@@ -16709,7 +16474,6 @@ MonoBehaviour:
     packMargin: 4
     angleError: 8
     areaError: 15
-  asset_guid: 
   dontDestroyMeshOnDelete: 0
   m_selectedFaces: 
   m_SelectedEdges: []
@@ -16770,6 +16534,7 @@ MonoBehaviour:
   deathEffect: {fileID: 1319610907542456, guid: 80bf455787365c4439c1465d5df692eb,
     type: 2}
   invulnerable: 0
+  destroyScore: 200
 --- !u!114 &114929875364848428
 MonoBehaviour:
   m_ObjectHideFlags: 1

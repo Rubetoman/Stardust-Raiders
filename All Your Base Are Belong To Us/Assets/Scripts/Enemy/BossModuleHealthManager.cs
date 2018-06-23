@@ -19,7 +19,6 @@ public class BossModuleHealthManager : ShieldManager {
     /// <param name="amount"></param>
     public override void TakeDamage(int amount)
     {
-        base.TakeDamage(amount);
         if (boss == null)
         {
             Debug.LogWarning("Boss GameObject is null, only the module: " + gameObject.name + " will take damage.");
@@ -29,8 +28,11 @@ public class BossModuleHealthManager : ShieldManager {
         var shield = boss.GetComponent<BossShieldManager>();// Look for the Boss shield script.         
         if (shield != null)                                 // Check if the Boss shield was found.
         {
-            if(!shield.invulnerable)                        // Only inflict damage when is vulnerable.
+            if (!shield.invulnerable && !invulnerable)                       // Only inflict damage when is vulnerable.
+            {
                 shield.TakeDamage(amount);
+                base.TakeDamage(amount);
+            }
         }           
         else
         {

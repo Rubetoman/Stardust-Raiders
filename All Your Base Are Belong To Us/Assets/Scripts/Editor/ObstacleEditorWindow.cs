@@ -126,7 +126,7 @@ public class ObstacleEditorWindow : EditorWindow {
                 foreach (ObstacleController obsController in obj.GetComponentsInChildren<ObstacleController>()) // Iterate trought all childs if the selected GameObject didn't contain the script.
                 {
                     obsController.damage = damage;
-                    #if UNITY_STANDALONE && !UNITY_EDITOR                   // Only run when in Unity Editor.
+                    #if UNITY_STANDALONE && UNITY_EDITOR                   // Only run when in Unity Editor.
                     EditorUtility.SetDirty(obsController);                  // Set GameObject dirty after the changes are made so they can be saved.
                     #endif
                 }
