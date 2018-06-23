@@ -56,8 +56,8 @@ public class EnemyShipController : EnemyController {
     protected override void ShootSpawnableAmmo()
     {
         base.ShootSpawnableAmmo();
-        if(missile != null)
-            missile.GetComponent<Rigidbody>().AddForce(missile.transform.forward * bulletVelocity, ForceMode.VelocityChange);
+        if(bullet != null)
+            bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * bulletVelocity, ForceMode.VelocityChange);
         if (Vector3.Project(player.transform.position - transform.position, player.transform.forward).magnitude <= shootDistance)
         {
             Invoke("ShootSpawnableAmmo", shootDelay);

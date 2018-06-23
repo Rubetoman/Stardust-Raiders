@@ -49,7 +49,7 @@ public class TurretController : EnemyController
         }
 
 
-        if (missileSpawnPoints.Length > 0)
+        if (bulletSpawnPoints.Length > 0)
             Invoke("ShootSpawnableAmmo", missileDelay);
     }
 
