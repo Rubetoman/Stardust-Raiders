@@ -18,14 +18,13 @@ public class BossController : EnemyController {
     [Header("Laser Attack")]
     public Transform[] lasers;              // Lasers that Boss will shoot (they need to have a scale of 0 on the Z Axis).
     public GameObject spawnLaser;           // Laser that will be shooted after the laser has ended.
-    //public float laserRotationSpeed = 1.0f; // Rotation speed for the 
     public float laserShotDelay = 1.0f;     // Shoot delay for the lasers.
     public float laserChargerTime = 1.0f;   // Time it takes to charge the laser.
     public float laserSpeed = 1.0f;         // Speed at which the laser will increase its size.
     public float laserDuration = 1.0f;      // Time the laser will be increasing size before being shooted.
     public float targetDistance = 10.0f;    // Distance at which the Boss will start attacking the player and distance at which it will mantain between the player and itself.
 
-    protected GameObject gameplayPlane;     // gameplayPlane where the player moves.
+    protected GameObject gameplayPlane;     // gameplayPlane GameObject where the player moves.
     private bool called = false;            // Bool to call part of the LateUpdate function only once.
     private bool cannonDestroyed = false;   // Bool to set it once the cannon of the boss has been destroyed.
 

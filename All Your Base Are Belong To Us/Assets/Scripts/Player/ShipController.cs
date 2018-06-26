@@ -105,7 +105,7 @@ public class ShipController : MonoBehaviour {
         boostReady = false;
         var t = 0f;
         var speedScript = gameplayPlane.GetComponent<RailMover>();
-        var normalSpeed = speedScript.speed;
+        //var normalSpeed = speedScript.speed;
         var startZ = transform.localPosition.z;
         AudioManager.Instance.Play("Boost");
         movementSpeed.x *= 1.25f; //Make the ship to move faster horizontally   
@@ -131,14 +131,14 @@ public class ShipController : MonoBehaviour {
             {
                 transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z - 0.5f), t);
                 //Decrease the speed and avoid to go under normal speed
-                if (speedScript.speed > normalSpeed)
+                if (speedScript.speed > LevelManager.Instance.GetCurrentSectorSpeed())
                     speedScript.speed -= speedMod;
             }
             yield return null;
         }
         movementSpeed.x *= 0.8f; //Horizontal movement back to normal
         movementSpeed.y *= 0.8f; //Vertical movement back to normal
-        speedScript.speed = normalSpeed; //Gameplay plane speed back to normal
+        speedScript.speed = LevelManager.Instance.GetCurrentSectorSpeed(); //Gameplay plane speed back to normal
         transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, startZ); //Reset Z position
         StartCoroutine("BoostBarRecoil", recoilTime);
     }
@@ -148,7 +148,7 @@ public class ShipController : MonoBehaviour {
         boostReady = false;
         var t = 0f;
         var speedScript = gameplayPlane.GetComponent<RailMover>();
-        var normalSpeed = speedScript.speed;
+        //var normalSpeed = speedScript.speed;
         var startZ = transform.localPosition.z;
         AudioManager.Instance.Play("Brake");
         movementSpeed.x *= 0.8f; //Slow horizontal movement
@@ -176,14 +176,14 @@ public class ShipController : MonoBehaviour {
             {
                 transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 0.15f), t);
                 //Increase back the speed and avoid to go over normal speed. Also avoid increasing the speed if the flow is not active
-                if (speedScript.speed < normalSpeed)
+                if (speedScript.speed < LevelManager.Instance.GetCurrentSectorSpeed())
                     speedScript.speed += speedMod;
             }
             yield return null;
         }
         movementSpeed.x *= 1.25f;   //Horizontal movement back to normal
         movementSpeed.y *= 1.25f;   //Vertical movement back to normal
-        speedScript.speed = normalSpeed; //Gameplay plane speed back to normal
+        speedScript.speed = LevelManager.Instance.GetCurrentSectorSpeed(); //Gameplay plane speed back to normal
         transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, startZ); //Reset Z position
         StartCoroutine("BoostBarRecoil",recoilTime);
     }

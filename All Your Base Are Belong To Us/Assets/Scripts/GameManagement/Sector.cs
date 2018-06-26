@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Type of division the sector has. If the player can choos between up/down or left/right paths.
+/// </summary>
 public enum DivideType
 {
     Up_Down,
     Left_Right,
 }
 
+/// <summary>
+/// Script to define each sector caracteristics.
+/// </summary>
 [System.Serializable]
 public class Sector : MonoBehaviour
 {
@@ -20,7 +26,7 @@ public class Sector : MonoBehaviour
     // Each sector properties
     public GameObject startNode;            // First node of the sector.
     public float speed;                     // Speed of the playerShip inside the sector.
-    public Camera newCamera;             // Camera to change in case this sector has a different camera from the previous sector.
+    public Camera newCamera;                // Camera to change in case this sector has a different camera from the previous sector.
     public bool playerMovement = true;      // If true the player controls are active, else they are disabled .
     public Rail alternativeRail;            // Second rail to choose between the one already in use and this one.
     public DivideType divideType;           // Type of division on the path selection.

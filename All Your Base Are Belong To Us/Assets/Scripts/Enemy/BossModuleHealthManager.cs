@@ -8,6 +8,7 @@ using UnityEngine;
 public class BossModuleHealthManager : ShieldManager {
 
     public GameObject boss; // Boss GameObject
+    public int destroyScore = 200; // Score that player wins if destroys the boss module health.
 
     new void Start () {
         base.Start();
@@ -16,7 +17,6 @@ public class BossModuleHealthManager : ShieldManager {
     /// <summary>
     /// Overriden function, inflicts damage also to the Boss Shield Manager.
     /// </summary>
-    /// <param name="amount"></param>
     public override void TakeDamage(int amount)
     {
         if (boss == null)
@@ -41,11 +41,12 @@ public class BossModuleHealthManager : ShieldManager {
     }
 
     /// <summary>
-    /// Overriden function. destroys the gameObject.
+    /// Overriden function. Destroys the gameObject and adds score to player.
     /// </summary>
     protected override void Die()
     {
         base.Die();
+        GameManager.Instance.AddToTotalScore(destroyScore);
         Destroy(gameObject);
     }
 }

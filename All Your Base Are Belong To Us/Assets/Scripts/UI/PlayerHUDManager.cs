@@ -55,6 +55,8 @@ public class PlayerHUDManager : MonoBehaviour {
     public Text score;                  // Text tha will show the Total Score on the Game Over Screen
     public AudioMixerSnapshot gameOver;
     public AudioMixerSnapshot gamePlay;
+    [Header("Hit Canvas")]
+    public Image hitScreen;
 
     private void Start()
     {
@@ -101,6 +103,7 @@ public class PlayerHUDManager : MonoBehaviour {
     {
         livesCount.text = "x" + lifes;
     }
+
     #region Shield Bar Canvas
     public void ResetPlayerShieldBar()
     {
@@ -261,6 +264,17 @@ public class PlayerHUDManager : MonoBehaviour {
         GameManager.Instance.ResetScene();
     }
     #endregion
+
+    public IEnumerator HitEffect()
+    {
+        for (int i = 0; i <= 1; i++)
+        {
+            hitScreen.gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            hitScreen.gameObject.SetActive(false);
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
 
     public void PlaySoundClip(string name)
     {

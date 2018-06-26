@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Script with base functions for controlling any Enemy.
+/// Script with base functions for controlling any Enemy. It lets them spawn shoot, move, tarjet at player and stay in front of the player.
 /// </summary>
 public class EnemyController : MonoBehaviour {
     [Header("Enemy Pointing")]              
@@ -35,7 +35,7 @@ public class EnemyController : MonoBehaviour {
     }
 	
     /// <summary>
-    /// Funtion to keep the gameObject looking at the Player.
+    /// Function to keep the gameObject looking at the Player.
     /// </summary>
     protected virtual void LookAtPlayer()
     {
@@ -52,12 +52,12 @@ public class EnemyController : MonoBehaviour {
     {
         if (bulletSpawnPoints.Length <= 0)  // Exit function if there are no spawn points.
         {
-            Debug.LogWarning("There are no spawn points to spawn bullets");
+            Debug.LogWarning(gameObject.name + ": There are no spawn points assigned to spawn bullets");
             return;
         }
         if (spawnBullet == null)            // Exit function if there is no GameObject to spawn.  
         {
-            Debug.LogWarning("There is no bullet GameObject to be spawned");
+            Debug.LogWarning(gameObject.name + ": There is no bullet GameObject assigned to be spawned");
             return;
         }
 
@@ -118,7 +118,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     /// <summary>
-    /// Function to move smoothly to a new position.
+    /// Function to smoothly move enemy to a new position.
     /// </summary>
     IEnumerator ActuallyMoveEnemy(Vector3 pivot, Vector3 axisMovement, bool local)
     {

@@ -6,72 +6,74 @@ using UnityEngine.UI;
 using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour {
+
     #region SingletonAndAwake
+    // Declare an instance of GameManager.
     private static GameManager _instance;
     public static GameManager Instance {
         get {
-            if (_instance == null)
-            {
-                Resources.Load("Prefab/GameManagement/GameManager");
-            }
+            // If the scene doesn't contain an instance load the prefab.
+            if (_instance == null) { Resources.Load("Prefab/GameManagement/GameManager"); }               
             return _instance;
         }
     }
 
     void Awake()
     {
-        if (_instance == null)
-            _instance = this;
-        else if (_instance != this)
-            Destroy(gameObject);
-        DontDestroyOnLoad(gameObject);
+        if (_instance == null) { _instance = this; }            // If the instance is not set, set this GameManager as it.
+        else if (_instance != this) { Destroy(gameObject); }    // If another instance already exist auto destroy.
+        DontDestroyOnLoad(gameObject);                          // Avoid destroying the instance when changing scene.
     }
     #endregion
 
+    /// <summary>
+    /// Class that contains information about the current Player.
+    /// It has been declared serializable in case multiplayer is added in the future.
+    /// </summary>
     [System.Serializable]
     public class PlayerInfo
     {
-        public const int startingLives = 3;
-        public int lives = startingLives;
-        public bool isDead = false;
-        public GunType gunType;             // Type of shoot the player will use
-        public bool invertXAxis = false;    // Invert horizontal movement (true for invert)
-        public bool invertYAxis = true;    // Invert vertical movement (true for invert) 
-    }
-    public enum StateType
-    {
-        Play,           // Player is playing a game level
-        MainMenu,       // Player is viewing main menu
-        Options,        // Player is adjusting game options
-        PauseMenu,      // Player is viewing in-game menu
-        Gameover,       // Player is dead and out of lifes
-        Credits         // Player has already win the game or is viewing the game credits
-    };
-
-    public StateType gameState;
-    public GameObject loadingScreen;
-    public Slider loadSlider;
-    public Text progressText;
-    public PlayerInfo playerInfo;
-
-    private int TotalScore { get; set; }
-    private bool PlayerDead { get; set; }
-
-    // Use this for initialization
-    void Start()
-    {
-        //player = GameObject.FindGameObjectWithTag("Player");
-        TotalScore = 0;
+        public const int startingLives = 3; // Number of lives that the Player is given when spawning.
+        public int lives = startingLives;   // Current number of lives the player has.
+        public bool isDead = false;         // If the Player is dead or not.
+        public GunType gunType;             // Type of gun the player currently has.
+        public bool invertXAxis = false;    // Invert horizontal movement (true for invert).
+        public bool invertYAxis = true;     // Invert vertical movement (true for invert).
     }
 
     /// <summary>
-    /// Resets GameManager by seting the TotalScore to 0, Player values to default and reloads current scene
+    /// Enumum to define the state of the game.
+    /// </summary>
+    public enum StateType
+    {
+        Play,           // Player is playing a game level.
+        MainMenu,       // Player is on the main menu.
+        Options,        // Player is adjusting game options.
+        PauseMenu,      // Player is viewing in-game menu.
+        Gameover,       // Player is dead and out of lifes.
+        Credits         // Player has already win the game or is viewing the game credits.
+    };
+
+    public StateType gameState;         // State of the game.
+    public GameObject loadingScreen;    // Screen that will show up when game is loading a new scene.
+    public Slider loadSlider;           // Slider that shows the progress of load for the new scene.
+    public Text progressText;           // Text of the loading screen.
+    public PlayerInfo playerInfo;       // Information of the Player.
+
+    private int TotalScore { get; set; }    // Socre of the game. 
+
+    void Start()
+    {
+        TotalScore = 0; // Start with score at 0.
+    }
+
+    /// <summary>
+    /// Resets GameManager by seting the TotalScore to 0, Player values to default and resets Player HUD if is on the scene.
     /// </summary>
     public void ResetGameManager()
     {
         ResetPlayerInfo();
         ResetTotalScore();
-        //ResetScene();
         if(PlayerHUDManager.Instance!=null)
             PlayerHUDManager.Instance.ResetHUD();
     }
@@ -86,7 +88,12 @@ public class GameManager : MonoBehaviour {
         ResetScene();
     }
 
-    #region Game State
+    #region Game State Functions
+
+    /// <summary>
+    /// Function to set the game state to the one passed as parameter.
+    /// </summary>
+    /// <param name="state"> State to change to.</param>
     public void SetGameState(StateType state)
     {
         if (gameState != state)
@@ -95,6 +102,9 @@ public class GameManager : MonoBehaviour {
             Debug.LogWarning("State already in " + state.ToString());
     }
 
+    /// <summary>
+    /// Function to get current game state.
+    /// </summary>
     public StateType GetGameState()
     {
         return gameState;
@@ -102,6 +112,7 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     #region ScoreFunctions
+
     /// <summary>
     /// Returns the Total Score
     /// </summary>
@@ -142,10 +153,11 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     #region PlayerFunctions
+
     /// <summary>
-    /// Sets player dead or alive
+    /// Sets player dead or alive.
     /// </summary>
-    /// <param name="state">true to set it dead, false otherwise</param>
+    /// <param name="state"> True to set it dead, false otherwise.</param>
     public void SetPlayerDead(bool state)
     {
         if(playerInfo.isDead != state)
@@ -153,51 +165,76 @@ public class GameManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Set a custom amount of lives for the player
+    /// Set a custom amount of lives for the player.
     /// </summary>
-    /// <param name="number">number of lives to set</param>
+    /// <param name="number"> Number of lives to set</param>
     public void SetPlayerLives(int number)
     {
         playerInfo.lives = number;
+        // Update Player HUD.
         if(PlayerHUDManager.Instance != null)
             PlayerHUDManager.Instance.SetDisplayedLifes(playerInfo.lives);
     }
 
     /// <summary>
-    /// Substracts the given number of lives, if it reaches 0 (minimun value) sets player dead. Also resets player GunType
+    /// Substracts the given number of lives, if it reaches 0 (minimun value) sets player dead. Also resets Player's GunType.
     /// </summary>
-    /// <param name="amount">number of lives to substract</param>
+    /// <param name="amount"> Number of lives to substract.</param>
     public void SubstractPlayerLives(int amount)
     {
-        if (playerInfo.lives - amount < 0)
+        if (amount > 0) // Avoid negative numbers or 0.
         {
-            playerInfo.lives = 0;
-            SetPlayerDead(true);
+            if (playerInfo.lives - amount < 0)
+            {
+                playerInfo.lives = 0;
+                SetPlayerDead(true);
+            }
+            else
+            {
+                playerInfo.lives -= amount;
+                ResetGunType();
+            }
+            // Update Player HUD.
+            if (PlayerHUDManager.Instance != null)
+                PlayerHUDManager.Instance.SetDisplayedLifes(playerInfo.lives);
+        }
+        else if(amount == 0)
+        {
+                Debug.LogWarning("Attempt of substracting 0 lives has been ignored, it might be an error");
         }
         else
         {
-            playerInfo.lives -= amount;
-            ResetGunType();
+            Debug.LogError("Amount of lives to substract must be a positive number. If you wanted to add lives use AddPlayerLives() instead");
         }
-        if (PlayerHUDManager.Instance != null)
-            PlayerHUDManager.Instance.SetDisplayedLifes(playerInfo.lives);
     }
 
     /// <summary>
-    /// Adds to the live count of the player the given amount, if the player was dead it is revived
+    /// Adds to the live count of the player the given amount, if the player was dead it is set alive again.
     /// </summary>
-    /// <param name="amount">number of lives to add</param>
-    public void AddtPlayerLives(int amount)
+    /// <param name="amount"> Number of lives to add.</param>
+    public void AddPlayerLives(int amount)
     {
-        if (playerInfo.isDead)
-            SetPlayerDead(false);
-        playerInfo.lives += amount;
-        if (PlayerHUDManager.Instance != null)
-            PlayerHUDManager.Instance.SetDisplayedLifes(playerInfo.lives);
+        if (amount > 0) // Avoid negative numbers or 0.
+        {
+            if (playerInfo.isDead)
+                SetPlayerDead(false);
+            playerInfo.lives += amount;
+            // Update Player HUD.
+            if (PlayerHUDManager.Instance != null)
+                PlayerHUDManager.Instance.SetDisplayedLifes(playerInfo.lives);
+        }
+        else if (amount == 0)
+        {
+            Debug.LogWarning("Attempt of adding 0 lives has been ignored, it might be an error");
+        }
+        else
+        {
+            Debug.LogError("Amount of lives to add must be a positive number. If you wanted to add lives use SubstractPlayerLives() instead");
+        }
     }
 
     /// <summary>
-    /// Upgrades player gun: single->dual->triple
+    /// Upgrades player gun: single->dual->triple.
     /// </summary>
     public void UpgradeGunType()
     {
@@ -205,25 +242,31 @@ public class GameManager : MonoBehaviour {
             playerInfo.gunType = GunType.Dual;
         else if (playerInfo.gunType == GunType.Dual)
             playerInfo.gunType = GunType.Triple;
+        else
+            Debug.LogWarning("Gun already upgraded to highest type.");
     }
 
     /// <summary>
-    /// Sets player gun back at the first type of gun
+    /// Sets player gun back at the first type of gun.
     /// </summary>
     public void ResetGunType()
     {
         if (playerInfo.gunType != GunType.Single)
             playerInfo.gunType = GunType.Single;
+        else
+            Debug.LogWarning("Gun already on lowest type.");
     }
 
     /// <summary>
     /// Sets the gun type choosen.
     /// </summary>
-    /// <param name="gun">Type of gun</param>
+    /// <param name="gun">Type of gun. </param>
     public void SetGunType(GunType gun)
     {
         if (playerInfo.gunType != gun)
             playerInfo.gunType = gun;
+        else
+            Debug.LogWarning("Gun already set as " + gun + ".");
     }
 
     /// <summary>
@@ -238,8 +281,9 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     #region SceneFunctions
+
     /// <summary>
-    /// Loads next scene by buildIndex
+    /// Loads next scene by buildIndex.
     /// </summary>
     public void NextScene()
     {
@@ -247,7 +291,7 @@ public class GameManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Loads previous scene by buildIndex
+    /// Loads previous scene by buildIndex.
     /// </summary>
     public void PreviousScene()
     {
@@ -255,9 +299,9 @@ public class GameManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Loads a scene by his number on the Build Index
+    /// Loads a scene by his number on the Build Index.
     /// </summary>
-    /// <param name="sceneNumber">Number of the scene on the Build Index</param>
+    /// <param name="sceneNumber"> Number of the scene on the Build Index. </param>
     public void LoadScene(int sceneNumber)
     {
         if(sceneNumber < 0)
@@ -286,14 +330,15 @@ public class GameManager : MonoBehaviour {
                 if(PlayerHUDManager.Instance!=null)
                     PlayerHUDManager.Instance.HidePlayerHUD(false);
             }
+            // Load new scene asynchronously.
             StartCoroutine(LoadAsync(sceneNumber));
         }
     }
 
     /// <summary>
-    /// Loads a scene by his name
+    /// Loads a scene by his name.
     /// </summary>
-    /// <param name="sceneNumber">Name of the scene</param>
+    /// <param name="sceneNumber"> Name of the scene.</param>
     public void LoadScene(string sceneName)
     {
         if (sceneName == "main_menu")    // main_menu
@@ -314,36 +359,40 @@ public class GameManager : MonoBehaviour {
             if (PlayerHUDManager.Instance != null)
                 PlayerHUDManager.Instance.HidePlayerHUD(false);
         }
+        // Load new scene asynchronously.
         StartCoroutine(LoadAsync(sceneName));
     }
 
     /// <summary>
-    /// Loads the current scene
+    /// Reloads the current scene.
     /// </summary>
     public void ResetScene()
     {
+        // Reload it asynchronously.
         StartCoroutine(LoadAsync(SceneManager.GetActiveScene().buildIndex));
     }
     
     /// <summary>
     /// This Couroutine will load the scene by index while showing a load screen.
     /// </summary>
-    /// <param name="sceneIndex"> Number of the scene on the build scenes</param>
+    /// <param name="sceneIndex"> Number of the scene on the build scenes.</param>
     IEnumerator LoadAsync(int sceneIndex)
     {
-        Time.timeScale = 0f;
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-        loadingScreen.SetActive(true);
-        while (!operation.isDone)
+        Time.timeScale = 0f;                                                // Pause game time.
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex); // Load new scene asynchronously.
+        if (operation == null)
+            yield break;
+
+        loadingScreen.SetActive(true);                                      // Show loading screen.
+        while (!operation.isDone)                                           // Show load progress.
         {
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
-            loadSlider.value = progress;
+            loadSlider.value = progress;                                        
             progressText.text = Mathf.RoundToInt(progress * 100f) + "%";
-
             yield return null;
         }
-        loadingScreen.SetActive(false);
-        Time.timeScale = 1f;
+        loadingScreen.SetActive(false);                                     // Hide loading screen.
+        Time.timeScale = 1f;                                                // Resume game time.
     }
 
     /// <summary>
@@ -352,22 +401,21 @@ public class GameManager : MonoBehaviour {
     /// <param name="sceneName"> Name of the scene to load</param>
     IEnumerator LoadAsync(string sceneName)
     {
-        Time.timeScale = 0f;
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+        Time.timeScale = 0f;                                                // Pause game time.
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);  // Load new scene asynchronously.
         if (operation == null)
             yield break;
-        loadingScreen.SetActive(true);
-        while (!operation.isDone)
+
+        loadingScreen.SetActive(true);                                      // Show loading screen.
+        while (!operation.isDone)                                           // Show load progress.
         {
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
             loadSlider.value = progress;
             progressText.text = Mathf.RoundToInt(progress * 100f) + "%";
-
             yield return null;
         }
-        loadingScreen.SetActive(false);
-        Time.timeScale = 1f;
+        loadingScreen.SetActive(false);                                     // Hide loading screen.
+        Time.timeScale = 1f;                                                // Resume game time.
     }
     #endregion
-
 }

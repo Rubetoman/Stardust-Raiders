@@ -14,7 +14,7 @@ public class ExtraLiveObjController : BonusObjController
         icon.transform.parent = other.gameObject.transform;
         Destroy(icon, 2);
         base.OnTriggerEnter(other);
-        GameManager.Instance.AddtPlayerLives(extraLives);
+        GameManager.Instance.AddPlayerLives(extraLives);
     }
 
     protected override IEnumerator DestroyAnimation()

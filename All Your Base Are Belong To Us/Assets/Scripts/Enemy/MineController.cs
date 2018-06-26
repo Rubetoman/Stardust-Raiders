@@ -9,21 +9,19 @@ public class MineController : MonoBehaviour {
 
     public int damage = 25;                 // Damage the player will take when colliding.
     public float targetDistance = 100.0f;   // Distance at which it will start moving forward the player.
-    public float speed = 1;
-    public GameObject explosionEffect;      // Player transform.
+    public float speed = 1;                 // Speed for the movement.
+    public GameObject explosionEffect;      // Explosion to spawn when the mine is destroyed.
 
-    private Transform player;
+    private Transform player;               // Player transform.
 
-	void Start () {
-        // Get player Transform.
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-	}
+    void Start () {
+        player = GameObject.FindGameObjectWithTag("Player").transform;  // Set player Transform.
+    }
 	
 	void FixedUpdate () {
-        // Calculate distance to the player.
-        var distanceToPlayer = (player.transform.position - transform.position).magnitude;
+        var distanceToPlayer = (player.transform.position - transform.position).magnitude;  // Calculate distance to the player.
 
-        if (distanceToPlayer <= targetDistance)  // If its near enought start moving towards the player.
+        if (distanceToPlayer <= targetDistance)                                             // If its near enought start moving towards the player.
             transform.position = Vector3.Lerp(transform.position, player.position, (targetDistance / distanceToPlayer) * Time.deltaTime * speed);
     }
 
@@ -32,15 +30,14 @@ public class MineController : MonoBehaviour {
     /// </summary>
     void Explode()
     {
-        Destroy(Instantiate(explosionEffect, gameObject.transform.position, Quaternion.identity), 1.0f);
+        Destroy(Instantiate(explosionEffect, gameObject.transform.position, Quaternion.identity), 1.0f);    // Spawn explosion.
         Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("PlayerCollider"))                              // If the collision was with the player, the player shield will take the damage
+        if(other.CompareTag("PlayerCollider"))  // If the collision was with the player, the player shield will take the damage
             other.GetComponent<PlayerShieldManager>().TakeDamage(damage);
-
-        Explode();
+        Explode();                              // Make the mine to explode.
     }
 }

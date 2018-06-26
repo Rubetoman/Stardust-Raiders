@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class LevelManager : MonoBehaviour {
 
     #region SingletonAndAwake
+    // Declare an instance of LevelManager.
     private static LevelManager instance = null;
     public static LevelManager Instance {
         get { return instance; }
@@ -14,44 +15,42 @@ public class LevelManager : MonoBehaviour {
 
     private void Awake()
     {
+        // If another instance already exist auto destroy and stop execution.
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
             return;
         }
-        else
-        {
-            instance = this;
-        }
+        else { instance = this; }   // If the instance is not set, set this LevelManager as it.
     }
     #endregion
 
-    public GameObject gameplayPlane;    // gameplayPlane GameObject
-    public Sector[] sectors;            // Array of sectors that form a Level
+    public GameObject gameplayPlane;        // gameplayPlane GameObject.
+    public Sector[] sectors;                // Array of sectors that form a Level.
 
     [Space(10)]
     [Header("Path Selection")]
-    public GameObject limitPlane;
-    public float flickFrequency = 2.0f; // Time it will take to flick an arrow
-    private bool pathSelection = false;
-    private bool arrowAnimFree = true;
+    public GameObject limitPlane;           // limitPlane GameObject inside gamePlayplane.
+    public float flickFrequency = 2.0f;     // Time it will take to flick an arrow.
+    private bool pathSelection = false;     // If true, path selection will start.
+    private bool arrowAnimFree = true;      // If the arrows are not being already animated.
 
-    private GameObject player;              // GameObject of the Player
-    private Sector currentSector;           // Sector the player is currently in
-    private Sector nextSector;              // Sector that the player is reaching
-    private int currentSectorNumber;        // Index of the current sector
-    private bool canChangeSector = true;    // Bool to aboid trying to change sector while already changin one
-    private GameObject currentCamera;       // Camera that is currently in use
+    private GameObject player;              // GameObject of the Player.
+    private Sector currentSector;           // Sector the player is currently in.
+    private Sector nextSector;              // Sector that the player is reaching.
+    private int currentSectorNumber;        // Index of the current sector.
+    private bool canChangeSector = true;    // Bool to aboid trying to change sector while already changin one.
+    private GameObject currentCamera;       // Camera that is currently in use.
 
-    // Use this for initialization
+
     void Start () {
-        player = GameObject.FindGameObjectWithTag("Player");
-        currentSector = sectors[0];
-        nextSector = sectors[0];
-        currentSectorNumber = -1;
-        SetCurrentSectorPlayerMovement();
-        SetCurrentSectorSpeed();
-        if(currentSector.cameraChange)
+        player = GameObject.FindGameObjectWithTag("Player");    // Set Player.
+        currentSector = sectors[0];                             // Start in first sector.
+        nextSector = sectors[0];                                // Set first sector, in case the Rail only contains one sector.
+        currentSectorNumber = -1;                               // When start the first sector is the one that goes from the Rail GameObject to the first node.
+        SetCurrentSectorPlayerMovement();                       // Let the Player move if it is set like that.
+        SetCurrentSectorSpeed();                                // Set sector speed.
+        if(currentSector.cameraChange)                          // Set start camera. If none was defined by default MainCamera is used.
         {
             currentCamera = currentSector.newCamera.gameObject;
             currentCamera.SetActive(true);
@@ -62,60 +61,75 @@ public class LevelManager : MonoBehaviour {
         {
             currentCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().gameObject;
         }
-        //mainRail = gameplayPlane.GetComponent<RailMover>().rail;
-        //Change rail orientation if needed
+
+        //Change rail orientation if needed.
         if (currentSector.railOrientation != gameplayPlane.GetComponent<RailMover>().orientationMode)
             SetCurrentSectorOrientation();
-        // Show or hide boss shield bar
+        // Show or hide boss shield bar.
         if (currentSector.showEnemyShieldbar)
             PlayerHUDManager.Instance.SetEnemyShieldBarActive(true);
         else
             PlayerHUDManager.Instance.SetEnemyShieldBarActive(false);
-        // Loop throught same sector if needed
+        // Loop throught same sector if needed.
         if (currentSector.loopSector)
             LoopSectorActive(true);
     }
 
-    // Update is called once per frame
     void LateUpdate()
     {
+        // If the sector is not already changing, look for a change.
         if (canChangeSector)
             LookForSectorChange();
+        // If Player is on a sector with two paths call functions for it.
         if (pathSelection)
-        {
             ChoosePath(currentSector.alternativeRail);
-        }
     }
 
     #region SectorFunctions
 
+    /// <summary>
+    /// Function that returns current sector.
+    /// </summary>
+    /// <returns> Current Sector.</returns>
     public Sector GetCurrentSector()
     {
         return currentSector;
     }
+
+    /// <summary>
+    /// Function that returns current sector speed.
+    /// </summary>
+    /// <returns> Speed of the current sector. </returns>
+    public float GetCurrentSectorSpeed()
+    {
+        return currentSector.speed;
+    }
+
     /// <summary>
     /// This function compares the first node of the next sector with the node that the player last passed through
     /// </summary>
     void LookForSectorChange()
     {
-        if (gameplayPlane.GetComponent<RailMover>().GetCurrentNode().ToString() == nextSector.startNode.ToString()) // Uses string because could be the node of an alt rail
+        if (gameplayPlane.GetComponent<RailMover>().GetCurrentNode().ToString() == nextSector.startNode.ToString()) // Uses string because could be the node of an alt rail.
         {
             canChangeSector = false;
-            if (nextSector.changeScene)
+            // Look for scene change.
+            if (nextSector.changeScene) 
             {
                 AudioManager.Instance.StopEverySound();
                 GameManager.Instance.LoadScene(nextSector.sceneToLoad);
             }
             else
             {
-                ChangeSectorToNext();
-                if (currentSector.alternativeRail != null)
+                ChangeSectorToNext();                       // Change sector.
+                if (currentSector.alternativeRail != null)  // Look if is a path selection sector.
                     ActivatePathSelection();
             }
         }
     }
+    
     /// <summary>
-    /// Function that makes every change nedeed between sectors
+    /// Function that makes every change nedeed between sectors.
     /// </summary>
     void ChangeSectorToNext()
     {
@@ -124,38 +138,43 @@ public class LevelManager : MonoBehaviour {
             SetCurrentSectorOrientation();
         if (currentSector.railMode != nextSector.railMode && nextSector.alternativeRail == null)
             SetCurrentSectorRailMode();
-        // Update sector order
+
+        // Update sector order.
         currentSector = nextSector;
         currentSectorNumber++;
-        // Change playerMovement
+
+        // Change playerMovement.
         SetCurrentSectorPlayerMovement();
-        // Change camera if needed
+
+        // Change camera if needed.
         if (currentSector.cameraChange)
             SetCurrentSectorCamera();
-        // Change speed
+
+        // Change speed.
         SetCurrentSectorSpeed();
-        // Show boss shield bar if needed
+
+        // Show boss shield bar if needed.
         if (currentSector.showEnemyShieldbar)
             PlayerHUDManager.Instance.SetEnemyShieldBarActive(true);
         else
             PlayerHUDManager.Instance.SetEnemyShieldBarActive(false);
 
-        // Loop throught same sector if needed
+        // Loop throught same sector if needed.
         if (currentSector.loopSector)
             LoopSectorActive(true);
 
-        // Change playing music if needed
+        // Change playing music if needed.
         if (currentSector.changeMusic)
             AudioManager.Instance.Play(sectors[currentSectorNumber].musicClipName);
 
-        // Check if we reached last sector
+        // Check if we reached last sector.
         if (sectors.Length - 1 > currentSectorNumber)
         {
             nextSector = sectors[currentSectorNumber+1];
         }
         else
         {
-            // Reset values just in case it loops
+            // Reset values just in case it loops.
             currentSectorNumber = 0;
             currentSector = sectors[0];
             if (sectors.Length > 1)
@@ -165,7 +184,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Change speed to current sector speed
+    /// Function that changes speed to current sector speed.
     /// </summary>
     void SetCurrentSectorSpeed()
     {
@@ -176,7 +195,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Change camera to current sector camera
+    /// Function that changes camera to current sector camera.
     /// </summary>
     void SetCurrentSectorCamera()
     {
@@ -185,6 +204,9 @@ public class LevelManager : MonoBehaviour {
         currentCamera.gameObject.SetActive(true);
     }
 
+    /// <summary>
+    /// Function that enables or disables Player controll on the ship.
+    /// </summary>
     void SetCurrentSectorPlayerMovement()
     {
         var state = currentSector.playerMovement;
@@ -197,6 +219,9 @@ public class LevelManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Function that sets Orientation on the Rail to the orientation of the sector.
+    /// </summary>
     void SetCurrentSectorOrientation()
     {
         if (gameplayPlane.GetComponent<RailMover>() != null)
@@ -205,6 +230,9 @@ public class LevelManager : MonoBehaviour {
             Debug.LogError("RailMover Script couldn't be found inside gameplayPlane GameObject");
     }
 
+    /// <summary>
+    /// Function that sets RailMode of the Rail to the mode of the sector.
+    /// </summary>
     void SetCurrentSectorRailMode()
     {
         if (gameplayPlane.GetComponent<RailMover>() != null)
@@ -213,16 +241,21 @@ public class LevelManager : MonoBehaviour {
             Debug.LogError("RailMover Script couldn't be found inside gameplayPlane GameObject");
     }
 
+    /// <summary>
+    /// Function that will set loop over current sector active or not.
+    /// </summary>
+    /// <param name="loop"> If true current sector will be looped.</param>
     public void LoopSectorActive(bool loop)
     {
-        // Make it loop throught the same sector
         gameplayPlane.GetComponent<RailMover>().loopNode = loop;
     }
+
     #endregion
 
     #region LevelManagementFunctions
+
     /// <summary>
-    /// Pauses the level speed
+    /// Pauses the level speed and disables boost or brake.
     /// </summary>
     public void PauseLevel()
     {
@@ -231,7 +264,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Sets Level speed back to normal.
+    /// Sets Level speed back to normal and enables boost or brake.
     /// </summary>
     public void ContinueLevel()
     {
@@ -251,10 +284,16 @@ public class LevelManager : MonoBehaviour {
     #endregion
 
     #region PathSelectionFunctions
+
+    /// <summary>
+    /// Funtion that manages Path Selection Sectors. This means that there are two paths available to the player to choose from.
+    /// When the Player has advanced enought on the sector the selection is made, this selection is based on the position of the player on the gameplayPlane.
+    /// </summary>
+    /// <param name="newRail"> Rail that will be an alternative selection for the Player.</param>
     public void ChoosePath(Rail newRail)
     {
         var position = limitPlane.GetComponent<PlayerLimitManager>().GetPlayerLocationInPlane(currentSector.divideType);
-        //Animation of arrows
+        //Animation of arrows depending on the position of the player and divideType.
         switch (position)
         {
             case "up":
@@ -274,25 +313,36 @@ public class LevelManager : MonoBehaviour {
                     StartCoroutine("ArrowAnimation", 3);
                 break;
         }
-        // Look for end of segment, to apply selection   
+        // Look for end of segment, to apply selection.
         if (gameplayPlane.GetComponent<RailMover>().GetPositionOnSegment() > 0.9f)
         {
             pathSelection = false;
+            // If the player is down or right (depends on the divideType) respect to the gameplayPlane, change to a new Rail.
             if (position == "down" || position == "right")
                 ChangeToAlternativeRail();
         }
     }
 
+    /// <summary>
+    /// Function that sets Rail of the RailMover script the alternative Rail offered.
+    /// </summary>
     private void ChangeToAlternativeRail()
     {
         gameplayPlane.GetComponent<RailMover>().rail = currentSector.alternativeRail;
     }
 
+    /// <summary>
+    /// Function that sets Rail of the RailMover script the one given as a parameter.
+    /// </summary>
     private void SetCureentRail(Rail rail)
     {
         gameplayPlane.GetComponent<RailMover>().rail = rail;
     }
 
+    /// <summary>
+    /// Animation of the arrows from Player HUD. The arrow passed as parameter will flick once.
+    /// </summary>
+    /// <param name="currentArrow"> Arrow to be animated.</param>
     private IEnumerator ArrowAnimation(int currentArrow)
     {
         arrowAnimFree = false;
@@ -303,6 +353,10 @@ public class LevelManager : MonoBehaviour {
         arrowAnimFree = true;
     }
 
+    /// <summary>
+    /// Animation for the text that shows up so the Player knows he can choose a path.
+    /// It will flick untill enought part of the segment has been traveled.
+    /// </summary>
     private IEnumerator TextAnimation()
     {
         while (gameplayPlane.GetComponent<RailMover>().GetPositionOnSegment() < 0.4f)
@@ -314,6 +368,9 @@ public class LevelManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Function that activates the path selection functions.
+    /// </summary>
     private void ActivatePathSelection()
     {
         pathSelection = true;

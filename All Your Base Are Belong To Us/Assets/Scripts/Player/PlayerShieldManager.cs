@@ -25,7 +25,10 @@ public class PlayerShieldManager : ShieldManager {
         if (!godMode)
         {
             if (!invulnerable)
+            {
                 AudioManager.Instance.Play("Hurt");
+                PlayerHUDManager.Instance.StartCoroutine("HitEffect");
+            }
             base.TakeDamage(amount);           
             PlayerHUDManager.Instance.SetPlayerShieldBarWidth(currentShield);
         }

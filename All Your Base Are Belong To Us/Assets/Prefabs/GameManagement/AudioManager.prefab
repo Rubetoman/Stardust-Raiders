@@ -114,14 +114,14 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: level_01
-    clip: {fileID: 8300000, guid: 399f20b24f255894c9c55e8bf58e2822, type: 3}
+    clip: {fileID: 8300000, guid: f2b8d2f583a43c34c8e7bfdb067a6daa, type: 3}
     soundType: 1
     volume: 1
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: boss_level
-    clip: {fileID: 8300000, guid: 7d66b910e1b2b9b4aac1b84d82f65aad, type: 3}
+    clip: {fileID: 8300000, guid: 5cc75632333e5b84a9cf601efe8623df, type: 3}
     soundType: 1
     volume: 1
     pitch: 1

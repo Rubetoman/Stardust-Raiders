@@ -67,8 +67,9 @@ public class ObstacleEditorWindow : EditorWindow {
     {
         foreach (GameObject obj in Selection.gameObjects)
         {
+            // Check if the selected GameObject contains the ObstacleShieldManager.
             var obsShield = obj.GetComponent<ObstacleShieldManager>();
-            if(obsShield != null)                                           // The selected GameObject contains the ObstacleShieldManager.
+            if (obsShield != null)                                           
             {
                 obsShield.currentShield = currentShield;
                 obsShield.godMode = godMode;
@@ -79,14 +80,16 @@ public class ObstacleEditorWindow : EditorWindow {
                 obsShield.destroyTime = destroyTime;
                 obsShield.goalScale = goalScale;
 
-                #if UNITY_STANDALONE && !UNITY_EDITOR                       // Only run when in Unity Editor.
-                EditorUtility.SetDirty(obsShield);                          // Set GameObject dirty after the changes are made.
+                #if UNITY_STANDALONE && UNITY_EDITOR        // Only run when in Unity Editor.
+                    if (!Application.isPlaying)             // Avoid seting it dirty when in play mode.                     
+                        EditorUtility.SetDirty(obsShield);  // Set GameObject dirty after the changes are made.
                 #endif
             }
             else
             {
                 var childs = obj.GetComponentsInChildren<ObstacleShieldManager>();
-                foreach (ObstacleShieldManager childShield in childs)       // Iterate trought all childs if the selected GameObject didn't contain the script.
+                // Iterate trought all childs if the selected GameObject didn't contain the script.
+                foreach (ObstacleShieldManager childShield in childs)
                 {
                     childShield.currentShield = currentShield;
                     childShield.godMode = godMode;
@@ -97,8 +100,9 @@ public class ObstacleEditorWindow : EditorWindow {
                     childShield.destroyTime = destroyTime;
                     childShield.goalScale = goalScale;
 
-                    #if UNITY_STANDALONE && !UNITY_EDITOR                   // Only run when in Unity Editor.
-                    EditorUtility.SetDirty(childShield);                    // Set GameObject dirty after the changes are made.
+                    #if UNITY_STANDALONE && UNITY_EDITOR            // Only run when in Unity Editor.
+                        if (!Application.isPlaying)                 // Avoid setting dirty when in play mode.
+                            EditorUtility.SetDirty(childShield);    // Set GameObject dirty after the changes are made.
                     #endif
                 }
             }
@@ -113,12 +117,14 @@ public class ObstacleEditorWindow : EditorWindow {
     {
         foreach (GameObject obj in Selection.gameObjects)
         {
-            var obs = obj.GetComponent<ObstacleController>();               // The selected GameObject contains the ObstacleShieldManager.
+            // Check if the selected GameObject contains the ObstacleShieldManager.
+            var obs = obj.GetComponent<ObstacleController>();
             if (obs != null)
             {
                 obs.damage = damage;
-                #if UNITY_STANDALONE && !UNITY_EDITOR                       // Only run when in Unity Editor.
-                EditorUtility.SetDirty(obj);                                // Set GameObject dirty after the changes are made so they can be saved.
+                #if UNITY_STANDALONE && UNITY_EDITOR        // Only run when in Unity Editor.
+                    if (!Application.isPlaying)             // Avoid setting dirty when in play mode.
+                        EditorUtility.SetDirty(obj);        // Set GameObject dirty after the changes are made so they can be saved.
                 #endif
             }
             else
@@ -126,8 +132,9 @@ public class ObstacleEditorWindow : EditorWindow {
                 foreach (ObstacleController obsController in obj.GetComponentsInChildren<ObstacleController>()) // Iterate trought all childs if the selected GameObject didn't contain the script.
                 {
                     obsController.damage = damage;
-                    #if UNITY_STANDALONE && UNITY_EDITOR                   // Only run when in Unity Editor.
-                    EditorUtility.SetDirty(obsController);                  // Set GameObject dirty after the changes are made so they can be saved.
+                    #if UNITY_STANDALONE && UNITY_EDITOR            // Only run when in Unity Editor.
+                        if (!Application.isPlaying)                 // Avoid setting dirty when in play mode.
+                            EditorUtility.SetDirty(obsController);  // Set GameObject dirty after the changes are made so they can be saved.
                     #endif
                 }
                                                

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Shield controller of the Boss. Inherits from ShieldManager.
+/// Shield manager of the Boss. Inherits from ShieldManager.
 /// </summary>
 public class BossShieldManager : ShieldManager {
 
-    public GameObject winScreen; // GameObject of the winning that contains the wining function to run once the Boss was destroyed. (Optional)
+    public int destroyScore = 1000; // Score that player wins if boss is destroyed.
+    public GameObject winScreen; // GameObject of the winning screen that contains the wining function to run once the Boss was destroyed. (Optional)
 
     new void Start()
     {
@@ -34,17 +35,16 @@ public class BossShieldManager : ShieldManager {
     /// <summary>
     /// Overriden function, updates the enemy shield bar shown on the player's HUD.
     /// </summary>
-    /// <param name="amount"></param>
     public override void TakeDamage(int amount)
     {
         base.TakeDamage(amount);
         PlayerHUDManager.Instance.SetEnemyShieldBarWidth(currentShield);
+        GameManager.Instance.AddToTotalScore(destroyScore);
     }
 
     /// <summary>
     /// Animation for the Boss destruction. Spawns 30 explosions on a random position within the range with 0.2 seconds of delay between them.
     /// </summary>
-    /// <returns></returns>
     private IEnumerator BossDieAnimation()
     {
         for(int i = 0; i < 30; i++) 

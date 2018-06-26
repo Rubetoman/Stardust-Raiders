@@ -53,12 +53,12 @@ public class SectorEditor : Editor {
         {
             sector.musicClipName = EditorGUILayout.TextField("Clip Name", sector.musicClipName);
         }
-        #if UNITY_STANDALONE && UNITY_EDITOR                                    // Only run when in Unity Editor.
-        if (GUI.changed)                                                        // If there was a change on the script GUI.
-        {
-            EditorUtility.SetDirty(sector);                                     // Set GameObject dirty after the changes are made.
-            EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());   // Set scene dirty after the changes are made so they can be saved.
-        }
+        #if UNITY_STANDALONE && UNITY_EDITOR                                        // Only run when in Unity Editor.
+            if (GUI.changed && !Application.isPlaying)                              // If there was a change on the script GUI and outside play mode.
+            {
+                EditorUtility.SetDirty(sector);                                     // Set GameObject dirty after the changes are made.
+                EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());   // Set scene dirty after the changes are made so they can be saved.
+            }
         #endif
     }
 }
