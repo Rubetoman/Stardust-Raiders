@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script that controlls the limits of the Player movement.
+/// </summary>
 public class PlayerLimitManager : MonoBehaviour {
 
-    public GameObject player;           // Player GameObject
-    public float showDistance = 0.2f;   // Distance from the limit needed to reach to show the arrows
-    public float flickFrequency = 2.0f; // Time it will take to flick an arrow
+    public GameObject player;           // Player GameObject.
+    public float showDistance = 0.2f;   // Distance from the limit needed to reach to show the arrows.
+    public float flickFrequency = 2.0f; // Time it will take to flick an arrow.
 
-    private bool vArrowAnimFree = true; // Variable that tells if the vertical arrow animation is free or being used
-    private bool hArrowAnimFree = true; // Variable that tells if the horizontal arrow animation is free or being used
+    private bool vArrowAnimFree = true; // Variable that tells if the vertical arrow animation is free or being used.
+    private bool hArrowAnimFree = true; // Variable that tells if the horizontal arrow animation is free or being used.
     private Vector2 limitBounds;
 
-    // Use this for initialization
     void Start () {
+        // Set limits.
         limitBounds = new Vector2(transform.localScale.x / 2, transform.localScale.y / 2);
     }
 	
-	// Update is called once per frame
 	void Update () {
         // Calculate the distance from the player to the center of the plane
         var distanceToCenterX = player.transform.localPosition.x - transform.localPosition.x;
@@ -45,7 +47,7 @@ public class PlayerLimitManager : MonoBehaviour {
     /// <summary>
     /// Calls to the Couroutine which plays the animation of the arrow specified.
     /// </summary>
-    /// <param name="pos">Which limit arrow to show: up, down, left or right</param>
+    /// <param name="pos"> Which limit arrow to animate: up, down, left or right.</param>
     private void ShowArrows(string pos)
     {
         switch (pos)
@@ -66,9 +68,9 @@ public class PlayerLimitManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Makes the arrow indicated as parameter to flick with the indicated frequecy
+    /// Makes the vertical arrow indicated as parameter to flick with the selected frequecy.
     /// </summary>
-    /// <param name="currentArrow">Number of the arrow to play the animation: 0->up, 1-> down, 2-> left, 3-> right</param>
+    /// <param name="currentArrow"> Number of the vertical arrow to play the animation: 2-> left, 3-> right.</param>
     /// <returns></returns>
     private IEnumerator VerticalArrowAnimation(int currentArrow)
     {
@@ -80,6 +82,11 @@ public class PlayerLimitManager : MonoBehaviour {
         vArrowAnimFree = true;
     }
 
+    /// <summary>
+    /// Makes the horizontal arrow indicated as parameter to flick with the selected frequecy.
+    /// </summary>
+    /// <param name="currentArrow"> Number of the horizontal arrow to play the animation: 0->up, 1-> down.</param>
+    /// <returns></returns>
     private IEnumerator HorizontalArrowAnimation(int currentArrow)
     {
         hArrowAnimFree = false;
@@ -91,14 +98,20 @@ public class PlayerLimitManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Function to change the limits of the plane
+    /// Function to change the limits of the plane.
     /// </summary>
-    /// <param name="newSize">Vector2 with the X and Y scale for the limitPlane</param>
+    /// <param name="newSize"> Vector2 with the X and Y scale for the limitPlane.</param>
     public void ChangeLimitPlaneScale(Vector2 newScale)
     {
         transform.localScale = newScale;
     }
 
+    /// <summary>
+    /// Function that returns via string the position of the Player in reference to th limitPlane.
+    /// It can return: up, down, left, right or center.
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns> Position of the Player.</returns>
     public string GetPlayerLocationInPlane(DivideType type)
     {
         // Calculate the distance from the player to the center of the plane

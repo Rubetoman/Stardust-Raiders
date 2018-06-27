@@ -31,14 +31,23 @@ public class EnemyController : MonoBehaviour {
     protected GameObject player;                            // Player GameObject.
 
     protected void Start () {
-        player = GameObject.FindGameObjectWithTag("Player"); // Set player variable.
+        player = GameManager.Instance.player;    // Set player variable.
     }
-	
+
     /// <summary>
     /// Function to keep the gameObject looking at the Player.
     /// </summary>
     protected virtual void LookAtPlayer()
     {
+        if (player == null)     // Avoid executing code if player variable is null.
+        {
+            Debug.LogWarning("Player couldn't be found. Searching again...");
+            player = GameManager.Instance.player;    // Set player variable.
+            if (player != null)
+                Debug.LogWarning("Player found!");
+            else
+                return;
+        }
         // Look at the player: Take player position minus the offset and then make the cannon rotate to that position.
         var playerPos = new Vector3(player.transform.position.x, player.transform.position.y - heightOffset, player.transform.position.z);
         if(cannonParent!=null)

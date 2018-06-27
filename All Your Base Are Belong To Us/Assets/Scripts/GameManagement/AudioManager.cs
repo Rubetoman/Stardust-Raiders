@@ -55,7 +55,7 @@ public class AudioManager : MonoBehaviour {
 
     private void Awake()
     {
-        #region instanceCode
+        #region instance Code
         // If another instance already exist auto destroy and stop execution.
         if (_instance != null && _instance != this)
         {

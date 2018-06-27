@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Script that changes the Text attached to the GameObject containing this script for the build version.
+/// </summary>
 public class ShowBuildVersion : MonoBehaviour {
 
 	void Start () {

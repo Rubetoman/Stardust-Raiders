@@ -2,36 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Enum to choose type of splines when tying all nodes by lines.
+/// </summary>
 public enum PlayMode
 {
-    Linear,
-    Catmull,
+    Linear,     // Straight lines.
+    Catmull,    // Catmull-Rom curves.
 }
 
+/// <summary>
+/// Enum for the mode of orientation of the object on the rail. 
+/// </summary>
 public enum OrientationMode
 {
-    Line,
-    Nodes,
-    None,
+    Line,   // Orient GameObject to look at next node.
+    Nodes,  // Use same rotation of the nodes.
+    None,   // Don't change orientation of the GameObject.
 }
 
+/// <summary>
+/// Script that will be added to the GameObject containing all the nodes as child to create a Rail.
+/// </summary>
 [ExecuteInEditMode]
 public class Rail : MonoBehaviour {
+
     public Transform[] nodes;   // Transform of the nodes that form the Rail, the gameObject that contains the script followed by all his children will be added automaticaly. 
 
     private void Start()
     {
-        // Add all children Transforms to the nodes array
+        // Add every child Transform to the nodes array.
         nodes = GetComponentsInChildren<Transform>();
     }
 
     /// <summary>
-    /// Calls to LinearPosition() or CatmullPosition() function depending on PlayMode
+    /// Calls to LinearPosition() or CatmullPosition() function depending on PlayMode.
     /// </summary>
-    /// <param name="seg"> Segment we are in</param>
-    /// <param name="ratio"> Ratio of the segment we are currently</param>
-    /// <param name="mode"> Which mode was selected between Catmull or Linear</param>
-    /// <returns>A Vector3 with the position update</returns>
+    /// <param name="seg"> Segment the RailMover is in.</param>
+    /// <param name="ratio"> Ratio of the segment the RailMover is currently in.</param>
+    /// <param name="mode"> Which mode was selected between Catmull or Linear.</param>
+    /// <returns> A Vector3 with the position update.</returns>
     public Vector3 PositionOnRail(int seg, float ratio, PlayMode mode)
     {
         switch (mode)
@@ -46,11 +56,11 @@ public class Rail : MonoBehaviour {
     }
 
     /// <summary>
-    /// Computes the new position over the rail using linear splines
+    /// Computes the new position over the rail using linear splines.
     /// </summary>
-    /// <param name="seg"> Segment we are in</param>
-    /// <param name="ratio"> Ratio of the segment we are currently</param>
-    /// <returns>A Vector3 with the position update</returns>
+    /// <param name="seg"> Segment the RailMover is in.</param>
+    /// <param name="ratio"> Ratio of the segment the RailMover is currently in.</param>
+    /// <returns> A Vector3 with the position update.</returns>
     public Vector3 LinearPosition(int seg, float ratio)
     {
         Vector3 p1 = nodes[seg].position;
@@ -63,29 +73,29 @@ public class Rail : MonoBehaviour {
 
     /// <summary>
     /// Computes the new position over the rail using Catmull-Rom splines. 
-    /// At least 4 nodes are required (3 nodes + the rail itself)
+    /// At least 4 nodes are required (3 nodes + the rail itself).
     /// </summary>
-    /// <param name="seg"> Segment we are in</param>
-    /// <param name="ratio"> Ratio of the segment we are currently</param>
-    /// <returns>A Vector3 with the position update</returns>
+    /// <param name="seg"> Segment the RailMover is in</param>
+    /// <param name="ratio"> Ratio of the segment the RailMover is currently in.</param>
+    /// <returns> A Vector3 with the position update.</returns>
     public Vector3 CatmullPosition(int seg, float ratio)
     {
-        Vector3 p1, p2, p3, p4;         // 4 points of a Catmull-Rom Spline
-        if(seg == 0)                    // We are on the first segment
+        Vector3 p1, p2, p3, p4;         // 4 points of a Catmull-Rom Spline.
+        if(seg == 0)                    // RailMover is on the first segment.
         {
-            p1 = nodes[seg].position;   // Previous node doen't exist, we use the first one for the two first points on the spline
+            p1 = nodes[seg].position;   // Previous node doen't exist, the first one for the two first points on the spline are used.
             p2 = p1;
             p3 = nodes[seg + 1].position;
             p4 = nodes[seg + 2].position;
         }
-        else if (seg == nodes.Length-2)   // We are reaching the end
+        else if (seg == nodes.Length-2)   // RailMover is reaching the end.
         {
             p1 = nodes[seg-1].position;
             p2 = nodes[seg].position;
             p3 = nodes[seg + 1].position;
-            p4 = p3;                      // There aren't more nodes, we use the last one for the two last points on the spline
+            p4 = p3;                      // There aren't more nodes, the last one for the two last points on the spline are used.
         }
-        else //Common case 
+        else // Common case 
         {
             p1 = nodes[seg - 1].position;
             p2 = nodes[seg].position;
@@ -117,13 +127,14 @@ public class Rail : MonoBehaviour {
 
         return new Vector3(x, y, z);
     }
+
     /// <summary>
-    /// Calls to LinearPosition() or CatmullPosition() function depending on PlayMode
+    /// Calls to LinearPosition() or CatmullPosition() function depending on PlayMode.
     /// </summary>
-    /// <param name="seg"> Segment we are in</param>
-    /// <param name="ratio"> Ratio of the segment we are currently</param>
-    /// <param name="mode"> Which mode was selected between Catmull or Linear</param>
-    /// <returns>A Quaternion with the position update</returns>
+    /// <param name="seg"> Segment the RailMover is in</param>
+    /// <param name="ratio"> Ratio of the segment the RailMover is currently in.</param>
+    /// <param name="mode"> Which mode was selected between Catmull or Linear.</param>
+    /// <returns> A Quaternion with the position update.</returns>
     public Quaternion OrientationOnRail(int seg, float ratio, OrientationMode mode, Transform trans, bool isReversed)
     {
         switch (mode)
@@ -137,16 +148,16 @@ public class Rail : MonoBehaviour {
 
     }
 
-   
+
 
     /// <summary>
     /// Computes the new orientation over the rail using the lines connecting nodes as a reference.
     /// Will look to the next node.
     /// </summary>
-    /// <param name="seg"> Segment we are in</param>
-    /// <param name="ratio"> Ratio of the segment we are currently</param>
-    /// <param name="trans"> Transform of the object moving on the rail</param>
-    /// <param name="isReversed"> Boolean to know if we are going forward or backwards</param>
+    /// <param name="seg"> Segment the RailMover is in.</param>
+    /// <param name="ratio"> Ratio of the segment the RailMover is currently in.</param>
+    /// <param name="trans"> Transform of the object moving on the rail.</param>
+    /// <param name="isReversed"> Boolean to know if the movement is going forward or backwards.</param>
     /// <returns>A Quaternion with the rotation update</returns>
     public Quaternion LineOrientation(int seg, float ratio, Transform trans, bool isReversed)
     {
@@ -168,10 +179,10 @@ public class Rail : MonoBehaviour {
     /// <summary>
     /// Computes the new orientation over the rail using the nodes orientation as a reference.
     /// </summary>
-    /// <param name="seg"> Segment we are in</param>
-    /// <param name="ratio"> Ratio of the segment we are currently</param>
-    /// <param name="isReversed"> Boolean to know if we are going forward or backwards</param>
-    /// <returns>A Quaternion with the rotation update</returns>
+    /// <param name="seg"> Segment the RailMover is in.</param>
+    /// <param name="ratio"> Ratio of the segment the RailMover is currently in.</param>
+    /// <param name="isReversed"> Boolean to know if we are going forward or backwards.</param>
+    /// <returns> A Quaternion with the rotation update.</returns>
     public Quaternion NodeOrientation(int seg, float ratio, bool isReversed)
     {
         Quaternion q1 = nodes[seg].rotation;
@@ -197,15 +208,13 @@ public class Rail : MonoBehaviour {
     }
     #if UNITY_EDITOR
     /// <summary>
-    /// Draws the lines on the editor
+    /// Draws the lines of the Rail on the editor
     /// </summary>
     private void OnDrawGizmos()
     {
         for (int i = 0; i < nodes.Length - 1; i++)
         {
-
             UnityEditor.Handles.DrawDottedLine(nodes[i].position, nodes[i + 1].position, 3.0f);
-
         }
     }
     #endif

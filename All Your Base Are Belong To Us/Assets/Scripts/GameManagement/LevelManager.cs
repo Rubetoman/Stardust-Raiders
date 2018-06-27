@@ -44,13 +44,13 @@ public class LevelManager : MonoBehaviour {
 
 
     void Start () {
-        player = GameObject.FindGameObjectWithTag("Player");    // Set Player.
-        currentSector = sectors[0];                             // Start in first sector.
-        nextSector = sectors[0];                                // Set first sector, in case the Rail only contains one sector.
-        currentSectorNumber = -1;                               // When start the first sector is the one that goes from the Rail GameObject to the first node.
-        SetCurrentSectorPlayerMovement();                       // Let the Player move if it is set like that.
-        SetCurrentSectorSpeed();                                // Set sector speed.
-        if(currentSector.cameraChange)                          // Set start camera. If none was defined by default MainCamera is used.
+        player = GameManager.Instance.player;       // Set Player.
+        currentSector = sectors[0];                 // Start in first sector.
+        nextSector = sectors[0];                    // Set first sector, in case the Rail only contains one sector.
+        currentSectorNumber = -1;                   // When start the first sector is the one that goes from the Rail GameObject to the first node.
+        SetCurrentSectorPlayerMovement();           // Let the Player move if it is set like that.
+        SetCurrentSectorSpeed();                    // Set sector speed.
+        if(currentSector.cameraChange)              // Set start camera. If none was defined by default MainCamera is used.
         {
             currentCamera = currentSector.newCamera.gameObject;
             currentCamera.SetActive(true);
@@ -209,6 +209,15 @@ public class LevelManager : MonoBehaviour {
     /// </summary>
     void SetCurrentSectorPlayerMovement()
     {
+        if (player == null)     // Avoid executing code if player variable is null.
+        {
+            Debug.LogWarning("Player couldn't be found. Searching again...");
+            player = GameManager.Instance.player;    // Set player variable.
+            if (player != null)
+                Debug.LogWarning("Player found!");
+            else
+                return;
+        }
         var state = currentSector.playerMovement;
         if(state != player.GetComponent<ShipController>().enabled)
         {

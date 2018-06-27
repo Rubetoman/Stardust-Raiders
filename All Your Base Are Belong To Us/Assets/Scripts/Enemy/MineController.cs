@@ -12,17 +12,26 @@ public class MineController : MonoBehaviour {
     public float speed = 1;                 // Speed for the movement.
     public GameObject explosionEffect;      // Explosion to spawn when the mine is destroyed.
 
-    private Transform player;               // Player transform.
+    private GameObject player;               // Player transform.
 
     void Start () {
-        player = GameObject.FindGameObjectWithTag("Player").transform;  // Set player Transform.
+        player = GameManager.Instance.player;  // Set player variable.
     }
 	
 	void FixedUpdate () {
+        if (player == null)     // Avoid executing code if player variable is null.
+        {
+            Debug.LogWarning("Player couldn't be found. Searching again...");
+            player = GameManager.Instance.player;    // Set player variable.
+            if (player != null)
+                Debug.LogWarning("Player found!");
+            else
+                return;
+        }
         var distanceToPlayer = (player.transform.position - transform.position).magnitude;  // Calculate distance to the player.
 
         if (distanceToPlayer <= targetDistance)                                             // If its near enought start moving towards the player.
-            transform.position = Vector3.Lerp(transform.position, player.position, (targetDistance / distanceToPlayer) * Time.deltaTime * speed);
+            transform.position = Vector3.Lerp(transform.position, player.transform.position, (targetDistance / distanceToPlayer) * Time.deltaTime * speed);
     }
 
     /// <summary>

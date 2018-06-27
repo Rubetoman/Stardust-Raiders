@@ -41,9 +41,9 @@ public class MainMenu : MonoBehaviour {
             }
             else if(GameManager.Instance.GetGameState() == GameManager.StateType.MainMenu && mainMenuUI.activeSelf)
             {
+                // Hide Main Menu and show tittle screen
                 mainMenuUI.SetActive(false);
                 titleScreenUI.SetActive(true);
-                // Hide Main Menu and show tittle screen
             }
         }
 
@@ -66,14 +66,12 @@ public class MainMenu : MonoBehaviour {
     public void PlayGame()
     {
         GetComponent<AudioSource>().Stop();
-        GameManager.Instance.SetGameState(GameManager.StateType.Play);
         GameManager.Instance.NextScene();
     }
 
     public void Credits()
     {
         GetComponent<AudioSource>().Stop();
-        GameManager.Instance.SetGameState(GameManager.StateType.Credits);
         GameManager.Instance.LoadScene("credits");
     }
 

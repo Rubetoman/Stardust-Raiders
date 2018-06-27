@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Shield manager for all cammon enemies. Inherits from ShieldManager.
+/// Shield manager for common enemies. Inherits from ShieldManager.
 /// </summary>
 public class EnemyShieldManager : ShieldManager {
 

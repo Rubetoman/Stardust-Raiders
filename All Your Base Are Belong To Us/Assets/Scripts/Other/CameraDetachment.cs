@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script that unparents any camera GameObject.
+/// </summary>
 public class CameraDetachment : MonoBehaviour {
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -11,6 +13,7 @@ public class CameraDetachment : MonoBehaviour {
         if (camera != null)
         {
             camera.transform.parent = null;
+            // In case the camera had CameraController script; disable it to avoid bugs.
             if (camera.GetComponent<CameraController>() != null)
                 camera.GetComponent<CameraController>().enabled = false;
         }          

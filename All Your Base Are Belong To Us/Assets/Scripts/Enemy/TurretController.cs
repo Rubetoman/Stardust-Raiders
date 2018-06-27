@@ -32,6 +32,15 @@ public class TurretController : EnemyController
     /// </summary>
     protected override void LookAtPlayer()
     {
+        if (player == null)     // Avoid executing code if player variable is null.
+        {
+            Debug.LogWarning("Player couldn't be found. Searching again...");
+            player = GameManager.Instance.player;    // Set player variable.
+            if (player != null)
+                Debug.LogWarning("Player found!");
+            else
+                return;
+        }
         // Look at the player: It's done rotating two pieces, for the y axis rotation the cannonParent is used and for the x axis the turret.
         // Y axis:
         var cannonTargetPoint = new Vector3(player.transform.position.x, cannonParent.position.y, player.transform.position.z) - cannonParent.position;
@@ -50,6 +59,15 @@ public class TurretController : EnemyController
     /// </summary>
     protected override void ShootSpawnableAmmo()
     {
+        if (player == null)     // Avoid executing code if player variable is null.
+        {
+            Debug.LogWarning("Player couldn't be found. Searching again...");
+            player = GameManager.Instance.player;    // Set player variable.
+            if (player != null)
+                Debug.LogWarning("Player found!");
+            else
+                return;
+        }
         if (Vector3.Project(player.transform.position - transform.position, player.transform.forward).magnitude <= targetDistance)
             base.ShootSpawnableAmmo();
 

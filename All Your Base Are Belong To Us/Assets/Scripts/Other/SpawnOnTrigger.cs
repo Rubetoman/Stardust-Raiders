@@ -2,21 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script that spawns a GameObject when colliding.
+/// </summary>
 public class SpawnOnTrigger : MonoBehaviour {
 
-    public GameObject spawnObject;
-    public float destroyTime = 1.0f;
+    public GameObject spawnObject;      // GameObject to spawn upon collision.
+    public float destroyTime = 1.0f;    // Time to destroy the spawned GameObject.
 
-    //private float cooldownTimer = 0.0f;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
     private void OnTriggerEnter(Collider other)
     {
         SpawnObject(other);
@@ -27,9 +20,14 @@ public class SpawnOnTrigger : MonoBehaviour {
         SpawnObject(other);
     }
 
+    /// <summary>
+    /// Function to spawn the new GameObject.
+    /// </summary>
+    /// <param name="other"> GameObject that collided with gameObject.</param>
     void SpawnObject(Collider other)
     {
-        if (other.CompareTag("PlayerCollider"))
+        // Spawn the new GameObject on the closest point between other and the gameObject.
+        if (other.CompareTag("PlayerCollider"))     
         {
             var s = Instantiate(spawnObject, other.ClosestPointOnBounds(other.transform.position), Quaternion.identity);
             s.transform.localScale = Vector3.one;

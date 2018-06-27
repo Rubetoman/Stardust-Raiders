@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour {
 
-    #region SingletonAndAwake
+    #region Singleton
     // Declare an instance of GameManager.
     private static GameManager _instance;
     public static GameManager Instance {
@@ -16,13 +16,6 @@ public class GameManager : MonoBehaviour {
             if (_instance == null) { Resources.Load("Prefab/GameManagement/GameManager"); }               
             return _instance;
         }
-    }
-
-    void Awake()
-    {
-        if (_instance == null) { _instance = this; }            // If the instance is not set, set this GameManager as it.
-        else if (_instance != this) { Destroy(gameObject); }    // If another instance already exist auto destroy.
-        DontDestroyOnLoad(gameObject);                          // Avoid destroying the instance when changing scene.
     }
     #endregion
 
@@ -53,18 +46,32 @@ public class GameManager : MonoBehaviour {
         Gameover,       // Player is dead and out of lifes.
         Credits         // Player has already win the game or is viewing the game credits.
     };
-
+    public GameObject player;           // Player GameObject (updated on each scene).
     public StateType gameState;         // State of the game.
     public GameObject loadingScreen;    // Screen that will show up when game is loading a new scene.
     public Slider loadSlider;           // Slider that shows the progress of load for the new scene.
     public Text progressText;           // Text of the loading screen.
     public PlayerInfo playerInfo;       // Information of the Player.
 
-    private int TotalScore { get; set; }    // Socre of the game. 
+    private int TotalScore { get; set; }    // Score of the game. 
+    private bool loading = false;           // Bool that tells if a new scene is being loaded. (Used to avoid loading a new scene while already loading one).
 
-    void Start()
+    void Awake()
     {
-        TotalScore = 0; // Start with score at 0.
+        #region instace Code
+        if (_instance == null) { _instance = this; }            // If the instance is not set, set this GameManager as it.
+        else if (_instance != this) { Destroy(gameObject); }    // If another instance already exist auto destroy.
+        DontDestroyOnLoad(gameObject);                          // Avoid destroying the instance when changing scene.
+        #endregion
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        player = GameObject.FindGameObjectWithTag("Player");    // Set player variable.
+        TotalScore = 0;                                         // Start with score at 0.
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        player = GameObject.FindGameObjectWithTag("Player");    // Update Player GameObject on scene loaded.
     }
 
     /// <summary>
@@ -304,7 +311,12 @@ public class GameManager : MonoBehaviour {
     /// <param name="sceneNumber"> Number of the scene on the Build Index. </param>
     public void LoadScene(int sceneNumber)
     {
-        if(sceneNumber < 0)
+        if (loading)    // Exit if a scene is being loaded.
+        {
+            Debug.LogWarning("Already loading a scene.");
+            return;
+        }
+        if (sceneNumber < 0)
             Debug.LogError("Can't load a scene with a number lower than 0. Scene numbers on the Build Index start at 0.");
         else if (sceneNumber >= SceneManager.sceneCountInBuildSettings)
             Debug.LogError("There isn't any scene with a number as high as that. Higher scene number is: " + (SceneManager.sceneCountInBuildSettings-1));
@@ -341,6 +353,11 @@ public class GameManager : MonoBehaviour {
     /// <param name="sceneNumber"> Name of the scene.</param>
     public void LoadScene(string sceneName)
     {
+        if (loading)    // Exit if a scene is being loaded.
+        {
+            Debug.LogWarning("Already loading a scene.");
+            return;
+        }
         if (sceneName == "main_menu")    // main_menu
         {
             ResetGameManager();
@@ -378,6 +395,7 @@ public class GameManager : MonoBehaviour {
     /// <param name="sceneIndex"> Number of the scene on the build scenes.</param>
     IEnumerator LoadAsync(int sceneIndex)
     {
+        loading = true;                                                     
         Time.timeScale = 0f;                                                // Pause game time.
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex); // Load new scene asynchronously.
         if (operation == null)
@@ -393,6 +411,7 @@ public class GameManager : MonoBehaviour {
         }
         loadingScreen.SetActive(false);                                     // Hide loading screen.
         Time.timeScale = 1f;                                                // Resume game time.
+        loading = false;
     }
 
     /// <summary>
@@ -401,6 +420,7 @@ public class GameManager : MonoBehaviour {
     /// <param name="sceneName"> Name of the scene to load</param>
     IEnumerator LoadAsync(string sceneName)
     {
+        loading = true;
         Time.timeScale = 0f;                                                // Pause game time.
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);  // Load new scene asynchronously.
         if (operation == null)
@@ -416,6 +436,8 @@ public class GameManager : MonoBehaviour {
         }
         loadingScreen.SetActive(false);                                     // Hide loading screen.
         Time.timeScale = 1f;                                                // Resume game time.
+        loading = false;
     }
+
     #endregion
 }

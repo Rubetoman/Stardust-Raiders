@@ -113,13 +113,6 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: level_01
-    clip: {fileID: 8300000, guid: f2b8d2f583a43c34c8e7bfdb067a6daa, type: 3}
-    soundType: 1
-    volume: 1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
   - name: boss_level
     clip: {fileID: 8300000, guid: 5cc75632333e5b84a9cf601efe8623df, type: 3}
     soundType: 1
@@ -158,6 +151,27 @@ MonoBehaviour:
   - name: LaserBeamShoot
     clip: {fileID: 8300000, guid: c280f45bcbb118a449fc2899560bd42d, type: 3}
     soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: level_01_intro
+    clip: {fileID: 8300000, guid: bb4da9536f28a3245b2be45b84b7d03a, type: 3}
+    soundType: 1
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: level_01_loop
+    clip: {fileID: 8300000, guid: c58542dd8b2d74949a1b2ab0cbb2f453, type: 3}
+    soundType: 1
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: level_01
+    clip: {fileID: 8300000, guid: f2b8d2f583a43c34c8e7bfdb067a6daa, type: 3}
+    soundType: 1
     volume: 1
     pitch: 1
     loop: 0

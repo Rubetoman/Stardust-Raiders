@@ -28,6 +28,15 @@ public class TankController : EnemyController {
     /// </summary>
     protected override void ShootSpawnableAmmo()
     {
+        if (player == null)     // Avoid executing code if player variable is null.
+        {
+            Debug.LogWarning("Player couldn't be found. Searching again...");
+            player = GameManager.Instance.player;    // Set player variable.
+            if (player != null)
+                Debug.LogWarning("Player found!");
+            else
+                return;
+        }
         if (Vector3.Project(player.transform.position - transform.position, player.transform.forward).magnitude <= targetDistance)
             base.ShootSpawnableAmmo();
 

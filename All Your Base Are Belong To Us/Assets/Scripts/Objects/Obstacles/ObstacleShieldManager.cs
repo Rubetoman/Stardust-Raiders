@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Shield manager for all the obstacles with shield. Inherits from ShieldManager.
+/// </summary>
 public class ObstacleShieldManager : ShieldManager {
+
     [Header("Destroy Effect")]
-    public Transform explosionSpawnPoint;
-    public Vector3 goalScale = Vector3.zero;
-    public float destroyTime = 1.0f;
-    public int destroyScore = 10;
-    private Vector3 initialScale;
+    public Transform explosionSpawnPoint;       // Point in which the explosion GameObject will be spawned.
+    public Vector3 goalScale = Vector3.zero;    // New scale to change when shield has reached 0.
+    public float destroyTime = 1.0f;            // Time for the destroy animation.
+    public int destroyScore = 10;               // Score to give the Player when the obstacle is destroyed.
+    private Vector3 initialScale;               // Initial scale of the obstacle.
 
     new void Start()
     {
@@ -16,21 +20,24 @@ public class ObstacleShieldManager : ShieldManager {
     }
 
     /// <summary>
-    /// Destroys the GameObject
-    /// If it has a parent it will destroy the whole GameObject hierarchy if not only the objetc the script is attached to.
+    /// Destroys the GameObject.
     /// </summary>
     protected override void Die()
     {
         initialScale = transform.localScale;
         StartCoroutine("DestroyEffect", 0f);
-        GameManager.Instance.AddToTotalScore(destroyScore);
+        GameManager.Instance.AddToTotalScore(destroyScore); // Add points to score.
     }
 
+    /// <summary>
+    /// Animation for the destruction of the obstacle:
+    /// Changes the scale while spawning explosions and at the end the obstacle is completely destroyed.
+    /// </summary>
     IEnumerator DestroyEffect()
     {
         float t = 0.0f;
         float t2 = 0.5f;
-
+        // Make smooth change to new scale while spawning explosions.
         while (t < destroyTime)
         {
             if (t2 > 0.5f)
