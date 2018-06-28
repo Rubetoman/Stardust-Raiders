@@ -13,7 +13,7 @@ public class WheelController : KeepRotating {
         // Look out for the RailMover, if not disable the script.
         if (gameObject.GetComponent<RailMover>() == null)
         {
-            print("RailMover script is not attached to the gameObject");
+            Debug.LogWarning("RailMover script is not attached to the gameObject");
             this.enabled = false;
         }
     }

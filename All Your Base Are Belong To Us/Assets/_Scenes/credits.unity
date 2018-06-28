@@ -1989,7 +1989,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: efc2c324fe092f54c854b0c2f9aeda11, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2988,8 +2988,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -76.28328}
-  m_SizeDelta: {x: 345.2, y: 30}
+  m_AnchoredPosition: {x: 0, y: -224.3}
+  m_SizeDelta: {x: 345.2, y: 326.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &413417691
 MonoBehaviour:
@@ -3023,7 +3023,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Your name will appear here
+  m_Text: "Aritz\r\nAritz Lopez\r\nAsier Crispin De la Cruz\r\nEloy Garc\xEDa\r\nGema
+    Vallejo\r\nGonzalo Pi\xE9rola\r\nIker Ortega\r\nJon Ander (Senapi)\r\nJon Garcinuafato\r\nMr.
+    Wazowski\r\nxXzetaXx"
 --- !u!222 &413417692
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3930,7 +3932,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015258578, y: -1341}
+  m_AnchoredPosition: {x: -0.000015258578, y: -1654}
   m_SizeDelta: {x: 800, y: 240.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &528369781
@@ -4120,7 +4122,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh84866
+  m_Name: pb_Mesh88906
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -4775,7 +4777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1330}
+  m_AnchoredPosition: {x: 0, y: 1665}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &658636818
@@ -6860,7 +6862,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh84742
+  m_Name: pb_Mesh88792
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -7279,7 +7281,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh84836
+  m_Name: pb_Mesh88866
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -7497,7 +7499,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030517578, y: -702.99994}
+  m_AnchoredPosition: {x: -0.000030517578, y: -1015.99994}
   m_SizeDelta: {x: 193.2, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1722986077
@@ -7624,7 +7626,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh85144
+  m_Name: pb_Mesh89052
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -8009,7 +8011,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh84882
+  m_Name: pb_Mesh88922
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -8687,7 +8689,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh84948
+  m_Name: pb_Mesh88966
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -9056,7 +9058,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh85408
+  m_Name: pb_Mesh89176
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2

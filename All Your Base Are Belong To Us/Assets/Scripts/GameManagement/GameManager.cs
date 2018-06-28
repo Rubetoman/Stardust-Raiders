@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
+/// <summary>
+/// Script to manage the game. It contains information that will be accessed by diferent scripts and functions to manage the game.
+/// It is instanciated and not destroyed when changing between scenes.
+/// </summary>
 public class GameManager : MonoBehaviour {
 
     #region Singleton

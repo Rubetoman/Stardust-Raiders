@@ -3095,7 +3095,7 @@ GameObject:
   - component: {fileID: 181553025}
   - component: {fileID: 181553026}
   m_Layer: 10
-  m_Name: MenuCanvas
+  m_Name: MainMenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3205,7 +3205,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 8f1199bab08a0cf4f97b72add7f581e0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0

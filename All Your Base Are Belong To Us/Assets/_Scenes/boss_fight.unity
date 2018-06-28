@@ -10504,6 +10504,167 @@ Transform:
   m_PrefabParentObject: {fileID: 4222919554749380, guid: 7c206b8db6b7c5c4fb89e2c73cae3be9,
     type: 2}
   m_PrefabInternal: {fileID: 638274403}
+--- !u!1 &1485088030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1369358531147926, guid: e1bb87bc2a1774a499dbd95985b56dff,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1485088032}
+  - component: {fileID: 1485088031}
+  m_Layer: 10
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1485088031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114750929662254164, guid: e1bb87bc2a1774a499dbd95985b56dff,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1485088030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 220dfc7e84756f1488c8448b45a7dc5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: ff93023ae5cb5c64e8d387e10b2f5b17, type: 2}
+  musicGroup: {fileID: 243218029498832798, guid: ff93023ae5cb5c64e8d387e10b2f5b17,
+    type: 2}
+  soundEffectsGroup: {fileID: 243904640561500230, guid: ff93023ae5cb5c64e8d387e10b2f5b17,
+    type: 2}
+  sounds:
+  - name: Selection
+    clip: {fileID: 8300000, guid: 81652031b64c342cc8dbc59c138d77c5, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Selection2
+    clip: {fileID: 8300000, guid: 6e8772b49f34d402a90016ed445d8a2f, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ButtonPress
+    clip: {fileID: 8300000, guid: eb1766cd4fab8224eaaf73fd9bf229ea, type: 3}
+    soundType: 0
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GameStart
+    clip: {fileID: 8300000, guid: 78e40059d0425994b8584102e375ef5a, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PowerUp
+    clip: {fileID: 8300000, guid: 8b4580a0c31da2b408d5279d36308320, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Hit
+    clip: {fileID: 8300000, guid: 71f993848c0a4c34bb93b57743d7116e, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boost
+    clip: {fileID: 8300000, guid: 2b6fec76c53cbe24ebf7100358e06d98, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Bonus
+    clip: {fileID: 8300000, guid: e26653bf30f344441b2a908bf8cc6e07, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: boss_level
+    clip: {fileID: 8300000, guid: 5cc75632333e5b84a9cf601efe8623df, type: 3}
+    soundType: 1
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Hurt
+    clip: {fileID: 8300000, guid: 56b1a831edc44b34db317dce90f3dd89, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Brake
+    clip: {fileID: 8300000, guid: de24fc66b41653f45b7ae35fe914ab07, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BarrelRoll
+    clip: {fileID: 8300000, guid: f0a1b0d8833dd9245a232a8ba6c63324, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LaserBeamCharge
+    clip: {fileID: 8300000, guid: a830a5957a1318243bf7be90c63ccc24, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LaserBeamShoot
+    clip: {fileID: 8300000, guid: c280f45bcbb118a449fc2899560bd42d, type: 3}
+    soundType: 0
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: level_01_intro
+    clip: {fileID: 8300000, guid: bb4da9536f28a3245b2be45b84b7d03a, type: 3}
+    soundType: 1
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossHit
+    clip: {fileID: 8300000, guid: 2a55ba244de803a4e842ba9f790c5a69, type: 3}
+    soundType: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+--- !u!4 &1485088032
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4085255639195408, guid: e1bb87bc2a1774a499dbd95985b56dff,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1485088030}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1537502479
 Prefab:
   m_ObjectHideFlags: 0
@@ -10896,6 +11057,11 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224929256955237136, guid: a5086febec799334a99d205a651f5b10,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5086febec799334a99d205a651f5b10, type: 2}
   m_IsPrefabParent: 0
@@ -11121,73 +11287,6 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
---- !u!1001 &1615166151
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 114750929662254164, guid: e1bb87bc2a1774a499dbd95985b56dff,
-        type: 2}
-      propertyPath: sounds.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085255639195408, guid: e1bb87bc2a1774a499dbd95985b56dff, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085255639195408, guid: e1bb87bc2a1774a499dbd95985b56dff, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085255639195408, guid: e1bb87bc2a1774a499dbd95985b56dff, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085255639195408, guid: e1bb87bc2a1774a499dbd95985b56dff, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085255639195408, guid: e1bb87bc2a1774a499dbd95985b56dff, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085255639195408, guid: e1bb87bc2a1774a499dbd95985b56dff, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085255639195408, guid: e1bb87bc2a1774a499dbd95985b56dff, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085255639195408, guid: e1bb87bc2a1774a499dbd95985b56dff, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114750929662254164, guid: e1bb87bc2a1774a499dbd95985b56dff,
-        type: 2}
-      propertyPath: sounds.Array.data[15].name
-      value: BossHit
-      objectReference: {fileID: 0}
-    - target: {fileID: 114750929662254164, guid: e1bb87bc2a1774a499dbd95985b56dff,
-        type: 2}
-      propertyPath: sounds.Array.data[15].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 2a55ba244de803a4e842ba9f790c5a69, type: 3}
-    - target: {fileID: 114750929662254164, guid: e1bb87bc2a1774a499dbd95985b56dff,
-        type: 2}
-      propertyPath: sounds.Array.data[15].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114750929662254164, guid: e1bb87bc2a1774a499dbd95985b56dff,
-        type: 2}
-      propertyPath: sounds.Array.data[15].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: e1bb87bc2a1774a499dbd95985b56dff, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &1621143313
 Prefab:
   m_ObjectHideFlags: 0

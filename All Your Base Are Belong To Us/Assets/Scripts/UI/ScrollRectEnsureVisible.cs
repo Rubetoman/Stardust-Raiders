@@ -2,6 +2,11 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Script to solve Dropdowns bad scrolling when using keys. This ensures that the selected index form the dropdown is always shown. Scrolls the dropdown.
+/// Script wrote by Vipsu. 
+/// https://answers.unity.com/questions/1169028/unity-dropdown-doesnt-scroll-when-navigating-with.html
+/// </summary>
 [RequireComponent(typeof(ScrollRect))]
 public class ScrollRectEnsureVisible : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {

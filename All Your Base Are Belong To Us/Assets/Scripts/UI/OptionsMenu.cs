@@ -6,13 +6,18 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
+/// <summary>
+/// Script for the Options Menu Cnavas. It contains functions to adjust game options (resolution, invert movement, sound...).
+/// Other UI Components actions are managed on the its component.
+/// </summary>
 public class OptionsMenu : MonoBehaviour {
-    public AudioMixer audioMixer;
-    public TMP_Dropdown graphicQualityDropdown;
-    public Dropdown resolutionDropdown;
-    public Toggle fullscreen;
-    public Toggle invertXAxis;
-    public Toggle invertYAxis;
+
+    public AudioMixer audioMixer;                   // Audio Mixer for all the sounds in the game.
+    public TMP_Dropdown graphicQualityDropdown;     // Dropdown with the graphic Quality options (This dropdown is from the TMPro asset).
+    public Dropdown resolutionDropdown;             // Dropdown with the resolution options.
+    public Toggle fullscreen;                       // Toogle for choosing between game in full screen or in window mode.
+    public Toggle invertXAxis;                      // Toogle for inverting Player's movement X Axis.
+    public Toggle invertYAxis;                      // Toogle for inverting Player's movement Y Axis.
 
     private Resolution[] resolutions;
     private GameManager.StateType previousState;
@@ -66,23 +71,22 @@ public class OptionsMenu : MonoBehaviour {
     /// </summary>
     private void AddCurrentGameResolutionsToDropdown()
     {
-        resolutions = Screen.resolutions;   // Create an array with all the resolutions
-        resolutionDropdown.ClearOptions();  // Clear all options form dropdown
-
+        resolutions = Screen.resolutions;               // Create an array with all the resolutions available.
+        resolutionDropdown.ClearOptions();              // Clear all options form dropdown.
         List<string> options = new List<string>();
-        currentResolutionIndex = 0;
-        // Pass every resolution on the array to string
+        currentResolutionIndex = 0;                     // Set default resolution to show.
+
+        // Add every resolution on the array to the List as a string.
         for (int i = 0; i < resolutions.Length; i++)
         {
             string option = resolutions[i].width + "x" + resolutions[i].height;
             options.Add(option);
 
+            // If the resolution that is being added to the List is the one being used, set it as current index.
             if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
-            {
                 currentResolutionIndex = i;
-            }
         }
-        resolutionDropdown.AddOptions(options); // Add resolutions to the Dropdown
+        resolutionDropdown.AddOptions(options);         // Add resolutions to the Dropdown.
     }
 
     /// <summary>
@@ -90,16 +94,18 @@ public class OptionsMenu : MonoBehaviour {
     /// </summary>
     private void ShowCurrentOptionsValues()
     {
-        resolutionDropdown.value = currentResolutionIndex;                  // Show current resolution by default
+        resolutionDropdown.value = currentResolutionIndex;                  // Show current resolution by default.
         resolutionDropdown.RefreshShownValue();
-        graphicQualityDropdown.value = QualitySettings.GetQualityLevel();   // Show current graphic quality by default
+        graphicQualityDropdown.value = QualitySettings.GetQualityLevel();   // Show current graphic quality by default.
         graphicQualityDropdown.RefreshShownValue();
-        // Only look for fullscreen when running an actual build of the game
+
+        // Only look for fullscreen when running an actual build of the game.
         #if UNITY_STANDALONE && !UNITY_EDITOR
-        fullscreen.isOn = Screen.fullScreen;
+            fullscreen.isOn = Screen.fullScreen;
         #endif
-        invertXAxis.isOn = GameManager.Instance.playerInfo.invertXAxis;
-        invertYAxis.isOn = GameManager.Instance.playerInfo.invertYAxis;
+
+        invertXAxis.isOn = GameManager.Instance.playerInfo.invertXAxis;     // Show if of X Axis is inverted or not.
+        invertYAxis.isOn = GameManager.Instance.playerInfo.invertYAxis;     // Show if of Y Axis is inverted or not.
     }
 
     /// <summary>
@@ -142,7 +148,7 @@ public class OptionsMenu : MonoBehaviour {
     /// <summary>
     /// Toggles the game between Fullscreen or Window mode.
     /// </summary>
-    /// <param name="isFullscreen"> Using Full Screen or not</param>
+    /// <param name="isFullscreen"> If set the game in Full Screen or not.</param>
     public void SetFullscreen (bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
@@ -154,7 +160,7 @@ public class OptionsMenu : MonoBehaviour {
     }
 
     /// <summary>
-    /// Set input that controls X Axis player movement inverted or not.
+    /// Set input, that controls X Axis player movement, inverted or not.
     /// </summary>
     /// <param name="invert"> Invert the X Axis or not.</param>
     public void SetXAxis(bool invert)
@@ -163,7 +169,7 @@ public class OptionsMenu : MonoBehaviour {
     }
 
     /// <summary>
-    /// Set input that controls Y Axis player movement inverted or not.
+    /// Set input, that controls Y Axis player movement, inverted or not.
     /// </summary>
     /// <param name="invert"> Invert the Y Axis or not.</param>
     public void SetYAxis(bool invert)
@@ -180,6 +186,10 @@ public class OptionsMenu : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Plays a audio clip included on Audio Manager.
+    /// </summary>
+    /// <param name="name"> Name of the audio clip to play.</param>
     public void PlaySoundClip(string name)
     {
         AudioManager.Instance.Play(name);

@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Script to improve Event Sytem selection. This way navigating through the menus with the controller is possible.
+/// </summary>
 public class SelectOnInput : MonoBehaviour {
-    public GameObject firstSelection;
 
-    private GameObject myEventSystem;
-    private GameObject lastSelected;
-    // Use this for initialization
+    public GameObject firstSelection;   // First element to be selected by the Event System.
+
+    private GameObject myEventSystem;   // Event System of the main_menu scene.
+    private GameObject lastSelected;    // Last GameObject selected on the Event System.
+
     void Awake () {
-        myEventSystem = GameObject.Find("EventSystem"); // Set scene EventSystem.
+        myEventSystem = GameObject.Find("EventSystem"); // Find the Event System of the scene.
     }
 	
-	// Update is called once per frame
 	void Update () {
 
         // If no UI gameObject was selected and horizontal or vertical Input is detected, select the last selected button.
@@ -30,14 +33,13 @@ public class SelectOnInput : MonoBehaviour {
                 lastSelected = myEventSystem.GetComponent<EventSystem>().currentSelectedGameObject;
                 myEventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);
             }
-        }
-        
+        }       
     }
 
     private void OnEnable()
     {
-        lastSelected = firstSelection;     // Use the GameObject passed as selected by the EventSystem.
-        myEventSystem = GameObject.Find("EventSystem"); // Get scene EventSystem.
+        lastSelected = firstSelection;                  // Use the GameObject passed as selected by the EventSystem.
+        myEventSystem = GameObject.Find("EventSystem"); // Find the Event System of the scene.
         if (myEventSystem != null)
         {
             myEventSystem.GetComponent<EventSystem>().SetSelectedGameObject(lastSelected);
