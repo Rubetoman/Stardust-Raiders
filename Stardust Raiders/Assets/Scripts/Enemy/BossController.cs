@@ -90,14 +90,17 @@ public class BossController : EnemyController {
     /// </summary>
     void ChargeLaser()
     {
-        AudioManager.Instance.Play("LaserBeamCharge");
-        foreach (Transform laser in lasers)
+        if (!cannonDestroyed)   // Avoid calling this code when the cannon was destroyed.
         {
-            if (laser == null)  // Avoid calling a laser of the array that was destoyed.
-                return;
-            laser.gameObject.SetActive(true);
+            AudioManager.Instance.Play("LaserBeamCharge");
+            foreach (Transform laser in lasers)
+            {
+                if (laser == null)  // Avoid calling a laser of the array that was destoyed.
+                    return;
+                laser.gameObject.SetActive(true);
+            }
+            Invoke("FireLaser", laserChargerTime);
         }
-        Invoke("FireLaser", laserChargerTime);
     }
 
     /// <summary>
@@ -105,8 +108,11 @@ public class BossController : EnemyController {
     /// </summary>
     void FireLaser()
     {
-        AudioManager.Instance.Play("LaserBeamShoot");
-        StartCoroutine("LaserCouroutine");
+        if (!cannonDestroyed)   // Avoid calling this code when the cannon was destroyed.
+        {
+            AudioManager.Instance.Play("LaserBeamShoot");
+            StartCoroutine("LaserCouroutine");
+        }
     }
 
     /// <summary>

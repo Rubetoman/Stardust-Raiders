@@ -28,10 +28,21 @@ public class BossModuleHealthManager : ShieldManager {
         var shield = boss.GetComponent<BossShieldManager>();// Look for the Boss shield script.         
         if (shield != null)                                 // Check if the Boss shield was found.
         {
-            if (!shield.invulnerable && !invulnerable)                       // Only inflict damage when is vulnerable.
+            if (!shield.invulnerable && !invulnerable)      // Only inflict damage when is vulnerable.
             {
-                shield.TakeDamage(amount);
-                base.TakeDamage(amount);
+                // It can happend that the damage amount is bigger than the module shield that is left.
+                // Check before sending the damage to the boss shield how much it needs to be sent.
+                if (currentShield - amount >= 0)
+                {
+                    shield.TakeDamage(amount);
+                    base.TakeDamage(amount);
+                }
+                else
+                {
+                    // The module shield that is left is lower than the damage taken.
+                    shield.TakeDamage(currentShield);
+                    base.TakeDamage(amount);
+                }
             }
         }           
         else
