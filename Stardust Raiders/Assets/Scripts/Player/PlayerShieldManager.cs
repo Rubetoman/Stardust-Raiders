@@ -49,7 +49,7 @@ public class PlayerShieldManager : ShieldManager {
             return;
         }
         var newShieldAmount = currentShield + amount;
-        if (newShieldAmount + amount < maxShield)
+        if (newShieldAmount < maxShield)
             currentShield = newShieldAmount;
         else
             currentShield = maxShield;
